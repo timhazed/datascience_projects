@@ -4,6 +4,7 @@
 - Linear Regression
 - Logistic Regression and Decision Trees
 - Ensemble Techniques
+- Pipelining and Hypertuning Techniques
 
 
 # Projects
