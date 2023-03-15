@@ -45,10 +45,7 @@ EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 
 ## Pipelining and Hypertuning Techniques (ReneWind)
 
-“ReneWind” is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. They have shared a ciphered version of the data, as the data collected through sensors is confidential (the type of data collected varies with companies). Data has 40 predictors, 20000 observations in the training set, and 5000 in the test set.
-
-The objective is to build various classification models, tune them, and find the best one that will help identify failures so that the generators could be repaired before failing/breaking to reduce the overall maintenance cost. 
-
+"ReneWind" is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down.
 ### Skills and Tools
 
-EDA, Scaling, Imputation, Pipelining, Hypertuning
+EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
