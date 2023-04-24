@@ -49,3 +49,9 @@ EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 ### Skills and Tools
 
 EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
+
+## Unsupervised Learning (Trade&Ahead)
+Analyze the stocks data, grouping the stocks based on the attributes provided, and sharing insights about the characteristics of each group.
+
+### Skills and Tools
+Unsupervised Learning, PCA, t-SNE, KMeans, Hierarchical Clustering
