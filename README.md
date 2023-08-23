@@ -55,3 +55,9 @@ Analyze the stocks data, grouping the stocks based on the attributes provided, a
 
 ### Skills and Tools
 Unsupervised Learning, PCA, t-SNE, KMeans, Hierarchical Clustering
+
+## Neural Networks (INN Bank Churn)
+Businesses like banks that provide service have to worry about the problem of 'Churn' i.e. customers leaving and joining another service provider. It is important to understand which aspects of the service influence a customer's decision in this regard. Management can concentrate efforts on the improvement of service, keeping in mind these priorities. Provide a thorough analysis identifying whether or not customer will leave (churn in the next 6 months).
+
+### Skills and Tools
+Neural Networks, Tensorflow, Keras, SHAP
