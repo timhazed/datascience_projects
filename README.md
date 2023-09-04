@@ -61,3 +61,10 @@ Businesses like banks that provide service have to worry about the problem of 'C
 
 ### Skills and Tools
 Neural Networks, Tensorflow, Keras, SHAP
+
+## CNN (CNN Dogs and Cats)
+Jupyter Notebook using the kaggle dataset https://www.kaggle.com/datasets/samuelcortinhas/cats-and-dogs-image-classification to classify images as cats or 
+dogs
+
+### Skills and Tools
+CNN, Data Augmentation, Transfer Learning
