@@ -5,6 +5,9 @@
 - Logistic Regression and Decision Trees
 - Ensemble Techniques
 - Pipelining and Hypertuning Techniques
+- Neural Networks
+- Computer Vision (CNN)
+- NLP
 
 
 # Projects
