@@ -68,3 +68,9 @@ dogs
 
 ### Skills and Tools
 CNN, Data Augmentation, Transfer Learning
+
+## CNN (Seedling Classification)
+In recent times, the field of agriculture has been in urgent need of modernization since the amount of manual work is very extensive. Despite advances people in agriculture still need the ability to sort and recognize diferent plants and weeds. The Aarhus Signal Processing Group in collaboration with the University of Southern Denmark has provided data containing images o funique plants belonging to twelve species. Build several CNN's and determine the best one to classify the twelve types of seedlings. 
+
+### Skills and Tools
+CNN, Data Augmentation, Transfer Learning, Image Processing
