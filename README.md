@@ -42,6 +42,7 @@ EDA, Data Pre-processing, Logistic regression, Multicollinearity, Finding optima
 ## Ensemble Techniques (Easy Visa)
 
 Analyze the data of Visa applicants, build a predictive model to facilitate the process of visa approvals, and based on important factors that significantly influence the Visa status recommend a suitable profile for the applicants for whom the visa should be certified or denied.
+
 ### Skills and Tools
 
 EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
@@ -49,6 +50,7 @@ EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 ## Pipelining and Hypertuning Techniques (ReneWind)
 
 "ReneWind" is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure of wind turbines using sensors. The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down.
+
 ### Skills and Tools
 
 EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
