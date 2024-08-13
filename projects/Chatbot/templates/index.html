@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <style>
+      /* Mobile-first styles */
+      textarea {
+        width: 100%;
+        min-height: 50px;
+        max-height: 200px;
+        resize: vertical;
+      }
+      button {
+        width: 100%;
+        font-size: 1.2em;
+      }
+      @media (min-width: 600px) {
+        textarea {
+          width: calc(100% - 50px);
+        }
+        button {
+          width: 50px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="chatbot">
+        <div class="chat-header">
+          <h1>Chatbot using Blenderbot</h1>
+        </div>
+        <div class="spacer" id="messages-container"></div>
+        <form class="chat-form" id="message-form">
+          <textarea type="text" id="message-input" placeholder="Enter a prompt."></textarea>
+          <button type="submit">➤</button> 
+        </form>
+      </div>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

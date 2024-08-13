@@ -8,6 +8,9 @@
 - Neural Networks
 - Computer Vision (CNN)
 - NLP
+- GenAI - Sentiment Analysis
+- Image Captioning
+- Chatbot
 
 
 # Projects
@@ -89,3 +92,21 @@ Listening to how customers feel about the product/service on Twitter allows comp
 
 ### Skills and Tools
 Count Vectorizer, TfIDF Vectorizer, LSTM
+
+## GenAI - Sentiment Analysis
+You are part of a multinational computer, phone, laptop and hardware manufacturer. Your objective as a product analyst is to use Generative AI, and craft an effective prompt which can take an unstructured customer review as input and return a structured response, which can be then used to take action in a manner which optimizes for the overall customer experience of your product. As you structure your data from the review, make sure to capture the date of the review, product / service in question, the rating, a short summary (upto 100 words) of the feedback for the product / service, list of actions items which can improve the product / service, any mention of competitors - if yes, what was better in their experience, the overall sentiment (positive, negative, or neutral).
+
+### Skills and Tools
+Prompt Engineering, Sentiment Analysis
+
+## Image Captioning
+Use the Blip processor to generate image captions for images. Allow entry of questions about the image to glean additional information.
+
+### Skills and Tools
+Gradio, Blip
+
+## Chatbot
+Build a basic conversational chatbot using Meta's Blenderbot from Hugging Face and Flask for the front end.
+
+### Skills and Tools
+Blenderbot, Flask, Transformers
