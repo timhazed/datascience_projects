@@ -110,3 +110,9 @@ Build a basic conversational chatbot using Meta's Blenderbot from Hugging Face a
 
 ### Skills and Tools
 Blenderbot, Flask, Transformers
+
+## Voice Assistant
+Build a basic voice assistant with TTS (gTTs), STT (Whisper) and OpenAI with a Flask front end.
+
+### Skills and Tools
+OpenAI, Whisper, gTTS, Flask
