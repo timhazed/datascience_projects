@@ -122,3 +122,18 @@ Build a basic pdf summarizer with OpenAI, LangChain and ChromaDb with a Flask fr
 
 ### Skills and Tools
 OpenAI, LangChain, ChromaDb and Flask
+
+## Point Cloud Visualizer
+PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows the user to control opacity and switch between different directories containing point cloud data.
+
+### Skills and Tools
+PyQt5, PyVista, PyVistaQt
+
+## SAM v2 image segmentation
+This project provides a SAM (Segment Anything Model) based image segmentation application for aerial images. The application processes aerial images and point cloud data to generate segmentation masks and provides tools for visualizing and analyzing the results.
+
+### Skills and Tools
+opencv-python, matplotlib, segment_anything
+
+
+
