@@ -116,3 +116,9 @@ Build a basic voice assistant with TTS (gTTs), STT (Whisper) and OpenAI with a F
 
 ### Skills and Tools
 OpenAI, Whisper, gTTS, Flask
+
+## Pdf Summarizer
+Build a basic pdf summarizer with OpenAI, LangChain and ChromaDb with a Flask front end.
+
+### Skills and Tools
+OpenAI, LangChain, ChromaDb and Flask
