@@ -135,5 +135,17 @@ This project provides a SAM (Segment Anything Model) based image segmentation ap
 ### Skills and Tools
 opencv-python, matplotlib, segment_anything
 
+## 3D Roof Reconstruction CNN
+This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data. The application supports models based on EfficientNet and ResNet50, as well as additional functionality such as data augmentation, early stopping, and loss visualization. The goal of this application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
+
+### Skills and Tools
+TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
+
+## GenAI Aspect Sentiment Analysis
+Conduct a sentiment analysis of user-generated reviews across various digital channels and platforms. Through the application of LLM prompt engineering methodologies and sentiment analysis, we'll figure out if sentiments expressed by users for our courier services are Positive or Negative. Analyze the reviews, identify themes, polarity and sentiment and present the findings with actionable business insights.
+
+### Skills and Tools
+Azure, OpenAI, wordcloud, sklearn, seaborn
+
 
 
