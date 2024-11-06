@@ -126,6 +126,11 @@ OpenAI, LangChain, ChromaDb and Flask
 ## Point Cloud Visualizer
 PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows the user to control opacity and switch between different directories containing point cloud data.
 
+
+![Aerial Image with Corners]("projects/Point Cloud Visualizer/images/aerial_with_corners.png")
+![Aerial #D Image with Normals]("projects/Point Cloud Visualizer/images/aerial_3d_with_normals.png")
+
+
 ### Skills and Tools
 PyQt5, PyVista, PyVistaQt
 
@@ -135,17 +140,37 @@ This project provides a SAM (Segment Anything Model) based image segmentation ap
 ### Skills and Tools
 opencv-python, matplotlib, segment_anything
 
+![Segmentation of Aerial Image]("projects/SAM v2 image segmentation/images/samv2_segmentation.png.png")
+
 ## 3D Roof Reconstruction CNN
 This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data. The application supports models based on EfficientNet and ResNet50, as well as additional functionality such as data augmentation, early stopping, and loss visualization. The goal of this application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
 
 ### Skills and Tools
 TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
 
+
+![Non-Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_NonAugmented.png")
+![Non-Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_NonAugmented.png")
+
+
+![Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_Augmented.png")
+![Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_Augmented.png")
+
 ## GenAI Aspect Sentiment Analysis
 Conduct a sentiment analysis of user-generated reviews across various digital channels and platforms. Through the application of LLM prompt engineering methodologies and sentiment analysis, we'll figure out if sentiments expressed by users for our courier services are Positive or Negative. Analyze the reviews, identify themes, polarity and sentiment and present the findings with actionable business insights.
 
 ### Skills and Tools
 Azure, OpenAI, wordcloud, sklearn, seaborn
+
+## Langchain Aspect Sentiment Analysis
+This application uses LangChain and Pydantic to perform aspect-based sentiment analysis on a dataset of reviews. It leverages a language model to evaluate specific aspects of each review, such as "Operational Efficiency" and "Customer Satisfaction", and predicts both the sentiment (positive or negative) and the polarity score for each aspect.
+
+### Skills and Tools
+Langchain, OpenAI, wordcloud, sklearn, seaborn
+
+![Results after three iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_ThreeIterations.png")
+![Results after ten iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_TenIterations.png")
+
 
 
 
