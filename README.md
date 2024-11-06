@@ -132,9 +132,9 @@ OpenAI, LangChain, ChromaDb and Flask
 ## Point Cloud Visualizer
 PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows the user to control opacity and switch between different directories containing point cloud data.
 
+![Aerial Image with Corners](projects/Point%20Cloud%20Visualizer/images/aerial_with_corners.png)
 
-![Aerial Image with Corners]("projects/Point Cloud Visualizer/images/aerial_with_corners.png")
-![Aerial #D Image with Normals]("projects/Point Cloud Visualizer/images/aerial_3d_with_normals.png")
+![Aerial 3D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.jpg)
 
 
 ### Skills and Tools
@@ -146,7 +146,7 @@ This project provides a SAM (Segment Anything Model) based image segmentation ap
 ### Skills and Tools
 opencv-python, matplotlib, segment_anything
 
-![Segmentation of Aerial Image]("projects/SAM v2 image segmentation/images/samv2_segmentation.png.png")
+![Segmentation of Aerial Image](projects/SAM%20v2%20image%20segmentation/images/samv2_segmentation.png)
 
 ## 3D Roof Reconstruction CNN
 This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data. The application supports models based on EfficientNet and ResNet50, as well as additional functionality such as data augmentation, early stopping, and loss visualization. The goal of this application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
@@ -155,12 +155,11 @@ This application leverages deep learning models to predict azimuth, tilt, height
 TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
 
 
-![Non-Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_NonAugmented.png")
-![Non-Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_NonAugmented.png")
+![Non-Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/Resnet50_NonAugmented.png)
+![Non-Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_NonAugmented.png)
 
-
-![Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_Augmented.png")
-![Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_Augmented.png")
+![Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/Resnet50_Augmented.png)
+![Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_Augmented.png)
 
 ## GenAI Aspect Sentiment Analysis
 Conduct a sentiment analysis of user-generated reviews across various digital channels and platforms. Through the application of LLM prompt engineering methodologies and sentiment analysis, we'll figure out if sentiments expressed by users for our courier services are Positive or Negative. Analyze the reviews, identify themes, polarity and sentiment and present the findings with actionable business insights.
@@ -174,9 +173,6 @@ This application uses LangChain and Pydantic to perform aspect-based sentiment a
 ### Skills and Tools
 Langchain, OpenAI, wordcloud, sklearn, seaborn
 
-![Results after three iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_ThreeIterations.png")
-![Results after ten iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_TenIterations.png")
+![Results after three iterations](projects//Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_ThreeIterations.png)
 
-
-
-
+![Results after ten iterations](projects/Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_TenIterations.png)
