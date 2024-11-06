@@ -17,6 +17,7 @@
 - Image Segmentation
 - 3D Roof Visualization
 - GenAI Aspect Sentiment Analysis
+- Langchain Aspect Sentiment Analysis
 
 # Projects
 
