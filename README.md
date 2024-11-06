@@ -134,7 +134,7 @@ PyQt-based Python application that visualizes 3D point clouds using PyVista. It 
 
 ![Aerial Image with Corners](projects/Point%20Cloud%20Visualizer/images/aerial_with_corners.png)
 
-![Aerial 3D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.png)
+![Aerial 3D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.jpg)
 
 
 ### Skills and Tools
