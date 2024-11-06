@@ -11,7 +11,12 @@
 - GenAI - Sentiment Analysis
 - Image Captioning
 - Chatbot
-
+- Voice Assistant
+- Pdf Summarizer
+- Point Cloud Visualizer
+- Image Segmentation
+- 3D Roof Visualization
+- GenAI Aspect Sentiment Analysis
 
 # Projects
 
