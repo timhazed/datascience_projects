@@ -134,7 +134,7 @@ PyQt-based Python application that visualizes 3D point clouds using PyVista. It 
 
 ![Aerial Image with Corners](projects/Point%20Cloud%20Visualizer/images/aerial_with_corners.png)
 
-![Aerial #D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.png)
+![Aerial 3D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.png)
 
 
 ### Skills and Tools
@@ -173,6 +173,6 @@ This application uses LangChain and Pydantic to perform aspect-based sentiment a
 ### Skills and Tools
 Langchain, OpenAI, wordcloud, sklearn, seaborn
 
-![Results after three iterations](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/images/Results_ThreeIterations.png)
+![Results after three iterations](projects//Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_ThreeIterations.png)
 
-![Results after ten iterations](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/images/Results_TenIterations.png)
+![Results after ten iterations](projects/Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_TenIterations.png)
