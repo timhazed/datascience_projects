@@ -132,8 +132,8 @@ OpenAI, LangChain, ChromaDb and Flask
 ## Point Cloud Visualizer
 PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows the user to control opacity and switch between different directories containing point cloud data.
 
-
 ![Aerial Image with Corners]("projects/Point Cloud Visualizer/images/aerial_with_corners.png")
+
 ![Aerial #D Image with Normals]("projects/Point Cloud Visualizer/images/aerial_3d_with_normals.png")
 
 
@@ -158,7 +158,6 @@ TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
 ![Non-Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_NonAugmented.png")
 ![Non-Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_NonAugmented.png")
 
-
 ![Augmented ResNet50 Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/Resnet50_Augmented.png")
 ![Augmented EfficientNet Training and Validation Loss]("projects/3D Roof Reconstruction CNN/images/EfficientNet_Augmented.png")
 
@@ -175,8 +174,5 @@ This application uses LangChain and Pydantic to perform aspect-based sentiment a
 Langchain, OpenAI, wordcloud, sklearn, seaborn
 
 ![Results after three iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_ThreeIterations.png")
+
 ![Results after ten iterations]("projects/GenAI - Aspect Sentiment Analysis/images/Results_TenIterations.png")
-
-
-
-
