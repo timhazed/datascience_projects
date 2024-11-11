@@ -21,7 +21,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Pdf Summarizer](#15-pdf-summarizer)
   - [Pipelining and Hypertuning](#16-pipelining-and-hypertuning)
   - [Point Cloud Visualizer](#17-point-cloud-visualizer)
-  - [Roof fusion]((#18-roof-fusion))
+  - [Roof Fusion]((#18-Roof-Fusion))
   - [SAM v2 Image Segmentation](#19-sam-v2-image-segmentation)
   - [Unsupervised Learning](#20-unsupervised-learning)
   - [Voice Assistant](#21-voice-assistant)
