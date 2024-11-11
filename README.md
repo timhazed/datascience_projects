@@ -21,9 +21,10 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Pdf Summarizer](#15-pdf-summarizer)
   - [Pipelining and Hypertuning](#16-pipelining-and-hypertuning)
   - [Point Cloud Visualizer](#17-point-cloud-visualizer)
-  - [SAM v2 Image Segmentation](#18-sam-v2-image-segmentation)
-  - [Unsupervised Learning](#19-unsupervised-learning)
-  - [Voice Assistant](#20-voice-assistant)
+  - [Roof fusion]((#18-roof-fusion))
+  - [SAM v2 Image Segmentation](#19-sam-v2-image-segmentation)
+  - [Unsupervised Learning](#20-unsupervised-learning)
+  - [Voice Assistant](#21-voice-assistant)
 - [Contact](#contact)
 ---
 
@@ -40,40 +41,65 @@ A Convolutional Neural Network model designed to reconstruct 3D models of roofto
 
 🔗 [View Project](projects/3D%20Roof%20Reconstruction%20CNN/)
 
+#### Skills and Tools
+TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
+
+
 ### 2. CNN
 Various Convolutional Neural Network architectures implemented for image classification tasks.
 
 🔗 [View Project](projects/CNN/)
+
+#### Skills and Tools
+CNN, Data Augmentation, Transfer Learning
 
 ### 3. Chatbot
 An intelligent chatbot built using NLP techniques and machine learning to handle user queries effectively.
 
 🔗 [View Project](projects/Chatbot/)
 
+#### Skills and Tools
+Blenderbot, Flask, Transformers
+
 ### 4. Ensemble Techniques
 Implementation of ensemble learning methods like Random Forests, Gradient Boosting, and Bagging to improve model performance.
 
 🔗 [View Project](projects/Ensemble%20Techniques/)
+
+#### Skills and Tools
+EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 
 ### 5. GenAI - Aspect Sentiment Analysis
 Leveraging Generative AI for analyzing sentiments related to specific aspects in customer reviews.
 
 🔗 [View Project](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/)
 
+#### Skills and Tools
+Azure, OpenAI, wordcloud, sklearn, seaborn
+
 ### 6. GenAI - Sentiment Analysis
 Using Generative AI models to determine the overall sentiment of text data.
 
 🔗 [View Project](projects/GenAI%20-%20Sentiment%20Analysis/)
+
+#### Skills and Tools
+Prompt Engineering, Sentiment Analysis
 
 ### 7. Hypothesis Testing
 A comprehensive project demonstrating various statistical hypothesis testing methods.
 
 🔗 [View Project](projects/Hypothesis%20Testing/)
 
+#### Skills and Tools
+Hypothesis Testing, a/b testing, Data Visualization, Statistical Inference
+
 ### 8. Image Captioning
 A deep learning model that generates descriptive captions for images.
 
 🔗 [View Project](projects/Image%20Captioning/)
+
+#### Skills and Tools
+Gradio, Blip
 
 ### 9. Langchain - Aspect Sentiment Analysis
 Integrating Langchain for advanced aspect-based sentiment analysis in large datasets.
@@ -84,66 +110,110 @@ Integrating Langchain for advanced aspect-based sentiment analysis in large data
 
 🔗 [View Project](projects/Langchain%20-%20Aspect%20Sentiment%20Analysis/)
 
+#### Skills and Tools
+Langchain, OpenAI, wordcloud, sklearn, seaborn
+
 ### 10. Linear Regression
 Implementation of linear regression models to predict continuous outcomes based on input features.
 
 🔗 [View Project](projects/Linear%20Regression/)
+
+#### Skills and Tools
+EDA, Linear Regression, Linear Regression assumptions, Business insights and recommendations
 
 ### 11. Logistic Regression and Decision Trees
 Comparative analysis of logistic regression and decision tree algorithms for classification tasks.
 
 🔗 [View Project](projects/Logistic%20Regression%20and%20Decision%20Trees/)
 
+#### Skills and Tools
+EDA, Data Pre-processing, Logistic regression, Multicollinearity, Finding optimal threshold using AUC-ROC curve, Decision trees, Pruning
+
 ### 12. NLP
 Projects focusing on Natural Language Processing, including text preprocessing, tokenization, and language modeling.
 
 🔗 [View Project](projects/NLP/)
+
+#### Skills and Tools
+Count Vectorizer, TfIDF Vectorizer, LSTM
 
 ### 13. Neural Networks
 Exploration of various neural network architectures for different machine learning applications.
 
 🔗 [View Project](projects/Neural%20Networks/)
 
+#### Skills and Tools
+Neural Networks, Tensorflow, Keras, SHAP
+
 ### 14. Pandas and Visualization
 Data manipulation and visualization projects using Pandas, Matplotlib, and Seaborn.
 
 🔗 [View Project](projects/Pandas%20and%20Visualization/)
+
+#### Skills and Tools
+Exploratory Data Analysis (Variable Identification, Univariate analysis, Bi-Variate analysis), Python
 
 ### 15. Pdf Summarizer
 A tool that summarizes lengthy PDF documents using NLP techniques.
 
 🔗 [View Project](projects/Pdf%20Summarizer/)
 
+#### Skills and Tools
+OpenAI, LangChain, ChromaDb and Flask
+
 ### 16. Pipelining and Hypertuning
 Building machine learning pipelines and optimizing hyperparameters for enhanced model performance.
 
 🔗 [View Project](projects/Pipelining%20and%20Hypertuning/)
 
+#### Skills and Tools
+EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
+
 ### 17. Point Cloud Visualizer
 Visualization of 3D point cloud data for applications in computer vision and robotics.
 
-![Aerial Image with Corners](projects/Point%20Cloud%20Visualizer/images/aerial_with_corners.png)
+![Point Cloud Surfaces](projects/Point%20Cloud%20Visualizer/images/point_cloud.jpg)
 
-![Aerial 3D Image with Normals](projects/Point%20Cloud%20Visualizer/images/aerial_3d_with_normals.jpg)
 
 🔗 [View Project](projects/Point%20Cloud%20Visualizer/)
 
-### 18. SAM v2 Image Segmentation
+#### Skills and Tools
+PyQt5, PyVista, PyVistaQt
+
+### 18. Roof Fusion
+Application for a 3D roof reconstruction application based on aerial images and Digital Surface Model (DSM) data. The application performs preprocessing, visualization, and corner detection for the roof planes and normal vectors.
+
+![Aerial Image with Corners](projects/roof%20fusion/images/aerial_with_corners.png)
+
+![Aerial 3D Image with Normals](projects/roof%20fusion/images/aerial_3d_with_normals.jpg)
+
+[View Project](projects/roof%20fusion/)
+
+#### Skills and Tools
+scipy, Harris Corner Detection, Shi-Tomasi corner detection, cv2, pyvista
+
+### 19. SAM v2 Image Segmentation
 Advanced image segmentation using the SAM v2 model.
 
 ![SAM v2 Image Segmentation](projects/SAM%20v2%20image%20segmentation/images/samv2_segmentation.png)
 
 🔗 [View Project](projects/SAM%20v2%20image%20segmentation/)
 
-### 19. Unsupervised Learning
+### 20. Unsupervised Learning
 Exploration of unsupervised learning techniques like clustering and dimensionality reduction.
 
 🔗 [View Project](projects/Unsupervised%20Learning/)
 
-### 20. Voice Assistant
+#### Skills and Tools
+Unsupervised Learning, PCA, t-SNE, KMeans, Hierarchical Clustering
+
+### 21. Voice Assistant
 Developed a voice-activated assistant using speech recognition and NLP for interactive user experiences.
 
 🔗 [View Project](projects/Voice%20Assistant/)
+
+#### Skills and Tools
+OpenAI, Whisper, gTTS, Flask
 
 ## Contact
 
@@ -156,4 +226,3 @@ I'm always open to discussing new projects, opportunities, or collaborations. Fe
 ---
 
 *Thank you for visiting my repository!*
-
