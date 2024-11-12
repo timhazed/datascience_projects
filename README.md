@@ -5,7 +5,8 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
 ## Table of Contents
 - [Projects](#projects)
   - [3D Roof Reconstruction CNN](#1-3d-roof-reconstruction-cnn)
-  - [CNN](#2-cnn)
+  - [CNN: Dogs and Cats](#2a-cnn--dogs-and-cats)
+  - [CNN: Seedling Classification](#2b-cnn--seedling-classification)
   - [Chatbot](#3-chatbot)
   - [Ensemble Techniques](#4-ensemble-techniques)
   - [GenAI and Prompt Eng: Aspect Sentiment Analysis](#5-genai---aspect-sentiment-analysis)
@@ -45,10 +46,22 @@ A Convolutional Neural Network model designed to reconstruct 3D models of roofto
 TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
 
 
-### 2. CNN
+### 2a. CNN - Dogs and Cats
 Various Convolutional Neural Network architectures implemented for image classification tasks.
 
-🔗 [View Project](projects/CNN/)
+![Dogs and Cats Best Model](projects/CNN/Dogs%20and%20Cats/images/inception_results.jpg)
+
+🔗 [View Project](projects/CNN/Dogs%20and%20Cats)
+
+#### Skills and Tools
+CNN, Data Augmentation, Transfer Learning
+
+### 2b. CNN - Seedling Classification
+Various Convolutional Neural Network architectures implemented for image classification tasks.
+
+![Seedlings Best Model](projects//CNN/Seedling%20Classification/images/inception_results.jpg)
+
+🔗 [View Project](projects/CNN/Seedlings%20Classification)
 
 #### Skills and Tools
 CNN, Data Augmentation, Transfer Learning
@@ -63,6 +76,8 @@ Blenderbot, Flask, Transformers
 
 ### 4. Ensemble Techniques
 Implementation of ensemble learning methods like Random Forests, Gradient Boosting, and Bagging to improve model performance.
+
+![Easy Visa Best Model](projects/Ensemble%20Techniques/images/stacking_results.jpg)
 
 🔗 [View Project](projects/Ensemble%20Techniques/)
 
@@ -87,6 +102,8 @@ Prompt Engineering, Sentiment Analysis
 
 ### 7. Hypothesis Testing
 A comprehensive project demonstrating various statistical hypothesis testing methods.
+
+![ENews Express Testing Approach](projects/Hypothesis%20Testing/images/testing_approach.jpg)
 
 🔗 [View Project](projects/Hypothesis%20Testing/)
 
@@ -116,6 +133,8 @@ Langchain, OpenAI, wordcloud, sklearn, seaborn
 ### 10. Linear Regression
 Implementation of linear regression models to predict continuous outcomes based on input features.
 
+![ReCell Best Fit](projects/Linear%20Regression/images/best_fit.jpg)
+
 🔗 [View Project](projects/Linear%20Regression/)
 
 #### Skills and Tools
@@ -123,6 +142,9 @@ EDA, Linear Regression, Linear Regression assumptions, Business insights and rec
 
 ### 11. Logistic Regression and Decision Trees
 Comparative analysis of logistic regression and decision tree algorithms for classification tasks.
+
+![INN Hotels Precision-Recall](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_precision_recall.jpg)
+![INN Hotels Classification](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_classification.jpg)
 
 🔗 [View Project](projects/Logistic%20Regression%20and%20Decision%20Trees/)
 
@@ -132,6 +154,8 @@ EDA, Data Pre-processing, Logistic regression, Multicollinearity, Finding optima
 ### 12. NLP
 Projects focusing on Natural Language Processing, including text preprocessing, tokenization, and language modeling.
 
+![Twitter US Airline Best Model](projects/NLP/images/lstm_model.jpg)
+
 🔗 [View Project](projects/NLP/)
 
 #### Skills and Tools
@@ -140,6 +164,9 @@ Count Vectorizer, TfIDF Vectorizer, LSTM
 ### 13. Neural Networks
 Exploration of various neural network architectures for different machine learning applications.
 
+![Bank Churn Best Model](projects/Neural%20Networks/images/model4.jpg)
+![Bank Churn Shap Values](projects/Neural%20Networks/images/model4_shap.jpg)
+
 🔗 [View Project](projects/Neural%20Networks/)
 
 #### Skills and Tools
@@ -147,6 +174,8 @@ Neural Networks, Tensorflow, Keras, SHAP
 
 ### 14. Pandas and Visualization
 Data manipulation and visualization projects using Pandas, Matplotlib, and Seaborn.
+
+![Food Hub EDA](projects/Pandas%20and%20Visualization/images/eda.jpg)
 
 🔗 [View Project](projects/Pandas%20and%20Visualization/)
 
@@ -163,6 +192,8 @@ OpenAI, LangChain, ChromaDb and Flask
 
 ### 16. Pipelining and Hypertuning
 Building machine learning pipelines and optimizing hyperparameters for enhanced model performance.
+
+![ReneWind Best Model](projects/Pipelining%20and%20Hypertuning/images/tuned_xgb_under.jpg)
 
 🔗 [View Project](projects/Pipelining%20and%20Hypertuning/)
 
@@ -201,6 +232,8 @@ Advanced image segmentation using the SAM v2 model.
 
 ### 20. Unsupervised Learning
 Exploration of unsupervised learning techniques like clustering and dimensionality reduction.
+
+![Trade Ahead Best Clustering](projects/Unsupervised%20Learning/images/tsne_scatter_plot.jpg)
 
 🔗 [View Project](projects/Unsupervised%20Learning/)
 
