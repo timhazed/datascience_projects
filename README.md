@@ -5,8 +5,8 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
 ## Table of Contents
 - [Projects](#projects)
   - [3D Roof Reconstruction CNN](#1-3d-roof-reconstruction-cnn)
-  - [CNN: Dogs and Cats](#2a-cnn--dogs-and-cats)
-  - [CNN: Seedling Classification](#2b-cnn--seedling-classification)
+  - [CNN: Dogs and Cats](#2a-cnn---dogs-and-cats)
+  - [CNN: Seedling Classification](#2b-cnn---seedling-classification)
   - [Chatbot](#3-chatbot)
   - [Ensemble Techniques](#4-ensemble-techniques)
   - [GenAI and Prompt Eng: Aspect Sentiment Analysis](#5-genai---aspect-sentiment-analysis)
@@ -59,7 +59,7 @@ CNN, Data Augmentation, Transfer Learning
 ### 2b. CNN - Seedling Classification
 Various Convolutional Neural Network architectures implemented for image classification tasks.
 
-![Seedlings Best Model](projects//CNN/Seedling%20Classification/images/inception_results.jpg)
+![Seedlings Best Model](projects//CNN/Seedlings%20Classification/images/inception_results.jpg)
 
 🔗 [View Project](projects/CNN/Seedlings%20Classification)
 
