@@ -59,7 +59,7 @@ CNN, Data Augmentation, Transfer Learning
 ### 2b. CNN - Seedling Classification
 Various Convolutional Neural Network architectures implemented for image classification tasks.
 
-![Seedlings Best Model](projects//CNN/Seedlings%20Classification/images/inception_results.jpg)
+![Seedlings Best Model](projects/CNN/Seedlings%20Classification/images/inception_results.jpg)
 
 🔗 [View Project](projects/CNN/Seedlings%20Classification)
 
@@ -68,6 +68,8 @@ CNN, Data Augmentation, Transfer Learning
 
 ### 3. Chatbot
 An intelligent chatbot built using NLP techniques and machine learning to handle user queries effectively.
+
+![Chatbot with Blenderbot](projects/Chatbot/images/chatbot_blenderbot.jpg)
 
 🔗 [View Project](projects/Chatbot/)
 
@@ -86,6 +88,8 @@ EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 
 ### 5. GenAI - Aspect Sentiment Analysis
 Leveraging Generative AI for analyzing sentiments related to specific aspects in customer reviews.
+
+![Expressway Logistics Final Results](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/images/final_results.jpg)
 
 🔗 [View Project](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/)
 
@@ -112,6 +116,8 @@ Hypothesis Testing, a/b testing, Data Visualization, Statistical Inference
 
 ### 8. Image Captioning
 A deep learning model that generates descriptive captions for images.
+
+![Mountain Image With Caption](projects/Image%20Captioning/images/image_with_caption.jpg)
 
 🔗 [View Project](projects/Image%20Captioning/)
 
