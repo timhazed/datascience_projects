@@ -37,11 +37,10 @@ supports models based on EfficientNet and ResNet50, as well as additional functi
 application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is 
 multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
 
-
-![Non-Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/Resnet50_NonAugmented.png)
+![Non-Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/ResNet50_NonAugmented.png)
 ![Non-Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_NonAugmented.png)
 
-![Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/Resnet50_Augmented.png)
+![Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/ResNet50_Augmented.png)
 ![Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_Augmented.png)
 
 🔗 [View Project](projects/3D%20Roof%20Reconstruction%20CNN/)
@@ -295,6 +294,8 @@ Unsupervised Learning, PCA, t-SNE, KMeans, Hierarchical Clustering
 
 ### 21. Voice Assistant
 Developed a voice-activated assistant using speech recognition and NLP for interactive user experiences.
+
+![Voice Assistant](projects/Voice%20Assistant/images/voice_assistant.jpg)
 
 🔗 [View Project](projects/Voice%20Assistant/)
 

@@ -53,7 +53,7 @@ class Server:
             "botResponse": "Document processed successfully."
         }), 200
 
-    def run(self, host='0.0.0.0', port=8000, debug=True):
+    def run(self, host='127.0.0.1', port=8000, debug=False):
         """Run the Flask app."""
-        self.app.run(host=host, port=port, debug=debug)
+        self.app.run(ssl_context=(self.worker.cert_path, self.worker.key_path), port=port, host=host, debug=debug)
 

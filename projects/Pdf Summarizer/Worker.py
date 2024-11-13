@@ -14,6 +14,8 @@ class Worker:
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
         self.question_key = "question"
         self.chat_history_key = "chat_history"
+        self.cert_path = os.getenv("CERT_PATH")
+        self.key_path = os.getenv("KEY_PATH")
         
         # Initialize the LLM with ChatOpenAI for the gpt-4o-mini model
         self.llm_hub = ChatOpenAI(
@@ -32,8 +34,8 @@ class Worker:
         self.chat_history = []
 
     def load_env(self):
-        """Load environment variables from .env file"""
-        load_dotenv()
+        dotenv_path = "../../python/.env"
+        _ = load_dotenv(dotenv_path=dotenv_path)
 
     def process_document(self, document_path):
         """Load, split, and index a document into a Chroma DB"""

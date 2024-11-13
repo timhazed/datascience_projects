@@ -1,7 +1,7 @@
 import openai
 import os
 from gtts import gTTS
-from dotenv import load_dotenv, find_dotenv
+from dotenv import load_dotenv
 import io
 from flask import jsonify
 from gtts.lang import tts_langs
@@ -14,10 +14,13 @@ class Worker:
         self.load_env()
         self.initialize_openai()
         self.initialize_whisper()
+        self.cert_path = os.getenv("CERT_PATH")
+        self.key_path = os.getenv("KEY_PATH")
 
     # Load environment variables from a .env file
     def load_env(self):
-        _ = load_dotenv(find_dotenv())
+        dotenv_path = "../../python/.env"
+        _ = load_dotenv(dotenv_path=dotenv_path)
 
     def get_openai_api_key(self):
         openai_api_key = os.getenv("OPENAI_API_KEY")
@@ -48,13 +51,14 @@ class Worker:
                 raise ValueError("No transcribable speech detected!", status_code)
 
             # Return the transcribed text
-            return transcript
+            result = transcript
 
         except Exception as e:
             # Handle any unexpected exceptions and include the status code in the message
             response = {"error": f"An unexpected error occurred: {str(e)}", "status_code": status_code}
+            result = jsonify(response), status_code
 
-        return jsonify(response), status_code
+        return result
 
     # Convert text to speech using gTTS and return the audio
     def text_to_speech(self, text, lang="en"):

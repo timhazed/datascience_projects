@@ -1,6 +1,0 @@
-Flask
-Flask_Cors
-openai
-requests
-whisper
-gTTs
