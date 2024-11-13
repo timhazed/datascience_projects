@@ -32,7 +32,11 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
 ## Projects
 
 ### 1. 3D Roof Reconstruction CNN
-A Convolutional Neural Network model designed to reconstruct 3D models of rooftops from aerial imagery.
+This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data. The application 
+supports models based on EfficientNet and ResNet50, as well as additional functionality such as data augmentation, early stopping, and loss visualization. The goal of this 
+application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is 
+multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
+
 
 ![Non-Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/Resnet50_NonAugmented.png)
 ![Non-Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_NonAugmented.png)
@@ -47,7 +51,8 @@ TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
 
 
 ### 2a. CNN - Dogs and Cats
-Various Convolutional Neural Network architectures implemented for image classification tasks.
+Jupyter Notebook using the kaggle dataset https://www.kaggle.com/datasets/samuelcortinhas/cats-and-dogs-image-classification to classify images as cats or dogs
+
 
 ![Dogs and Cats Best Model](projects/CNN/Dogs%20and%20Cats/images/inception_results.jpg)
 
@@ -57,7 +62,10 @@ Various Convolutional Neural Network architectures implemented for image classif
 CNN, Data Augmentation, Transfer Learning
 
 ### 2b. CNN - Seedling Classification
-Various Convolutional Neural Network architectures implemented for image classification tasks.
+In recent times, the field of agriculture has been in urgent need of modernization since the amount of manual work is very extensive. Despite advances people in agriculture 
+still need the ability to sort and recognize diferent plants and weeds. The Aarhus Signal Processing Group in collaboration with the University of Southern Denmark has provided 
+data containing images o funique plants belonging to twelve species. Build several CNN's and determine the best one to classify the twelve types of seedlings.
+
 
 ![Seedlings Best Model](projects/CNN/Seedlings%20Classification/images/inception_results.jpg)
 
@@ -77,7 +85,9 @@ An intelligent chatbot built using NLP techniques and machine learning to handle
 Blenderbot, Flask, Transformers
 
 ### 4. Ensemble Techniques
-Implementation of ensemble learning methods like Random Forests, Gradient Boosting, and Bagging to improve model performance.
+Analyze the data of Visa applicants, build a predictive model to facilitate the process of visa approvals, and based on important factors that significantly influence the Visa 
+status recommend a suitable profile for the applicants for whom the visa should be certified or denied.
+
 
 ![Easy Visa Best Model](projects/Ensemble%20Techniques/images/stacking_results.jpg)
 
@@ -87,17 +97,25 @@ Implementation of ensemble learning methods like Random Forests, Gradient Boosti
 EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
 
 ### 5. GenAI - Aspect Sentiment Analysis
-Leveraging Generative AI for analyzing sentiments related to specific aspects in customer reviews.
+Conduct a sentiment analysis of user-generated reviews across various digital channels and platforms. Through the application of LLM prompt engineering methodologies and 
+sentiment analysis, we'll figure out if sentiments expressed by users for our courier services are Positive or Negative. Analyze the reviews, identify themes, polarity and 
+sentiment and present the findings with actionable business insights.
+
 
 ![Expressway Logistics Final Results](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/images/final_results.jpg)
 
 🔗 [View Project](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/)
 
 #### Skills and Tools
-Azure, OpenAI, wordcloud, sklearn, seaborn
+Azure, Prompt Engineering, OpenAI, wordcloud, sklearn, seaborn
 
 ### 6. GenAI - Sentiment Analysis
-Using Generative AI models to determine the overall sentiment of text data.
+You are part of a multinational computer, phone, laptop and hardware manufacturer. Your objective as a product analyst is to use Generative AI, and craft an effective prompt 
+which can take an unstructured customer review as input and return a structured response, which can be then used to take action in a manner which optimizes for the overall 
+customer experience of your product. As you structure your data from the review, make sure to capture the date of the review, product / service in question, the rating, a short 
+summary (upto 100 words) of the feedback for the product / service, list of actions items which can improve the product / service, any mention of competitors - if yes, what was 
+better in their experience, the overall sentiment (positive, negative, or neutral).
+
 
 🔗 [View Project](projects/GenAI%20-%20Sentiment%20Analysis/)
 
@@ -105,7 +123,10 @@ Using Generative AI models to determine the overall sentiment of text data.
 Prompt Engineering, Sentiment Analysis
 
 ### 7. Hypothesis Testing
-A comprehensive project demonstrating various statistical hypothesis testing methods.
+This project used statistical analysis, a/b testing, and visualization to decide whether the new landing page of an online news portal (E-news Express) is effective enough to 
+gather new subscribers or not. The simulated dataset has certain important metrics such as converted status and time spent on the page that will help to conclude the effectiveness
+ of the new landing page. Apart from that, the dependence of conversion on the preferred language will also be analyzed in this project.
+
 
 ![ENews Express Testing Approach](projects/Hypothesis%20Testing/images/testing_approach.jpg)
 
@@ -125,7 +146,9 @@ A deep learning model that generates descriptive captions for images.
 Gradio, Blip
 
 ### 9. Langchain - Aspect Sentiment Analysis
-Integrating Langchain for advanced aspect-based sentiment analysis in large datasets.
+This application uses LangChain and Pydantic to perform aspect-based sentiment analysis on a dataset of reviews. It leverages a language model to evaluate specific aspects of 
+each review, such as "Operational Efficiency" and "Customer Satisfaction", and predicts both the sentiment (positive or negative) and the polarity score for each aspect.
+
 
 ![Results after three iterations](projects//Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_ThreeIterations.png)
 
@@ -137,7 +160,9 @@ Integrating Langchain for advanced aspect-based sentiment analysis in large data
 Langchain, OpenAI, wordcloud, sklearn, seaborn
 
 ### 10. Linear Regression
-Implementation of linear regression models to predict continuous outcomes based on input features.
+Analyze the used devices dataset, build a model which will help develop a dynamic pricing strategy for used and refurbished devices, and identify factors that significantly 
+influence the price.
+
 
 ![ReCell Best Fit](projects/Linear%20Regression/images/best_fit.jpg)
 
@@ -147,7 +172,8 @@ Implementation of linear regression models to predict continuous outcomes based 
 EDA, Linear Regression, Linear Regression assumptions, Business insights and recommendations
 
 ### 11. Logistic Regression and Decision Trees
-Comparative analysis of logistic regression and decision tree algorithms for classification tasks.
+Analyze the data of INN Hotels to find which factors have a high influence on booking cancellations, build a predictive model that can predict which booking is going to be 
+canceled in advance, and help in formulating profitable policies for cancellations and refunds.
 
 ![INN Hotels Precision-Recall](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_precision_recall.jpg)
 ![INN Hotels Classification](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_classification.jpg)
@@ -158,7 +184,14 @@ Comparative analysis of logistic regression and decision tree algorithms for cla
 EDA, Data Pre-processing, Logistic regression, Multicollinearity, Finding optimal threshold using AUC-ROC curve, Decision trees, Pruning
 
 ### 12. NLP
-Projects focusing on Natural Language Processing, including text preprocessing, tokenization, and language modeling.
+Twitter possesses 330 million monthly active users, which allows businesses to reach a broad population and connect with customers without intermediaries. On the other hand, 
+there’s so much information that it’s difficult for brands to quickly detect negative social mentions that could harm their business.
+
+That's why sentiment analysis/classification, which involves monitoring emotions in conversations on social media platforms, has become a key strategy in social media marketing.
+
+Listening to how customers feel about the product/service on Twitter allows companies to understand their audience, keep on top of what’s being said about their brand and their 
+competitors, and discover new trends in the industry.
+
 
 ![Twitter US Airline Best Model](projects/NLP/images/lstm_model.jpg)
 
@@ -168,10 +201,13 @@ Projects focusing on Natural Language Processing, including text preprocessing, 
 Count Vectorizer, TfIDF Vectorizer, LSTM
 
 ### 13. Neural Networks
-Exploration of various neural network architectures for different machine learning applications.
+Businesses like banks that provide service have to worry about the problem of 'Churn' i.e. customers leaving and joining another service provider. It is important to understand 
+which aspects of the service influence a customer's decision in this regard. Management can concentrate efforts on the improvement of service, keeping in mind these priorities. 
+Provide a thorough analysis identifying whether or not customer will leave (churn in the next 6 months).
 
-![Bank Churn Best Model](projects/Neural%20Networks/images/model4.jpg)
-![Bank Churn Shap Values](projects/Neural%20Networks/images/model4_shap.jpg)
+
+![INN Bank Churn Best Model](projects/Neural%20Networks/images/model4.jpg)
+![INN Bank Churn Shap Values](projects/Neural%20Networks/images/model4_shap.jpg)
 
 🔗 [View Project](projects/Neural%20Networks/)
 
@@ -179,7 +215,10 @@ Exploration of various neural network architectures for different machine learni
 Neural Networks, Tensorflow, Keras, SHAP
 
 ### 14. Pandas and Visualization
-Data manipulation and visualization projects using Pandas, Matplotlib, and Seaborn.
+The food aggregator company has stored the data of the different orders made by the registered customers in their online portal. They want to analyze the data to draw some 
+actionable insights for the business. Suppose you are hired as a Data Scientist in this company and the Data Science team has shared some of the key questions that need to be 
+answered. Perform the data analysis to find answers to these questions that will help the company to improve the business.
+
 
 ![Food Hub EDA](projects/Pandas%20and%20Visualization/images/eda.jpg)
 
@@ -191,13 +230,18 @@ Exploratory Data Analysis (Variable Identification, Univariate analysis, Bi-Vari
 ### 15. Pdf Summarizer
 A tool that summarizes lengthy PDF documents using NLP techniques.
 
+![Pdf Summarizer](projects/Pdf%20Summarizer/images/summarizer.jpg)
+
 🔗 [View Project](projects/Pdf%20Summarizer/)
 
 #### Skills and Tools
 OpenAI, LangChain, ChromaDb and Flask
 
 ### 16. Pipelining and Hypertuning
-Building machine learning pipelines and optimizing hyperparameters for enhanced model performance.
+"ReneWind" is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure 
+of wind turbines using sensors. The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator 
+could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down.
+
 
 ![ReneWind Best Model](projects/Pipelining%20and%20Hypertuning/images/tuned_xgb_under.jpg)
 
@@ -207,10 +251,11 @@ Building machine learning pipelines and optimizing hyperparameters for enhanced 
 EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
 
 ### 17. Point Cloud Visualizer
-Visualization of 3D point cloud data for applications in computer vision and robotics.
+PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows 
+the user to control opacity and switch between different directories containing point cloud data.
+
 
 ![Point Cloud Surfaces](projects/Point%20Cloud%20Visualizer/images/point_cloud.jpg)
-
 
 🔗 [View Project](projects/Point%20Cloud%20Visualizer/)
 
@@ -230,7 +275,9 @@ Application for a 3D roof reconstruction application based on aerial images and 
 scipy, Harris Corner Detection, Shi-Tomasi corner detection, cv2, pyvista
 
 ### 19. SAM v2 Image Segmentation
-Advanced image segmentation using the SAM v2 model.
+This project provides a SAM (Segment Anything Model) based image segmentation application for aerial images of rooftops. The application processes aerial images and point cloud 
+data to generate segmentation masks and provides tools for visualizing and analyzing the results. This README explains how to use the application.
+
 
 ![SAM v2 Image Segmentation](projects/SAM%20v2%20image%20segmentation/images/samv2_segmentation.png)
 

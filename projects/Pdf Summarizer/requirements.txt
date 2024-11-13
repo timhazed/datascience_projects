@@ -1,8 +1,0 @@
-Flask==2.2.2            # For the Flask web application framework
-flask-cors==3.0.10      # For handling CORS (Cross-Origin Resource Sharing)
-requests==2.28.1        # For making HTTP requests (likely used internally in Flask)
-python-dotenv==0.21.0   # For loading environment variables from a .env file
-openai==0.27.0          # For accessing OpenAI's API and embeddings
-langchain==0.0.123      # For handling conversation chains and retrieval
-chromadb==0.3.22        # For Chroma database, a vector store for document embeddings
-pypdf==3.3.0            # For PDF document loading and parsing
