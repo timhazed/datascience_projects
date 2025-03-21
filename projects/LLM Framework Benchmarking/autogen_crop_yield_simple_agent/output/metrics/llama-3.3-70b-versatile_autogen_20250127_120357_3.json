@@ -1,0 +1,50 @@
+{
+  "model_name": "llama-3.3-70b-versatile",
+  "model_temperature": 0.01,
+  "model_max_tokens": 1000,
+  "random_few_shot": false,
+  "num_few_shot": 5,
+  "iterations": [
+    {
+      "iteration": 1,
+      "runtime": 20.107059955596924,
+      "memory_delta": 3.359375,
+      "peak_memory": 266.078125,
+      "llm_calls": 10,
+      "avg_latency": 0.009366750717163086,
+      "total_prompt_tokens": 5669,
+      "tokens_per_call": 573.8,
+      "mae": 1432.5,
+      "mape": 6.386107196924085,
+      "rmse": 1728.5246020812083
+    },
+    {
+      "iteration": 2,
+      "runtime": 40.037556171417236,
+      "memory_delta": 3.53125,
+      "peak_memory": 266.25,
+      "llm_calls": 10,
+      "avg_latency": 0.010400986671447754,
+      "total_prompt_tokens": 5669,
+      "tokens_per_call": 573.8,
+      "mae": 1432.5,
+      "mape": 6.386107196924085,
+      "rmse": 1728.5246020812083
+    },
+    {
+      "iteration": 3,
+      "runtime": 40.03370499610901,
+      "memory_delta": 3.546875,
+      "peak_memory": 266.265625,
+      "llm_calls": 10,
+      "avg_latency": 0.010369515419006348,
+      "total_prompt_tokens": 5669,
+      "tokens_per_call": 573.8,
+      "mae": 1432.5,
+      "mape": 6.386107196924085,
+      "rmse": 1728.5246020812083
+    }
+  ],
+  "dataset_stats": {},
+  "timestamp": "2025-01-27 12:03:57.450501"
+}

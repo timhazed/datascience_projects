@@ -1,0 +1,83 @@
+{
+  "model_name": "llama-3.1-70b-versatile",
+  "model_temperature": 0.01,
+  "model_max_tokens": 1000,
+  "random_few_shot": false,
+  "num_few_shot": 5,
+  "iterations": [
+    {
+      "iteration": 1,
+      "runtime": 41.40319490432739,
+      "memory_delta": 89.28125,
+      "peak_memory": 458.015625,
+      "llm_calls": 10,
+      "avg_latency": 0.3275799036026001,
+      "total_prompt_tokens": 5436,
+      "tokens_per_call": 543.6,
+      "mae": 1573.0,
+      "mape": 7.124843927635259,
+      "rmse": 1837.6435998310444
+    },
+    {
+      "iteration": 2,
+      "runtime": 41.06332015991211,
+      "memory_delta": 29.375,
+      "peak_memory": 487.390625,
+      "llm_calls": 10,
+      "avg_latency": 0.28867971897125244,
+      "total_prompt_tokens": 5436,
+      "tokens_per_call": 543.6,
+      "mae": 1573.0,
+      "mape": 7.124843927635259,
+      "rmse": 1837.6435998310444
+    },
+    {
+      "iteration": 3,
+      "runtime": 42.464982986450195,
+      "memory_delta": 33.671875,
+      "peak_memory": 521.0625,
+      "llm_calls": 10,
+      "avg_latency": 0.41077618598937987,
+      "total_prompt_tokens": 5436,
+      "tokens_per_call": 543.6,
+      "mae": 1567.0,
+      "mape": 7.106388067899793,
+      "rmse": 1836.0266882591875
+    }
+  ],
+  "dataset_stats": {
+    "Cocoa, beans": {
+      "count": 39,
+      "yield_stats": {
+        "min": 5765.0,
+        "max": 13056.0,
+        "mean": 8883.128205128205
+      }
+    },
+    "Oil palm fruit": {
+      "count": 39,
+      "yield_stats": {
+        "min": 142425.0,
+        "max": 203399.0,
+        "mean": 175804.6923076923
+      }
+    },
+    "Rice, paddy": {
+      "count": 39,
+      "yield_stats": {
+        "min": 24686.0,
+        "max": 42550.0,
+        "mean": 32099.666666666668
+      }
+    },
+    "Rubber, natural": {
+      "count": 39,
+      "yield_stats": {
+        "min": 5249.0,
+        "max": 10285.0,
+        "mean": 7824.897435897436
+      }
+    }
+  },
+  "timestamp": "2025-01-16 09:06:16.002802"
+}
