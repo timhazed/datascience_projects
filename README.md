@@ -15,6 +15,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Image Captioning](#8-image-captioning)
   - [Langchain - Aspect Sentiment Analysis](#9-langchain---aspect-sentiment-analysis)
   - [Linear Regression](#10-linear-regression)
+  - [LLM Framework Benchmarking][]
   - [Logistic Regression and Decision Trees](#11-logistic-regression-and-decision-trees)
   - [NLP](#12-nlp)
   - [Neural Networks](#13-neural-networks)
@@ -301,6 +302,22 @@ Developed a voice-activated assistant using speech recognition and NLP for inter
 
 #### Skills and Tools
 OpenAI, Whisper, gTTS, Flask
+
+### 22. LLM Framework Benchmarking
+Developed a benchmarking framework to evaluate LLM framework performance in crop yield prediction and multi-agent question answering. Designed a scoring algorithm that measures accuracy, speed, and resource efficiency. Integrated CrewAI, AutoGen, and LangGraph frameworks with reusable data processing and metric calculation components. Implemented retry logic, rate limiting, and configurable parameters for scalable benchmarking. Delivered detailed performance reports and visualizations for model evaluation and optimization.
+
+![Autogen Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/autogen_crop_yield_simple_agent/)
+![Autogen MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
+![CrewAI Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/crewai_crop_yield_simple_agent/)
+![CrewAI MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/crewai_multi_agent/)
+![Langgraph Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/langgraph_crop_yield_simple_agent/)
+![Langgraph MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/langgraph_multi_agent/)
+
+![Benchmark Scoring Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_scoring_results_20250309_175727.png)
+![Benchmark Leaderboard Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_results_leaderboard_20250309_175727.png)
+
+#### Skills and Tools
+LLM Prompt Eng, Langgraph, CrewAI, Autogen, Groq, Algorithms
 
 ## Contact
 
