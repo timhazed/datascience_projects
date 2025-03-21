@@ -307,10 +307,15 @@ OpenAI, Whisper, gTTS, Flask
 Developed a benchmarking framework to evaluate LLM framework performance in crop yield prediction and multi-agent question answering. Designed a scoring algorithm that measures accuracy, speed, and resource efficiency. Integrated CrewAI, AutoGen, and LangGraph frameworks with reusable data processing and metric calculation components. Implemented retry logic, rate limiting, and configurable parameters for scalable benchmarking. Delivered detailed performance reports and visualizations for model evaluation and optimization.
 
 🔗 [View Autogen Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/autogen_crop_yield_simple_agent/)
+
 🔗 [View Autogen MultiAgent Benchmark Porject](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
+
 🔗 [View CrewAI Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/crewai_crop_yield_simple_agent/)
+
 🔗 [View CrewAI MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/crewai_multi_agent/)
+
 🔗 [View Langgraph Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/langgraph_crop_yield_simple_agent/)
+
 🔗 [View Langgraph MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/langgraph_multi_agent/)
 
 ![Benchmark Scoring Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_scoring_results_20250309_175727.png)
