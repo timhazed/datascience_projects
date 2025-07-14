@@ -1,0 +1,15 @@
+--- Source: Gitz and Meybeck, 2012 ---
+
+19 MODULE 1: Why Climate-smart agriculture, forestry and fisheries Systems can be defined at various scales. An upper-scale system is generally composed of different systems defined at lower scales. For instance, from a biophysical perspective, landscape systems are composed of farm systems. The vulnerability of an upper-scale system depends on the vulnerability of the subsystems that it includes. It also depends on how other systems to which it is linked, including higher-scale systems, are vulnerable or insensitive to shocks. For example, the vulnerability of a farm to a certain risk is compounded by its own vulnerability and the vulnerability of the landscape in which it is situated, and whose vulnerability is in turn compounded by the vulnerabilities of the various farms situated in it and by the vulnerability of the higher-level system (e.g. the territory) in which it is situated.
+
+Resilience Resilience can be described as the capacity of systems, communities, households or individuals to prevent, mit- igate or cope with risk and recover from shocks. At first approximation, resilience is the opposite of vulnerability.
+
+However, resilience adds a time dimension. A system is resilient when it is less vulnerable to shocks across time and can recover from them. Essential to resilience is adaptive capacity. Adaptive capacity encompasses two dimensions: recovery from shocks and response to changes in order to ensure the ‘plasticity’ of the system.
+
+For example, the organization of seed systems enables farmers who have lost a crop to have seeds for the next season. It also enables them to have access to seeds that are adapted to new conditions.
+
+As for vulnerability, resilience can be specified as “resilience of what to what” (Carpenter et al., 2001). However, focusing on specified resilience may cause the system to lose resilience in other ways (Cifdaloz et al., 2010). This is why general resilience can be described as being “about coping with uncertainty in all ways” (Folke et al., 2010).
+
+And as for vulnerability, resilience can be considered in various dimensions (biophysical, economic and social) and at various scales. The way the various dimensions and scales interact is crucial, precisely because of the importance of general resilience for coping with uncertainty. For instance, studies show that increasing the level of education of farmers can be an efficient mean for reducing farmers’ household vulnerability to climate change (Karfakis et al., 2011).
+
+Figure 1.3 Components of resilience RESILIENCE Adaptive capacity to shocks Exposure Shocks Shocks Shocks Vulnerability Sensitivity to changes System Source: Gitz and Meybeck, 2012

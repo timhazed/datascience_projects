@@ -27,6 +27,8 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [SAM v2 Image Segmentation](#19-sam-v2-image-segmentation)
   - [Unsupervised Learning](#20-unsupervised-learning)
   - [Voice Assistant](#21-voice-assistant)
+  - [LLM Framework Benchmarking](#22-llm-framework-benchmarking)
+  - [Chatbot Datapipeline](#23-chatbot-datapipeline)
 - [Contact](#contact)
 ---
 
@@ -308,7 +310,7 @@ Developed a benchmarking framework to evaluate LLM framework performance in crop
 
 🔗 [View Autogen Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/autogen_crop_yield_simple_agent/)
 
-🔗 [View Autogen MultiAgent Benchmark Porject](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
+🔗 [View Autogen MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
 
 🔗 [View CrewAI Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/crewai_crop_yield_simple_agent/)
 
@@ -323,6 +325,20 @@ Developed a benchmarking framework to evaluate LLM framework performance in crop
 
 #### Skills and Tools
 LLM Prompt Eng, Langgraph, CrewAI, Autogen, Groq, Algorithms
+
+### 23. Chatbot Datapipeline
+The Chatbot_Datapipeline is a modular ETL system designed to transform unstructured sustainable agriculture documents into semantically searchable content for use in chatbot applications. It consists of four coordinated components: extract_and_normalize downloads PDFs and HTML content, extracts clean text, and uses LLMs (OpenAI, Groq) to generate structured metadata; chunker segments the text into overlapping, schema-compliant chunks optimized for embedding; insert_db generates SentenceTransformer embeddings and stores them with metadata into a Qdrant vector database; and datapipeline orchestrates the entire workflow using Prefect and Docker, enabling configurable execution, fault isolation, and centralized logging. Each subproject includes its own project-specific README that provides in-depth documentation on features, configuration, and usage.
+
+🔗 [View datapipeline project](projects/Chatbot_Datapipeline/data_pipeline/)
+
+🔗 [View extract and normalize project](projects/Chatbot_Datapipeline/extract_and_normalize/)
+
+🔗 [View chunker project](projects/Chatbot_Datapipeline/chunks/)
+
+🔗 [View insert db project](projects/Chatbot_Datapipeline/insert_db/)
+
+#### Skills and Tools
+Prefect, Docker, ETL Pipeline, Prompt Eng and Schema Validation, Qdrant, Sentence Transformers
 
 ## Contact
 

@@ -1,0 +1,114 @@
+--- Table 18: Model IV: ---
+
+96
+
+Table 18: Model IV: NB Regression Model with Income and without Outliers
+in Acres Operated.
+VARIABLES
+Β
+STD.
+ERROR
+WALD CHI-
+SQUARE
+SIG.
+EXP.
+(Β)
+CONSTANT
+-0.282
+0.9217
+0.093
+0.760
+0.755
+CROPS***
+1.078
+0.2457
+19.247
+0.000
+2.939
+VEGGIES*
+0.547
+0.2856
+3.665
+0.056
+1.728
+LIVESTOCK
+0.365
+0.3384
+1.162
+0.281
+1.440
+TBP
+0.185
+0.2163
+0.732
+0.392
+1.203
+DIVERSE***
+0.782
+0.2110
+13.741
+0.000
+2.186
+INADEQUATE KNOWLEDGE
+-0.252
+0.2710
+0.867
+0.352
+0.777
+IRRIGATION**
+0.947
+0.4262
+4.933
+0.026
+2.577
+WORK OFF FARM
+0.100
+0.2672
+0.141
+0.707
+1.106
+SOLE PROPRIETORSHIP
+-0.071
+0.2716
+0.068
+0.795
+0.932
+AGRO-TOURISM INCOME
+0.915
+0.5222
+3.069
+0.080
+2.496
+LAND OPERATED*
+0.001
+0.0005
+2.921
+0.087
+1.001
+AGE*
+-0.023
+0.0119
+3.648
+0.056
+0.978
+EDUCATION LEVEL***
+0.309
+0.0851
+13.208
+0.000
+1.362
+INCOME FROM FARMING
+-0.020
+0.1071
+0.036
+0.850
+0.980
+***
+99% Confidence Interval (0.001 Significance
+Level)
+**
+95% Confidence Interval (0.05 Significance
+Level)
+*
+90% Confidence Interval (0.1 Significance
+Level)

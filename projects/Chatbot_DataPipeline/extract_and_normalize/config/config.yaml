@@ -1,0 +1,148 @@
+env_path:  "~/src/python/.env"
+llm_document_chunk_size: 4192
+
+schema_path: "schemas/base_payload.schema.json"
+
+llm:
+  #provider: openai
+  provider: groq
+  #model: gpt-3.5-turbo
+  #model: llama3-70b-8192
+  model: llama-3.3-70b-versatile
+  temperature: 0.1
+  # Rate limiting for LLM API calls
+  rate_limit:
+    calls_per_minute: 6     # Maximum API calls per minute (0 = no limit)
+    tokens_per_minute: 20000  # Maximum tokens per minute (0 = no limit)
+
+section_title_filter:
+  ignore_if_contains:
+    - "table of contents"
+    - "page"
+    - "framework"
+    - "figure"
+    - "reference"
+
+pdf_extractor:
+  headless_domains:
+    - "mdpi.com"
+
+# HTML structure and parsing parameters
+html_parameters:
+  # Topic page configuration for content extraction
+  topic_page:
+    title_selector: "h1"  # Default to h1 for topic title
+    content_selectors:
+      - ".csc-textpic-text"
+      - "article"
+      - "main"
+      - ".content"
+      - "#content"
+      - ".main-content"
+      - "[class*='content']"
+      - "[class*='body']"
+
+    subtopics_selector: "h2, h3"  # Common subtopic headers
+    subtopic_title_selector: ""  # Will use the selector itself if empty
+    subtopic_content_selector: ""  # Will use "selector ~ p, selector + p" if empty
+    use_js_rendering: false  # Whether to use JavaScript rendering for topic pages
+    block_elements:  # Elements that should trigger paragraph breaks
+      - p
+      - div
+      - h1
+      - h2
+      - h3
+      - h4
+      - h5
+      - h6
+      - section
+      - article
+    list_elements:  # Elements that should be treated as lists
+      - ul
+      - ol
+      - li
+
+  # JavaScript rendering configuration
+  rendering:
+    wait_for_selector: ""  # Optional selector to wait for when using JS rendering
+    wait_time: 5000  # Default wait time in ms
+    scroll: true  # Whether to scroll the page to load lazy content
+    js_patterns:
+      - tracextech\.com
+      - dmnews\.com
+      - wix\.com
+      - squarespace\.com
+      - webflow\.com
+      - site123\.com
+      - ghost\.io
+      - vuepress
+      - nextjs
+      - react
+      - angular
+      - nuxt
+      - gatsby
+      - window\.__INITIAL_STATE__
+      - window\.__NEXT_DATA__
+      - data-server-render
+      - data-hydration
+      - fao\.org/agriculture
+      - docs\.google\.com
+      - linkedin\.com
+      - glassdoor\.com
+      - instagram\.com
+      - facebook\.com
+      - newsroom
+      - press-release
+      - infographics
+
+  # Text formatting settings
+  text_formatting:
+    paragraph_separator: "\n\n"
+    header_separator: "\n\n"
+    list_item_separator: "\n"
+    preserve_headers: true
+    min_paragraph_length: 50
+    clean_whitespace: true
+
+    boilerplate_patterns:
+      - "click to share"
+      - "share this:"
+      - "related articles"
+      - "read more"
+      - "follow us"
+      - "subscribe"
+      - "newsletter"
+      - "copyright"
+      - "all rights reserved"
+      - "protected by recaptcha"
+      - "privacy policy"
+      - "terms of service"
+      - "data protection"
+      - "message us"
+      - "get in touch"
+      - "request demo"
+      - "download"
+      - "high-res visual"
+      - "watch the video version"
+      - "startus insights"
+      - "discover global innovation"
+      - "ready for global innovation"
+      - "discover all trends"
+      - "get free updates"
+      - "business email"
+
+  # Content extraction flags
+  extraction:
+    images: true
+    links: true
+    text: true
+
+  # HTTP request headers
+  headers:
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+
+  # Rate limiting to avoid being blocked
+  rate_limit:
+    enabled: true
+    requests_per_second: 1
+    delay: 1.0  # seconds between requests    

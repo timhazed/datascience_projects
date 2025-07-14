@@ -1,0 +1,21 @@
+--- 2008, World Bank, 2010; Villanueva, 2010; ---
+
+527 MODULE 18: Assessment, monitoring and evaluation format that can be easily used by researchers for assessments of policy and project design, and by practition- ers for project baselines for monitoring and evaluation (OECD, 2009; UNFCCC, 2010a; Lamhauge et al., 2011).
+
+The key point is to identify the most important set of data for assessments, and to keep collecting and analysing them. National systems of data collection can be complemented by local systems and by the knowledge and observations of local people.
+
+For monitoring and evaluation, data need to be collected throughout CSA activities and beyond. However, data collection is difficult and costly, particularly for smallholder farmers (Lamhauge et al., 2011; UNFCCC, 2010a) and many local institutions. Monitoring and evaluation is already a challenging undertaking for regular devel- opment projects. It is therefore important to address data overload (e.g. too much information with too little useful analysis) by simplifying monitoring and evaluation processes and indicator sets wherever possible (see also GDPRD et al., 2008) and maximizing the use of existing systems.
+
+Again, the key point is to identify the most relevant indicators (see examples of indicators in Table 18.5) for pro- ject monitoring and evaluation purposes and broader policies and programmes (Figure 18.6) and to continue to collect data for these indicators. Some of the benefits of CSA interventions may not be realized for a long time (perhaps for decades), much longer than timelines typically associated with most projects. Supporting the collection of associated data for the purposes of evaluation beyond the project is a serious issue (Hedger et al., 2008; GIZ, 2011a). Commitments to set aside resources for this should be considered as a means of providing a global public good.
+
+Improving information and data collection and availability is a priority in many developing countries. Targeted CSA strategies and interventions need to be based on reliable user-oriented information that includes good quality data, documented vulnerabilities and accurate evidence.
+
+Working with uncertainties The climate system has its own natural variability that can be observed at different time scales: daily, season- ally, inter-annually, decadal, centurial. For the near future, natural climate variability may well be far larger than long-term changes in climate caused by increased atmospheric concentration of GHGs. Data collected at weather observation stations are the basis of all climate science, but these stations are few in number and the data quality is questionable, particularly in sub-Saharan Africa.
+
+Future climate projections carry deep, multilayered uncertainties. It is not known how human activities will evolve in the coming decades and which activities will determine GHG emissions and influence climate change.
+
+Humanity’s ability to adapt to future climatic conditions, the costs of adaptation and the speed at which new technologies will be adopted are not known and can only be considered in scenarios. All climate projections are based on emission scenarios that represent possible socio-economic development pathways.
+
+Scientific understanding of the climate system is far from perfect. Even for the same emission scenario, dif- ferent climate models project different future climates, even though all of the models are known to reasonably reproduce past climate conditions.
+
+Assessments of impacts and characterizations of vulnerability (climate impact assessments) are conducted by a variety of models using climatic information as inputs. A long chain of scenarios and models will indicate the potential local impacts of climate change on agriculture and the possible adaptation responses. But each component of the chain carries its own uncertainties, which may result in a growing number of permutations and an expanding envelope of uncertainty (OECD, 2009; Hedger et al., 2008, World Bank, 2010; Villanueva, 2010; GIZ, 2011a). Climatic uncertainties are an additional consideration on top of the uncertainties associated with non-climatic factors that are common in all agricultural development projects.

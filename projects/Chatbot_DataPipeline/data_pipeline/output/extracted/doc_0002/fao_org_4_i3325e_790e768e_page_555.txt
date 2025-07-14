@@ -1,0 +1,43 @@
+--- Page 555 ---
+
+542
+CLIMATE-SMART AGRICULTURE SOURCEBOOK
+Annex
+A.18.1 Methods and tools for monitoring and evaluation
+
+Basic tools
+Most of the tools necessary for measuring the indicators and processes for the monitoring and evaluation of
+climate change related interventions are standard monitoring and evaluation tools, the most prominent of
+which are worth noting:
+Participatory poverty assessment: helps to assess who are the most vulnerable in the community as defined by
+community members’ own criteria. This helps to identify key intervention target groups.
+Project and programme baseline assessments: done through surveys of intervention and control areas, meas-
+uring food security, incomes, basic household assets and services, as well as environmental parameters.
+Regular project monitoring: gathering of activity and output progress data, financial management information,
+and signalling emerging issues or good practices.
+Management information Systems: web-based support systems increasingly managed through remote de-
+vices, linked to financial management and GIS systems.
+Agriculture and natural resource management monitoring: measured at frequencies and scales significant
+enough to provide meaningful information. The measurements can be done by a range of methods from struc-
+tured crop to participatory transect walks.
+Process monitoring: often done in support of regular monitoring to assess project process and institutional
+changes and relationships – to rapidly identify management responses.
+Participatory monitoring and evaluation methods: a wide range of methods engaging communities, not just
+enhancing information gathering but also increasing ownership and project adaptation.
+Impact evaluation methodology: Impact evaluation assesses the impact of an intervention using counterfactual
+analysis. The estimated impact of the intervention is calculated as the difference in mean outcomes between
+a ‘treatment group’ (those receiving the intervention) and a ‘control group’ (those who don’t). This is done
+through randomization (experimental design), pipeline and matching. While it has been used little in climate
+change context so far, and faces some challenges there, due to the scales and externalities and process ori-
+entation, impact evaluation is increasingly advocated to understand attribution, has been applied to mitigation
+programs, and is often applied in agricultural and rural development and natural resource management pro-
+jects. (Prowse and Snilstveit, 2009)
+Stakeholder, Institutional and legal assessments: To assess changes in capacity, human resources, organiza-
+tional systems, coordination, as well as laws and policies.
+Economic and Financial analysis (EFA): using mainly agricultural, environmental and socio-economic data,
+as well as detailed market, labour and trade information, analyses are made of the economic and financial
+returns at household, farm and system levels.
+Supporting good practices in monitoring and evaluation methods
+Experience has shown the above tools by themselves may be implemented mechanically without great useful-
+ness for decision making. Some useful practices in relation to strengthening monitoring and evaluation have
+been noted:

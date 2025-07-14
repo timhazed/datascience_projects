@@ -1,0 +1,33 @@
+--- Page 38 ---
+
+33
+
+variables. The Poisson distribution is a member of a set of
+exponential family probability distribution: the height of
+the probability curve for specific value of y, called the
+probability density, contains an exponential function
+(Coxe, West, & Aiken, 2009). The probability density (or
+the height of the curve) depends upon two parameters, mean
+(µ) and the variance (σ2) in normal distribution curve.
+However, the Poisson distribution differs from normal
+distribution therefore, Poisson regression is more
+attractive to represent count data (Coxe et al., 2009).
+The equation for normal distribution is
+𝑓(
+𝑦
+µ , σ2) =
+1
+√2𝜋𝜎𝑒− (𝑦−𝜇)2
+2𝜎2
+
+Eq. 2.
+
+(Coxe et al., 2009, p.122).
+The probability mass function for the Poisson
+distribution (Eq. 3) gives the probability of observing
+given value, y, of the variable Y that is distributed as a
+Poisson distribution with the parameter µ—the athematic
+mean of number of incidents that occurs in specific time
+interval. The Poisson distribution would yield the
+probability of 0, 1, 2, 3 … incidents, given the mean (µ)
+of the distribution.

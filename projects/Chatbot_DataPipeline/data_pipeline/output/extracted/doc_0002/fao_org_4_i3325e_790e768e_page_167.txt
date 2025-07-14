@@ -1,0 +1,21 @@
+--- Page 167 ---
+
+154 CLIMATE-SMART AGRICULTURE SOURCEBOOK Table 5.3 Examples of possible synergies and trade-offs between energy-smart food and CSA objectives CSA objectives Sustainable increases in productivity and income Strengthened resilience to climate change and variability Agriculture’s reduced impact on climate change Energy-smart food objectives Increased energy efficiency þ General:
+
+Savings on energy costs (after up- front costs for technology have been paid) will result in increased profit if productivity is not excessively decreased Specific:
+
+Practices such as replacement of synthetic fertilizers with application of agricultural residues or manure, which require fewer external inputs and increase yields, can contribute to both increased energy efficiency and sustainable increases in productivity and income.
+
+Practices that reduce external energy inputs and (at least) maintain yields, such as reduced or zero tillage, will increase energy efficiency and sustainably increase income. If such practices are combined with others that increase yields (such as nitrogen- fixing cover crops or manure trees), this can contribute to both energy efficiency and sustainable increases in productivity and income.
+
+There is also much scope for enhanced post-harvest technologies and practices that contribute to both energy efficiency and sustainable increases in productivity and income, such as improved crop and food storage, packaging and distribution.
+
+Some high pressure drip irrigation systems may be less energy efficient than gravity irrigation for the same water efficiency: hence trade-offs between increased energy efficiency and water efficiency should be taken into account to ensure sustainability. þ General:
+
+Savings in energy costs will result in increased income available to enhance adaptive capacity Decreased dependence on energy inputs (especially fossil fuels) will tend to reduce vulnerability to shocks in energy prices Some “climate-proof” agricultural production and energy systems may result in lower energy efficiency Specific:
+
+Practices such as conservation agriculture that enhance crop cover, soil water retention and soil organic matter may increase resilience to drought and extreme weather events Irrigation tends to enhance resilience and may increase energy efficiency through its impacts on productivity þ General:
+
+Improvements in energy efficiency, whether due to lower embedded energy in inputs or on-farm fuel combustion, will reduce GHG emissions in the production chain However, increased energy efficiency may translate into greater profits, which may result in extensification of agriculture (so- called rebound effect), potentially bringing about CO2 emissions from land use change that could even result in greater GHG emissions per unit of production Specific:
+
+Practices such as reduced or zero tillage, precision agriculture, replacement of synthetic fertilizers with agricultural residues or manure, elimination of pesticides through integrated pest management or enhanced distribution logistics that reduce fossil fuel combustion will generally lead to reduced GHG emissions, though full lifecycle assessment is required. Reduced or zero tillage, in combination with permanent crop cover, crop rotation and elimination of agrochemicals may also sequester carbon.

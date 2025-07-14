@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/sustainable_agriculture.schema.json",
+  "title": "Sustainable Agriculture Qdrant Payload",
+  "type": "object",
+  "required": [
+    "title",
+    "source_url",
+    "date_published",
+    "language",
+    "region_or_country",
+    "document_type",
+    "sustainability_dimensions",
+    "key_topics",
+    "contains_harmful_practices",
+    "intended_audience",
+    "source_name",
+    "doc_id",
+    "chunk_id",
+    "chunk_index",
+    "section_title",
+    "text",
+    "paragraph_id",
+    "paragraph_index"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title, inferred or extracted"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the original PDF or source document"
+    },
+    "date_published": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date in ISO 8601 format (YYYY-MM-DD)"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code (e.g., en, es, fr)"
+    },
+    "region_or_country": {
+      "type": "string",
+      "description": "Country or region referred to in the document"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": ["scientific", "policy", "ngo_report", "manual"],
+      "description": "Type of document"
+    },
+    "sustainability_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["environmental", "economic", "social"]
+      },
+      "description": "Relevant sustainability dimensions"
+    },
+    "key_topics": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "financial access",
+          "agricultural innovation",
+          "long-term planning",
+          "supply chain integration",
+          "technology adoption",
+          "data-driven farming",
+          "agroforestry",
+          "carbon markets",
+          "local networks",
+          "regenerative agriculture",
+          "climate change mitigation",
+          "biodiversity conservation",
+          "sustainable agriculture",
+          "soil health",
+          "organic farming",
+          "green CAP policy"
+        ]
+      },
+      "description": "Topical coverage derived from LLM or heuristic methods"
+    },
+    "contains_harmful_practices": {
+      "type": "boolean",
+      "description": "Whether the document includes outdated or harmful practices"
+    },
+    "intended_audience": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["farmers", "policymakers", "researchers", "ngos", "other"]
+      },
+      "description": "Intended reader or audience for the material"
+    },
+    "source_name": {
+      "type": "string",
+      "description": "Inferred name of the organization or publisher"
+    },
+    "doc_id": {
+      "type": "string",
+      "description": "Stable UUIDv5 derived from source URL"
+    },
+    "chunk_id": {
+      "type": "string",
+      "description": "Unique identifier per chunk within the document"
+    },
+    "chunk_index": {
+      "type": "integer",
+      "description": "Numeric position of the chunk within the document"
+    },
+    "section_title": {
+      "type": "string",
+      "description": "Extracted section or heading title for the chunk"
+    },
+    "text": {
+      "type": "string",
+      "description": "Full raw text content of the chunk"
+    },
+    "paragraph_id": {
+      "type": "string",
+      "description": "Unique identifier for the paragraph containing this chunk"
+    },
+    "paragraph_index": {
+      "type": "integer",
+      "description": "Numeric position of the paragraph within the document"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+--- Research Agenda Item ---
+
+16
+
+Tables
+1
+
+2
+Table 1. A practical research agenda for integrating agricultural diversification and technology innovations to achieving Chinese food nutrition
+3
+security goals.
+4
+Research Agenda Item
+Details
+References
+1. Prioritize diversification research on
+major crops and trade-offs between yield,
+financial profitability, ecosystem services,
+and nutrition for applicable outcomes in
+China’s
+multifunctional
+agricultural
+landscapes.
+i.
+Location-specific case studies on staple food and cash crops
+such as rice, wheat, cotton, rubber and cocoa for
+implementation-based recommendations;
+ii.
+Links to sufficient high-quality and safe food are critical;
+iii.
+Urban and rural gradients at the farm and landscape scale
+must be reflected.
+(T1,T2,T3-6)
+2.
+Combine
+social
+science
+survey
+techniques and environmental monitoring
+technology to effectively link different
+stakeholder perspectives with empirical
+environmental and nutritional data.
+i.
+Aim should be to understand farmers’ awareness of and option
+on i) diversified systems; ii) their role in providing diverse diets;
+and iii) adoption of technology in diversified systems;
+ii.
+Resulting datasets should be accessible and long-term
+(ideally >5 years).
+(T2,T5,T7,T8)

@@ -1,0 +1,24 @@
+--- Negative Binomial Regression Model Specifications and Result ---
+
+53
+
+Notes: DV = Dependent variable, +Ve & -Ve = positive and
+negative relationship with dependent variable
+respectively.
+
+Negative Binomial Regression Model Specifications and Result
+Interpretations:
+Independent variables consist of 10 categorical
+variables (Crops, Veggies, Livestock, TBP Participation,
+Diverse, Inadequate Knowledge, Irrigation, Work Off-farm,
+Sole Proprietorship, and Agro-tourism Income) with 1 as
+“Yes” and 0 as “No” categories. For example, a farmer was
+asked “Do you grow crops in your farm?”. If a farmer
+replied “Yes”, then the value is entered as 1, otherwise it
+is 0; similar coding method was used for all other binomial
+variables. The variable “Sole Proprietorship”, farmers who
+own the farm solely was dummy coded as 1 and other
+responses such as—partnership, family held corporation,
+trust or estate, and others or missing—were coded as 0. The
+code 1 was used as the reference category for binomial
+variables in the model.

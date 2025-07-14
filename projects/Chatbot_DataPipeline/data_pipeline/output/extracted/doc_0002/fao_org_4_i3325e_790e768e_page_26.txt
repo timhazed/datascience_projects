@@ -1,0 +1,51 @@
+--- Source: FAO, 2012e ---
+
+13
+MODULE 1: Why Climate-smart agriculture, forestry and fisheries
+Manure management is important both to increase food security and to mitigate climate change as it can be
+used as organic fertilizer and is also a source of CH4 and N2O emissions. When manure is used as organic
+fertilizer it contributes to the productivity and fertility of the soil by adding organic matter and nutrients,
+such as nitrogen, which are trapped by bacteria in the soil. It improves productivity and allows for reduc-
+tions in use of synthetic fertilizers and the associated direct and indirect GHG emissions. The increasing
+geographic concentration of livestock production means that the manure produced by animals often exceeds
+the (nitrogen) absorptive capacity of the local area. Manure becomes a waste product rather than being the
+valuable resource in less concentrated, mixed production systems. Proper use of technologies can reduce
+direct emissions and also transform manure into a valuable resource and lead to a corresponding reduction
+in GHG emissions resulting from the use of synthetic fertilizers.
+Integrated systems
+Crop systems and livestock systems can also be improved by their better integration. Integrated crop and
+livestock systems, at various scales (on-farm and area-wide) increase the efficiency and environmental sus-
+tainability of both production methods. When livestock and crops are produced together, the waste of one is
+a resource for the other. Manure increases crop production and crop residues and by-products feed animals,
+improving their productivity. In these systems, livestock is a strategic element for adaptation. The animals
+provide an alternative to cropping in areas becoming marginal for cropping, offer a way to escape poverty and
+represent a coping mechanism in vulnerable and variable (in particular weather-related) natural environ-
+ments. They also constitute a capital that can be converted to cash when needed.
+Box 1.3
+Partnership on benchmarking and monitoring the environmental performance of
+livestock supply chains
+Quantitative information on key environmental impacts along livestock supply chains is required to (a) analyse food
+systems and inform decisions at the production and processing levels to improve environmental performance; (b)
+develop and evaluate corresponding policy decisions (governmental and non-governmental); and (c) inform relevant
+stakeholders.
+Valuable work aimed at improving the measurement of environmental performance is being carried out by the
+livestock industry, governments, academia and non-governmental organizations (NGOs). However, inconsistencies
+in the methods used and the one-off nature of many of the studies do not provide consistent guidance on the required
+changes in practices and the potential efficiency gains that can be achieved.
+Consultations with stakeholders during 2010 and 2011 confirmed that there was demand for a partnership on
+benchmarking and monitoring the environmental performance of the livestock sector. A participative formulation
+process led to the identification of key functions and deliverables of the Partnership. It was agreed that representatives
+of private sector, NGOs, governments, science and international standard organizations should be involved.
+The Partnership’s objective is to improve environmental performance of the livestock sector, while considering its
+economic and social viability. This will be achieved through support to decision-making and by providing guidance
+on performance assessments (metrics and methods) and their use. The partnership was officially launched in July
+2012. An important aspect of the work is to assess both negative and positive contributions (e.g. improved carbon
+sequestration in soils, soil organic matter, water retention and quality, and biodiversity) Activities are structured
+along four components:
+• Component 1 - Sector-specific guidelines and methods for the life cycle assessment of GHG emissions from
+livestock food chains;
+• Component 2 - Global database of GHG emissions related to feed crops;
+• Component 3 - Measures of non-GHG environmental performance of livestock food chains; and
+• Component 4 - Communication strategy.
+
+Source: FAO, 2012e

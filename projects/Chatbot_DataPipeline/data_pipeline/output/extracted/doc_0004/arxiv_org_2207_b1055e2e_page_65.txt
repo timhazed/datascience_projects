@@ -1,0 +1,25 @@
+--- Midwest USA. Baumgart-Getz ---
+
+60
+
+to the adoption of SAPs among floriculture farmers in
+Midwest USA. Baumgart-Getz et al. (2012) also found that
+overall education category and formal education were non-
+significant, but extension training was significant and had
+positive impact on the adoption behavior of farmer.
+The “Age” of farmer (p = 0.057) and “Land Operated” (p
+= 0.057) are also significant variables (at 90% CI and
+close to 95% CI) and “Income from Agro-tourism” (p = 0.074)
+(at 90% CI) of SAPs adoption behavior of Kentucky farmers,
+but their direction of effect varies. Income from agro-
+tourism and land operated have positive correlations with
+the adoption of SAP whereas the Age has a negative one. The
+change in the expected log count of SAPs adoption would be
+expected to increase by 0.927, if farmers have agro-tourism
+as a source of farm income, other things remaining
+constant. However, the age has negative effect in the
+adoption decision. For each one unit (year) increase on age
+of farmers, the expected log count of SAPs adoption
+decrease by 0.022.
+The Age does not have a consistent predictability in
+several researches. Age was found to be a non-significant

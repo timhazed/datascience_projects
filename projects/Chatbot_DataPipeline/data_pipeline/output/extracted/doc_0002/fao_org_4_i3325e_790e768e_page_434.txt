@@ -1,0 +1,92 @@
+--- Multihazard assessment for DRR in Bicol Region, Philippines ---
+
+421
+MODULE 15: Disaster Risk Reduction: Strengthening Livelihood Resilience
+In the Bicol region of the Philippines local-level planning for DRR was based on the use of a multi-hazard as-
+sessment that identified the threats to agriculture and the farming practices that made farmers more vulner-
+able to natural hazards. It was instrumental in the selection of the most appropriate DRR technologies and
+practices.
+The value of risk assessments is well recognized. A number of countries have institutionalized the use of risk
+assessments as the basis for planning risk reduction strategies. For instance, South Africa’s policy framework
+on disaster risk management underscores the importance of disaster risk assessments as a guide for na-
+tional, provincial and municipal DRR efforts. All national government bodies are required to carry out disaster
+risk assessments to identify priority disaster risks relevant to their work. They are also committed to develop-
+ing “a national standard for conducting comprehensive disaster risk assessments, including guidelines for the
+application of a uniform disaster risk assessment methodology and approach, as well as the standardization
+of reporting formats for disaster risk assessments” (NDMC, 2005). The disaster management model in Bang-
+ladesh, illustrated in Box 15.2 below, is another good example of an institutionalized risk assessment model.
+Box 15.1
+Multihazard assessment for DRR in Bicol Region, Philippines
+In a DRR project implemented by FAO in the Bicol region, a situation assessment was carried out in pilot areas as a
+starting point to evaluate a variety of factors, including: the physical and environmental context and local hazards; the
+socio-economic conditions, livelihoods and agricultural land use; the existing vulnerabilities of vulnerable groups,
+their capacity and coping strategies and their existing agricultural practices (e.g. crops, livestock, fisheries, forestry,
+homestead); and the local institutional disaster risk management systems.
+The multi-hazard assessment identified eight types of threats to agriculture, including geological and climate-
+related hazards, and assessed the level of risk and impact of each. In the diagram below, when the intensity level
+goes up, the further from the centre, the greater is the hazard and its impact on the elements at risk.
+Figure 15.3
+Threats to agriculture
+
+Figure 15.4
+Farming practices resulting in
+vulnerability to hazards
+Strong Wind
+Drought
+Landslide
+Ash Fall
+Soil Erosion
+Lahar Flow
+Volcanic
+Eruptions
+Plant Pest
+Solo
+farming
+system
+4%
+Lack of
+alternative
+livelihood
+8%
+Poor
+irrigation
+water use
+management
+6%
+Practice
+of rice
+straw
+burning
+4%
+Use of
+commercial
+fertilizer
+without soil
+analysis
+17%
+Use of hybrid
+variaties
+4%
+Use of
+inappropriate
+varieties
+6%
+Constant use of
+single variety
+17%
+Wrong timing
+of planting
+18%
+Absence of
+seed source
+for saline
+prone areas
+6%
+Low irrigation
+maintenance
+system
+10%
+
+In addition to the types of threats to agriculture, the assessment in Bicol identified farming practices that made
+farmers more vulnerable to hazards, such as the use of inappropriate crop varieties or incorrect timing for planting.
+Source: Republic of the Philippines Department of Agriculture and FAO, 2010

@@ -1,0 +1,19 @@
+--- Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; ---
+
+Eng. Proc. 2021, 9, 10 4 of 5 Figure 4. Forage yield of the different treatments that were tested with two maize hybrids during the 2019 growing season. 5. Conclusions The beneﬁts of using circular farming systems and digital technology are numerous.
+
+Implementing circular precision farming approaches may lead to sustainable develop- ment in dairy production, increasing efﬁciency, reducing inputs, and minimizing waste.
+
+More speciﬁcally, these systems enable monitoring of processes in the production stages, facilitating traceability towards producing certiﬁed products. In addition, the use of pre- cision farming can increase the efﬁciency of the resources’ utilization, by appropriately managing the spatial variability of ﬁelds. Furthermore, by supporting farmers in making optimal management decisions, it can increase the use efﬁciency of inputs, leading to their reduction, thus providing a ﬁnancial beneﬁt for the producers. Moreover, the circular characteristics of these systems minimize the production of animal waste and diminishes losses of nutrients and agrochemicals, thus reducing the environmental footprint.
+
+The system presented in this study aims to constitute a dynamic, intelligent decision support system for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result conﬁrms the perspective of using animal waste in circular dairy production systems for increased sustainability.
+
+Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing—original draft preparation, A.C.T., C.D. and M.L.; writing—review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.
+
+Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH–CREATE–INNOVATE (project code: T1EDK-03987) “BioCircular: Biopro- duction System for Circular Precision Farming”.
+
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+
+References 1.
+
+Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy—The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81–83. [CrossRef]

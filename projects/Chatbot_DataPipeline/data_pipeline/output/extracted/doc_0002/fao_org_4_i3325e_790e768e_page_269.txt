@@ -1,0 +1,55 @@
+--- Page 269 ---
+
+256
+CLIMATE-SMART AGRICULTURE SOURCEBOOK
+In a number of contexts, interactions with other sectors, themselves affected by climate change, are also likely
+to be important. Inland fisheries are particularly sensitive to policies and actions outside the sector. In the
+same vein, many coastal environments are also increasingly subject to changes in freshwater runoff, agricul-
+tural intensification, growth in the industrial and energy sector, expanded urbanization, transport and tourism
+development. For aquaculture, there are similar issues of interaction and tradeoffs with other sectors, particu-
+larly regarding land and water use, aquatic and terrestrially derived feeds, and the negotiation of coastal space.
+Defining and valuing the role and needs of the fisheries and aquaculture sector, raising awareness about the
+sector and negotiating balanced outcomes across sectors are key challenges (see Module 2 on landscape
+approach). There may also be important issues for GHG mitigation, which would be best addressed through
+integrated sectoral approaches.
+
+Understanding and reducing vulnerability
+Vulnerability to climate change in the sector is experienced across a range of productive, social and political
+dimensions and will also depend on timing and locations of changes. For example, climate risks may be felt
+Box 10.6
+Options for culture based fisheries to improve climate resilience
+Culture-based fisheries (CBF) is typically a perennial and seasonal stock enhancement process. It is practiced
+in smaller water bodies that under normal conditions are incapable of supporting a fishery through natural
+recruitment. In CBF, the stocked fish are managed communally with ownership rights. It therefore falls within
+the realm of aquaculture. Recently, the practice has gained momentum due to the increasing demand for fish
+and improvements in seed stock production and availability. CBF has also become a major part of government
+strategies to increase food fish production and improve livelihoods, particularly in impoverished rural communities
+(Amarasinghe and Nguyen, 2009).
+CBF as an environmentally friendly food production system
+In many instances, CBF is seen as a practice with a small environmental footprint and a good example of multiple,
+effective use of water resources (De Silva, 2003).
+CBF does not consume water or external feed resources. The only input is the seed stock. The stocked species
+are selected in such a manner that all food niches are filled and that the natural food production is adequate
+to maintain growth and well-being of the stock. Consequently, the yields are much less than in most intensive
+aquaculture practices. However, CFB is environmentally friendly and the cost input is minimal with no feed related
+GHG contribution. This semi-intensive to extensive form of aquaculture often utilizes communal water bodies. For
+governments in developing countries, the practice is an attractive means for increasing food fish production and
+food security among rural communities.
+The possibilities of the stocked fish mingling with wild counterparts are higher than in normal aquaculture practices.
+For this reason, whenever possible, indigenous fish species are advised for CBF. Also, hatchery bred stocks should
+originate from well managed broodstocks. Ideally, the broodstocks would originate from wild stocks; however,
+some form of risk assessment is always recommended before stocking.
+In China, it is estimated that in 2008 CBF contributed to a catch increase of 120 000 tonnes, with a value of US$ 225
+million. The cost/benefit ratio of resource enhancement is around 1:5. This translates into 1.5 million professional
+fishers increasing their profits by US$ 150 per capita. The large-scale jellyfish release programme carried out in
+China’s Liaoning Province significantly increased the catch of jellyfish. In 2009, the catch volume reached 23 500
+tonnes. As a result, 130 000 fishers increased their profits by nearly US$ 150 per capita (Liu, 2009).
+CBF sensitivity to climate change and adaptation potential
+The stocking and harvesting in CBF is almost entirely dictated by the elements. Stocking is best done when the
+water body is at full supply level, and harvesting takes place when the water level recedes. As a result, the practice
+will be affected by climate change, particularly changes in rainfall patterns. Also, in areas where a large number of
+water bodies are used for CBF, there could be an unexpected glut in the availability of food fish. Consequently, there
+will be a need to put in place strategies to minimize these effects through staggered harvesting and a coordinated
+marketing strategy. If done using an ecosystem perspective, good climate forecasting and proper CBF planning are
+climate-smart strategies. Watershed authorities or lake and reservoir authorities should be aware of CBF practices
+in order to improve water management and ensure the coordinated use of water resources.

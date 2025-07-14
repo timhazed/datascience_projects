@@ -1,0 +1,17 @@
+--- Jamaica -the Risk and Vulnerability Assessment Methodology (RiVAMP) ---
+
+423 MODULE 15: Disaster Risk Reduction: Strengthening Livelihood Resilience management. Risk assessments and mapping, as described above, can be instrumental for achieving this goal. Integrated landscape management requires an understanding of all natural hazards affecting a given landscape combined with an assessment of the potential impact of climate change on agricultural systems.
+
+This blended approach provides the evidence-base to help countries at the national or local level to design holistic CSA policies, strategies and practices (see also Module 13 on policies) that are based on geographic- specific assessments of current disaster risks and future climate change scenarios. For this to happen, it is necessary to develop a harmonized framework that integrates data and analysis of natural hazards with pro- jected climate change scenarios using computer modelling (see also Module 18 on assessments, monitoring and evaluation). This gives planners short-, medium- and long-term perspectives that can help in the design and implementation of appropriate measures along the same timescale. Recent risk assessment approaches that are used in combination with climate change models may shape future practices and bring about innova- tions that are needed to scale up CSA. An example of such an approach can be found in a pilot project from Jamaica, which is illustrated below in Box 15.3.
+
+Box 15.3 Jamaica -the Risk and Vulnerability Assessment Methodology (RiVAMP) Jamaica is exposed to frequent meteorological hazards, particularly hurricanes. As a small island state, it is also highly exposed to rising sea levels, which could worsen the secondary impacts of tropical cyclones along the coast. At the same time, Jamaica’s tourism industry and growing population are putting pressures on its diverse ecosystems and rich biodiversity.
+
+A Risk and Vulnerability Assessment Methodology (RiVAMP) was piloted in Negril on the western coast of Jamaica.
+
+It is an evidence-based assessment tool that assists national and local decision makers in making informed choices that reduce risk and support sustainable development through improved ecosystem management. RiVAMP was designed particularly for land-use and spatial development planners, as well as for key stakeholders in natural resource management and disaster management. It is innovative in that its risk assessment method integrates climate change and environmental considerations, including ecosystem degradation.
+
+The project examined the impacts of tropical cyclones and their secondary effects, particularly storm surges and flooding, as well as the potential impacts of rising sea levels. Environmental features were analysed to determine the extent to which coral reefs and sea grasses serve as a natural protective barrier for shorelines against storm surges and rising sea levels.
+
+RiVAMP used a blend of proven scientific methods, such as risk mapping with the use of the Geographic Information System (GIS), satellite imagery analysis and other remote sensing techniques, statistical analysis and the modelling of buffering effects of coastal ecosystems (coral and sea grass). The science-based analysis was complemented by stakeholder interviews and consultation workshops.
+
+Figure 15.5 Maps of Negril pilot area Flood hazard map 50-year return period exposure for a) population and b) assets

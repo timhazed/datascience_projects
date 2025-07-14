@@ -1,0 +1,7 @@
+--- This module was written by Olivier Dubois (FAO), Alessandro Flammini (FAO), Anne Bogdanski (FAO) and Jona- ---
+
+165 MODULE 5: Sound Management of Energy for CSA 5.4 Conclusions This module has introduced the concept of energy-smart food system and its important role in transitioning to climate-smart agriculture. One of its main conclusions is that the dependence of agrifood systems on fossil fuels represents a major threat to food security and contributes significantly to climate change. The challenge of reducing this dependency can be met by up-scaling of energy-smart food systems which improve energy efficiency, increase the use and production of renewable energy, and broaden access to modern energy ser- vices in agrifood systems. The case studies of the module indicated how different technological solutions and integrated systems in distinct contexts can be both energy- and climate-smart. They presented e.g. low-cost machinery, biofuels, integrated food-energy systems, modern technology and new type of cross-sectoral col- laboration needed for energy-smart food systems. It was emphasized, however, that in addition to synergies between energy-smart food and CSA objectives there are also possible tradeoffs which need to be recognized.
+
+The module ended by stating that the shift to the new approach requires long-term vision and commitment as well as multidisciplinary efforts, but there is no time for delay.
+
+Notes This module was written by Olivier Dubois (FAO), Alessandro Flammini (FAO), Anne Bogdanski (FAO) and Jona- than Reeves (FAO).

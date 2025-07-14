@@ -1,0 +1,48 @@
+--- Regression Model Prediction of Sustainable Agricultural ---
+
+50
+
+Regression Model Prediction of Sustainable Agricultural
+Practices Adoption:
+
+Dependent Variable:
+Table 3: Total Number of Sustainable Agricultural Practices Adopted by
+Individual Farmers in Kentucky
+Number of
+Practices
+Frequency Percent Cumulative
+Percent
+0 (Not
+Adopted)
+150
+65.32
+65.3
+1 to 7
+51
+22.37
+87.7
+8 to 14
+22
+9.39
+97.1
+15 to 21
+5
+2.27
+99.3
+22 to 28
+2
+0.65
+100.0
+Total
+230
+100.0
+
+Number of practices adopted by farmers from 31 commonly
+identified practices, was counted and considered as a
+dependent variable in the regression model. The practices
+listed in the survey are provided in appendix D with its
+descriptions. The table shows that 65.32% of farmers were
+non-adopters and 22.37% and 9.39% of farmers adopted 1-7
+and 8-14 practices respectively. Single farmer had adopted
+at most 28 practices out of 31 identified sustainable
+practices (Table 3).

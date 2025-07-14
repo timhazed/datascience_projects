@@ -1,0 +1,19 @@
+--- I- Greater range of ---
+
+262 CLIMATE-SMART AGRICULTURE SOURCEBOOK System Significance of system Climate disturbance level – example issues (I) and responses (R) Minor* Significant** Major*** Intensive cage systems Widespread globally inland and coastal, mainly fish, intensive fully fed, wide range of systems, species; around 5% output, 0.5 million people, US$ 10 billion I-Temperature, salinity, oxygen level changes, possible algal blooms, pathogen interactions, marginally increased risks R-better stock, feed and disease management, proper (risk based) site selection, some relocations; monitor environmental conditions and early warning systems I- Greater range of ecosystem variability, higher risks; also storm damage, losses.
+
+R- closer monitoring, local/ system-wide early warning; change species/strains, short-cycle production, more relocations I - Wider range of disruptive effects, some areas too risky unless very short-cycle, high value crops; R - possible new areas in lower-risk zones with system wide risk reductions; improved monitoring and early warning systems, IMTA systems Coastal, linking intensive fish cages/ ponds with molluscs and marine plants at range of scales; <0.05% output, 0.01 million people, US$ 0.001 billion I-Temperature, salinity, oxygen level changes, marginally increased risks R-Some adjustments to balance components, timing and outputs, ensure interacting component physically secure, avoid negative environmental feedbacks I- Greater range of ecosystem variability, higher risks; also storm damage, losses.
+
+R-Further adjustments to component mixes, cycle times, more robust physical systems, possible relocations in some areas; also possible scope for expansion as risk-reduction strategy.
+
+I- Increased disruptive effects R-More targeted integrated design and component choice across a range of systems to manage range of risk and ensure resilience. Could be expanded further if these can be better developed.
+
+Recycle aquaculture systems Fresh or salt water, tanks or ponds with substantial water treatment/reuse; mainly hatcheries or high value species; 0.05% output, 0.01 million people, US$ 0.3 billion I-Relatively small risks associated with intake water supplies, power and infrastructure security R- may require system/ operating adjustments.
+
+Some open systems may use more recycle to stabilize water quality and supply.
+
+I-Increased risks related water supply, power and infrastructure R-More open systems may turn into higher water reuse. Higher external variability may require greater system control, backup provision, high recycle rates. Tradeoffs with energy costs likely to become more important.
+
+I- High risks related water supply, power and infrastructure R-Maximum recycle rates to maximize independence from external environment.
+
+External factors such as site, infrastructure security more important, possible relocations to purpose designed systems.

@@ -1,0 +1,574 @@
+[
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 0,
+    "section_title": "A Smart Farming System for Circular Agriculture",
+    "text": "Proceeding Paper A Smart Farming System for Circular Agriculture \u2020 Aristotelis C. Tagarakis 1,* , Christos Dordas 2 , Maria Lampridi 1 , Dimitrios Kateris 1 and Dionysis Bochtis 1"
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 1,
+    "section_title": "A Smart Farming System for Circular Agriculture",
+    "text": "Proceeding Paper A Smart Farming System for Circular Agriculture \u2020 Aristotelis C. Tagarakis 1,* , Christos Dordas 2 , Maria Lampridi 1 , Dimitrios Kateris 1 and Dionysis Bochtis 1Citation: Tagarakis, A.C.; Dordas, C.; Lampridi, M.; Kateris, D.; Bochtis, D. A Smart Farming System for Circular Agriculture. Eng. Proc. 2021, 9, 10. https://doi.org/10.3390/engproc 2021009010 Academic Editors: Charisios Achillas and Dimitios Aidonis Published: 24 November 2021 Publisher\u2019s Note: MDPI stays neutral with regard to jurisdictional claims in published maps and institutional af\ufb01l- iations. Copyright: \u00a9 2021 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https:// creativecommons.org/licenses/by/ 4.0/). 1 Centre for Research and Technology-Hellas (CERTH), Institute for Bio-Economy and Agri-Technology (IBO), 6th km Charilaou-Thermi Rd., GR 57001 Thessaloniki, Greece; m.lampridi@certh.gr (M.L.); d.kateris@certh.gr (D.K.); d.bochtis@certh.gr (D.B.) 2 School of Agriculture, Aristotle University of Thessaloniki, 54124 Thessaloniki, Greece; chdordas@agro.auth.gr * Correspondence: a.tagarakis@certh.gr \u2020 Presented at the 13th EFITA International Conference, online, 25\u201326 May 2021. Abstract: Agricultural activities such as fertilization and other crop management techniques con- tribute to greenhouse gas emissions and pollution; the cost of such activities is considerably high, with nitrogen pollution costing the EU up to 320 billion euros annually. In the present study, an integrated system has been proposed which utilizes smart farming tools and smart processing methodologies following the concept of a circular economy to reduce the impact of agricultural activity on climate change. Circular agriculture and precision farming together with the use of appropriate crop management tools may contribute to better resource use ef\ufb01ciency and sustainable agriculture. Keywords: bioeconomy; circular agriculture; precision farming; smart farming; fertilization; resource use ef\ufb01ciency; sustainability 1. Introduction Climate change is a major threat for the natural environment, and there is an impera- tive need to reduce greenhouse gas emissions. Agriculture contributes for about 10% of the greenhouse gas emissions and up to 95% of the emissions of ammonia in the European Union [1]. In order to reduce greenhouse gas emissions, new management approaches, such as circular agriculture, should be adapted, and new technologies that can minimize inputs for crop production must be developed and utilized. Circular agriculture is a mod- ern agricultural management concept that promotes the reuse of all resources that can be used by the production system itself [2\u20134]. The utilization of such systems directly leads to the minimization of agricultural waste, while their application can reduce nutrient and water losses and emissions such as greenhouse gasses [4]. The latest advances in sensing and communication systems in agriculture have paved the way towards developing and following more ef\ufb01cient management schemes that account for the temporal and spatial variability of \ufb01eld and crop properties for timely and accurate \ufb01eld applications [5]. To be able to take advantage of these advanced sensing and management tools, the development of integrated systems with user-friendly interfaces is a prerequisite. As such, precision farming technologies can be utilized in conjunction with Internet of Things (IoT) sensing systems, in both crop and animal production processes, to feed the integrated system with real-time data [4,6]. In this study, a holistic system for circular agriculture is proposed (BIOCIRCULAR) to be applied at small\u2013medium vertical production dairy farms. Part of the system involves integrated soil fertility management which combines the use of appropriate amounts of organic and inorganic fertilizers together with green manure and good agronomic practices [4,6,7]. Preliminary results of the crop fertilization study for crops grown for feed (Zea mays L.), as part of the crop production sub-system, are also discussed. Eng. Proc. 2021, 9, 10. https://doi.org/10.3390/engproc2021009010 https://www.mdpi.com/journal/engproc"
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 2,
+    "section_title": "2. System Requirements and Design",
+    "text": "to the minimization of agricultural waste, while their application can reduce nutrient and water losses and emissions such as greenhouse gasses [4]. The latest advances in sensing and communication systems in agriculture have paved the way towards developing and following more ef\ufb01cient management schemes that account for the temporal and spatial variability of \ufb01eld and crop properties for timely and accurate \ufb01eld applications [5]. To be able to take advantage of these advanced sensing and management tools, the development of integrated systems with user-friendly interfaces is a prerequisite. As such, precision farming technologies can be utilized in conjunction with Internet of Things (IoT) sensing systems, in both crop and animal production processes, to feed the integrated system with real-time data [4,6]. In this study, a holistic system for circular agriculture is proposed (BIOCIRCULAR) to be applied at small\u2013medium vertical production dairy farms. Part of the system involves integrated soil fertility management which combines the use of appropriate amounts of organic and inorganic fertilizers together with green manure and good agronomic practices [4,6,7]. Preliminary results of the crop fertilization study for crops grown for feed (Zea mays L.), as part of the crop production sub-system, are also discussed. Eng. Proc. 2021, 9, 10. https://doi.org/10.3390/engproc2021009010 https://www.mdpi.com/journal/engproc Eng. Proc. 2021, 9, 10 2 of 5 2. System Requirements and Design The objective of the present study was to develop a precision \ufb01eld management and smart farming tool applied at every stage of the production chain. In order to properly design and develop such a tool, the system and user requirements were initially set. To that end, the procedures of the typical production dairy farms were divided into three main processes and analyzed, de\ufb01ning the inputs and outputs for each process step (Figure 1)."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 3,
+    "section_title": "2. System Requirements and Design",
+    "text": "a prerequisite. As such, precision farming technologies can be utilized in conjunction with Internet of Things (IoT) sensing systems, in both crop and animal production processes, to feed the integrated system with real-time data [4,6]. In this study, a holistic system for circular agriculture is proposed (BIOCIRCULAR) to be applied at small\u2013medium vertical production dairy farms. Part of the system involves integrated soil fertility management which combines the use of appropriate amounts of organic and inorganic fertilizers together with green manure and good agronomic practices [4,6,7]. Preliminary results of the crop fertilization study for crops grown for feed (Zea mays L.), as part of the crop production sub-system, are also discussed. Eng. Proc. 2021, 9, 10. https://doi.org/10.3390/engproc2021009010 https://www.mdpi.com/journal/engproc Eng. Proc. 2021, 9, 10 2 of 5 2. System Requirements and Design The objective of the present study was to develop a precision \ufb01eld management and smart farming tool applied at every stage of the production chain. In order to properly design and develop such a tool, the system and user requirements were initially set. To that end, the procedures of the typical production dairy farms were divided into three main processes and analyzed, de\ufb01ning the inputs and outputs for each process step (Figure 1).Figure 1. Production chain processes of small\u2013medium vertical production dairy farms. The system includes all procedures throughout the production chain and was therefore broken down into the basic sub-systems that are connected and interacting with a central circular precision management information system, which is the heart of the circular farm ecosystem (Figure 2). The sub-systems include: (a) crop production, (b) feed production, (c) animal production, and (d) animal waste management. Within the animal waste sub- system procedures, energy and organic fertilizer production are also included as biproducts to be used by the system itself (circular management). IoT and precision farming systems are involved in each sub-system to monitor and record the parameters needed for informed management. Figure 2. Circular production system."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 4,
+    "section_title": "3. The Platform",
+    "text": "2021, 9, 10 2 of 5 2. System Requirements and Design The objective of the present study was to develop a precision \ufb01eld management and smart farming tool applied at every stage of the production chain. In order to properly design and develop such a tool, the system and user requirements were initially set. To that end, the procedures of the typical production dairy farms were divided into three main processes and analyzed, de\ufb01ning the inputs and outputs for each process step (Figure 1).Figure 1. Production chain processes of small\u2013medium vertical production dairy farms. The system includes all procedures throughout the production chain and was therefore broken down into the basic sub-systems that are connected and interacting with a central circular precision management information system, which is the heart of the circular farm ecosystem (Figure 2). The sub-systems include: (a) crop production, (b) feed production, (c) animal production, and (d) animal waste management. Within the animal waste sub- system procedures, energy and organic fertilizer production are also included as biproducts to be used by the system itself (circular management). IoT and precision farming systems are involved in each sub-system to monitor and record the parameters needed for informed management. Figure 2. Circular production system. Eng. Proc. 2021, 9, 10 3 of 5 3. The Platform The circular production system can receive and process all the information from each subsystem installed at every production level in the farm and provides the results in a simple and manageable form, supporting users to make appropriate decisions (Figure 3). Examples of input data include: (a) for the crop production sub-system\u2014weather and soil moisture data from IoT, satellite and drone images, and crop and soil properties mapping proximal sensor data; (b) for the feed production sub-system\u2014silage moisture and temperature data from IoT; (c) for the animal production sub-system\u2014animal housing environmental conditions (temperature, humidity, CO2 and methane concentrations, etc.) monitored using IoT sensing systems, animal health status (temperature, activity, and behavior) using wireless IoT-enabled collars; (d) for the animal waste treatment sub- system\u2014waste volume, waste water content and temperature, produced volume of biogas (if equipped with biogas production facilities), using IoT systems."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 5,
+    "section_title": "3. The Platform",
+    "text": "management. Within the animal waste sub- system procedures, energy and organic fertilizer production are also included as biproducts to be used by the system itself (circular management). IoT and precision farming systems are involved in each sub-system to monitor and record the parameters needed for informed management. Figure 2. Circular production system. Eng. Proc. 2021, 9, 10 3 of 5 3. The Platform The circular production system can receive and process all the information from each subsystem installed at every production level in the farm and provides the results in a simple and manageable form, supporting users to make appropriate decisions (Figure 3). Examples of input data include: (a) for the crop production sub-system\u2014weather and soil moisture data from IoT, satellite and drone images, and crop and soil properties mapping proximal sensor data; (b) for the feed production sub-system\u2014silage moisture and temperature data from IoT; (c) for the animal production sub-system\u2014animal housing environmental conditions (temperature, humidity, CO2 and methane concentrations, etc.) monitored using IoT sensing systems, animal health status (temperature, activity, and behavior) using wireless IoT-enabled collars; (d) for the animal waste treatment sub- system\u2014waste volume, waste water content and temperature, produced volume of biogas (if equipped with biogas production facilities), using IoT systems.(a) (b) Figure 3. Some of the basic functions of the platform; (a) automated mapping of within-\ufb01eld crop properties and (b) mapping of environmental conditions inside the animal housing facilities. 4. Crop Production Experiments Crop production is the initial production stage in a circular dairy system and consists of the \ufb01rst sub-system in BIOCIRCULAR. Within the scope of the project, \ufb01eld experi- ments were setup to study and develop management practices that may lead to increased production ef\ufb01ciency by minimizing the environmental footprint. In this work, the yield response of maize crop (Zea mays L.), grown for forage, to the application of different types of fertilizer (organic\u2014manure and green manure; chemical fertilizers) was also investigated. Two maize hybrids were included in the study, namely Dekalb6777 and Pioneer1291. Five different fertilization treatments were tested: green manure (organic), manure (organic), conventional fertilizer (synthetic), slow-release fertilizer (synthetic), and control (no fertilizer applied). The results showed that cattle manure can provide the nutrients in an available form that are essential for plant growth, while enhancing soil water-retention properties, leading to increased productivity of maize (Figure 4). Additionally, green manure with common vetch can provide adequate amounts of nitrogen, which is very important for maize. Therefore, ef\ufb01cient management of natural resources together with integrative crop management approaches can reduce inputs in crop production systems."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 6,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "of within-\ufb01eld crop properties and (b) mapping of environmental conditions inside the animal housing facilities. 4. Crop Production Experiments Crop production is the initial production stage in a circular dairy system and consists of the \ufb01rst sub-system in BIOCIRCULAR. Within the scope of the project, \ufb01eld experi- ments were setup to study and develop management practices that may lead to increased production ef\ufb01ciency by minimizing the environmental footprint. In this work, the yield response of maize crop (Zea mays L.), grown for forage, to the application of different types of fertilizer (organic\u2014manure and green manure; chemical fertilizers) was also investigated. Two maize hybrids were included in the study, namely Dekalb6777 and Pioneer1291. Five different fertilization treatments were tested: green manure (organic), manure (organic), conventional fertilizer (synthetic), slow-release fertilizer (synthetic), and control (no fertilizer applied). The results showed that cattle manure can provide the nutrients in an available form that are essential for plant growth, while enhancing soil water-retention properties, leading to increased productivity of maize (Figure 4). Additionally, green manure with common vetch can provide adequate amounts of nitrogen, which is very important for maize. Therefore, ef\ufb01cient management of natural resources together with integrative crop management approaches can reduce inputs in crop production systems. Eng. Proc. 2021, 9, 10 4 of 5 Figure 4. Forage yield of the different treatments that were tested with two maize hybrids during the 2019 growing season. 5. Conclusions The bene\ufb01ts of using circular farming systems and digital technology are numerous."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 7,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "of the project, \ufb01eld experi- ments were setup to study and develop management practices that may lead to increased production ef\ufb01ciency by minimizing the environmental footprint. In this work, the yield response of maize crop (Zea mays L.), grown for forage, to the application of different types of fertilizer (organic\u2014manure and green manure; chemical fertilizers) was also investigated. Two maize hybrids were included in the study, namely Dekalb6777 and Pioneer1291. Five different fertilization treatments were tested: green manure (organic), manure (organic), conventional fertilizer (synthetic), slow-release fertilizer (synthetic), and control (no fertilizer applied). The results showed that cattle manure can provide the nutrients in an available form that are essential for plant growth, while enhancing soil water-retention properties, leading to increased productivity of maize (Figure 4). Additionally, green manure with common vetch can provide adequate amounts of nitrogen, which is very important for maize. Therefore, ef\ufb01cient management of natural resources together with integrative crop management approaches can reduce inputs in crop production systems. Eng. Proc. 2021, 9, 10 4 of 5 Figure 4. Forage yield of the different treatments that were tested with two maize hybrids during the 2019 growing season. 5. Conclusions The bene\ufb01ts of using circular farming systems and digital technology are numerous.Implementing circular precision farming approaches may lead to sustainable develop- ment in dairy production, increasing ef\ufb01ciency, reducing inputs, and minimizing waste."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 8,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "ef\ufb01ciency by minimizing the environmental footprint. In this work, the yield response of maize crop (Zea mays L.), grown for forage, to the application of different types of fertilizer (organic\u2014manure and green manure; chemical fertilizers) was also investigated. Two maize hybrids were included in the study, namely Dekalb6777 and Pioneer1291. Five different fertilization treatments were tested: green manure (organic), manure (organic), conventional fertilizer (synthetic), slow-release fertilizer (synthetic), and control (no fertilizer applied). The results showed that cattle manure can provide the nutrients in an available form that are essential for plant growth, while enhancing soil water-retention properties, leading to increased productivity of maize (Figure 4). Additionally, green manure with common vetch can provide adequate amounts of nitrogen, which is very important for maize. Therefore, ef\ufb01cient management of natural resources together with integrative crop management approaches can reduce inputs in crop production systems. Eng. Proc. 2021, 9, 10 4 of 5 Figure 4. Forage yield of the different treatments that were tested with two maize hybrids during the 2019 growing season. 5. Conclusions The bene\ufb01ts of using circular farming systems and digital technology are numerous.Implementing circular precision farming approaches may lead to sustainable develop- ment in dairy production, increasing ef\ufb01ciency, reducing inputs, and minimizing waste.More speci\ufb01cally, these systems enable monitoring of processes in the production stages, facilitating traceability towards producing certi\ufb01ed products. In addition, the use of pre- cision farming can increase the ef\ufb01ciency of the resources\u2019 utilization, by appropriately managing the spatial variability of \ufb01elds. Furthermore, by supporting farmers in making optimal management decisions, it can increase the use ef\ufb01ciency of inputs, leading to their reduction, thus providing a \ufb01nancial bene\ufb01t for the producers. Moreover, the circular characteristics of these systems minimize the production of animal waste and diminishes losses of nutrients and agrochemicals, thus reducing the environmental footprint."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 9,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "water-retention properties, leading to increased productivity of maize (Figure 4). Additionally, green manure with common vetch can provide adequate amounts of nitrogen, which is very important for maize. Therefore, ef\ufb01cient management of natural resources together with integrative crop management approaches can reduce inputs in crop production systems. Eng. Proc. 2021, 9, 10 4 of 5 Figure 4. Forage yield of the different treatments that were tested with two maize hybrids during the 2019 growing season. 5. Conclusions The bene\ufb01ts of using circular farming systems and digital technology are numerous.Implementing circular precision farming approaches may lead to sustainable develop- ment in dairy production, increasing ef\ufb01ciency, reducing inputs, and minimizing waste.More speci\ufb01cally, these systems enable monitoring of processes in the production stages, facilitating traceability towards producing certi\ufb01ed products. In addition, the use of pre- cision farming can increase the ef\ufb01ciency of the resources\u2019 utilization, by appropriately managing the spatial variability of \ufb01elds. Furthermore, by supporting farmers in making optimal management decisions, it can increase the use ef\ufb01ciency of inputs, leading to their reduction, thus providing a \ufb01nancial bene\ufb01t for the producers. Moreover, the circular characteristics of these systems minimize the production of animal waste and diminishes losses of nutrients and agrochemicals, thus reducing the environmental footprint.The system presented in this study aims to constitute a dynamic, intelligent decision support system for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 10,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "approaches may lead to sustainable develop- ment in dairy production, increasing ef\ufb01ciency, reducing inputs, and minimizing waste.More speci\ufb01cally, these systems enable monitoring of processes in the production stages, facilitating traceability towards producing certi\ufb01ed products. In addition, the use of pre- cision farming can increase the ef\ufb01ciency of the resources\u2019 utilization, by appropriately managing the spatial variability of \ufb01elds. Furthermore, by supporting farmers in making optimal management decisions, it can increase the use ef\ufb01ciency of inputs, leading to their reduction, thus providing a \ufb01nancial bene\ufb01t for the producers. Moreover, the circular characteristics of these systems minimize the production of animal waste and diminishes losses of nutrients and agrochemicals, thus reducing the environmental footprint.The system presented in this study aims to constitute a dynamic, intelligent decision support system for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 11,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "a \ufb01nancial bene\ufb01t for the producers. Moreover, the circular characteristics of these systems minimize the production of animal waste and diminishes losses of nutrients and agrochemicals, thus reducing the environmental footprint.The system presented in this study aims to constitute a dynamic, intelligent decision support system for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 12,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "aims to constitute a dynamic, intelligent decision support system for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 13,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "for circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 14,
+    "section_title": "Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.;",
+    "text": "circular agriculture that combines information from each available source throughout the whole production chain and supports farmers and farm managers in taking informed and timely decisions based on real-time data. Furthermore, the preliminary results from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef]"
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 15,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "from the crop fertilization experiment showed that using cattle manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 16,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "manure as the sole source of fertilizer may lead to increased yields as compared to synthetic fertilizers. This result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 17,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "result con\ufb01rms the perspective of using animal waste in circular dairy production systems for increased sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4.Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:"
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 18,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "sustainability.Author Contributions: Conceptualization, A.C.T. and C.D.; methodology, A.C.T., C.D. and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4.Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:A Circular Economy Framework. Energies 2020, 14, 159. [CrossRef] 5."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 19,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "and M.L.; validation, A.C.T., D.K. and D.B.; formal analysis, A.C.T. and C.D.; investigation, A.C.T., C.D. and M.L.; resources, A.C.T., C.D. and D.B.; data curation, A.C.T. and C.D.; writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4.Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:A Circular Economy Framework. Energies 2020, 14, 159. [CrossRef] 5.Anagnostis, A.; Tagarakis, A.C.; Kateris, D.; Moysiadis, V.; S\u00f8rensen, C.G.; Pearson, S.; Bochtis, D. Orchard mapping with deep learning semantic segmentation. Sensors 2021, 21, 3813. [CrossRef] [PubMed] 6."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 20,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "writing\u2014original draft preparation, A.C.T., C.D. and M.L.; writing\u2014review and editing, A.C.T., D.K. and D.B.; visualization, A.C.T.; supervision, A.C.T., C.D. and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4.Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:A Circular Economy Framework. Energies 2020, 14, 159. [CrossRef] 5.Anagnostis, A.; Tagarakis, A.C.; Kateris, D.; Moysiadis, V.; S\u00f8rensen, C.G.; Pearson, S.; Bochtis, D. Orchard mapping with deep learning semantic segmentation. Sensors 2021, 21, 3813. [CrossRef] [PubMed] 6.Lampridi, M.G.; S\u00f8rensen, C.G.; Bochtis, D. Agricultural Sustainability: A Review of Concepts and Methods. Sustainability 2019, 11, 5120. [CrossRef] 7."
+  },
+  {
+    "title": "A Smart Farming System for Circular Agriculture",
+    "source_url": "https://www.mdpi.com/2673-4591/9/1/10/pdf",
+    "date_published": "2021-11-24",
+    "language": "en",
+    "region_or_country": "Greece",
+    "document_type": "scientific",
+    "sustainability_dimensions": [
+      "environmental",
+      "economic"
+    ],
+    "key_topics": [
+      "agricultural innovation",
+      "sustainable agriculture"
+    ],
+    "contains_harmful_practices": false,
+    "intended_audience": [
+      "researchers"
+    ],
+    "source_name": "mdpi.com",
+    "doc_id": "530fd788-d6b2-5240-afdd-e7aed40973e6",
+    "chunk_id": "530fd788-d6b2-5240-afdd-e7aed40973e6_0",
+    "chunk_index": 21,
+    "section_title": "Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:",
+    "text": "and D.B.; project administration, A.C.T., C.D. and D.B.; funding acquisition, A.C.T., C.D. and D.B. All authors have read and agreed to the published version of the manuscript.Acknowledgments: This research has been supported by the European Union and Greek national funds through the Operational Programme Competitiveness, Entrepreneurship and Innovation, under the call RESEARCH\u2013CREATE\u2013INNOVATE (project code: T1EDK-03987) \u201cBioCircular: Biopro- duction System for Circular Precision Farming\u201d.Con\ufb02icts of Interest: The authors declare no con\ufb02ict of interest.References 1.Eurostat Pocketbooks Agriculture, Forestry and Fishery Statistics; European Union: Luxembourg, 2013; ISBN 9789279330056. 2. von Braun, J. Bioeconomy\u2014The global trend and its implications for sustainability and food security. Glob. Food Sec. 2018, 19, 81\u201383. [CrossRef] Eng. Proc. 2021, 9, 10 5 of 5 3.Kircher, M. Bioeconomy\u2014Present status and future needs of industrial value chains. New Biotechnol. 2021, 60, 96\u2013104. [CrossRef] [PubMed] 4.Rodias, E.; Aivazidou, E.; Achillas, C.; Aidonis, D.; Bochtis, D. Water-Energy-Nutrients Synergies in the Agrifood Sector:A Circular Economy Framework. Energies 2020, 14, 159. [CrossRef] 5.Anagnostis, A.; Tagarakis, A.C.; Kateris, D.; Moysiadis, V.; S\u00f8rensen, C.G.; Pearson, S.; Bochtis, D. Orchard mapping with deep learning semantic segmentation. Sensors 2021, 21, 3813. [CrossRef] [PubMed] 6.Lampridi, M.G.; S\u00f8rensen, C.G.; Bochtis, D. Agricultural Sustainability: A Review of Concepts and Methods. Sustainability 2019, 11, 5120. [CrossRef] 7.Dordas, C.A.; Lithourgidis, A.S.; Matsi, T.; Barbayiannis, N. Application of liquid cattle manure and inorganic fertilizers affect dry matter, nitrogen accumulation, and partitioning in maize. Nutr. Cycl. Agroecosyst. 2007, 80, 283\u2013296. [CrossRef]"
+  }
+]

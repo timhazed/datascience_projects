@@ -1,0 +1,62 @@
+--- ., 2006; Lichtenberg 2004; Singer ---
+
+57
+
+GOODNESS OF FIT
+VALUE
+DF
+VALUE/DF
+
+DEVIANCE
+361.122
+191
+1.891
+
+SCALED DEVIANCE
+361.122
+191
+
+PEARSON CHI-SQUARED
+376.730
+191
+1.972
+
+SCALED PEARSON CHI-
+SQUARED
+376.730
+191
+
+LOG LIKELIHOOD
+-
+404.668
+
+AKAIKE’S INFORMATION
+CRITERION (AIC)
+837.337
+
+FINITE SAMPLE CORRECTED
+AIC (AICC)
+839.547
+
+BAYESIAN INFORMATION
+CRITERION (BIC)
+88.3859
+
+CONSISTENT AIC (CAIC)
+897.859
+
+N
+205
+
+Farmers cultivating row crops (Crops) variable is
+significant (p = 0.000) and has a positive relationship
+with the adoption of SAPs in Kentucky. The change in the
+expected log count of SAPs adoption would be expected to
+increase by 1.067 if farmers have row crops in their farm.
+Several researchers have found that farmers diversify their
+farms by adding high value crops, short season crops and
+cover crops (Lambert et al., 2006; Lichtenberg 2004; Singer
+et al., 2007; Snapp et al., 2005). Cover crops are helpful
+in contributing weed control, reduce use of chemicals, soil
+health, fertility, and improved crop performance thus
+sustaining the production (Teasdale, 2013).

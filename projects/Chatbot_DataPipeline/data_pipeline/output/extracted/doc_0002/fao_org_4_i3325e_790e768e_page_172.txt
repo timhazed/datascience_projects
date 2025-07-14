@@ -1,0 +1,104 @@
+--- Source: Doets et al., 2000 ---
+
+159
+MODULE 5: Sound Management of Energy for CSA
+Table 5.4.
+Total energy inputs per crop per hectare for conventional (regular) agriculture (RA)
+and conservation agriculture (CA) for the complete microcatchment of Lajeado São
+José, Brazil
+Conventional Agriculture
+Conservation Agriculture
+Maize
+Soya
+Beans
+Wheat
+Maize
+Soya
+Beans
+Wheat
+Herbicide input (MJ/ha)
+1514
+1018
+254
+0
+603
+603
+603
+0
+Machinery input (MJ/ha)
+525
+693
+227
+604
+404
+513
+77
+483
+Fuel input (MJ/ha)
+1625
+2167
+1673
+1450
+645
+709
+454
+470
+Human labour input (MJ/ha)
+0
+28
+71
+0
+0
+28
+71
+0
+Total input (MJ/ha)*
+3664
+3906
+2226
+2054
+1653
+1854
+1205
+953
+Total input system (MJ/ha)**
+2962
+1416
+*= sum of energy inputs for herbicide, machinery and fuel
+**= sum of energy inputs per average hectare
+Source: Doets et al., 2000
+A number of technological solutions exist to minimize energy use. These solutions include reducing the rolling
+resistance and slippage of combine harvesters (e.g. improving tractor tires). Energy conservation in greenhous-
+es, animal houses and agricultural buildings is also a major area of intervention. Energy use can be minimized
+through a greater deployment of heat pumps (mostly of mechanical compression type, which are driven by electric
+motors) and heat recovery systems. Both of them can also provide dehumidification services and cooling. Air-to-
+water heat pumps or water-to-water heat pumps, possibly combined with geothermal energy sources can signifi-
+cantly increase energy efficiency in all operations that require heat. Pipe heating, heated floors, infrared heating
+and air heating are all technological options that can also be considered. The proper construction, insulation and
+correct ventilation of buildings and greenhouses are some of the most economic energy-efficient interventions.
+A best and worst assumption of energy intensity per unit of produce can be made for all activities that are part
+of the agrifood chain. These activities are not included under the agricultural sector in the Intergovernmental
+Panel on Climate Change (IPCC) GHG accounting system but instead are under the industrial processes or
+energy sectors. These intensities are presented in Figure 5.8.
+Figure 5.8
+Best and worst assumption of energy intensities in the post-harvest stage of the
+food chain
+0
+20
+40
+60
+80
+100
+120
+140
+160
+MJ/Kg best assumption
+MJ/Kg worst assumption
+Cooking
+Washing up
+Shopping
+Cooling
+Storage
+Processing
+
+Source: FAO, 2011a

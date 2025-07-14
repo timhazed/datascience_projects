@@ -1,0 +1,11 @@
+--- Source: FAO elaboration based on UK DEFRA, 2010. ---
+
+151 MODULE 5: Sound Management of Energy for CSA Efforts to achieve food and energy security in a climate-smart way will be accomplished through low-carbon approaches. This can be done either directly, through the increased use of renewable energy in the agrifood sector, or indirectly, through measures to increase energy efficiency (see Table 5.2). It is worth pointing out that many of these measures, in particular those that are carried out behind the farm gate, involve resource- efficient farming practices that are part and parcel of CSA. Implementing these measures would be a win-win solution from the point of view of both CSA and energy-smart food.
+
+Box 5.2 Examples of the importance of energy-related GHGs beyond the farm gate in high GDP countries As shown in Figure 5.3, the energy component associated with CO2 emission is most relevant in the agrifood chain’s post-harvest operations, and accounts for the bulk of emissions in high-GDP countries.
+
+A recent study from the United Kingdom (UK) has shown that around 52 percent of the emissions occur in the post- farm stages of UK food production (see Figure 5.5). Similar figures can be observed for the United States, where around 54 percent of GHGs are emitted after the farm-gate (see Figure 5.6).
+
+These results are shaped by a number of factors, including the definition of the boundaries of the food system. The inclusion of dishwashing or international food trade could significantly change the overall picture. For example, the net food trade in the UK’s food system is responsible for around 24 percent of total emissions of the food chain, which lowers the relative proportion of emissions attributable to farming to just 32 percent.
+
+Source: FAO elaboration based on UK DEFRA, 2010. 46% 16% 3% 10% 8% 17% 48% 10% 10% 9% 5% 16% Primary production Processing and packaging Transportation Wholesale and retail Food services Households Figure 5.5 GHG emissions along the agri-food chain in the UK Figure 5.6 GHG emissions along the agri-food chain in the US Source: FAO elaboration based on UK DEFRA, 2011 Source: FAO elaboration based on USDA, 2010 and US EPA, 2009

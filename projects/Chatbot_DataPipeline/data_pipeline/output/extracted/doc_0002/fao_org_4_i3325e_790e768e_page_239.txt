@@ -1,0 +1,23 @@
+--- Page 239 ---
+
+226 CLIMATE-SMART AGRICULTURE SOURCEBOOK Improved feed conversion Carbon dioxide emissions associated with feed production, especially soybean, are significant (FAO, 2006a).
+
+Improved feed conversion ratios have already greatly reduced the amount of feed required per unit of animal product. However, there is significant variation between production units and countries. Further progress is expected to be made in this area through improvements in feed management and livestock breeding. Reducing the amount of feed required per unit of output (e.g. beef, milk) has the potential to both reduce GHG emissions and increase farm profits. Feed efficiency can be increased by developing breeds that grow faster, are more hardy, gain weight more quickly, or produce more milk. Feed efficiency can also be increased by improving herd health through better veterinary services, preventive health programmes and improved water quality.
+
+Sourcing low-emission feed Shifting to feed resources with a low-carbon footprint is another way to reduce emissions, especially for con- centrated pig and poultry production systems. Examples of low-emission feeds include feed crops that have been produced through conservation agriculture practices or that have been grown in cropping areas that have not been recently extended into forested land or natural pastures. Crop by-products and co-products from the agrifood industry are also examples of low-emission feeds.
+
+Improving energy use efficiency Landless systems generally rely on greater amounts of fossil fuel energy than mixed and grazing systems (Gerber et al., 2011: FAO, 2009b). Improving energy use efficiency is an effective way to reduce production costs and lower emissions. Dairy farms are seen as having great potential for energy use efficiency gains. Energy is used for the milking process, cooling and storing milk, heating water, lighting and ventilation. Cooling milk generally accounts for most of the electrical energy consumption on a dairy farm in developed countries. Cows are milked at temperatures around 35 to 37.5 degrees Celsius. To maintain high milk quality, which includes keeping bacteria counts low, the raw milk temperature needs to be lowered quickly to 3 to 4 degrees Celsius.
+
+Refrigeration systems are usually energy-intensive. Heat exchangers cooled by well water, variable-speed drives on the milk pump, refrigeration heat recovery units and scroll compressors are all energy conservation technologies that can reduce the energy consumed in the cooling system. These technologies can reduce GHG emissions, especially in countries where the energy sector is emission intensive.
+
+Box 8.2 Spatial planning and recovery of nutrient and energy from animal manure - insights from Thailand Experience from Thailand shows that improving the spatial distribution of livestock production is a cost-effective way of fostering better manure management practices. Policy makers need to pay increased attention to the spatial distribution of livestock production as it creates the right economic conditions for the recycling of manure as an input to other production activities. Of particular importance are policy instruments that ensure that animal densities are such that manure can be recycled within a reasonable distance from its production. This would reduce animal concentrations in areas, such as peri-urban neighbourhoods, with low nutrient absorption capacity.
+
+Better distribution of livestock production increases farm profits and at the same time reduces emissions. However, relying solely on regional planning does not lead to acceptable levels of emission reductions, except in specific cases.
+
+Better distribution of livestock should be considered a basic, low-cost measure, which should be combined with the development and enforcement of regulations and communication activities.
+
+The adoption of bio-digestion can increase farm profits by 10 to 20 percent and help reduce the environmental impact of livestock production.
+
+A cost-efficient reduction of pollution from intensive waste production requires a combination of better spatial distribution of livestock production and pollution control measures.
+
+Source: more information can be found at FAO, 2010b

@@ -1,0 +1,86 @@
+--- Manure Distribution as Fertilizer ---
+
+49
+
+74
+71
+70
+65
+51
+45
+43
+41
+34
+33
+0
+20
+40
+60
+80
+Manure Distribution as Fertilizer
+Reduced Chemical Pesticide Use
+Controlled Grazing
+Reduced Chemical Fertilizer Use
+Cover Cropping Or Green Manuring
+Crop Rotation
+Farm Machinery Adjustment for Erosion Control
+Sprayer Calibration and Spraying Accuracy
+Improved Water Management
+Animal For Land Reclamation
+Sustainable Agriculture Practices
+Figure 2: Ten most adopted sustainable agricultural practices among Kentucky farmers
+17
+17
+16
+12
+12
+9
+7
+6
+5
+4
+0
+5
+10
+15
+20
+Crop and Livestock Production System Integration
+Multi-species Grazing
+Biological Pest Control
+Precision Agriculture and Computer Use
+Mulching
+Poly Culture Farming
+Reforestration
+Ridge Till
+Fallow Management
+Alley Cropping
+Number of Farmers
+Sustainabe Agriculture Practices
+Figure 3: Ten Least Adopted Sustainable Agricultural Practices by Kentucky Farmers
+74
+71
+70
+65
+51
+45
+43
+41
+34
+33
+0
+20
+40
+60
+80
+Manure Distribution as Fertilizer
+Reduced Chemical Pesticide Use
+Controlled Grazing
+Reduced Chemical Fertilizer Use
+Cover Cropping Or Green Manuring
+Crop Rotation
+Farm Machinery Adjustment for Erosion Control
+Sprayer Calibration and Spraying Accuracy
+Improved Water Management
+Animal For Land Reclamation
+Number of Farmers
+Sustainable Agriculture Practices

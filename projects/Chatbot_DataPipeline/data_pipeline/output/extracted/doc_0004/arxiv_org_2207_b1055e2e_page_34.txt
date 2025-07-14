@@ -1,0 +1,28 @@
+--- Data Processing, Quality Monitoring and Preparation for ---
+
+29
+
+(42.20%) of farmers responded the survey by phone whereas
+133 (57.80%) of farmers responded the mailed survey.
+
+Data Processing, Quality Monitoring and Preparation for
+Analysis:
+
+Mailed and Telephone survey were recorded in a hard
+copy format and cases were numbered from 1001 to 2000 to
+organize the data. The survey was transformed into
+Microsoft Office 2013 using the numbering of the cases in
+the copy and were extracted to Microsoft Excel using SAS7 in
+NASS/USDA data lab in Louisville.
+Surveys were randomly cross verified by USDA/NASS
+staff by cross checking information, and also tallied
+individual cases to detect any unusual response. The
+demographics and farm attributes were further cross-checked
+with respective information of Kentucky from US Ag Census
+2012 And found that the statistical parameters of survey
+data (demographic attributes) are close to that of the Ag
+Census data.
+
+7 SAS is a statistical software developed by SAS Institute for
+Advanced Analytics, Multivariate Analysis, Business Intelligence, Data
+Management, and Predictive Analysis.

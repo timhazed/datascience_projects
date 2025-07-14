@@ -1,0 +1,115 @@
+--- Appendix F: Negative Binomial Regression Model Detail: ---
+
+87
+
+Appendix F: Negative Binomial Regression Model Detail:
+Table 15: Model I: NB Regression Model with Income and with Outliers in
+Land Operated.
+VARIABLES
+Β
+STD.
+ERROR
+WALD CHI-
+SQUARE
+SIG.
+EXP.
+(Β)
+CONSTANT
+-0.234
+0.9142
+0.066
+0.798
+0.791
+CROPS***
+1.069
+0.2444
+19.140
+0.000
+2.913
+VEGGIES*
+0.517
+0.2839
+3.315
+0.069
+1.677
+LIVESTOCK
+0.320
+0.3362
+0.908
+0.341
+1.378
+TBP
+0.180
+0.2158
+0.699
+0.403
+1.198
+DIVERSE***
+0.759
+0.2096
+13.113
+0.000
+2.136
+INADEQUATE KNOWLEDGE
+-0.240
+0.2699
+0.792
+0.373
+0.786
+IRRIGATION**
+0.946
+0.4232
+4.997
+0.025
+2.575
+WORK OFF FARM
+0.066
+0.2640
+0.063
+0.802
+1.069
+SOLE PROPRIETORSHIP
+-0.038
+0.2690
+0.020
+0.888
+0.963
+AGRO-TOURISM INCOME**
+1.110
+0.5093
+4.748
+0.029
+3.034
+LAND OPERATED
+0.000
+0.0003
+0.410
+0.522
+1.000
+AGE*
+-0.022
+0.0117
+3.667
+0.056
+0.978
+EDUCATION LEVEL***
+0.291
+0.0842
+11.960
+0.000
+1.338
+INCOME FROM FARMING
+0.053
+0.1034
+0.259
+0.611
+1.054
+***
+99% Confidence Interval (0.001 Significance
+Level)
+**
+95% Confidence Interval (0.05 Significance
+Level)
+*
+90% Confidence Interval (0.1 Significance
+Level)

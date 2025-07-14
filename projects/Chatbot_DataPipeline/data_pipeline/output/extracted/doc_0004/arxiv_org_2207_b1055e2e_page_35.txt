@@ -1,0 +1,27 @@
+--- Data analysis was conducted in IBM SPSS ---
+
+30
+
+Data analysis was conducted in IBM SPSS8 24.0 using 230
+cases out of 1,000 surveys. The variable “Land Operated”
+had 100% response therefore was used as a benchmark to
+select 230 cases for further analysis. Farmers who reported
+the “Land Operated” variable have also reported majority of
+the questions in the survey.
+
+Post-Strata Weighting:
+Post stratification is a common technique in survey
+for incorporating population distribution of variables into
+survey estimates. The basic technique divides samples into
+post-strata and computes post-stratification weight Wih =
+rPh/rh for each sample case in the post-stratum h, where rh
+is the number of survey respondents in the post stratum h,
+Ph is the population from a census, and r is the respondent
+sample size (Little, 2012). The proportional weight is used
+for this study which is provided in a simplified form below
+(Eq. 1).
+
+8 IBM SPSS 24.0 is the latest version of Statistical Package for
+the Social Science (SPSS) software developed by International Business
+Machines Corporation (IBM) used frequently by social science researchers
+and diverse institutions in data analysis.

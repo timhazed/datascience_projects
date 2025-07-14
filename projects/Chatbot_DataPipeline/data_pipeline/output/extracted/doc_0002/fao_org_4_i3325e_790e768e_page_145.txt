@@ -1,0 +1,13 @@
+--- Productivity and Adaptation ---
+
+132 CLIMATE-SMART AGRICULTURE SOURCEBOOK Annex A.4.1 Soil management for sustained crop productivity and climate change adaptation and mitigation Conventional practices Practices to enhance Productivity and Adaptation Practices to enhance mitigation Soil tillage for annual crops:
+
+Hoeing or ploughing improves the seedbed and uproots weeds. However, it disturbs microbes, destroys soil drainage created by soil fauna (e.g. earthworms), speeds decomposition of organic matter and releases CO2. It may develop a compacted layer or hardpan which impedes plant root growth and rainwater percolation.
+
+Conservation agriculture systems are practiced on around 125 million hectares of land worldwide. It involves three principles: • Minimizing soil disturbance (no-tillage) through digging sticks or jab planter to plant seeds or mechanized direct drill systems (mechanized systems have been developed to drill the seed through a vegetative layer and may use herbicides to manage weeds). • Keeping the soil covered with a protective layer of mulch or crop residues which reduces weed growth, reduces moisture loss, keeps the soil cooler, reduces erosion by water and wind and restores soil carbon (C) through decomposition. • Rotating and diversifying crops to reduce crop pests and diseases and use leguminous species to replenish soil nutrients.
+
+In Paraná, Brazil, no-till plots are reported to yield a third more wheat and soybean than conventionally ploughed plots and reduce erosion by up to 90% (Altieri et al., 2011).
+
+The sequestration potential after adoption of improved management practices follows a sigmoid curve: it attains a maximum level of sequestration rates in 5 - 20 years (Cole et al., 1993; Nyborg et al., 1995; Solberg et al., 1997; Campbell, 1998; Dormaar and Carefoot, 1998; Duiker and Lal, 2000; Six et al., 2002; Lal, 2004) and continues at decreasing rates until SOC stocks reach a new equilibrium in 20 - 30 years (IPCC, 2007). Emissions reductions are smaller but a perpetual benefit is achieved.
+
+Conservation agriculture practices reduce fossil fuel emissions from tractor use, although there may be slight negative GHG impacts from application of additional chemical herbicides for weed control instead of weed control by tillage.

@@ -1,0 +1,68 @@
+--- MODULE 5: Sound Management of Energy for CSA ---
+
+145
+MODULE 5: Sound Management of Energy for CSA
+1.improve energy efficiency (measured in food output, preferably measured in nutritional units, per unit
+energy input) at all stages of the agrifood chain;
+2.use diverse energy sources with an emphasis on renewable energy and contribute to renewable energy
+production through integrated food and renewable energy production; and
+3.require improved access to modern energy services.
+
+Bioenergy has a special role to play in relation to food security. Although biomass is often used in unsustain-
+able ways, it is found almost everywhere and is currently, and for the foreseeable future, the most important
+source of renewable energy. It is used primarily for cooking and heating. In addition, agrifood systems not only
+use bioenergy, they also produce it. One instance is in integrated food-energy systems. However, putting bio-
+energy to use in an appropriate manner is more complex than with other types of renewable energy. If it is not
+well managed, bioenergy development may jeopardize food security and harm the environment. This is further
+discussed in Box 5.3.
+5.2 Energy-smart food in the CSA context
+The energy sector, which produces nearly 60 percent of carbon dioxide (CO2) emissions, is the largest contribu-
+tor to climate change (FAO, 2011a). The agrifood sector contributes over 20 percent of total GHG emissions,
+most of which originates from methane and nitrous oxide (see Figure 5.3). Globally, primary farm and fishery
+production3 accounts for around 20 percent of the total energy demand for food, but produces 67 percent of the
+GHGs (FAO, 2011 a).
+Figure 5.3
+Shares of GHG emissions along the food supply chain with breakdown by energy
+consumption (by phase) and GHG emissions (by phase and by gas).
+Low-GDP countries
+High-GDP countries
+Global
+0%
+10%
+20%
+30%
+40%
+50%
+60%
+70%
+80%
+90%
+100%
+~95
+EJ/year
+~50
+EJ/year
+~45
+EJ/year
+~9.7
+Gt CO2eq/year
+~3.3
+Gt CO2eq/year
+~6.4
+Gt CO2eq/year
+Carbon dioxide
+Cropping
+production
+Methane CH
+Livestock
+production
+Nitrous Oxide N
+Fisheries
+production
+Processing
+and distribution
+Retail, preparation
+and cooking
+
+Source: FAO, 2011a
+3 Primary production here includes cropping, pastoral and intensive livestock, aquaculture and fishing.

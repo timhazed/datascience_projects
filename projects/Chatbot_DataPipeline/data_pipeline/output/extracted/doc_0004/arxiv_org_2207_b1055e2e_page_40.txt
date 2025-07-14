@@ -1,0 +1,30 @@
+--- Page 40 ---
+
+35
+
+over-dispersion is present in the model, 1 in equi-
+dispersion and below 1 if under-dispersion making the
+resulting model equivalent to Passion distribution (Coxe et
+al., 2009). This is also called as Quasi-Poisson methods
+(Avei et al., 2015). The dispersion in the model is
+determined by the Pearson chi-square (χ2) goodness-of-fit
+statistics (Eq. 4):
+𝜙=
+χ2Pearson
+df
+.
+
+Eq. 4.
+(Coxe et al., 2009, p.131).
+The over-dispersed model allows conditional variance
+to be larger than their corresponding means making standard
+error larger than standard error of Poisson model by a
+factor of √𝜙 and the interpretation of the coefficient is
+ideal to standard Poisson model. The deviance for the model
+is adjusted by the scaling factor and the deviance for the
+over-dispersed Poisson model is equal to the deviance of
+standard Poisson model divided by ϕ. The smaller deviance
+of the model indicates a better fit (Coxe et al., 2009).
+Negative Binomial model is a popular choice and
+suggested as an alternative of the Poisson regression for
+the over-dispersed data (Berk & MacDonald, 2008; Coxe et

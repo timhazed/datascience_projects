@@ -1,0 +1,47 @@
+--- Page 124 ---
+
+111
+MODULE 4: Soils and their management for CSA
+A soil’s productivity depends on its physical, chemical and biological properties. Of particular importance are
+its mineral composition, organic matter content, soil life and associated biological activity. Sandy soils are
+the least productive as they do not have the capacity (unlike clay soils and silty soils) to retain moisture and
+nutrients through chemical attraction (electrical charge). However, sandy soils can be managed productively
+even in hot, dry climates if there is access to required water, organic materials and fertilizers to nourish plant
+growth.
+4.2 Challenges of climate change to soils
+With global warming, rainfall levels are expected to decline in many places, and/or to occur in more intense
+events, and evaporation and transpiration rates are projected to increase. These changes will reduce the avail-
+ability of soil moisture for plant growth. The higher temperatures will also increase the rate of SOM decompo-
+sition (mineralization), especially near the soil surface, which will affect the soil’s potential capacity to seques-
+ter carbon and retain water. In the scientific literature, there is common consensus that the effect of higher
+concentrations of carbon dioxide (CO2) in the atmosphere and increases in temperature on photosynthesis and
+net primary production, and hence on carbon fixation in the biomass, will not be sufficient to counterbalance
+the GHG emissions due to the mineralization of SOM.
+In cropping, grazing and forest systems, in particular, climate change and variability may affect soil health for
+plant growth through:
+• reduced or erratic rainfall and more frequent and severe periods of drought that lower the capacity of soils
+to make water and nutrients available to plants;
+• more intense rainfall and storms that increase the risk of soil erosion by water and wind (through rain
+splash, accelerated runoff, strong winds); and
+• increased soil surface temperatures and greater rates of mineralization of SOM.
+Some soil properties, such as soil texture2, cannot be changed. Others can be modified and enhanced to enable
+land users to adapt to climate change and mitigate the effects of global warming by increasing the soil’s capac-
+ity to store water, supply nutrients to plants, sequester carbon and reduce GHG emissions.
+• The soil properties and functions that are most important with regard to climate change are: soil struc-
+ture3 and texture, organic matter content, nutrients, soil organisms, pH and cation exchange capacity.
+These properties allow soils to fulfil their productive functions, especially their capacity to retain water.
+Soil texture is the relative share of the different sizes of mineral particles (sand, silt and clay). It influences
+the soil’s capacity to retain water and its ability to retain and exchange nutrients. Soil structure is the ar-
+rangement of those particles into aggregates and the soil pores between them. Soil porosity depends on
+both soil structure and texture and is very important for soil permeability. Unlike texture, soil structure can
+be modified by tillage or traffic.
+
+Different soil types and textures have different degrees of water permeability and provide different levels
+of protection or bonding for SOM (Six et al., 2002). Sandy soils are highly permeable due to larger sand
+grains and pore spaces. Consequently, they have low water retention capacity and offer limited protection
+to organic matter compared to soils with a higher proportion of silts and clays, which attract and retain
+water and nutrients.
+
+2 Soil texture indicates the relative content of particles of various sizes, such as sand, silt and clay in the soil.
+3 Soil structure is defined by the way individual particles of sand, silt, and clay are assembled. When single particles assemble they are
+called aggregates. Aggregation of soil particles can occur in different patterns, resulting in different soil structures.

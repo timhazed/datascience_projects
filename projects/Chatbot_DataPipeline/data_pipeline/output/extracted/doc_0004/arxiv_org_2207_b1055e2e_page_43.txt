@@ -1,0 +1,32 @@
+--- Page 43 ---
+
+38
+
+measure the effect of predictors in the number of times the
+event occurs. The second interpretation can be obtained by
+algebraic manipulation i.e. raising power e in both side of
+equation 6, which becomes
+𝑒ln(µ̂) = 𝑒𝑏𝑜+ 𝑏1𝑋1+ 𝑏2𝑋2 +⋯ + 𝑏𝑛𝑋𝑛
+
+Eq. 7.
+A property of e and the natural log is that the 𝑒ln(𝑥) = 𝑥,
+which gives
+µ̂ = 𝑒(𝑏𝑜+ 𝑏1𝑋1+ 𝑏2𝑋2 +⋯ + 𝑏𝑛𝑋𝑛)
+
+Eq. 8.
+A property of exponents is that 𝑥𝑎+𝑏+𝑐= 𝑥𝑎𝑥𝑏𝑥𝑐 which separates
+above equation into small parts, resulting into an equivalent
+equation:
+µ̂ = 𝑒𝑏𝑜𝑒𝑏1𝑥1𝑒𝑏2𝑥2 … 𝑒𝑏𝑛𝑥𝑛
+
+Eq. 9.
+Or,
+
+𝑒𝑏1(𝑋1+ 1) = 𝑒𝑏1𝑋1+ 𝑏1 = 𝑒𝑏1𝑋1𝑒𝑏1
+
+Eq. 10.
+The 𝑒𝑏1 term in the equation 9 is the effect of a 1-
+unit change in X1 on the outcome. For 1-unit increase in X1,
+the predicted count (µ̂) is multiplied by 𝑒𝑏1, holding all
+other variables constant in the model (Coxe et al., 2009,
+p.124).

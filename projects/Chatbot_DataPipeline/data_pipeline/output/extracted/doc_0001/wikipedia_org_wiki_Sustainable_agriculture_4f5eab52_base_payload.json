@@ -1,0 +1,24 @@
+{
+  "title": "Sustainable Agriculture",
+  "source_url": "https://en.wikipedia.org/wiki/Sustainable_agriculture",
+  "date_published": "2019-01-01",
+  "language": "en",
+  "region_or_country": "global",
+  "document_type": "scientific",
+  "sustainability_dimensions": [
+    "environmental",
+    "economic",
+    "social"
+  ],
+  "key_topics": [
+    "sustainable agriculture",
+    "agroforestry",
+    "climate change mitigation"
+  ],
+  "contains_harmful_practices": false,
+  "intended_audience": [
+    "researchers"
+  ],
+  "source_name": "en.wikipedia.org",
+  "doc_id": "14402076-1252-5702-804c-3b460d929238"
+}

@@ -1,0 +1,22 @@
+--- 2. System Requirements and Design ---
+
+Eng. Proc. 2021, 9, 10
+2 of 5
+2. System Requirements and Design
+The objective of the present study was to develop a precision ﬁeld management and
+smart farming tool applied at every stage of the production chain. In order to properly
+design and develop such a tool, the system and user requirements were initially set. To that
+end, the procedures of the typical production dairy farms were divided into three main
+processes and analyzed, deﬁning the inputs and outputs for each process step (Figure 1).
+
+Figure 1. Production chain processes of small–medium vertical production dairy farms.
+The system includes all procedures throughout the production chain and was therefore
+broken down into the basic sub-systems that are connected and interacting with a central
+circular precision management information system, which is the heart of the circular farm
+ecosystem (Figure 2). The sub-systems include: (a) crop production, (b) feed production,
+(c) animal production, and (d) animal waste management. Within the animal waste sub-
+system procedures, energy and organic fertilizer production are also included as biproducts
+to be used by the system itself (circular management). IoT and precision farming systems
+are involved in each sub-system to monitor and record the parameters needed for informed
+management.
+Figure 2. Circular production system.

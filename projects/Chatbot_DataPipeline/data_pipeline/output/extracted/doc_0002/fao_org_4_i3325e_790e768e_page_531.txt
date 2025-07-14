@@ -1,0 +1,19 @@
+--- Outcome mapping, developed by Canada’s International Development Research Center in a research con- ---
+
+518 CLIMATE-SMART AGRICULTURE SOURCEBOOK The paragraphs below largely refer to outcomes and impacts. As they tend to be specific to climate change and agriculture, outcomes and impacts are pertinent to evaluation. On the other hand, outputs and activities to be monitored (e.g. capacity development, organizational change, infrastructure and policy support) will be highly intervention-specific and will fall within more regular planning and monitoring guidance.
+
+Developing the basic intervention design Much has been written about different kinds of project and programme frameworks (e.g. logical frame- work and results frameworks) as key tools for planning and setting monitoring and evaluation indicators.
+
+These frameworks do not need to be treated in detail here (see e.g. IFAD Monitoring and Evaluation Guide at IFAD, 2002). What needs be noted is that logical frameworks are very intervention-specific and cannot be prescriptive. There is no single model for a logical framework that can work for the very large range of CSA interventions, many of which will be nested within broader programmes and projects (FAO, 2012b provides some guidance).
+
+Project and programme frameworks are useful in delineating the expected outputs and outcomes that result from stakeholder participation. Indicators are more easily developed and organized around such a frame- work.
+
+A different organizing framework is the Driving forces - Pressure - State - Impact - Response (DPSIR) framework, which has been extensively applied in the environmental management context. This framework captures a causal chain from the causes of an environmental issue (the driving forces), to its effect (impact) and required responses. Monitoring indicators are then identified in relation to the different elements of the causal chain.
+
+It is important to distinguish between objectives that are oriented towards processes and those that are oriented toward objectives. Even though an understanding of underlying processes is critical for CSA inter- ventions, these processes are often neglected as they are less easy to measure. Implementing CSA cannot be done in a strictly linear way from interventions to results. With rapid changes in the environment and also to continuously address capacity for adaptation (at both the institutional and household level) it is crucial to also measure changes in processes and participation (Villanueva, 2010). For example, understanding why behavioural changes are taking place or not (Villanueva, 2010) is a process that is worthy of monitoring and evaluation. In this area, it is possible to draw on work from the broader agricultural development field (see for example FAO, 2012d) and other disciplines.
+
+Outcome mapping, developed by Canada’s International Development Research Center in a research con- text, has been adopted by a range of programmes for fostering institutional change. It is particularly helpful in delineating the expected outcomes among the different engaged project partners and stakeholders. Out- come mapping is suited for monitoring institutional changes, capturing changes in capacity and the result- ing delivery of services.
+
+An important complement to climate change analysis is the decision-making input from standard ex-ante project investment economic and financial analysis (EFA), which examines the returns to costs at the farm and project level. EFA complements tools such as EX-ACT. It assesses the feasibility of reaching objectives and indicator targets for a range of possible interventions and their required resources and costs. This analysis helps ensure expectations remain realistic.
+
+Please refer to Annex 18.1 for a list of methods and tools for monitoring and evaluation.

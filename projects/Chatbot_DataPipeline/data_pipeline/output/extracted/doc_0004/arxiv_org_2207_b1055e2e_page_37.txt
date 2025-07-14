@@ -1,0 +1,25 @@
+--- Identify Predictors of SAPs Adoption using Farm ---
+
+32
+
+Objective II: Identify Predictors of SAPs Adoption using Farm
+Attributes, Farmers’ Attitudes and Behaviors, Socioeconomic,
+and Demographic Factors and Knowledge:
+Focus group and previous study-based sustainable
+practices were listed in survey questionnaire giving option
+for farmers to choose whether they have adopted sustainable
+agricultural practices—planning to adopt or not applicable—
+or not adopted in their farm in designated year. Total
+number of sustainable practices adopted by respondents was
+considered as the dependent variable in the regression
+which is a count variable. The dependent variable was
+computed by counting number of sustainable agricultural
+practices marked as “adopted”, among listed practices, by
+each of the respondents.
+
+Model Specification: Poisson Distribution and Poisson
+Regression Model:
+Poisson regression is a Generalized Liner Model
+(GLiM), based on the Poisson distribution representing the
+distribution of error, which provides accurate results for
+the data set having non-negative count integer dependent

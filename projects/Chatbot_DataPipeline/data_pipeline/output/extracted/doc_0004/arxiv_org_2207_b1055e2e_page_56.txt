@@ -1,0 +1,19 @@
+--- Kentucky farmers. Ten categorical variables—Crops, ---
+
+51
+
+Explanatory Variables:
+
+The adoption of SAPs has been governed by various
+factors. Socioeconomic, demographic, farm attributes and
+other related variables were used to predict the relation
+with adoption of sustainable agricultural practices among
+Kentucky farmers. Ten categorical variables—Crops,
+Vegetables, Livestock, Tobacco Buyout Program, Diverse,
+Inadequate Knowledge, Irrigation, Off Farm Work, Solo
+Proprietorship, Income from Agri-tourism—and four
+continuous variables—Land Operated, Age, Education Level,
+Income from Farming—were used in the analysis. The
+description of variables is in Table 4. Descriptive
+statistics of the variables are presented in the Appendix
+C, Table 13.

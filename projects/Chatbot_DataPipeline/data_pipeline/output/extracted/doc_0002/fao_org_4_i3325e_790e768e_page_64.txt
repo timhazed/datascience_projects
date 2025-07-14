@@ -1,0 +1,61 @@
+--- causes GHG emissions. Emissions ---
+
+51
+MODULE 2: Managing landscapes for Climate-smart agricultural systems
+2.2 How can a landscape approach be implemented?
+Setting the stage for a landscape approach
+In the area of land use-planning and environment policy, there is widespread acceptance that integrating deci-
+sions across all land-use sectors (i.e. agriculture, forestry, aquaculture and their supporting ecosystem ser-
+vices) is crucial for sustainable development (Geerlinsg and Steed, 2003). This is why the landscape approach
+is recommended for implementing CSA. Combining the efforts from different land-use sectors, all of which
+are affected by climate change, will lead to greater progress towards reaching sustainable development goals.
+This will require a shift from single-objective production systems to the management of the entire landscape to
+meet CSA’s multiple objectives. An integrated approach is particularly important as resources are limited and
+the demand for goods and services are high. CSA requires cross-sectoral planning and management to make
+the most efficient use of valuable natural resources.
+Box 2.4
+Peatlands as climate change mitigation hotspots – towards wiser management
+© Marcel Silvius, Wetlands International
+Rising the water levels on drained peatlands by blocking ditches can be done with
+low-cost techniques and local materials. Dam in a channel in Mentangai, Indonesia
+Peatlands are ecosystems where
+GHG emissions can often be reduced
+in a cost-effective manner. Peatlands
+or organic soils have a substantial
+layer of organic matter near the
+surface. Unlike mineral soils, most
+pristine peatlands are wet during
+most of the year. Peatlands, which
+are found in almost every country in
+the world, contain 30 percent of the
+world’s soil carbon but cover only
+three percent of the global land area
+(Joosten, 2009; see also Victoria et
+al., 2012). Draining a part of a peat
+dome or excessive extraction of
+irrigation water lowers the water
+table in the entire peatland area and
+causes GHG emissions. Emissions
+from drained peatlands and fires in drained peatlands are responsible for almost one-quarter of carbon emissions
+from the land-use sector (Joosten, 2009; Victoria et al., 2012). Over the last few decades, there has been a rapid growth
+in emissions from peatlands as they have been drained for forestry, food crops and cash crops, such as for palm oil and
+other plantations. The cultivation of peatlands has in many cases lead to their serious degradation, subsidence, and
+finally abandonment (e.g. Ukraine and South-East Asia). Abandoning peatlands significantly increases the risk of fires.
+To reduce GHG emissions from peatlands it is essential to determine their status: whether they are pristine, drained,
+abandoned or in productive use. There are three main approaches for reducing emissions from peatlands:
+• The undrained peatlands should be conserved to prevent emissions.
+• The drained peatlands should be rewetted through blocking canals and grids.
+• When there is pressure to drain peatlands for agriculture or forestry, the first step is to increase the productivity on
+the existing farmland. Secondly the land managers should target the conversion of mineral soils to agricultural land
+instead of organic soils. If the peatlands cannot be rewetted their management should be adapted to reduce emissions.
+
+Rewetted peatlands can provide income and other benefits to people through agriculture, forestry and cultivation under
+wet conditions, a practice known as paludiculture. Paludiculture can be carried out wherever there are marketable
+plants and animals living in wet conditions. It can be used to produce biomass for bioenergy, feed for livestock, fibre,
+building materials (e.g. for construction) and food, such as berries. In South-East Asia natural rubber is collected from
+Jelutung paludicultures. Local communities are earning up to half of their income from raising fish in the blocked grids
+alongside the rubber production (FAO and Wetlands International, 2012). Paludicultures represent the only sustainable
+mode of agricultural production on peatlands. There are however, technical and socio-economic constraints that can
+prevent drained peatlands from being rewetted. In such cases, the negative environmental and socio-economic impacts
+of utilization should be restricted, for example, by choosing crops that are adapted to high soil moisture; minimizing
+drainage as much as possible to reduce peat oxidation and land degradation; and limiting the use of fertilizers.

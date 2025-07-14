@@ -1,0 +1,48 @@
+--- Indicators should, wherever possible, be Simple, Measurable, Attributable, Reliable  and Time bound ---
+
+519
+MODULE 18: Assessment, monitoring and evaluation
+Developing indicators
+To measure project progress and achievements, it is necessary to identify suitable indicators and clarify
+related baselines, targets and means of verification for each of the results at different levels. This forms the
+core part of the project’s monitoring and evaluation framework. Indicators are extensively treated in moni-
+toring and evaluation guides. Highlighted below are some key aspects of indicators in relation to climate
+change (See also Brooks et al., 2011 and 2013).
+Characteristics of indicators
+Indicators should, wherever possible, be Simple, Measurable, Attributable, Reliable  and Time bound
+(SMART). The somewhat expanded set of SMART criteria presented below provides a useful guide for iden-
+tifying appropriate indicators (modified from CIDA, cited in GIZ, 2011a):
+Box 18.6
+The GreenChoice monitoring and evaluation framework
+Conservation South Africa has a monitoring and evaluation tool that farmers in commercial and small-scale sectors
+under the GreenChoice platform use on their farms to input information on the best practices the y are implementing
+based on the Farmer Field Book and Reference for Well- managed Farms. The Well-managed Farm Guide is used
+as a tool for developing sector-specific guidelines for best practices, such as potato industry guidelines, mohair best
+practice guidelines and biodiversity conservation. The field book is then used to track the implementation of the
+guidelines. Specific indicators used for monitoring and evaluation that are relevant to CSA are:
+• yield relative to inputs (improvement in kilograms);
+• the number of farmers and farm workers whose livelihoods are improved;
+• land use efficiency (reduction in land use in hectares);
+• biodiversity protected (increase in hectares);
+• alien plant removal (number of hectares where alien species are removed to five percent density);
+• soil health, soil organic matter and nutrient balance (improvement in hectares);
+• water quality (improvements in kilotonnes);
+• toxic chemical use (reduction in kilograms); and
+• GHG footprint (reduction of atmospheric GHG emissions in tonnes).
+
+More information can be found at Conservation South Africa, 2013
+Box 18.7
+PepsiCo UK and Ireland: 50 in 5
+To increase its productivity in a sustainable manner, PepsiCo has increased its focus on sustainable agriculture.
+PepsiCo is aiming to reduce its carbon dioxide emissions and the amount of water it uses by 50 percent in 5 years
+(50 in 5).
+PepsiCo, in partnership with Cambridge University and the University of Aberdeen, has developed farming innovations
+such as i-crop and the Cool Farm Tool to meet this target. I-crop is a web-based crop management system that
+allows producers to monitor and manage their agricultural crops for maximum yield and quality. The system enables
+growers to track crop inputs and outputs and allows them to accurately calculate water use and CO2 emissions.
+With the Cool Farm Tool, a carbon calculator, PepsiCo has measured the carbon footprint of different products and
+has analysed ways of reducing its impact upon the climate. In 2007, PepsiCo discovered, while working with the
+Carbon Trust, that 34 percent of its CO2 emissions was generated during the production stage of agricultural crops,
+such as potatoes, oats and apples. PepsiCo, in close cooperation with farmers in the United Kingdom and with the
+support of the Cool Farm Tool, started reducing CO2 emissions and decreasing water use.
+For more information see PepsiCo, 2012

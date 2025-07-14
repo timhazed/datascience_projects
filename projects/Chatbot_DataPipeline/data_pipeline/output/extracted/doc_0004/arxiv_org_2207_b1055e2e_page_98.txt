@@ -1,0 +1,116 @@
+--- Table 17: Model III ---
+
+93
+
+Table 17: Model III11: NB Regression Model without Income and Without
+Outliers in Land Operated.
+VARIABLES
+Β
+STD.
+ERROR
+WALD CHI-
+SQUARE
+SIG.
+EXP.
+(Β)
+CONSTANT
+-0.305
+0.9138
+0.111
+0.739
+0.737
+CROPS***
+1.067
+0.2388
+19.967
+0.000
+2.907
+VEGGIES**
+0.555
+0.2816
+3.892
+0.049
+1.743
+LIVESTOCK
+0.363
+0.3386
+1.147
+0.284
+1.437
+TBP
+0.181
+0.2152
+0.705
+0.401
+1.198
+DIVERSE***
+0.778
+0.2100
+13.730
+0.000
+2.178
+INADEQUATE KNOWLEDGE
+-0.254
+0.2706
+0.882
+0.348
+0.776
+IRRIGATION**
+0.948
+0.4261
+4.954
+0.026
+2.582
+WORK OFF FARM
+0.109
+0.2632
+0.172
+0.679
+1.115
+SOLE PROPRIETORSHIP
+-0.070
+0.2717
+0.067
+0.796
+0.932
+AGRO-TOURISM INCOME*
+0.927
+0.5187
+3.193
+0.074
+2.526
+LAND OPERATED*
+0.001
+0.0004
+3.620
+0.057
+1.001
+AGE*
+-0.022
+0.0118
+3.611
+0.057
+0.978
+EDUCATION LEVEL***
+0.305
+0.0822
+13.771
+0.000
+1.357
+INCOME FROM FARMING
+-0.305
+0.9138
+0.111
+0.739
+0.737
+***
+99% Confidence Interval (0.001 Significance
+Level)
+**
+95% Confidence Interval (0.05 Significance
+Level)
+*
+90% Confidence Interval (0.1 Significance
+Level)
+
+11 Reference Model.

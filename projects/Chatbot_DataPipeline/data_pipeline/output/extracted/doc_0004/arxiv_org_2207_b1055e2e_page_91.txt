@@ -1,0 +1,37 @@
+--- Poly Culture Farming ---
+
+86
+
+Poly Culture Farming
+9
+47
+3
+79
+139
+Reforestation
+7
+50
+1
+92
+150
+Ridge Till
+6
+59
+0
+75
+139
+Fallow Management
+5
+60
+0
+75
+141
+Alley Cropping
+4
+57
+2
+76
+139
+Notes: Yes = Adopted; No = Not Adopted; Planning = Planning to
+adopt in near future; N/A = Not Applicable for the farmer and
+Total = Yes + No + Planning + N/A

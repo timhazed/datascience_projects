@@ -1,0 +1,59 @@
+--- Page 132 ---
+
+119
+MODULE 4: Soils and their management for CSA
+Nitrogenous fertilizers are the most widely used fertilizers and deliver huge benefits in terms of productivity,
+especially in nutrient-depleted soils. However, these fertilizers also have a high potential for environmental
+damage in terms of GHG emissions and nitrate pollution:
+• Through the activity of soil micro-organisms, organically-bound nitrogen in soil is mineralized as ammonia
+(NH3) and ammonium ions (NH4-) and then transformed (nitrified) into nitrates (Jiang and Bakken, 1999).
+Nitrate ions are not attracted to clay and SOM particles (both of which are negatively charged) so they
+move freely with the soil water and can be leached from the soil through drainage.
+• In addition, in oxygen-limited soils, denitrifying organisms will reduce nitrate to nitrous oxide, a GHG with
+about 300 times the warming effect of CO2.
+• Finally, cultivation (ploughing and hoeing) disturbs the soil and the formation of new aggregates, which
+encourages microbial activity and the rapid mineralization of SOM.
+Between 79 and 98 percent of the nitrogen loss from agricultural soils is largely determined by the nitrate con-
+tent of the soil just before the rainy season starts (i.e. resulting from the mineralization of organic nitrogen in
+the post-harvest season when temperatures are high, not from unused fertilizer applied earlier in the year). It
+is estimated that fertilized soils release more than 2 billion tonnes (in terms of CO2 equivalents) of GHGs every
+year (Scherr and Sthapit, 2009b).
+These GHG emissions can be reduced by achieving greater efficiencies in fuel use for mechanical field opera-
+tions and irrigation; making changes in the rates, timing and type of nitrogen fertilizer applications; using slow
+release fertilizers that control the formation of nitrates; and adding nitrification inhibitors containing ammo-
+nium to fertilizer. These practices will help synchronize the demand and supply of nitrogen.
+Agronomic management can also control the biological processes that cause nitrate leaching and produce
+GHG emissions. Cropping patterns should provide enough structural carbohydrates (e.g. lignin) along with
+nitrogen to allow the nitrogen produced from decaying surface residues to be released slowly and contribute
+to the growth of the following crop while minimizing losses (Huggins et al., 1998; Gregorich et al., 2001; Gál et
+al., 2007).
+There is common consensus that zero tillage and conservation agricul-
+ture systems will considerably reduce nitrate leaching (Macdonald et al.,
+1989). This is because, unlike mechanical tilling practices, zero tillage
+and conservation agriculture leave the soil undisturbed, which decreas-
+es mineralization and the subsequent production of nitrates. Cover crops
+take up the nitrogen and reduce its loss from the soil. At the same time,
+unused mineralized nitrogen remains distributed within smaller pores
+and is not washed out of the soil (Bergström, 1995; Davies et al., 1996;
+Gors et al., 1993). However, where no-till is used without cover crops and
+with herbicides to manage weeds, the effects on nitrogen uptake and
+reduced leaching, as well as on yields, may be less evident.
+
+The positive effects of the above principles will be optimized and losses minimized by integrating soil-crop-
+water management practices, identifying the spatial variability within the given land area and fields, and using
+precision-farming techniques to apply fertilizer and water in ways that are highly efficient and site-specific.
+Below, Boxes 4.3 and 4.4 illustrate those principles.
+Box 4.2
+Inorganic fertilizers
+Current
+use
+of
+inorganic
+fertilizers is estimated at 102
+million
+tonnes
+worldwide.
+Its use is concentrated in
+industrial countries and some
+irrigated areas of developing
+countries.

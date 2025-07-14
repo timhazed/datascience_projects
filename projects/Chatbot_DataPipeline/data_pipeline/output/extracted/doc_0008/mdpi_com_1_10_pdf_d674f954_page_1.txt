@@ -1,0 +1,83 @@
+--- A Smart Farming System for Circular Agriculture ---
+
+Proceeding Paper
+A Smart Farming System for Circular Agriculture †
+Aristotelis C. Tagarakis 1,*
+, Christos Dordas 2
+, Maria Lampridi 1
+, Dimitrios Kateris 1
+and Dionysis Bochtis 1
+
+Citation: Tagarakis, A.C.; Dordas, C.;
+Lampridi, M.; Kateris, D.; Bochtis, D.
+A Smart Farming System for Circular
+Agriculture. Eng. Proc. 2021, 9, 10.
+https://doi.org/10.3390/engproc
+2021009010
+Academic Editors: Charisios Achillas
+and Dimitios Aidonis
+Published: 24 November 2021
+Publisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in
+published maps and institutional afﬁl-
+iations.
+Copyright: © 2021 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed
+under
+the
+terms
+and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+1
+Centre for Research and Technology-Hellas (CERTH), Institute for Bio-Economy and Agri-Technology (IBO),
+6th km Charilaou-Thermi Rd., GR 57001 Thessaloniki, Greece; m.lampridi@certh.gr (M.L.);
+d.kateris@certh.gr (D.K.); d.bochtis@certh.gr (D.B.)
+2
+School of Agriculture, Aristotle University of Thessaloniki, 54124 Thessaloniki, Greece;
+chdordas@agro.auth.gr
+*
+Correspondence: a.tagarakis@certh.gr
+†
+Presented at the 13th EFITA International Conference, online, 25–26 May 2021.
+Abstract: Agricultural activities such as fertilization and other crop management techniques con-
+tribute to greenhouse gas emissions and pollution; the cost of such activities is considerably high,
+with nitrogen pollution costing the EU up to 320 billion euros annually. In the present study, an
+integrated system has been proposed which utilizes smart farming tools and smart processing
+methodologies following the concept of a circular economy to reduce the impact of agricultural
+activity on climate change. Circular agriculture and precision farming together with the use of
+appropriate crop management tools may contribute to better resource use efﬁciency and sustainable
+agriculture.
+Keywords: bioeconomy; circular agriculture; precision farming; smart farming; fertilization; resource
+use efﬁciency; sustainability
+1. Introduction
+Climate change is a major threat for the natural environment, and there is an impera-
+tive need to reduce greenhouse gas emissions. Agriculture contributes for about 10% of
+the greenhouse gas emissions and up to 95% of the emissions of ammonia in the European
+Union [1]. In order to reduce greenhouse gas emissions, new management approaches,
+such as circular agriculture, should be adapted, and new technologies that can minimize
+inputs for crop production must be developed and utilized. Circular agriculture is a mod-
+ern agricultural management concept that promotes the reuse of all resources that can be
+used by the production system itself [2–4]. The utilization of such systems directly leads
+to the minimization of agricultural waste, while their application can reduce nutrient and
+water losses and emissions such as greenhouse gasses [4].
+The latest advances in sensing and communication systems in agriculture have paved
+the way towards developing and following more efﬁcient management schemes that
+account for the temporal and spatial variability of ﬁeld and crop properties for timely and
+accurate ﬁeld applications [5]. To be able to take advantage of these advanced sensing and
+management tools, the development of integrated systems with user-friendly interfaces is
+a prerequisite. As such, precision farming technologies can be utilized in conjunction with
+Internet of Things (IoT) sensing systems, in both crop and animal production processes, to
+feed the integrated system with real-time data [4,6].
+In this study, a holistic system for circular agriculture is proposed (BIOCIRCULAR) to
+be applied at small–medium vertical production dairy farms. Part of the system involves
+integrated soil fertility management which combines the use of appropriate amounts
+of organic and inorganic fertilizers together with green manure and good agronomic
+practices [4,6,7]. Preliminary results of the crop fertilization study for crops grown for feed
+(Zea mays L.), as part of the crop production sub-system, are also discussed.
+Eng. Proc. 2021, 9, 10. https://doi.org/10.3390/engproc2021009010
+https://www.mdpi.com/journal/engproc

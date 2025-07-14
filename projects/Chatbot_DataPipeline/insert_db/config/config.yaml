@@ -1,0 +1,8 @@
+env_path:  "~/src/python/.env_mini"
+
+# Qdrant settings
+qdrant:
+    qdrant_url: "https://935dd1d0-107a-4005-b592-148d800c200d.us-east-1-0.aws.cloud.qdrant.io"
+    embedding_model: 'BAAI/bge-large-zh-v1.5'
+    embedding_dimension: 1024  # BAAI/bge-large-zh-v1.5 embedding dimension
+    batch_size: 200

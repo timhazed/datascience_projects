@@ -1,0 +1,15 @@
+beautifulsoup4>=4.11.0
+urllib3
+pyyaml
+nltk
+requests
+openai
+groq
+python-dotenv
+PyMuPDF
+jsonschema
+tenacity
+playwright>=1.30.0
+arxiv
+validators
+tiktoken>=0.5.1

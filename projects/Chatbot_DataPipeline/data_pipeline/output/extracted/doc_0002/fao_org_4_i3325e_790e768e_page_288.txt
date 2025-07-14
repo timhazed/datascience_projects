@@ -1,0 +1,56 @@
+--- Manila Clam 0.57 ---
+
+275
+MODULE 10: Climate-smart fisheries and aquaculture
+Carbon footprint and
+energy use Carbon
+input (ton/ha)
+Carbon output /
+harvest (tonne/ha)
+Carbon balance
+(tonne/ha)
+Energy use (KW*H)
+Seeding 0.18
+Feeds 0.70
+Shrimp & fish 0.35
+Manila Clam 0.57
+-0.04
+900 - 1200
+
+Carbon content of fresh Manila clam: 4 percent (Lu et al., 2005); carbon content in shrimp feed: 10 percent; carbon content in shrimp
+and fish: 6.8 percent. Energy use according to Shao, 2007. 2005.dile lowing.3.
+Ecosystem services
+Manila clam filter feeds on phytoplankton and organic detritus. Rabbit fish feed on macroalgae. Because of these feeding
+habits the system acts as a carbon sink of 0.04 t/ha. The average electricity use of the farm is about 1 200 kilowatt
+hour (kWh). This is equal to about 0.2 tonnes of carbon. Electricity use is much lower than in normal semi-intensive
+monoculture of shrimp. There are nearly no organic pollutants and nutrients discharged. To make this IMTA system carbon
+neutral, the shrimp stocking intensity could be reduced in favour of increased stocks of bivalve shellfish and integrated with
+macroalgae culture. However, current levels of shrimp stocking are determined by the profits that can be earned, which is
+the strongest factor for determining the composition of farming systems.
+The system employed 0.5 -1 person per ha during routine farm management. But more than 20 persons per ha are
+employed during the calm harvest. These figures only take into account direct employment. Indirect employment can be
+an order of higher magnitude.
+Species
+Yield (t/ha)
+Price(US$/kg)
+Annual value (103US$/ha)
+Marsupenaeus japonicus
+1.8
+12.7 - 16
+26
+Penaeus monodon
+2.2
+4.4 - 8.0
+14
+Ruditapes philippinarum
+14.2
+1.0 - 1.2
+13.5
+Siganus fuscescens
+1.1
+2.5 - 4.0
+3.5
+Sum
+19.3
+-
+≈57

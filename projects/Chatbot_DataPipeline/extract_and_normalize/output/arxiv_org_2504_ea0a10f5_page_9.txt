@@ -1,0 +1,38 @@
+--- Page 9 ---
+
+Figure 1: Nature Communication Figure 2: Water Scarcity Distribution In Global Croplands
+The table that shows the water scarcity in agricultural production that is analyzed in the
+text, makes it possible to understand the different effects of the water scarcity on the crop
+production. In this context, it's crucial to understand the definitions of the water scarcity types
+presented: GWS, BWS, and AEWS are the three types of intelligent systems (Ingrao et al.,
+2023). To start with, the GWS stands for the shortage of water in the soil that hinders the crop
+growth (Rosa et al., 2020). It mainly takes place because of the lack of precipitation which
+causes the soil to be dry and thus, the crops do not grow well especially during the critical
+growth stages. After that, Blue Water Scarcity (BWS) scarcity is the condition of a deficit of
+surface and groundwater resources, which are the basic needs for irrigation and other agricultural
+purposes (Liu et al., 2017). It usually comes from the overuse of water resources, pollution, and
+climate change that reduces the amount of water for farming. Furthermore, the Agricultural
+Economic Water Scarcity(AEWS) is a term that depicts the economic consequences of water
+scarcity on the agricultural areas (Chiarelli et al., 2022). It covers the elements that are related to
+the price of water, the possibility of water-saving technologies, and the economic feasibility of
+the agricultural methods in the water-scarce conditions. Every kind of water scarcity has its own
+specific effects on agricultural productivity, which are based on the combination of
+environmental and economic factors. AEWS is mainly the result of economic water scarcity, but
+BWS and GWS may have environmental factors as their cause such as climate variability and
+land management practices. The knowledge of these differences is necessary for the planning of
+the unique strategies to solve the water scarcity problems and to increase the agricultural
+resilience.
+
+The data clearly shows that AEWS is the most influencing factor on the croplands during
+the periods of prolonged scarcity (>1 month), affecting 86% of regions. This means that
+economic issues connected to water shortage are the main reason for the drop in crop production.
+AEWS is the representation of the economic limitations and problems of the agricultural regions
+which are the difficulties they face in getting and using the water resources properly. Thus, the
+information suggests that economic water scarcity, which is denoted by AEWS, is the most
+significant factor in crop production compared to other types of water scarcity, such as GWS and
+BWS.
+The water scarcity response technologies are the ones that will be the main focus of the study on
+the influence of water scarcity on crop yield and quality. The analysis of the data can give the
+information on the effectiveness of these technologies in reducing the bad effects of water
+scarcity on crop production. For instance, if areas that are facing economic water scarcity have
+high levels of AEWS, and after they have adopted the water scarcity response technologies like

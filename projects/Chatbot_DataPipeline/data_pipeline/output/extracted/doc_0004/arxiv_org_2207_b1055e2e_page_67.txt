@@ -1,0 +1,25 @@
+--- Negative Binomial Regression Models with Outliers in the ---
+
+62
+
+greater odds, of adoption behavior among Midwest small
+scale floriculture farmers but size alone cannot predict
+the adoption.
+
+Negative Binomial Regression Models with Outliers in the
+Variable Land Operated and the Variable Income:
+The negative binomial regression with log link
+function was run with other three combinations of the
+models and variables: 1) with the annual income from
+farming (income) and with outliers—farmers having above
+3,000 acres of operated land—in the variable land operated,
+2) without income and with outliers in the land operated
+and 3) with income and without outliers in the land
+operated. The variables whose level of significance has
+changed in those models are discussed in this section in
+the order models are presented in the beginning of this
+paragraph. The summary and model details are provided in
+Appendix F.
+The variable “Veggies” became non-significant at 95%
+CI but significant at 90% CI in all other models. In the
+third model it came close to 95% CI with (p = 0.056).

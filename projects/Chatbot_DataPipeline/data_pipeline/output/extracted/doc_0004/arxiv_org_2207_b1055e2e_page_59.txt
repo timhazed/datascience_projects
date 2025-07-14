@@ -1,0 +1,25 @@
+--- Two continuous variables Land Operated (Acres) and Age ---
+
+54
+
+Two continuous variables Land Operated (Acres) and Age
+of farmers were used in the model. “Education Level” and
+“Income” (from farming) were categorical variables used as
+covariates in the model. The variable “Education Level” has
+six categories—below high school, high school degree, some
+college degree, college degree, and graduate or
+professional degree. The lowest education level, below high
+school, was coded as 1 the graduate or professional degree
+as 5. The variable “Income from Farming” also has six
+categories—below $10,000, $10,000 to $49,999, $50,000 to
+$99,999, $100,000 to $249,999, $250,000 to $500,000 and
+more than $500,000. Smallest category is coded is 1 and
+largest as 6.
+The regression model analyzed 205 cases out of 230
+respondents. Ten cases with more than 3,000 acres of land
+operated were removed from the model considering them as
+potential outliers in the variable. The status of
+respondents, though, has been described based on 230 cases
+earlier, the descriptive statistics of 205 cases used in
+the model is also included in the appendix section along
+with the results of all four models Appendix F.

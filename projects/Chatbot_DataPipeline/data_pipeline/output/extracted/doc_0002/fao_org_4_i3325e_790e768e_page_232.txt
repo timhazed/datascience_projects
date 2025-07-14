@@ -1,0 +1,92 @@
+--- Page 232 ---
+
+219
+MODULE 8: Climate-smart Livestock
+close engagement with climate variability. Helping decision makers understand and deal with current levels of
+climate variability can provide one entry point to the problems posed by increasing variability in the future and
+the options that may be needed to build resilience. However, there are still problems to be addressed concern-
+ing the uncertainty of climate projections and projected impacts and how this uncertainty can be appropriately
+treated when determining response options (Wilby et al., 2009).
+Longer-term approaches to adaptation are often described in terms of ‘climate-proofing development’. These
+approaches can involve system changes (e.g. a change in the set of commodities produced or the shift from
+extensive to mixed systems) or the adoption of new technology that is currently unavailable. There may be
+long lag times between the identification of a problem and the development of readily available and appropri-
+ate technology. Research carried out today needs to be appropriate to the environment 20-30 years from now.
+This has implications for how research is targeted as well as for the design, testing and implementation of the
+research. One approach may involve searching for homologues of projected future climate conditions in areas
+where similar conditions exist now and where breeding and selection can be carried out (Burke et al., 2009).
+Main strategies
+This section summarizes the main CSA strategies for dominant livestock production systems: land-based
+systems, mixed systems and landless systems.
+Land-based systems
+While there are several climate-smart options available for land-based grazing systems, their applicability to
+low-input systems with infrequent human intervention tends to be quite limited. The main mitigation options
+for land-based grazing systems are reductions in enteric CH4 emissions and CO2 removals through soil carbon
+sequestration. Manure management mitigation options are much more limited in land-based systems.
+The climate-smart options discussed below fall into three categories: those with clear mitigation and adap-
+tation synergies; ‘mitigation only’ options; and ‘adaptation only’ options. Options for which there are risks of
+tradeoffs between mitigation, food security and adaptation have also been identified. Climate-smart options
+deemed suitable for land-based systems, along with their capacities to satisfy multiple climate-smart objec-
+tives, are listed in Table 8.2.
+Table 8.2
+Summary of CSA practices and technologies for land-based systems
+Practices and
+technologies
+Impact on
+food security
+Effectiveness:
+adaptation
+Effectiveness:
+mitigation
+Main constraints to adoption
+Grazing management
++/-
++
+++
+technical: especially in extensive systems
+Pasture management
++
+
+++
+technical and economic in extensive systems
+Animal breeding
++
+++
+++
+technical, economic, institutional: especially in developing countries
+Animal and herd management
++
+++
++
+technical, institutional: especially in developing countries
+Animal disease and health
+++
+++
+ +
+technical, institutional: especially in developing countries
+Supplementary feeding
++
++
+ ++
+easy to implement, but costly
+Vaccines against rumen archaea
+ ++
+
++
+not immediately available, may have low acceptability in some countries
+Warning systems
+++
++
+
+technical, institutional: especially in developing countries
+Weather-indexed insurance
+
++
+
+technical, economic, institutional: especially in developing countries
+Agroforestry practices
+++
+++
+ ++
+technical and economic
+Mitigation/adaptation potential: + = low; ++ = medium

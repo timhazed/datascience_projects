@@ -1,0 +1,27 @@
+--- Interpreting the Model and Coefficients: ---
+
+37
+
+be obtained by maximizing the log likelihood (Avei et al.,
+2015, p.2).
+Poisson regression is a GLiM with Poisson distribution
+error structure and the natural log (ln) link function. The
+predicted score in the Poisson regression is not itself a
+count, but the natural logarithm of the count. Hence,
+Poisson regression is “Linear in the Logarithm”. Indeed,
+all form of GLiM has same property—there is a form of the
+regression equation that is linear (Coxe et al., 2009).
+The Poisson regression model can be depicted as
+ln(µ̂) = 𝑏𝑜+ 𝑏1𝑋1 + 𝑏2𝑋2 + … + 𝑏𝑛𝑋𝑛+ 𝜀
+
+Eq. 6.
+where, µ̂ is the predicted count on the outcome variable, bo
+is the intercept of the regression model and b1, b2, …, bn
+are coefficient of respective predictors X1, X2, …, Xn and 𝜀
+is an error term (Coxe et al., 2009, p.123).
+
+Interpreting the Model and Coefficients:
+One interpretation of the regression coefficient is in
+terms of 𝑙𝑛(µ̂) i.e. a 1-unit increase in the X1 results in a
+b1 unit increase in the 𝑙𝑛(µ̂), provided other variables are
+constant in the model. But, researchers would like to

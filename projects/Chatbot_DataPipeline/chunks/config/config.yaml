@@ -1,0 +1,18 @@
+
+# Number of words for a given embedding model
+chunk_size: 1024
+
+# Overlap percentage for the chunker
+overlap_percentage: 20
+
+# Chunking technique to use
+chunker_technique: "overlap"
+
+# Minimum chunk size in words
+min_chunk_size: 100
+
+# Maximum lookahead for the chunker
+max_lookahead: 4
+
+# Minimum words to include in a chunk
+min_words_to_include: 15

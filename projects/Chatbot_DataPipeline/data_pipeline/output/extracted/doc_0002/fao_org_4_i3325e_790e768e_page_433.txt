@@ -1,0 +1,138 @@
+--- ures (Federal Democratic Republic of Nepal ---
+
+420
+CLIMATE-SMART AGRICULTURE SOURCEBOOK
+safe location or flood-resistant infrastructure, will only provide a partial solution unless it safeguards against
+earthquakes in areas that are also prone to seismic activity. Risk assessments and mapping provide an effec-
+tive tool for spatial planning and for supporting sound decision making. Figure 15.2 below shows an example
+of the comprehensive multi-hazard risk assessment framework used in Nepal to guide risk reduction meas-
+ures (Federal Democratic Republic of Nepal et al., 2011). The framework included a hazard assessment of
+earthquakes, floods, droughts, landslides and other hazards at the national level. The assessment was based
+on historical information, with maps indicating the spatial distribution of hazards in the country, and was fol-
+lowed by an analysis of exposure, vulnerability and risk for various physical, social and infrastructural assets,
+including agriculture.
+Figure 15.2
+Nepal risk assessment and mapping framework
+Administrative boundaries
+Infrastructure
+• Housing
+• Health
+• Education
+• Transportation
+• Irrigation
+• Fisheries
+• Power and Telecom
+• Tourism
+• Trade and Financial
+Earthquake
+exposure on
+Housing, Education,
+Hospital, Irrigation,
+Infrastructure,
+Industry, Power,
+Tourism and Trade
+sectors
+Earthquake
+vulnerability on
+Housing, Education,
+Hospital, Irrigation,
+Infrastructure,
+Industry, Power,
+Tourism and Trade
+sectors
+Production,
+Physical,
+Infrastructure,
+Social and Human
+Resources &
+Environmental
+Sectors
+Economic
+Analysis of
+Losses
+
+Detailed economic
+analysis through
+loss probability
+modeling
+Reccomendations
+for DRR Strategy
+
+Sectoral DRR
+strategy in close
+consultation with
+national agencies
+Flood exposure
+on Agriculture,
+Transportation,
+Housing, Fisheries,
+Education,
+Hospital, Tourism,
+Industry, Irrigation
+and Trade sectors
+Flood vulnerability
+of Agriculture,
+Transportation,
+Housing, Fisheries,
+Education,
+Hospital, Tourism,
+Industry, Irrigation
+and Trade sectors
+Drought exposure
+on Agriculture,
+Irrigation sectors
+Drought
+vulnerability
+assessment
+on Agriculture,
+Irrigation sectors
+Landslide exposure
+on Transportation
+sectors
+Landslide
+vulnerability
+assessment of
+Transportation
+sectors
+Health Hazards
+exposure on Healt
+and Social System
+Epidemic
+vulnerability of
+Health and Social
+System
+Socio Economics
+• Housing
+• Health
+• Education
+• Demographic Data
+• Economics
+Disaster Events
+• MOHA Disaster Catalog
+• Departments Disaster Database
+• DesInventar
+• EM-DAT
+Hazard Related
+• Geology
+• PGA
+• Extreme Discharge
+• Precipitation
+• Landslide Inventory
+Baseline
+data
+Hazard
+assessment
+Hazard
+exposure
+Risk
+assessment
+Vulnerability
+assessment
+Earthquake
+Flood
+Drought
+Landslide
+Epidemics
+Gap Assessment
+
+Source: Adapted from Federal Democratic Republic of Nepal et al., 2011

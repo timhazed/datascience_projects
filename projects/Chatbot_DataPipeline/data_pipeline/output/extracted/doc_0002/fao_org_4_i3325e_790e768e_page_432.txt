@@ -1,0 +1,56 @@
+--- MODULE 15: Disaster Risk Reduction: Strengthening Livelihood Resilience ---
+
+419
+MODULE 15: Disaster Risk Reduction: Strengthening Livelihood Resilience
+there is growing probability of ‘simultaneous crises’ where different hazards occur at the same time, ‘sequen-
+tial crisis’ where hazards trigger cascading disasters in a range of interlocked systems, and ‘synchronous
+failures’ where different risks converge and interact (FAO, 2008a). The challenge is to ensure food security in
+the face of multiple hazards and climate change.
+Mapping multiple risk scenarios for sustainable planning
+Understanding risk is a vital part of policy formulation, planning and decision making. The assessment of
+threats to agriculture or ‘agricultural risks’ is a necessary first step in designing effective risk reduction meas-
+ures for food security. Hazard, vulnerability and risk assessments or mapping are some of the practical tools
+that have been developed and applied in many countries as the basis for planning appropriate DRR policies and
+practices. Increasingly, they have been used in sustainable land-use planning and development investments.
+Given that effective strategies can only be achieved by understanding the risks already facing farmers, these
+tools can also support planning for climate change adaptation and CSA.
+Hazard maps delineate the geographic areas exposed to a specific type of hazard, such as floods, earthquakes,
+drought or tsunamis. Typically, they indicate the likelihood or probability of occurrence, frequency and potential
+severity or magnitude. Hazard maps are based on historical data and knowledge of past events. Vulnerability
+mapping identifies the elements exposed to hazards that may be adversely affected, such as populations, prop-
+erty, agricultural areas, livelihoods, services, health facilities, etc. Vulnerability assessments may also include
+social or economic dimensions, including livelihoods. Risk is determined through the combined analysis of
+potential hazards and existing conditions of vulnerability. Hazard and risk maps can be developed at different
+spatial scales to display the risk distribution across geographical areas. They can be site-specific, encompass
+municipal or provincial administrative areas and other subnational landscapes, such as river basins, or they
+can be national and even regional in scope.
+Figure 15.1
+Risk Assessment and Mapping
+Hazards
+Vulnerability
+Risk
+Used to inform:
+• DRR-specific plans
+• Adaptation-specific plans
+• CSA strategies
+• Land-use or territorial
+planning
+• Development
+investments
+• Post-disaster recovery
+planning
+Photo Credits:
+Hazards - Republic of Nicaragua, Direccion de Hidrologia Superficial
+Vulnerability - ©FAO, Thomas Hofer
+Risk - ©FAO, Truls Brekke
+
+Methodologies and tools used in hazard and risk assessment and mapping vary considerably, but some of the
+most advanced follow an all-hazards, all-risks approach. Effective planning always needs to consider every
+spatially relevant hazard and not limit the focus to only one hazard or threat. Mapping multiple-risk sce-
+narios at different spatial scales is the key to understanding the various hazards affecting the same exposed
+geographic area or landscape. This makes it possible to assess the cumulative consequences of hazards and
+their potential interactions. For instance, some areas may be prone to drought during the dry season but also
+to floods during the wet season. This has important implications for the design of appropriate risk reduction
+and adaptation measures. Following an all-hazards, all-risks approach also reduces the likelihood that efforts
+to safeguard against one type of hazard will not be lost to another hazard or increase vulnerability to other
+hazards. For instance, regulations that seek to protect socio-economic investments against floods, such as

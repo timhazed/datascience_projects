@@ -1,0 +1,77 @@
+--- Frequency Percent Frequency Percent Frequency ---
+
+77
+
+Table 12: Total Land Operated, Owned and Rented (Acres) by Kentucky Farmers
+Acres
+Land Operated
+Land Owned
+Land Rented
+Frequency Percent Frequency Percent Frequency
+Percent
+0 to 99
+116
+50.3
+123
+53.5
+32
+14.1
+100 to
+249
+77
+33.5
+69
+30.2
+14
+6.2
+250 to
+499
+25
+11.0
+21
+9.2
+7
+3.0
+500 to
+999
+8
+3.6
+
+10
+
+4.6
+
+4
+
+1.7
+1000 to
+1999
+
+4
+
+1.5
+2000 to
+2999
+3000 and
+Above
+Total
+230
+100.0
+224
+97.4
+57
+25.0
+Missing
+0
+0.0
+6
+2.6
+173
+75.0
+Total
+230
+100.0
+230
+100.0
+230
+100.0

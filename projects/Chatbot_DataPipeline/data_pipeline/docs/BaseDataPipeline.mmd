@@ -1,0 +1,43 @@
+graph TD
+
+    %% INPUT
+    A["CSV File with URLs"]
+
+    %% EXTRACTOR TOOLS
+    subgraph extract_container [🐳: extract-normalize]
+        B[extract_and_normalize_pdf.py or extract_and_normalize_html.py]
+    end
+
+    %% CHUNKING TOOL
+    subgraph chunker_container [🐳: chunker]
+        D[chunker.py]
+    end
+
+    %% VECTORIZATION TOOL
+    subgraph qdrant_container [🐳: insert-db]
+        F["qdrant_insert.py\n(Embed paragraph text,\nInsert vector + metadata to Qdrant)"]
+    end
+
+    %% ARTIFACTS / FILES
+    A --> B
+    B --> C["Extracted Files and Metadata\n(data/extracted/)"]
+    C --> D
+    D --> E["Paragraph-Level Chunks\n(data/chunked/)"]
+    E --> F
+    F --> G[(Qdrant Vector DB\nVectors + Payloads)]
+
+    %% EMBEDDING LAYER
+    subgraph embedding_model [Embedding Model]
+        M[MiniLM / OpenAI / InstructorXL]
+    end
+    E -.-> M -.-> F
+
+    %% STYLE
+    style A fill:#eeeeee,stroke:#444,color:#000
+    style B fill:#0055cc,stroke:#000,stroke-width:2px,color:#fff
+    style D fill:#cc0000,stroke:#000,stroke-width:2px,color:#fff
+    style F fill:#009933,stroke:#000,stroke-width:2px,color:#fff
+    style G fill:#333333,stroke:#000,stroke-width:2px,color:#fff
+    style M fill:#888888,stroke:#000,stroke-width:1px,color:#000
+    style C fill:#eeeeee,stroke:#444,color:#000
+    style E fill:#dddddd,stroke:#333,color:#000

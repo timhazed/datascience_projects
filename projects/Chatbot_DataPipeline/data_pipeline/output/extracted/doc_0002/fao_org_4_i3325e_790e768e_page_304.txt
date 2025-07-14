@@ -1,0 +1,58 @@
+--- Source: FAO, 2013 ---
+
+291
+MODULE 11: Developing sustainable and inclusive food value chains for Climate-smart agriculture
+Practices and technologies, many of which already exist, need to be not only profitable, but should also be
+socially beneficial and reduce the impact on the environment in order to be sustainable. Sustainability that is
+achieved across this triple bottom line can therefore also contribute to reaching the objectives of CSA as the
+two approaches are complementary.
+Trade-offs and synergies
+In the sustainable and inclusive food value chain approach, sustainability is achieved in the overlapping area
+indicated with ‘SFVCD’ of the three sustainability dimensions in Figure 11.2
+Figure 11.2
+The three sustainability dimensions in food value chain development
+Economic
+Impacts
+
+Profits
+Jobs/Incomes
+Tax Revenues
+Food supply
+Eco-Social
+Progress
+Inclusive
+Growth
+Green
+Growth
+Social
+Impacts
+Added Value Distribution
+Inclusiveness
+Cultural Traditions
+Nutrition & Health
+Worker Safety
+Animal welfare
+Environmental
+Impacts
+
+Carbon footprint
+Soil Conservation
+Biodiversity
+Food Waste & Losses
+Toxicity
+SFVCD
+Source: FAO, 2013
+Regarding these three dimensions there often are trade-offs, such as between achieving food security, poverty
+alleviation and environmental objectives. For example, the transformation of food systems can cause unin-
+tended environmental damage and environmental protection policies can have negative impacts on certain
+societal groups like the poor. Another example is the introduction of a new technology, which can be environ-
+mentally sustainable, but may not be commercially viable in the short run. Or, when consumers decide to buy
+more local food instead of imported food, this may result in lower GHG emissions from transport and can result
+in increased incomes of local producers, but may erode incomes of producers in developing countries.
+Trade-offs exist when components of a system, such as the three sustainability dimensions, are competing with
+or are exclusive of each other. In this regard, trade-off decisions do not result in a win-win situation, but rather
+result in a win-lose situation. In economics, trade-offs are mostly discussed in the context of the opportunity to
+realize different objectives such as economic, societal or environmental objectives. Trade-off analysis helps to
+take decisions with information related to economic arguments (‘efficient allocation’), distributional arguments
+(‘fair distribution’) and scale arguments (‘sustainable scale’) (Daly, 1992). In economics, trade decisions are
+usually supported by a cost-benefit analysis, in which the monetary valuation of costs and benefits is outlined.

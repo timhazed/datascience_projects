@@ -1,0 +1,25 @@
+--- Page 64 ---
+
+59
+
+have irrigation facilities in their farm. The finding of
+the research is consistent with Alabama cover crop farmers
+(Bergtold et al., 2012).
+Education variable is also significant and positive (p
+= 0.000) predictor of the adoption of sustainable
+agricultural practices among Kentucky farmers. The change
+in the expected log count of SAPs adoption would be
+expected to increase by 0.305 with an increase in the
+education level. However, the coefficient may vary
+according to the level of education as the change in
+knowledge or education between for instance, high school
+and college may not be equivalent to that between college
+and graduate degree. Therefore, this variable needs to be
+reclassified in the model to see the effect of different
+level of education in the adoption of SAPs among Kentucky
+farmers.
+Baumgart-Getz et al. (2012) found that level of
+education was non-significant among large number of farmers
+but extension training had positive impact on farmer’s
+adoption behavior among US farmers. In another study by
+Hall et al. (2009) the education level was not significant

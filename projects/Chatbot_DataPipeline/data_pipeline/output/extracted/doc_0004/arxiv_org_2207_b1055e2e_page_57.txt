@@ -1,0 +1,96 @@
+--- Number of SAPs adopted ---
+
+52
+
+Table 4: List of Variables in the Negative Binomial Regression and
+Their Descriptions:
+Variables
+Variable Name
+Types
+Relation
+with DV
+SAPs
+Number of SAPs adopted
+by Farmers
+Count
+DV
+Crops
+Row Crop Farmers
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Veggies
+Vegetable Growing
+Farmers
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Livestock
+Livestock Farmers
+Yes = 1; Otherwise = 0
+Binary
+-Ve
+TBP
+Participation
+Participated
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Diverse
+In Favor of
+Diversifying Farm
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Inadequate
+Knowledge
+A reason for not
+adopting SAP.
+Yes = 1; Otherwise = 0
+Binary
+-Ve
+Irrigation
+Irrigation Facility in
+Farm
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Work Off Farm
+Working off Farm
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Sole
+Proprietorshi
+p
+Farm with Sole
+Proprietorship
+Yes = 1, Otherwise = 0
+Binary
++Ve
+Agro-tourism
+Income
+Draw income form Agro-
+tourism
+Yes = 1; Otherwise = 0
+Binary
++Ve
+Land Operated
+Total Land Operated
+(Acres)
+Continuous
++Ve
+Age
+Age (Years)
+Continuous
+-Ve
+Education
+Level
+Formal Education Level
+Ordinal
++Ve
+Income from
+Farming
+Income from Farming
+Ordinal
++Ve

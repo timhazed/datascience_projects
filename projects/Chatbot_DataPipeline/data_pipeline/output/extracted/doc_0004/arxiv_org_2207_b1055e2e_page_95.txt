@@ -1,0 +1,114 @@
+--- Table 16: Model II: ---
+
+90
+
+Table 16: Model II: NB Regression Model without Income and with Outliers
+in Land Operated.
+VARIABLES
+Β
+STD.
+ERROR
+WALD CHI-
+SQUARE
+SIG.
+EXP.
+(Β)
+CONSTANT
+-0.163
+0.9014
+0.033
+0.857
+0.850
+CROPS***
+1.097
+0.2379
+21.269
+0.000
+2.996
+VEGGIES*
+0.490
+0.2792
+3.076
+0.079
+1.632
+LIVESTOCK
+0.325
+0.3350
+0.938
+0.333
+1.383
+TBP
+0.194
+0.2139
+0.820
+0.365
+1.214
+DIVERSE***
+0.770
+0.2084
+13.641
+0.000
+2.159
+INADEQUATE KNOWLEDGE
+-0.233
+0.2701
+0.744
+0.389
+0.792
+IRRIGATION**
+0.941
+0.4230
+4.954
+0.026
+2.564
+WORK OFF FARM
+0.040
+0.2590
+0.024
+0.877
+1.041
+SOLE PROPRIETORSHIP
+-0.039
+0.2684
+0.022
+0.883
+0.961
+AGRO-TOURISM INCOME**
+1.075
+0.5040
+4.552
+0.033
+2.931
+LAND OPERATED
+0.000
+0.0003
+1.055
+0.304
+1.000
+AGE**
+-0.023
+0.0116
+3.919
+0.048
+0.977
+EDUCATION LEVEL***
+0.302
+0.0817
+13.612
+0.000
+1.352
+INCOME FROM FARMING
+-0.163
+0.9014
+0.033
+0.857
+0.850
+***
+99% Confidence Interval (0.001 Significance
+Level)
+**
+95% Confidence Interval (0.05 Significance
+Level)
+*
+90% Confidence Interval (0.1 Significance
+Level)

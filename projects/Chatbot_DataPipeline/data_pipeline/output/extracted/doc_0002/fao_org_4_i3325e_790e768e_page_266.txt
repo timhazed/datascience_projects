@@ -1,0 +1,175 @@
+--- Source: Hilborn and Tellier, 2012 ---
+
+253
+MODULE 10: Climate-smart fisheries and aquaculture
+risks of overfishing and the collapse of key stocks. For aquaculture the issues of increasing output and efficiency
+are more similar to those of agriculture. The primary emphasis is on intensifying production, using better in-
+tegrated systems, improving stocks, making feeding more efficient and reducing losses from disease (De Silva
+and Soto, 2009). Dependence on fishmeal and oil is often cited as a primary constraint to future outputs and
+growth for aquaculture. This dependence is declining as alternative feeds are being developed and as a wider
+range of species is being cultivated at lower trophic levels that are closer to the levels of primary production
+(Tacon and Metian, 2008). However, it is increasingly likely that there will be constraints related to land and wa-
+ter resources in both inland and coastal areas. These constraints are due to competition from other sectors and
+changing agro-ecological conditions, which in some cases may lead to the relocation of the production system.
+More broadly across the sector, efforts should be made in reducing losses and wastes, increasing yields and
+productivity in fish and aquatic food processing and other areas where value can be added, and enhancing effi-
+ciencies in product distribution. The overarching principles of sustainable approaches for expanding output are
+found in the FAO Code of Conduct for Responsible Fisheries. These principles may be progressively elaborated
+upon with more specific guidance as climate-smart experience is gained. Tools and best practices for improv-
+ing social, economic and ecological efficiency and sustainability are under development.
+Box 10.4
+The environmental costs of New Zealand food production
+Hilborn and Tellier (2012) offer a comparative environmental overview of fisheries production systems. In New
+Zealand, when compared with dairy and meat production, fisheries had a lower impact in terms of water and fertilizer
+use, eutrophication potential and antibiotics. Most fisheries also had lower GHG production levels than the meat
+industry, and some were lower than those for average dairy production. The dairy and meat industries were more
+efficient in energy inputs and production per unit, but the good state of major fish stocks ensured relatively efficient
+fuel consumption scores. The New Zealand quota management system also discouraged excessive vessel capacity
+and largely eliminated competitive open access fishing, which reduced fuel consumption. The New Zealand dairy and
+meat industries were more efficient in energy use and GHG production than comparable industries around the world.
+The authors attribute this relative efficiency to high year-round productivity and the ability to raise both dairy animals
+and other livestock on pasture for most of the year, which reduces the need to use feed crops.
+Environmental indicators per 40 g protein portion in New Zealand food production systems
+
+Inputs
+Outputs
+Energy
+Fresh
+Water
+Fertilizer
+Pesticides
+Antibiotics
+Surface Area
+Impacted
+GHG
+gases
+Eutrophication
+potential*
+Acidification
+potential**
+(Megajoules)
+(litres)
+(g)
+(kg)
+(mg)
+(m2)
+(kg CO2)
+(g)
+(g)
+NZ Dairy
+1.56
+171
+26
+24
+1.17
+1.24
+0.86
+3
+8.4
+NZ Meat
+4.9
+262
+188
+129
+1.17
+18.14
+3.7
+13.3
+36.8
+NZ Squid
+7.11
+0
+0
+n/a
+0
+17
+0.62
+1.7
+3.9
+NZ Hoki
+7.11
+0
+0
+n/a
+0
+100
+0.64
+1.7
+4
+NZ Jack Mackerel
+7.69
+0
+0
+n/a
+0
+57
+0.68
+1.8
+4.3
+NZ Rock Lobster
+99.53
+0
+0
+n/a
+0
+n/a
+8.75
+23.6
+55.1
+NZ Orange Roughy
+14.4
+0
+0
+n/a
+0
+104
+1.27
+3.4
+8
+NZ Barracouta
+5.55
+0
+0
+n/a
+0
+n/a
+0.49
+1.3
+3.1
+NZ Southern Blue
+Whiting
+5.88
+0
+0
+n/a
+0
+24
+0.52
+1.4
+3.3
+NZ Ling
+7.26
+0
+0
+n/a
+0
+36
+0.64
+1.7
+4
+NZ Snapper
+12.6
+0
+0
+n/a
+0
+n/a
+1.11
+3
+7
+* Eutrophication potential = measure used in life cycle assessment to calculate impacts due to excessive levels of macronutrients
+in the environment caused by emissions of nutrients to air, water and soil. Expressed as equivalent kg of phosphate (PO4).
+** Acidification potential = contribution to acidic substances to air, water and soils that are implicated in a range of environmental
+threats including acid rain, soil acidification and changing pH of soils and water. Typical substances are: sulphur dioxide (SO2),
+nitrogen oxides (NOx), ammonia (NH3). Expressed as tonnes of SO2 equivalents.
+Source: Hilborn and Tellier, 2012

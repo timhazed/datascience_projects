@@ -1,0 +1,49 @@
+# ETL Pipeline Configuration
+
+tools:
+  extractor:
+    enabled: false
+    # For test if enabled is false, the tool wont run but you can provide extracted_paths for chunker to process
+    extracted_paths:
+      - /Users/timhazed/tmp/output_20250517_unmerged/extracted/doc_0046
+    #   - /Users/timhazed/tmp/output/extracted/doc_0002
+
+    docker:
+      image: "extract-normalize:latest"
+      input_volume: "/Users/timhazed/tmp/input:/app/input"
+      output_volume: "/Users/timhazed/tmp/output_20250517_unmerged:/app/output"
+      env_file: "~/src/python/.env_mini"
+      config_path: "/app/config/config.yaml"
+  
+  chunker:
+    enabled: true
+    # For test if enabled is false, the tool wont run but you can provide chunked_paths for insert_db to process
+    merge_paragraphs: false
+    #chunked_paths:
+    #    - /Users/timhazed/tmp/output_20250517_part3/chunked/doc_0003
+    #    - /Users/timhazed/tmp/output_20250517_part3/chunked/doc_0036
+    docker:
+      image: "chunker:latest"
+      input_volume: "/Users/timhazed/tmp/output_20250517_unmerged/extracted:/app/input/"
+      output_volume: "/Users/timhazed/tmp/output_20250517_unmerged:/app/output"
+      env_file: "~/src/python/.env_mini"
+      config_path: "/app/config/config.yaml"
+  
+  insert_db:
+    enabled: true
+    collection_name: "ws1-wosmallparagraphs"
+    docker:
+      image: "insert-db:latest"
+      input_volume: "/Users/timhazed/tmp/output_20250517_unmerged/chunked:/app/input"
+      # Not neccessary
+      #output_volume: "./output:/app/output"
+      env_file: "~/src/python/.env_mini"
+      config_path: "/app/config/config.yaml"
+
+# Runtime configuration
+timeouts:
+  extraction: 700
+  chunking: 700
+  db_insertion: 3600  # 60 minutes 
+
+log_dir: "/Users/timhazed/tmp/logs_20250517_unmerged"

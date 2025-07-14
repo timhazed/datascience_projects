@@ -1,0 +1,51 @@
+--- Page 125 ---
+
+112
+CLIMATE-SMART AGRICULTURE SOURCEBOOK
+• SOM is the organic fraction of the soil that is made up of dead plant and animal materials in various
+stages of decomposition. It does not include fresh and undecomposed plant materials lying on the soil
+surface which is known as litter. SOM primarily contains organic carbon (on average 58 percent), but
+also macro- and micronutrients essential for plant growth and some inorganic carbon. Soil organic
+carbon (SOC) has an impact on the overall biological resilience of agro-ecosystems. It is also important
+for the soil’s physical properties (e.g. aggregation, water holding capacity, water infiltration and aera-
+tion) and chemical fertility (e.g. nutrient availability). SOC also acts as a sink for atmospheric carbon. In
+addition, SOC enhances soil structure by binding the soil particles together as stable aggregates.
+Part of the biomass that is returned to the soil through processes of decay is converted into carbon
+compounds that stay in the soil for a long time (i.e. humus and related organo-mineral complexes). The
+amount of this stable fraction of SOM varies depending on the quantity and quality of the biomass and
+is higher in ecosystems with high biodiversity (Charman and Roper, 2000). The greater the SOM content,
+the greater the soil biodiversity and its activity in breaking down dead and decaying organic matter into
+humus and in making nutrients available for plant growth.
+• Soil carbon stabilization. In most soils, young and unstable macro-aggregates are formed by biological
+processes (e.g. growing roots, fungal, bacterial and faunal activity have a primary role in mixing fresh
+organic matter with soil particles and root exudates [a complex of compounds secreted from growing
+roots and root hairs]). Young macro-aggregates physically protect carbon and nitrogen from mineraliza-
+tion by microbial enzymes, but need to be further stabilized for long-term carbon accumulation. In the
+carbon stabilization process, micro-aggregates are first formed within the unstable macro-aggregates.
+These macro-aggregates are then broken down further with the liberation of the micro-aggregates. The
+processes for the stabilization of aggregates mainly involve biological factors (such as ageing4, as well
+as the growth of roots that exert pressure, remove water and produce exudates that have a role both
+as cementing agents and as substrate for further microbial activity). Some climate-dependent factors
+(such as wet-dry cycles) are also part of stabilization processes. As mechanical soil disturbance (i.e.
+ploughing) disrupts these important biological processes, it is particularly detrimental for the build up
+of SOM.
+• Soil nutrients and organisms. While decomposing SOM, the multitude of any organisms in the soil food
+web release nitrogen (in the form of ammonia ions), potassium, calcium, magnesium and a range of
+other nutrients necessary for plant growth. Many of these plant nutrients exist in the soil in the form of
+positively charged ions (i.e. cations). The negative charges on the surfaces of clay particles and SOM at-
+tract cations and thus provide a nutrient reserve available to plant roots. Only a small percentage of the
+essential plant nutrients remains ‘loose’ in the soil water and directly available for plant uptake. Plants
+obtain many of their nutrients from soil by ‘cation exchange’, whereby root hairs exchange hydrogen
+ions with the cations adsorbed on the soil particles. Clay soils have a higher cation exchange capacity
+and a structurally greater potential fertility than silty and sandy soils.
+• Nitrogen is a nutrient that deserves special attention as it plays a key role in plant metabolism and
+growth but it can also be a cause of pollution when it leaches in the form of nitrates into the water table.
+Also, nitrogen can be released from the agro-ecosystem in form of nitrous oxide (N20) – a serious GHG
+that affects global warming. The atmosphere contains 78 percent nitrogen by volume. But it is the lack
+of this element that most often limits plant growth because plants cannot use gaseous nitrogen from
+the atmosphere. However atmospheric nitrogen can be converted into nitrate and ammonium ions in the
+soil through nitrogen fixation by certain soil micro-organisms (symbiotic Rhizobia bacteria associated
+with the roots of legumes and non-symbiotic bacteria Clostridium and Azoterbacter, which are free-living
+in the soil).
+
+4 Ageing is the deposition of polysaccharides and other organic cementing agents by microbial activity.

@@ -1,0 +1,27 @@
+--- Sampling Design, Survey Dispatch and Data Collection: ---
+
+27
+
+Sampling Design, Survey Dispatch and Data Collection:
+Survey questionnaires were pretested among farmers in
+Third Thursday Thing6 at Kentucky State University as well
+as with other individual farmers by USDA/NASS in
+Louisville. Feedbacks from farmers were addressed before
+finalizing the survey. A final copy of the survey (only
+relevant) is attached in Appendix F.
+Sampling of farmers for survey were done using the
+database of farmers maintained by National Agriculture
+Statistics Service of United States Department of
+Agriculture (NASS/USDA). Double stratified sampling method
+was used to sample surveying farmers. The total value of
+sales of a farm was divided into four groups and cross
+stratified by six agriculture districts of Kentucky making
+24 strata throughout the state. The programming was done to
+put 25% of the cumulative total measure of size of variable
+into four strata, which resulted into 15%, 31% 39% and 15%
+of total survey allocated to strata 1, 2, 3 and 4
+respectively (J. Stephens-NASS/USDA, Mail Interaction,
+
+6 “Third Thursday Thing” is an agriculture extension program which
+is held every third Thursday of each month at Kentucky State University
+Research and Demonstration Farm with Kentucky farmers.

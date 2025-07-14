@@ -1,0 +1,19 @@
+--- Carbon and SOM ---
+
+117 MODULE 4: Soils and their management for CSA Within the soil matrix, stable forms of organic carbon, such as humus, can hold up to seven times their own weight in water. Table 4.1 gives an example of how changes in SOC modifies the soil’s capacity to store water.
+
+An increase of 14.4 litres (almost two buckets) of extra water could be stored per square metre in the top 30 cm of soil for every 1 percent increase in the level of SOC. On one hectare that is equivalent to an additional 144 000 litres of water.
+
+Table 4.1 Capacity of a soil with a bulk density of 1.2 g/cm3 to store water as affected by SOC content to 30 cm soil depth.
+
+The calculation of these figures was based on a conservative estimate that one part of SOC retains four parts of soil water.
+
+Change in SOC content Extra SOC Extra water CO2 sequestered [%] [kg] [litres/m2] [litres/ha] [t/ha] 1 3.6 14.4 144 000 132 2 7.2 28.8 288 000 264 3 10.8 43.2 432 000 396 Source: Jones, 2006 a and b Sandy soils are inherently permeable and in hot, dry areas, evaporation rates are high and organic matter breaks down very quickly. For these reasons in drylands and coarse-textured soils the accumulation rate of organic matter is expected to be lower (Zingore et al., 2005; Chivenge et al., 2006). Crop management sys- tems that reduce soil disturbance (e.g. ploughing and hoeing) and bring about a high accumulation of organic matter should be introduced. Mulching is a simple technique that buffers soil temperature and helps the soil-crop system reduce evaporation and the mineralization of organic matter. Mulching also counteracts the nutrient loss.
+
+Precision farming is a more sophisticated management strategy based on observing and responding to intra- field variations to optimize returns on inputs while preserving natural resources. For example, precision agri- culture is used to optimize the quantities of water and nutrients required by providing these inputs directly to the plant when needed through scheduled sprinkler irrigation or drip irrigation systems. Implicit in this type of management is an increased level of knowledge of crop requirements and local soil, terrain and climatic conditions (e.g. soil, slope, aspect).
+
+Improving soil structure with organic matter Many clay or loamy soils are compacted due to repetitive hoeing or ploughing. In mechanized systems, soil compaction is caused by the passing of heavy machinery through the fields for tillage. In grazing lands, soil is compacted by the trampling of livestock or wildlife. Com- paction reduces airspaces in the soil and decreases the penetration of plant roots. Only stronger roots are able to penetrate the soil. The growth of lateral roots or fine root hairs, which are important for moisture and nutrient uptake, is restricted. Compacted soils and shallow soils are se- riously affected by dry spells that limit root growth and the plant’s access to moisture and nutrients. Subsoiling7 to break up compacted layers can have a huge beneficial effect on root growth and soil productivity. 7 Subsoiling, or ripping, is soil preparation treatment done with tined implements to break up hardpans without turning the soil upside down (see FAO, 2012c for more details).
+
+Box 4.1 Carbon and SOM The top metre of the world’s soils holds some 2 200 gigatonnes of carbon, two-thirds of which is in the form of SOM (Batjes, 1996).
+
+This is more than three times the amount of carbon held in the atmosphere.

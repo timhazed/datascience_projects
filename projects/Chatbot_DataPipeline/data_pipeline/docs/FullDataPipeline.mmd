@@ -1,0 +1,80 @@
+graph TD
+
+    %% CONFIGURATION & ORCHESTRATION
+    subgraph prefect_orchestrator [datapipeline orchestrator]
+        P[orchestrator.py]
+        CM[ConfigManager]
+        TE[ToolExecutor]
+        AM[ArtifactManager]
+    end
+
+    %% INPUT
+    A["CSV File with URLs"]
+
+    %% EXTRACTOR TOOLS
+    subgraph extract_container [🐳: extract-normalize]
+        B[extract_and_normalize_pdf.py or extract_and_normalize_html.py]
+    end
+
+    %% CHUNKING TOOL
+    subgraph chunker_container [🐳: chunker]
+        D[chunker.py]
+    end
+
+    %% VECTORIZATION TOOL
+    subgraph qdrant_container [🐳: insert-db]
+        F["qdrant_insert.py\n(Embed paragraph text,\nInsert vector + metadata to Qdrant)"]
+    end
+
+    %% ARTIFACTS / FILES
+    A --> P
+    P --> B
+    B --> C["Extracted Files and Metadata\n(data/extracted/)"]
+    C --> D
+    D --> E["Paragraph-Level Chunks\n(data/chunked/)"]
+    E --> F
+    F --> G[(Qdrant Vector DB\nVectors + Payloads)]
+
+    %% EMBEDDING LAYER
+    subgraph embedding_model [Embedding Model]
+        M[MiniLM / OpenAI / InstructorXL]
+    end
+    E -.-> M -.-> F
+
+    %% LOGGING
+    subgraph log_dir [Log Directory]
+        L1["extractor/"]
+        L2["chunker/"]
+        L3["insert_db/"]
+    end
+    B -.-> L1
+    D -.-> L2
+    F -.-> L3
+
+    %% CONFIGURATION FLOW
+    CM -.-> P
+    CM -.-> TE
+    TE -.-> B
+    TE -.-> D
+    TE -.-> F
+    AM -.-> P
+
+    %% STYLE CLASSES
+    classDef artifact fill:#eeeeee,stroke:#444,color:#000
+    classDef tool fill:#0055cc,stroke:#000,stroke-width:2px,color:#fff
+    classDef chunker fill:#cc0000,stroke:#000,stroke-width:2px,color:#fff
+    classDef inserter fill:#009933,stroke:#000,stroke-width:2px,color:#fff
+    classDef db fill:#333333,stroke:#000,stroke-width:2px,color:#fff
+    classDef model fill:#888888,stroke:#000,stroke-width:1px,color:#000
+    classDef prefect fill:#663399,stroke:#000,stroke-width:2px,color:#fff
+    classDef prefectComponent fill:#663399,stroke:#000,stroke-width:1px,color:#fff
+
+    %% APPLY STYLES
+    class A,C,E,L1,L2,L3 artifact
+    class B tool
+    class D chunker
+    class F inserter
+    class G db
+    class M model
+    class P prefect
+    class CM,TE,AM prefectComponent

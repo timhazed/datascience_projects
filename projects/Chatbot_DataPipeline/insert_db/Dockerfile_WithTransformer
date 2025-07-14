@@ -1,0 +1,31 @@
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# System dependencies (optional, if transformers or torch need them)
+RUN apt-get update && apt-get install -y \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements and install dependencies early to leverage Docker cache
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# With just this:
+ENV HF_HOME=/app/models
+
+# === Preload SentenceTransformer model ===
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('BAAI/bge-large-zh-v1.5')"
+
+# Copy source files after dependencies
+COPY qdrant_insert.py .
+COPY qdrant_manager.py .
+COPY config/ ./config/
+
+# Set input volume
+VOLUME ["/app/input"]
+
+# Entrypoint and default command
+ENTRYPOINT ["python", "qdrant_insert.py"]
+CMD ["--insert", "app/input/doc_0001"]

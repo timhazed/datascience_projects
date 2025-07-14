@@ -1,0 +1,33 @@
+--- Page 9 ---
+
+9
+
+chain. At the pre-production stage, optical sensors and multiscale phenotyping
+platforms can help quantifying plant traits for genetic selection32, both of new or local
+crop varieties. During the production stage, digital technologies are used to quantify
+plant photosynthetic function, dynamic growth, and nutrient cycling based on the
+biochemical characteristics of leaves33. Advances in embedded systems allows
+standardized pollinator and pestcontrol monitoring for direct yield improvements34. For
+the post-production period, digital technologies can help with pre-sale quality control
+in both, the conventional and organic agricultural market35. There is, hence, not
+necessarily a discrepancy but rather a synergy between diversified and sustainable
+farming and the use of new technology but the links between them are not well
+established.
+The Chinese government has been passing policies that integrate digital technologies
+in sustainable agricultural production (2024 1CD) 36. Digital agriculture to support or
+replace mechanization through automated farm management is still in its infancy, but
+an increase of up to 40% by 2025 is expected 37. This increase of digitization and
+integration with diversification practices requires careful consideration of China’s
+diverse geography and ecosystems. For instance, the agriculture Internet of Things
+(aIOT) uses sensor data, drones, and specialized sensors to integrate real-time data
+on crop phenology, pest incidences, and weather patterns, suitable for large-scale rice
+production with different crop varieties. Agricultural robotics can advance automated
+seeding, non-chemical weeding, and harvesting in any large scale crop production
+such as apple orchards planted as agroforestry systems. Online market places faciliate
+market access for farmers in rural areas and provide the convenience of selling
+premium-priced and traceable products that can be bought online38. To faciliate
+Chinese-type modernization, the government could further support the use of these
+digital agriculture approaches in diversified farming landscapes5 by providing financial
+incentives for technology development and training to faciliate implementation39.
+Overall, mechanization approaches may interfere with agricultural production
+diversification, but new technology innovations in diverse and small farms likey will

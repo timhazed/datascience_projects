@@ -1,0 +1,52 @@
+--- Urea Deep Placement ---
+
+10
+CLIMATE-SMART AGRICULTURE SOURCEBOOK
+Sustainable intensification would be particularly efficient in areas where very low productivity systems, such
+as shifting cultivation in the Congo Basin, are replacing forests (Bellassen and Gitz, 2008; West et al., 2010),
+comparing worldwide crop yields and carbon stocks, consider that concentrating reforestation and avoided
+deforestation in the tropics would have the greatest worldwide carbon sink effect with minimum opportunity
+costs in terms of reduced crop yields.
+Studies (Fischer et al., 2009) have shown the importance in many developing countries of the yield gap. The
+yield gap is the difference between actual farm yields, as represented by the average yield achieved by farm-
+ers in a defined region over several seasons, and the potential yields which are the maximum achievable yield
+with latest varieties and by removing as much as possible all the constraints as achieved in highly controlled
+experimental stations. Reducing this gap is essential to improve food security and reduce deforestation.
+Nutrients are essential to increase yields. But production of synthetic fertilizers is energy intensive, with high
+CO2 emissions and economic costs. In addition, when applied in the field, these fertilizers contribute to N2O
+emissions. Therefore, there is a need to improve fertilization and to limit the economic costs and the emis-
+sions at the same time. Improving fertilizer efficiency is thus essential. This can be done through a variety of
+techniques. One way is to match more precisely the nutrients with plant needs during the growing season,
+such as by fractioning the total amount in multiple doses. Other techniques include precision farming and
+placing nutrients closer to plant roots, such as deep placement of urea for rice (see box 1.1).
+Box 1.1
+Urea Deep Placement
+Urea Deep Placement (UDP) technique, developed by the International Fertilizer Development Center (IFDC), is
+a good example of a climate-smart solution for rice systems. The usual technique for applying urea, the main
+nitrogen fertilizer for rice, is through a broadcast application. This is a very inefficient practice, with 60 to 70
+percent nitrogen losses contributing to GHG emissions and water pollution.
+In the UDP technique, urea is made into “briquettes” of 1 to 3 grams that are placed at 7 to 10 cm soil depth after
+the paddy is transplanted. This technique decreases nitrogen losses by 40 percent and increases urea efficiency
+to 50 percent. It increases yields by 25 percent with an average 25 percent decrease in urea use.
+UDP has been actively promoted by the Bangladesh Department of Agricultural Extension with IFDC assistance.
+In 2009, UDP was used on half a million hectares by a million farmers and there are plans to expand its use to
+2.9 million more families on 1.5 million hectares.
+The widespread adoption of the UDP technique in Bangladesh has had several important impacts:
+• Farmers’ incomes have increased because of both increased yields and reduced fertilizers use.
+• Jobs have been created locally in small enterprises, often owned by women, to make the briquettes. There are
+now 2 500 briquette-making machines in Bangladesh.
+• On-farm jobs have also been created as the briquettes are placed by hand, which requires 6 to 8 days labour
+per hectare. Higher yields and savings on fertilizer expenditures compensate for the additional field labour
+expenses.
+• At the national level, imports of urea have been reduced, with savings in import costs estimated by IFDC
+at USD 22 million and in government subsidies of USD 14 million (2008), for an increase of production of
+268 000 metric tons.
+• At a global level UDP has reduced GHG emissions caused by the production and management of fertilizers.
+
+It also increases the agricultural system’s resilience. As fertilizer prices are linked to energy prices, and
+consequently very volatile, reducing fertilizer use also increases farm and country’s resilience to economic shocks.
+With the effectiveness of the technique now well proven, UDP is being scaled up, partly through South/South
+cooperation. For instance, the National Programme for Food Security of Nigeria (NPFS) is supported by South/
+South cooperation with China. This support includes the promotion and development of the UDP technique in
+several Nigerian states.
+Source: Roy & Misra, 2003; Singh et al., 2010; Ladha et al., 2000; IFDC, 2011

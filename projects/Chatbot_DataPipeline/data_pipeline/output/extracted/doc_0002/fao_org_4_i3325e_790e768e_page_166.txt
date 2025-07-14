@@ -1,0 +1,59 @@
+--- Can biofuels contribute to CSA? ---
+
+153
+MODULE 5: Sound Management of Energy for CSA
+Synergies and trade-offs between energy-smart food and climate-smart
+agriculture
+As there are numerous synergies between CSA and energy-smart food, climate benefits can and do often ac-
+crue through the development of energy-smart food systems. However combining these objectives may also
+require some trade-offs. Table 5.3 presents examples of such potential synergies and trade-offs. It should be
+noted that this table presents a very broad picture and should be considered as a first approximation for sum-
+marizing the possible linkages between energy-smart food systems and CSA. These linkages are often quite
+complex and context specific, and as such, more research is needed in this area.
+Box 5.3
+Can biofuels contribute to CSA?
+Global liquid biofuel production has increased more than 500 percent since 2000. Production is projected to increase
+a further 50 percent by 2020 and increase even more by 2050.
+Over the past five or six years policies have played a critical role in the rapid increase in liquid biofuel production,
+principally for transport purposes. Policy support for biofuels has been motivated by a desire to strengthen energy
+security, reduce GHG emissions, advance rural development and increase farmers’ incomes. After the rapid introduction
+of new and expanded support measures, there is now a better evidence base for reviewing the impacts of increased
+biofuel production and reflecting on how policies might be adjusted to address changing goals and concerns.
+Listed below are some possible contributions of biofuels to CSA objectives.
+• Biofuels (in solid, liquid and gaseous forms) can help improve access to modern energy services for household and
+productive uses, which contribute to sustainable increases in productivity and income. A recent study on small-scale
+bioenergy initiatives (FAO, 2009) shows that this improvement can be achieved with minimum sustainability risks.
+• Biofuels, especially small-scale production, can strengthen resilience to climate change and variability. However,
+they may also bring about their own climate risks by creating a link between energy security and crop yields.
+This risk is particularly high where feedstock diversity is low.
+• The impacts on GHG emissions and carbon sequestration are more complex and the subject of much debate.
+Bioenergy is often considered to be CO2-neutral because the generation of biomass by photosynthesis absorbs
+the same amount of CO2 that is released by burning the biomass. However, this fails to consider the linkage
+between the carbon cycle and other natural cycles, including those of nitrogen, phosphorus and water. These
+elements are also required for photosynthesis and they are consumed whenever biomass is produced. Soil
+nutrients are consumed and need to be supplemented. These additions (e.g. fertilizer application) can result
+in GHG emissions, especially nitrous oxide. A full life cycle assessment has to be carried out that can take into
+account agricultural production and processing, as well as direct and indirect land-use changes.
+• Some good practices that can improve the performance of biofuels in terms of climate change mitigation include:
+-- agroecological zoning, to avoid biofuel development in high carbon areas (e.g. primary forests, peat land)
+and only promote it in areas of high land suitability;
+-- the use of residues for biofuel production, as long as it does not affect their use for soil management or as
+animal feed; and
+-- conservation agriculture, which is usually a low-carbon farming practice that can sometimes even sequester
+carbon.
+
+More broadly, biofuel policies and programmes should act in synergy with programmes related to agricultural
+development rather than with policies that artificially support biofuel demand. A sound and integrated approach to
+bioenergy, particularly biofuel development, is required to reduce the risks and harness the opportunities related to
+bioenergy development. This approach requires:
+• an in-depth understanding of the situation and the related opportunities and risks, as well as synergies and
+trade-offs;
+• an enabling policy and institutional environment, with sound and flexible policies (e.g. targets and incentives)
+and means to implement these;
+• implementation of good practices by investors and producers to reduce risks and increase opportunities, along
+with appropriate policy instruments to promote these good practices;
+• proper impact monitoring and evaluation and policy response mechanisms; and
+• capacity building and good governance in the implementation of the above.
+
+To promote this sound and integrated approach, FAO has been developing a set of instruments which are part of
+FAO’s Sustainable Bioenergy Toolkit: Making Bioenergy Work for Climate, Energy and Food Security (FAO, 2013).

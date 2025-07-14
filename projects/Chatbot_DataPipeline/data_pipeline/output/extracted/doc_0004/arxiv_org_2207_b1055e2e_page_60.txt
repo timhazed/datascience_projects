@@ -1,0 +1,24 @@
+--- dispersion. The Omnibus Test is significant with Likelihood ---
+
+55
+
+The Goodness-of-Fit of value (1.972) indicates over-
+dispersion. The Omnibus Test is significant with Likelihood
+Ratio χ2 (13) = 93.142, p = 0.000, which shows that the
+model is significant over the null model—a model without
+predictors variables or intercept-only model (Coxe et al.,
+2009).
+A Negative Binomial Regression model (due to over-
+dispersion) was used to predict the SAP adoption of
+Kentucky farmers. The regression analysis shows that Crops,
+Veggies, Diverse, Irrigation, and Education are significant
+variables at 95% CI. Agro-tourism Income, Land Operated,
+Age are significant at 90% CI but, Livestock, TBP,
+Inadequate Knowledge, Off Farm-work, Sole Proprietorship
+are not significant. Baumgart-Getz et al. (2012) found
+knowledge as significant predictor of adoption, however,
+the variable related to knowledge was not significant in
+this model. All variables except sole proprietorship in the
+model retained predicted signs. The hypothesis was accepted
+for all variables except sole proprietorship in regards to
+the direction of relationship.

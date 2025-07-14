@@ -1,0 +1,50 @@
+--- Community monitoring and national MRV ---
+
+525
+MODULE 18: Assessment, monitoring and evaluation
+Participatory, gender-sensitive approaches in assessment, monitoring and evaluation that recognize that lo-
+cal men and women are best suited to understand the conditions of local agriculture should be promoted. In
+these approaches, men and women contribute to assessing the impacts of climate change on their livelihoods
+and food security, and identifying and measuring their own indicators of change for monitoring and evaluation.
+This creates opportunities to develop a learning partnership that involves all the implementing partners and
+the participating communities. Participation in the assessment by the communities that are affected is critical.
+This is not only for gathering as much information as possible on the local situation by drawing on the diverse
+views within the community, but also for building ownership of the process by the community to increase the
+likelihood of successful implementation of CSA methods.
+
+Participatory planning, monitoring and evaluation are recognized as important in the broader development
+context. They are used widely in rural community development interventions, and are particularly helpful for
+understanding community perspectives on CSA opportunities and constraints, dealing with fine scaled vari-
+ability and empowering local communities to engage in community-based natural resources management
+(see Guijt, 1999 for a manual, and for an example on adaptation to drought through community groundwater
+monitoring see FAO, 2008). Villanueva (2010) proposes an ADAPT process to assist in organizational learning,
+monitor perceptions and promote organizational reflection and change.
+Box 18.9
+Community monitoring and national MRV
+The Forest Carbon Partnership Facility (FCPF) has looked at the advantages of community monitoring compared to
+expert monitoring for national REDD+ MRV. When communities are trained to use standard forest inventory protocols
+for carbon stocks using IPCC recommended procedures, their monitoring can be reliable and more economical than
+expert inventories. Engaging communities in monitoring activities strengthens their rights and their stake in REDD+.
+The ownership of the data remains with communities and this increases their motivation for supporting REDD+.
+Data collected by communities can also be used in stock assessments in national forest inventories and support the
+information gathered at basic grid points.
+See more at FCPF et al., 2009.
+Monitoring and evaluation for CSA should be set within a broader development perspective. To avoid duplication,
+monitoring and evaluation systems should be built upon and integrated into existing systems, programmes and
+projects for agriculture, climate-responsible development and disaster risk reduction (see more in Module 15)
+(Hedger et al., 2008; GIZ, 2011a). Within agricultural and rural development projects there are already many actions,
+expected results and indicators that incorporate information on climate change actions and outcomes or that can be
+enhanced by CSA actions with relatively lower costs (see FAO, 2012b). For guidance on participatory approaches, see
+FAO’s Socio-economic and Gender Analysis Field Handbook (FAO, 2001).
+Box 18.10
+Role of ICT, Communication for Development
+The role of information and communications technology (ICT) is important for implementing CSA, particularly for
+monitoring and evaluation. ICT is central for the collection, processing and transmission of data, and for communication
+among stakeholders. Global Positioning System (GPS) equipment used in project officers’ cameras can automatically
+log the locations of the photos taken for later reference. GIS is essential in analyzing geo-referenced information.
+Collected information can be logged in the database for monitoring purposes using simple structured forms based
+on a markup language (e.g. XML) on mobile phones, mobile electronic devices and laptops.
+For example, the Mobile Survey Tool, developed for the Ericsson Millennium Villages Project, is a tool that facilitates
+data collection for agriculture, healthcare, business, finance and government. The tool enables operators and end
+users to create and organize surveys and questionnaires without the need of coding or databases. The data can then
+be processed and used for different purposes within a village or by governments.

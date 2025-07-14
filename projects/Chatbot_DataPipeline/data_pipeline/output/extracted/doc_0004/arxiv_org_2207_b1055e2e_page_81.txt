@@ -1,0 +1,151 @@
+--- Frequency Distribution of Age, In Farming and Decision Making ---
+
+76
+
+Table 10: Frequency Distribution of Age, In Farming and Decision Making
+(Years) of Kentucky Farmers
+Years
+Group
+Age
+In Farming
+Decision Making
+Frequency
+Percent Frequency
+Percent Frequency Percent
+0 to 10
+0
+0
+25
+11.0
+31
+13.7
+11 to 20
+0
+0
+32
+13.8
+34
+14.8
+21 to 30
+0
+0.1
+39
+16.9
+33
+14.5
+31 to 40
+6
+2.4
+19
+8.4
+30
+13.2
+41 to 50
+36
+15.8
+40
+17.5
+39
+16.8
+51 to 60
+41
+17.9
+
+32
+
+13.8
+17
+7.6
+61 to 70
+59
+25.8
+0
+0
+71 and
+Above
+65
+28.1
+0
+0
+Total
+207
+90.1
+187
+81.4
+185
+80.7
+Missing
+23
+9.9
+43
+18.6
+45
+19.3
+Total
+230
+100.0
+230
+100.0
+230
+100.0
+
+Table 11: Formal Education Level of Kentucky Farmer and Their Spouse
+Education
+Level
+
+Farmer
+Farmers' Spouse
+
+Frequency
+Percent
+Frequency
+Percent
+Less than High
+School
+
+30
+13.0
+22
+9.6
+High School
+
+71
+30.8
+47
+20.5
+Some college
+
+44
+19.1
+17
+7.3
+College Degree
+26
+11.2
+23
+10.0
+Graduate
+Degree
+
+21
+9.0
+33
+14.5
+Total
+
+191
+83.1
+142
+61.9
+Missing
+
+39
+16.9
+88
+38.1
+Total
+
+230
+100.0
+230
+100.0

@@ -1,0 +1,22 @@
+name: extract-and-normalize
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - requests
+  - beautifulsoup4>=4.11.0
+  - urllib3  # for faster HTML parsing
+  - pyyaml
+  - nltk
+  - pip:
+      - openai
+      - groq  # Added Groq client for alternative LLM provider
+      - python-dotenv
+      - PyMuPDF
+      - jsonschema
+      - tenacity
+      - playwright>=1.30.0
+      - arxiv
+      - validators # Python wrapper for the arXiv API

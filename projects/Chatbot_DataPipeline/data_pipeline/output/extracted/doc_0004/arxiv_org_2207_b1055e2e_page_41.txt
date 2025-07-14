@@ -1,0 +1,32 @@
+--- The Negative Binomial distribution equation for ( ---
+
+36
+
+al., 2009; Aevi et al., 2015). The negative binomial model
+accounts over-dispersion by assuming that there will be
+unexplained variability among individuals who have the same
+predicted value. This additional unexplained variability
+between individuals leads to larger variance (than expected
+by Poisson distribution) in overall distribution but has no
+effect in mean. This additional variability is conceptually
+similar to the inclusion of an error term in normal linear
+regression (Coxe et al., 2009).
+The Negative Binomial distribution equation for (yi|xi)
+arise as a Gamma mixture of Poisson distribution. One
+parameterization of its probability density function is
+𝑓(𝑦; µ, 𝜃) =
+𝛤(𝑦+𝜃)
+𝛤𝜃𝑦!
+µ𝑦𝜃𝜃
+(µ+𝜃)𝑦+𝜃
+
+Eq. 5.
+with mean µ and shape parameter θ; Γ(.) is the Gamma
+function. For every fixed θ, this is another special case
+of the GLiM framework. It also has ϕ = 1 but with variance
+function 𝑉(µ) = µ +
+µ2
+𝜃. The mean of negative binomial
+regression can also be assumed to follow the log link
+𝐸(𝑌𝑖= µ𝑖= exp(𝑥𝑖
+′ 𝛽), and the maximum likelihood estimates can

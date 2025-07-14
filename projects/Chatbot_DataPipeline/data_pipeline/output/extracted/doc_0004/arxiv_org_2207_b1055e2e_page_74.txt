@@ -1,0 +1,25 @@
+--- Page 74 ---
+
+69
+
+Education are also two other positive significant
+predictors of the SAPs adoption. Farmers generating income
+from agro-tourism variable is also significant and positive
+predictor of the adoption behavior at 90% confidence
+interval. However, when income and outliers in the variable
+“land operated” were added in the model, the variable
+became significant at 95% confidence interval. The age has
+negative but significant relation with the adoption of
+sustainable agricultural practices. Also, the variable land
+operated became significant in the model with income and
+without outliers at 90% confidence interval which was non-
+significant in other models. But the effect of land
+operated is virtually null in the model.
+The model is also significant compared to the
+constant-only model and also had several significant
+predictors of the adoption behavior. However, the dependent
+variable has more than 50% 0s or not adopters of SAPs and
+also was overly dispersed. The negative binomial regression
+model addressed the problem of over-dispersion, however, a
+comparison of existing model with zero inflated negative
+binomial regression model using Poisson-quasi likelihood

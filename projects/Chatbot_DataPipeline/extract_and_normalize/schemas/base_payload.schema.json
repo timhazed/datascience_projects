@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/base_payload.schema.json",
+  "title": "Sustainable Agriculture Base Payload",
+  "type": "object",
+  "required": [
+    "title",
+    "source_url",
+    "date_published",
+    "language",
+    "region_or_country",
+    "document_type",
+    "sustainability_dimensions",
+    "key_topics",
+    "contains_harmful_practices",
+    "intended_audience",
+    "source_name"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL to the original PDF or web article"
+    },
+    "date_published": {
+      "type": "string",
+      "format": "date",
+      "description": "Publication date (YYYY-MM-DD)"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language code (e.g., en)"
+    },
+    "region_or_country": {
+      "type": "string",
+      "description": "Region or country referenced"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": ["scientific", "policy", "ngo_report", "manual"],
+      "description": "Type of document"
+    },
+    "sustainability_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["environmental", "economic", "social"]
+      },
+      "description": "Sustainability dimensions discussed"
+    },
+    "key_topics": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "financial access",
+          "agricultural innovation",
+          "long-term planning",
+          "supply chain integration",
+          "technology adoption",
+          "data-driven farming",
+          "agroforestry",
+          "carbon markets",
+          "local networks",
+          "regenerative agriculture",
+          "climate change mitigation",
+          "biodiversity conservation",
+          "sustainable agriculture",
+          "soil health",
+          "organic farming",
+          "green CAP policy"
+        ]
+      },
+      "description": "Topics detected from the document"
+    },
+    "contains_harmful_practices": {
+      "type": "boolean",
+      "description": "Whether outdated/harmful practices are included"
+    },
+    "intended_audience": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": ["farmers", "policymakers", "researchers", "NGOs", "other"]
+      },
+      "description": "Intended audience for the material"
+    },
+    "source_name": {
+      "type": "string",
+      "description": "Inferred source organization"
+    }
+  }
+}

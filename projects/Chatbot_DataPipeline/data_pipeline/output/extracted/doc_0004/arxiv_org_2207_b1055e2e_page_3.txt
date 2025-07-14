@@ -1,0 +1,11 @@
+--- Negative Binomial Regression. ---
+
+vii Kentucky in 2015 and 230 responses were analyzed using Negative Binomial Regression.
+
+Kentucky famers operate average of 169.57 acreage land. The average age of Kentucky farmers is 62.85 years.
+
+Most of them have formal education below college degree.
+
+However, farmers generally perceive that their farm and farming activities attain the objectives of sustainable agriculture. The results of negative binomial regression analysis suggest that row crop growers (p = 0.000), farmers in favor of diversification (p = 0.000), and formal education level (p = 0.000) increase probability of SAPs adoption. Vegetable growers (p = 0.049), and farmers with irrigation facilities (p = 0.026) also increase probability of the adoption. Income from agro-tourism (p = 0.074), land operated (p = 0.057), age (p = 0.057) are other significant variables of the adoption.
+
+Inadequate knowledge, perceived difficulty of implementation, lack of (adequate) market, negative attitude about technologies, and lack of (appropriate) technologies were major adoption barriers of SAPs in Kentucky. These results suggest an importance of extension

@@ -1,0 +1,48 @@
+--- Page 6 ---
+
+The theoretical foundation of this study is the multidimensional evaluation of VFPS
+performance. It encompasses three main dimensions: productivity, sustainability, and quality are
+the three main benefits of 3D printing. In each dimension, several concepts and variables are
+taken into account to give a complete evaluation of VFPS performance.
+In the productivity aspect, the main idea is to evaluate the efficiency and effectiveness of
+crop production within VFPS. The main factors that are considered are the crop yield, the growth
+rates, the resource utilization efficiency, and the overall plant production. The connection that is
+supposed to be is that the higher productivity, shown by the increase of crop yield and the
+efficient use of resources, is the one that is related to the better performance of VFPS.
+In the sustainability aspect, the attention is on the reduction of the environmental damage, the
+maximum use of the resources, and the economic feasibility (Benke & Tomkins, 2017). The
+crucial variables are the environmental input and output KPIs like energy consumption,
+greenhouse gas emissions, water use efficiency, and the economic indicators that are related to
+the cost-effectiveness and profitability. The anticipated connection is that the sustainable
+practices, which are the ones that cut down the resource consumption and the environmental
+impact, result in the more efficient and resilient VFPS operations.
+In the quality aspect, the focus is on providing safe, nutritious, and high-quality products
+to the consumers. The notions like food safety standards, nutritional value, and consumer
+satisfaction are the main points. Variables are the ones that are related to food safety (e. g. the
+level of food contamination, the number of foodborne illnesses, etc. ). g. , nitrate content, natural
+toxic compounds), nutritional value (e. g. protein content, essential fatty acids, vitamins,
+minerals). g. , total soluble solids, fatty acid content), and consumer preferences (e. g. , taste,
+health benefits, and price). g. , taste, texture). The supposed connection is that the quality
+standards are high and that is the reason why the consumers are satisfied and trust the company,
+therefore, the market demand and the success of VFPS will be increased.
+Through the combination of these dimensions and the study of their concepts and
+variables, the theoretical framework gives a systematic way to evaluate VFPS performance in a
+comprehensive manner. This model allows the researchers to evaluate the effectiveness and
+sustainability of VFPS operations, to find the areas for improvement and to advise the
+decision-making processes to optimize the system performance.
+
+3. [Methodology & Data]
+In this section, I will discuss the methodology and data collection process for my
+research, focusing on how I address my research questions: "What is the kind of water scarcity
+that has the most effect on the crop production?" and "How does the introduction of water
+scarcity response technologies affect the crop yield and quality?"
+For the sake of my research questions, I use a mixture of both qualitative and quantitative
+methods to get a comprehensive answer. This method enables us to take into account the various
+aspects of the water scarcity's effect on crop production and to evaluate the water scarcity
+response technologies from a variety of viewpoints.
+For the qualitative part of my study, I carry out the extensive reviews of the documents to study
+the qualitative effects of water scarcity on crop production. The review of documents includes
+the systematic examination of the literature, reports, and policy documents that are related to
+water scarcity, agricultural production, and technological interventions. By means of this
+in-depth qualitative analysis, I intend to acquire deep insights into the hidden forces which are
+the cause of the impact of water scarcity on crop yield and quality. At the start, the document

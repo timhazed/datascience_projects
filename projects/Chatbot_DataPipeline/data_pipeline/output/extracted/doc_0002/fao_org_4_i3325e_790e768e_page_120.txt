@@ -1,0 +1,124 @@
+--- from amended Harmonized World Soil Database ---
+
+107
+MODULE 4: Soils and their management for CSA
+Contents
+Overview
+
+105
+Key messages
+
+105
+4.1
+Principles of soil health, key functions and soil: plant-water interrelations
+109
+4.2
+Challenges of climate change to soils
+111
+4.3
+Soil principles for climate change adaptation and mitigation and enhancing resilience
+
+in different contexts
+113
+
+Assessing the status of soils
+115
+
+Preventing land conversion and protecting vulnerable lands to high SOM losses
+115
+
+Preventing and mitigating land degradation
+116
+
+Controlling soil erosion
+116
+
+Improving water storage
+116
+
+Improving soil structure with organic matter
+117
+
+Managing soil organic matter for soil carbon sequestration
+118
+
+Boosting nutrient management
+118
+4.4
+Successful examples of soil management practices
+
+for climate-smart agriculture with a focus on resilience
+120
+
+Integrated soil-crop-water management
+120
+
+Water use efficiency and irrigation
+121
+
+Restoring degraded soils for climate change resilience
+123
+
+Adaptive management capacity
+123
+4.5
+Conclusions
+124
+Notes
+
+124
+Acronyms
+
+125
+References
+
+126
+Additional Resources
+
+131
+Annex
+
+132
+A.4.1
+Soil management for sustained crop productivity
+and climate change adaptation and mitigation
+132
+List of Figures
+Figure 4.1
+Definition of soil. Soils contribute to a range of vital ecosystem services and functions
+109
+Figure 4.2
+Provision of ecosystem services and functions by soils.
+110
+Figure 4.3
+Organic matter turnover
+110
+Figure 4.4
+Estimates of global soil organic carbon (t/ha of carbon)
+from amended Harmonized World Soil Database
+114
+Figure 4.5
+Soil principles for climate change adaptation and mitigation, and enhancing resilience
+114
+List of Tables
+Table 5.1
+Capacity of a soil with a bulk density of 1.2 g/cm3 to store water
+as affected by SOC content to 30 cm soil depth.
+117
+List of Boxes
+Box 4.1
+Carbon and SOM
+117
+Box 4.2
+Inorganic fertilizers
+119
+Box 4.3
+Honduras: Quesungual Slash and Mulch Agroforestry System (QSMAS)
+121
+Box 4.4
+The traditional minga system for drought management
+122
+Box 4.5
+Biochar
+
+123

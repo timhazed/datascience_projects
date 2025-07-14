@@ -1,0 +1,66 @@
+--- Source: FAOSTAT, 2012 ---
+
+147
+MODULE 5: Sound Management of Energy for CSA
+Box 5.1
+Low-cost machinery systems for small farms in Bangladesh
+The introduction in Bangladesh of small, mobile, diesel engines has increased food production (Steele, 2011). These
+demountable engines can be used for a range of applications, including powering small boats, tractors or trucks,
+generating electricity, and operating processing equipment and water pumps. Public policy changes enabled the
+import of innovative, Chinese-made, farm equipment. The diesel engines could be easily repaired by local mechanics
+and were less expensive than more sophisticated and more fuel-efficient machinery manufactured in India. The
+introduction of inexpensive Chinese technology led to the ‘agrotractorization’ of Bangladesh.
+The extent of mechanization in Bangladesh can also be measured as the level of energy input. The available power in
+agriculture over the period of 1960 to 2007 increased by almost 500 percent: from 0.24 kilowatt per hectare (kW/ha)
+in 1960, to 0.61 kW/ha at the end of the 1990s, to 1.17 kW/ha in 2007 (Islam and Shirazul, 2009). The available power
+gradually increased from 0.24 kW/ha in 1960, grew moderately until the 1980s and then rose sharply in the ‘90s,
+reaching 1.17 kW/ha in 2007. Most of the agricultural machinery used in the country is either imported or locally
+manufactured. Farm machinery, such as weeders, threshers, winnowers and centrifugal pumps are developed and
+manufactured locally with local materials (APCAEM-ESCAP, 2010).
+Figure 5.4
+Cereals and vegetables yield increases in Bangladesh from 2000 to 2010
+Yield (Hg/Ha)
+0
+10000
+20000
+30000
+40000
+50000
+60000
+70000
+80000
+2000
+2001
+2002
+2003
+2004
+2005
+2006
+2007
+2008
+2009
+2010
+Cereals, Total
++ (Total)
+Vegetables Primary
++ (Total)
+
+Source: FAOSTAT, 2012
+In the early 1970s, when Bangladesh was characterised as a ‘basket case’ by some international development
+specialists, no one was forecasting that by 2010 the country would have one of the most mechanized agricultural
+economies in South Asia (Islam and Shirazul, 2009). Today 80 percent of primary tillage operations are mechanized.
+These operations are performed mainly by 300 000 small two-wheel tractors and a few (3 000) four-wheel tractors.
+There is a highly developed market for servicing tractors, pumpsets, threshers and other machinery derived from
+the use of small engines (Biggs and Justice, 2011).
+The figure above indicates that from 2000 to 2007 external energy subsidies in agriculture increased by 60-70 percent
+for cereals and vegetables (per kg of product). However, yields (per unit of cultivated area) also increased by 20-25
+percent. This made mechanized agriculture more profitable and gave farmers more time for other activities.
+The Bangladesh private sector (as compared to the private sector in Nepal or India) focused on the imports of
+smaller-scale machinery. Presently, there are over one million small horsepower diesel irrigation pumpsets and
+nearly 400 000 diesel two-wheel tractors. In Bangladesh, the import value of soil machinery is consistently higher
+and continues to increase compared to the values of agricultural machinery and equipment such as harvesters
+and threshers, milking and dairy machinery and agricultural tractors. In 2007 Bangladesh started exporting some
+agricultural machinery, but most machinery is manufactured locally for local use. Seeing these results, Nepalese
+and Indian farm machinery manufacturers have recognized a new business opportunity. Small engines are now
+being sold mainly into low-cost, farm machinery markets in rural communities. Farm services have expanded as a
+result of the versatility and transportability of this equipment.

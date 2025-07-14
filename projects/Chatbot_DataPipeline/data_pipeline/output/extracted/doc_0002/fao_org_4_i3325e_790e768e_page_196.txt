@@ -1,0 +1,21 @@
+--- Seeds for Needs project in Ethiopia ---
+
+183 MODULE 6: Conservation and sustainable use of genetic resources for food and agriculture When it is not cost-effective or not possible to conserve genetic resources in situ or on-farm, the best option is to collect these resources and conserve them in gene banks, where their diversity can be easily made ac- cessible and available. When properly characterised and evaluated, genetic resources from ex situ collections can reveal valuable genetic characters (adaptive traits) for adapting agriculture to changing climatic condi- tions and help farmers cope with potential losses (Snook et al., 2011). The Seeds for Needs project in Ethiopia has demonstrated the value of ex situ collections for climate change adaptation (see Box 6.8).
+
+Around 7.4 million samples of crop diversity are stored in 1 750 gene banks around the world (FAO, 2010c).
+
+Nevertheless, there is a risk that material conserved in gene banks might get lost. One attempt to provide insurance against the loss of seeds in gene banks, as well as a refuge in which seeds can be safeguarded in the event of large-scale crises, is the Svalbard Global Seed Vault. The seed vault conserves a wide variety of plant seeds in a dry and cold underground cavern. These seeds are duplicate samples, or “spare” copies, of seeds held in gene banks worldwide.
+
+For fish species, techniques and technologies for the maintenance of genetic material are in the early stages of development. The common carp (Cyprinus carpio) is one of the oldest cultured and most widely domesticated fish in the world. It has been cultured in China for more than 2 500 years (Zhu et al., 2005).
+
+The species is very adaptable both in the wild and in aquaculture (Bakos and Gorda, 2001). In Hungary, the genetic improvement of common carp started in 1962 at the Research Institute for Fisheries, Aquaculture and Irrigation (Bakos, 1964). The Institute presently has a live gene bank that includes 15 Hungarian and 15 foreign carp strains (Bakos et al., 2006). Intense research on cross-breeding has led to the development of three top productive hybrids for different conditions in fish farms and natural waters (Bakos and Gorda, 1995).
+
+In aquaculture, the domestication of species and the development of breeds suited for aquaculture are of high importance because they allow for a more efficient utilization of resources. In farm crops and in live- stock, the process of selecting valuable traits has been going on for centuries. In the aquaculture sector, however, this process is in its infancy, and selective breeding programmes remain highly dependent on in- puts from wild genetic resources.
+
+In the case of animal genetic resources, ex situ conservation usually involves in vitro cryoconservation of gametes or embryos in a gene bank. Cryoconservation can be supported by ex situ – in vivo conservation.
+
+This involves the conservation of a limited number of live animals in a small breeding herd or a zoo. Under these conditions, animals are kept outside their original production environment and their ability to adapt to changing conditions is impaired. Ex situ conservation is a cost-intensive process. In most developing coun- tries, it cannot be undertaken without international support (FAO, 2007).
+
+Box 6.8 Seeds for Needs project in Ethiopia The Seeds for Needs project in Ethiopia uses ex-situ collections to help farmers, mainly women, cope with climate change. The project created climate profiles of all the accessions maintained at the Ethiopian National Genebank’s Institute of Biodiversity and Conservation. The accessions most likely to be adapted to future growing conditions in areas with similar environmental profiles were identified using the collecting, characterisation and evaluation data from germplasm collections and Geographic Information System technology. These varieties were then tested by selected farmers who cultivated them based on their own experience, indigenous knowledge and adaptation strategies. After the testing process, the best performing and most adaptable varieties were distributed to farming communities for multiplication with the support of local community gene banks and agribusinesses.
+
+Source: Bioversity International, 2013

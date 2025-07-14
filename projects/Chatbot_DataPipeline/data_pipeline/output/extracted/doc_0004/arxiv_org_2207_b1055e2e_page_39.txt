@@ -1,0 +1,37 @@
+--- 2009; Avei, Alturk, & Soylu, 2015). This property of ---
+
+34
+
+P (Y =
+y
+µ) =
+µy
+𝑦! 𝑒−µ
+
+Eq. 3.
+where, y! = y-factorial = y x (y-n)! = y (y-1) (y-2) … (2)(1).
+(Coxe et al., 2009, p.123).
+The probability of a specific count also depends on
+the variance (σ2) of the number of counts. However, the
+poison distribution has only one parameter µ i.e. both the
+conditional mean and the conditional variance are equal to
+µ, the condition is called as equi-dispersion (Coxe et al.,
+2009; Avei, Alturk, & Soylu, 2015). This property of
+Poisson distribution, i.e. the variance increases with the
+increase in mean and vice versa, is helpful in modeling
+count outcome (Coxe et al., 2009).
+
+Model
+for
+Over-dispersed
+Data
+and
+Negative
+Binomial
+Regression:
+The simplest adjustment for over-dispersion in the
+Poisson regression includes second parameter used in the
+estimation of the conditional variance known as over-
+dispersion scaling parameter, (ϕ). The corrected model
+assumes Poisson error distribution with mean µ and variance
+ϕµ. The scaling parameter (ϕ) will be greater than 1, if

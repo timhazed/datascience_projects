@@ -1,0 +1,27 @@
+--- Page 63 ---
+
+58
+
+Farmers growing vegetables in their farm (veggies)
+variable is positively significant (p =0.049) and has
+positive correlation with the SAP adoption behavior in
+Kentucky. The change in the expected log count of SAPs
+adoption would be expected to increase by 0.555 if farmers
+have vegetables in their farm other things remaining
+constant. Tey et al. (2013) found that vegetable farmers in
+Malaysia are highly influenced by conservation practices
+and IPM.
+
+Farmer’s willingness to diversify their farm (diverse)
+is significant (p = 0.000) and positive. The change in the
+expected log count of SAPs adoption would be expected to
+increase by 0.778 if farmers are in favor of diversifying
+their farm. Baumgart-Getz et al. (2012) found that the
+positive attitudes towards farm diversification has
+positive and significant influence in the adoption of
+agricultural best management practices.
+
+Farmers having farm with the irrigation facilities
+(irrigation) is another positive and significant variable
+(p = 0.026). The change in the expected log count of SAPs
+adoption would be expected to increase by 0.948 if farmers

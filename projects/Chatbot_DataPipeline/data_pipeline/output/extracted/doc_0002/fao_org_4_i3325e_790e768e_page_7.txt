@@ -1,0 +1,23 @@
+--- The drafting of this Sourcebook on Climate-Smart Agriculture, Forestry and Fisheries has been a collaborative ---
+
+vi CLIMATE-SMART AGRICULTURE SOURCEBOOK Acknowledgements The drafting of this Sourcebook on Climate-Smart Agriculture, Forestry and Fisheries has been a collaborative effort involving professionals from within several departments of FAO and a variety of partner organizations.
+
+Many individuals played a leading role as main authors and coordinators in the preparation of the modules, while others made written contributions to the Modules’ boxes and case studies.
+
+The conceptualization and production of this sourcebook was coordinated by Lucia Palombi and Reuben Sessa, under the overall supervision of the Director of the Climate, Energy and Tenure Division of FAO Xiangjun Yao and the Senior Natural Resources Officer Tiina Vähänen. Editorial support was provided by Denise Martínez Breto, Kaisa Karttunen, Gordon Ramsay and Alessandra Bresnan while the graphic design was elaborated by Maria Guardia and Fabrizio Puzzilli.
+
+Module 1 on why climate-smart agriculture, forestry and fisheries was written by Alexandre Meybeck (FAO) and Vincent Gitz (FAO) with contributions from Richie Ahuja (EDF–India), Kevern Cochrane (FAO), Anette Engelund Friis (World Farmers Organization), Elwyn Grainger-Jones (IFAD), Hsin Huang (OECD), Chang-Gil Kim (KREI- South Korea), Atta-Krah Kwesi (Bioversity International), James Lomax (UNEP), Dr B. Mantlana (South Africa), Hayden Montgomery (New Zealand), Lucia Perugini (University of Perugia) and Dipti Thapa (World Bank). The module was reviewed by Shivaji Pandey and Wilfrid Legg.
+
+Module 2 on managing landscapes for climate-smart agricultural ecosystems was written by Marja-Liisa Tapio- Bistrom (FAO), Anne Bogdanski (FAO) and Lisen Runsten (FAO) with contributions from Anni Arial (FAO); Nadine Azzu (FAO); Sally Bunning (FAO); Christina Seeberg-Elverfeldt (FAO); David Coates (CBD secretariat); Zhijun Chen (FAO); Cassandra De Young (FAO); Paolo Groppo (FAO); Marc Dumas Johansen (FAO); Damiano Luchetti (FAO); Sheila Mwanundu (IFAD); Matthias Reiche (FAO); Janie Rioux (FAO); Reuben Sessa (FAO); Kim-Anh Tem- pelman (FAO); Stephen Twomlow (IFAD); and Tiina Vahanen (FAO). Box 2.4 was written by Maria Nuutinen (FAO).
+
+Case Study 2.1 was written by Richard Hatfield (Natural Capital East Africa). Case Study 2.2 was written by David Boerma (FAO). Case study 2.3 was written by Doris Soto (FAO). Case Study 2.4 was written by Lisen Runsten (FAO) and Manuela Vollbrecht (FAO). Case Study 2.5 was written by Pieter Van Lierop (FAO) and Petteri Vuorinen (FAO). Case Study 2.6 was written by Wu Ning (ICIMOD) and Hans Joosten (University of Greifswald). Case Study 2.7 was written by Sally Bunning (FAO) and Monica Petri (FAO). Case Study 2.8 was written by Tomas Lindemann (FAO), Paola Palestini (FAO) and Daniela Morra (FAO).
+
+Module 3 on water management was written Jean-Marc Faurès (FAO) with contributions from Devin Bartley (FAO), Mohamed Bazza (FAO), Jacob Burke (FAO), Jippe Hoogeveen (FAO), Doris Soto (FAO) and Pasquale Steduto (FAO).
+
+Module 4 on soils and their management for CSA was written by Sally Bunning (FAO), Sandra Corsi (FAO) and Ronald Vargas (FAO).
+
+Module 5 on energy was written by Olivier Dubois (FAO), Alessandro Flammini (FAO), Anne Bogdanski (FAO) and Jonathan Reeves (FAO).
+
+Module 6 on conservation and sustainable use for genetic resources for food and agriculture was written by Damiano Luchetti, Ehsan Dulloo, Anna Asfaw and Linda Collette (FAO) with contributions by Devin Bartley, Cas- sandra De Young, Mary Jane Dela Cruz, Matthias Halwart, Kathrin Hett, Irene Hoffmann, Mario Marino, Albert Nikiema, Dafydd Pilling, Beate Scherf, Doris Soto, Kim-Anh Tempelman and Álvaro Toledo (FAO) in coordination with the Secretariat of the Commission on Genetic Resources for Food and Agriculture and FAO’s inter-depart- mental working group on biodiversity.
+
+Module 7 on crop production systems was written by Nadine Azzu (FAO) and Suzanne Redfern (FAO) with contri- butions from Theodor Friedrich (FAO), Gualbert Gbehounou (FAO), Amir Kassam (FAO), Chikelu Mba (FAO) and Cornelis VanDuijvendijk (FAO).

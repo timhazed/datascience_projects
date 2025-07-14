@@ -1,0 +1,11 @@
+--- Gitz and Meybeck, 2012 ---
+
+18 CLIMATE-SMART AGRICULTURE SOURCEBOOK Figure 1.2 Impacts of drought DROUGHT Land degradation Reduced availability of food Reduced food availability Food price increase Reduced availability of water and grass Inceased food price Food insecurity Reduced assets Reduced value of cattle Sale of cattle Reduced income Reduced productive livestock Gitz and Meybeck, 2012 Vulnerabilities The net impact of a shock depends not only on the intensity of the shock itself but also on the vulnerability of the system to this particular type of shock.
+
+Vulnerability can be defined as the propensity or predisposition to be adversely affected (IPCC, 2012). It is a complex concept (Fellmann, 2012) that needs to be considered across scales and across various dimensions (Gitz and Meybeck, 2012). It can be defined as vulnerability of ‘what’ to ‘what’ (Carpenter et al., 2001).
+
+The degree of ‘specific’ vulnerability of a system to a particular type of risk can be analysed as exposure and sensitivity to the potential shock that relates to this risk, and also depends on the ‘adaptive capacity’ of the system to cope with the impact of the shock. The adaptive capacity itself can also be affected by an external shock. In a given system, shocks in one dimension can spread to another dimension. For example, production shocks can be transmitted to the economic and social domains. This transmission can be linear, amplified or reduced, depending on the policies and institutions that are in place.
+
+In many cases, there can be amplifying or positive correlations between the effects of shocks of diverse nature.
+
+In such cases, reducing vulnerability to one kind of shock can help also to reduce (specific) vulnerability to another kind of shocks. Vulnerability is also affected by the various shocks (e.g. a drought increases vulner- ability to the next drought). By decreasing the strength of cattle, drought also increases their vulnerability to diseases. By reducing assets of households, drought also increases their vulnerability to other kind of shock.

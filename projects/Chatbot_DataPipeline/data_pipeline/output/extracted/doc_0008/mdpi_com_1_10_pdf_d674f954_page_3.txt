@@ -1,0 +1,39 @@
+--- 3. The Platform ---
+
+Eng. Proc. 2021, 9, 10
+3 of 5
+3. The Platform
+The circular production system can receive and process all the information from each
+subsystem installed at every production level in the farm and provides the results in a
+simple and manageable form, supporting users to make appropriate decisions (Figure 3).
+Examples of input data include: (a) for the crop production sub-system—weather and
+soil moisture data from IoT, satellite and drone images, and crop and soil properties
+mapping proximal sensor data; (b) for the feed production sub-system—silage moisture
+and temperature data from IoT; (c) for the animal production sub-system—animal housing
+environmental conditions (temperature, humidity, CO2 and methane concentrations, etc.)
+monitored using IoT sensing systems, animal health status (temperature, activity, and
+behavior) using wireless IoT-enabled collars; (d) for the animal waste treatment sub-
+system—waste volume, waste water content and temperature, produced volume of biogas
+(if equipped with biogas production facilities), using IoT systems.
+
+(a)
+(b)
+Figure 3. Some of the basic functions of the platform; (a) automated mapping of within-ﬁeld crop properties and (b) mapping
+of environmental conditions inside the animal housing facilities.
+4. Crop Production Experiments
+Crop production is the initial production stage in a circular dairy system and consists
+of the ﬁrst sub-system in BIOCIRCULAR. Within the scope of the project, ﬁeld experi-
+ments were setup to study and develop management practices that may lead to increased
+production efﬁciency by minimizing the environmental footprint. In this work, the yield
+response of maize crop (Zea mays L.), grown for forage, to the application of different
+types of fertilizer (organic—manure and green manure; chemical fertilizers) was also
+investigated. Two maize hybrids were included in the study, namely Dekalb6777 and
+Pioneer1291. Five different fertilization treatments were tested: green manure (organic),
+manure (organic), conventional fertilizer (synthetic), slow-release fertilizer (synthetic), and
+control (no fertilizer applied).
+The results showed that cattle manure can provide the nutrients in an available
+form that are essential for plant growth, while enhancing soil water-retention properties,
+leading to increased productivity of maize (Figure 4). Additionally, green manure with
+common vetch can provide adequate amounts of nitrogen, which is very important for
+maize. Therefore, efﬁcient management of natural resources together with integrative crop
+management approaches can reduce inputs in crop production systems.

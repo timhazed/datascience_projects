@@ -1,0 +1,25 @@
+{
+  "title": "Sustainable Agriculture",
+  "source_url": "https://www.nal.usda.gov/farms-and-agricultural-production-systems/sustainable-agriculture",
+  "date_published": "2025-04-22",
+  "language": "en",
+  "region_or_country": "global",
+  "document_type": "manual",
+  "sustainability_dimensions": [
+    "environmental",
+    "economic",
+    "social"
+  ],
+  "key_topics": [
+    "sustainable agriculture",
+    "agricultural innovation",
+    "soil health"
+  ],
+  "contains_harmful_practices": false,
+  "intended_audience": [
+    "researchers",
+    "farmers"
+  ],
+  "source_name": "nal.usda.gov",
+  "doc_id": "b7738cf3-cb06-5b2e-905f-249bbf390152"
+}
