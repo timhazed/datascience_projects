@@ -329,13 +329,13 @@ LLM Prompt Eng, Langgraph, CrewAI, Autogen, Groq, Algorithms
 ### 23. Chatbot Datapipeline
 The Chatbot_Datapipeline is a modular ETL system designed to transform unstructured sustainable agriculture documents into semantically searchable content for use in chatbot applications. It consists of four coordinated components: extract_and_normalize downloads PDFs and HTML content, extracts clean text, and uses LLMs (OpenAI, Groq) to generate structured metadata; chunker segments the text into overlapping, schema-compliant chunks optimized for embedding; insert_db generates SentenceTransformer embeddings and stores them with metadata into a Qdrant vector database; and datapipeline orchestrates the entire workflow using Prefect and Docker, enabling configurable execution, fault isolation, and centralized logging. Each subproject includes its own project-specific README that provides in-depth documentation on features, configuration, and usage.
 
-🔗 [View datapipeline project](projects/Chatbot_Datapipeline/data_pipeline/)
+🔗 [View datapipeline project](projects/Chatbot_DataPipeline/data_pipeline/)
 
-🔗 [View extract and normalize project](projects/Chatbot_Datapipeline/extract_and_normalize/)
+🔗 [View extract and normalize project](projects/Chatbot_DataPipeline/extract_and_normalize/)
 
-🔗 [View chunker project](projects/Chatbot_Datapipeline/chunks/)
+🔗 [View chunker project](projects/Chatbot_DataPipeline/chunks/)
 
-🔗 [View insert db project](projects/Chatbot_Datapipeline/insert_db/)
+🔗 [View insert db project](projects/Chatbot_DataPipeline/insert_db/)
 
 #### Skills and Tools
 Prefect, Docker, ETL Pipeline, Prompt Eng and Schema Validation, Qdrant, Sentence Transformers
