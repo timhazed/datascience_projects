@@ -15,7 +15,6 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Image Captioning](#8-image-captioning)
   - [Langchain - Aspect Sentiment Analysis](#9-langchain---aspect-sentiment-analysis)
   - [Linear Regression](#10-linear-regression)
-  - [LLM Framework Benchmarking](#22-llm-framework-benchmarking)
   - [Logistic Regression and Decision Trees](#11-logistic-regression-and-decision-trees)
   - [NLP](#12-nlp)
   - [Neural Networks](#13-neural-networks)
@@ -29,6 +28,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Voice Assistant](#21-voice-assistant)
   - [LLM Framework Benchmarking](#22-llm-framework-benchmarking)
   - [Chatbot Datapipeline](#23-chatbot-datapipeline)
+  - [Geoportugal](#24-geoportugal)
 - [Contact](#contact)
 ---
 
@@ -339,6 +339,18 @@ The Chatbot_Datapipeline is a modular ETL system designed to transform unstructu
 
 #### Skills and Tools
 Prefect, Docker, ETL Pipeline, Prompt Eng and Schema Validation, Qdrant, Sentence Transformers
+
+### 24. Geoportugal
+GeoPortugal is a full-stack geospatial application for exploring Portugal's administrative geography. Users can search and discover Portuguese districts, municipalities, and localities through an interactive map interface, view detailed location information including population data and nearby places, and compare multiple locations side-by-side. The application features hierarchical navigation through Portugal's administrative divisions, full-text search with intelligent matching, and geospatial queries for finding nearby locations.
+
+🔗 [View Geoportugal Project](projects/Geoportugal)
+
+![Geoportugal Layout](projects/Geoportugal/images/GeoPortugal_Frontend.png)
+
+#### Skills and Tools
+Backend: FastAPI, SQLAlchemy 2.0, PostgreSQL with PostGIS, Redis (caching), Strawberry GraphQL                                                         
+
+Frontend: Next.js 15, React 19, TypeScript, Apollo Client, Leaflet/React-Leaflet, TailwindCSS   
 
 ## Contact
 

@@ -1,0 +1,306 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.virtualenv
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Environments
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.db
+*.sqlite3
+*.sqlite
+*.db-journal
+*.db-wal
+*.db-shm
+
+# PostgreSQL
+*.pgdata
+postgres_data/
+
+# Redis
+redis_data/
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon*
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.tmp
+*.temp
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Redis dump files
+dump.rdb
+
+# Alembic
+# Keep the migrations folder but ignore specific migration files if needed
+# migrations/versions/*.py
+
+# Data files (large datasets)
+# Note: Keep essential data files but ignore large downloads and backups
+backend/data/backups/
+backend/data/raw/*.zip
+backend/data/*.zip
+# Uncomment next line if you want to ignore all data files:
+# backend/data/
+*.csv
+*.geojson
+*.xml
+*.gz
+*.tar.gz
+*.txt.gz
+*.bz2
+*.7z
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Editor files
+*.swp
+*.swo
+*~
+
+# Package managers
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# Node.js (for frontend when added)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.npm
+.eslintcache
+.node_repl_history
+*.tgz
+.yarn-integrity
+.cache/
+
+# Next.js (for frontend)
+.next/
+out/
+.nuxt/
+dist/
+.next/
+next-env.d.ts
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Frontend build files
+build/
+.cache/
+public/build/
+
+# API keys and secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# .env.example - keep this tracked as a template for developers
+secrets.json
+config.json
+*.pem
+*.key
+*.crt
+*.p12
+
+# IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Project specific
+alembic_error.log
+*.log
+.coverage
+htmlcov/
+
+# Docker volumes
+postgres_data/
+redis_data/
+
+# Makefile process IDs (for dev-up/dev-down)
+.backend.pid
+.frontend.pid
+
+# Performance monitoring
+.clinic/
+flamegraph.html
+
+# Backup and temp files
+*.orig
+*.rej
+*.patch
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Development tools
+.eslintcache
+.stylelintcache
+
+# Misc
+*.lock
+!package-lock.json
+!yarn.lock
+!Pipfile.lock
+!poetry.lock
