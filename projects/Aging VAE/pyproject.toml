@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "aging-vae"
+version = "0.1.0"
+description = "Face aging and attribute manipulation using Variational Autoencoders on UTKFace"
+authors = ["timhazed <thayes@oldzinsoftware.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12.7"
+# Pin to 2.19.x: tensorflow-metal is incompatible with TensorFlow 2.20+
+tensorflow = ">=2.19,<2.20"
+tensorflow-metal = "1.2.0"
+numpy = ">=2.1.0"
+opencv-python = "^4.8"
+tqdm = "^4.66"
+matplotlib = "^3.8"
+gradio = "^4.0"
+# Pin for Gradio compatibility (HfFolder removed in newer huggingface_hub)
+huggingface-hub = "<0.24"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^4.0"
+pytest-asyncio = "^0.23"
+python-dotenv = "^1.0"
+ruff = "^0.15.2"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

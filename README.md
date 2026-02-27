@@ -29,6 +29,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [LLM Framework Benchmarking](#22-llm-framework-benchmarking)
   - [Chatbot Datapipeline](#23-chatbot-datapipeline)
   - [Geoportugal](#24-geoportugal)
+  - [Aging VAE](#25-aging-vae)
 - [Contact](#contact)
 ---
 
@@ -351,6 +352,20 @@ GeoPortugal is a full-stack geospatial application for exploring Portugal's admi
 Backend: FastAPI, SQLAlchemy 2.0, PostgreSQL with PostGIS, Redis (caching), Strawberry GraphQL                                                         
 
 Frontend: Next.js 15, React 19, TypeScript, Apollo Client, Leaflet/React-Leaflet, TailwindCSS   
+
+### 25. Aging VAE
+Aging VAE is a face aging application built with TensorFlow/Keras that uses Variational Autoencoders to manipulate facial age in images. The system learns a 512-dimensional latent space from the UTKFace dataset and computes age directions through latent arithmetic—subtracting mean embeddings of young faces from old faces. A key innovation is gender-orthogonalized aging, which removes the gender component from the age vector to prevent unwanted attribute leakage during transformation. The application supports multi-resolution training (64×64 and 128×128) with automatic model detection, and includes an interactive Gradio web interface for real-time age manipulation. Built with Python, TensorFlow, Keras, OpenCV, NumPy, and Gradio, demonstrating skills in deep generative models, latent space manipulation, convolutional neural networks, and full-stack ML application development.
+
+🔗 [View Aging VAE Project](projects/Aging%20VAE/)
+
+![Aging VAE Neutral Layout](projects/Aging%20VAE/images/VAE_Image_Neutral.png)
+
+![Aging VAE Plus 30 Aged Layout](projects/Aging%20VAE/images/VAE_Image_Plus_30.png)
+
+#### Skills Used
+Backend: TensorFlow, VAE, Numpy, OpenCV
+
+Frontend: Gradio
 
 ## Contact
 
