@@ -46,7 +46,6 @@ src/
 models/                     # Saved model weights (auto-created)
 images                      # Images showing training results and application snips
 data/UTKFace/               # Dataset location
-docs/                       # Planning documents
 ```
 
 ## Prerequisites
