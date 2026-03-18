@@ -30,6 +30,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Chatbot Datapipeline](#23-chatbot-datapipeline)
   - [Geoportugal](#24-geoportugal)
   - [Aging VAE](#25-aging-vae)
+  - [HR Assistant](#26-hr-assistant)
 - [Contact](#contact)
 ---
 
@@ -364,6 +365,20 @@ Aging VAE is a face aging application built with TensorFlow/Keras that uses Vari
 
 #### Skills Used
 Backend: TensorFlow, VAE, Numpy, OpenCV
+
+Frontend: Gradio
+
+### 26. HR Assistant
+HR Assistant is a RAG-based chatbot for answering questions about Nestlé Human Resources policies. The system loads HR policy documents (PDF and TXT), chunks them with cross-page reassembly to preserve paragraph continuity, and stores embeddings in a vector database for semantic retrieval. A key feature is the LLM-as-a-Judge intent guardrail that classifies queries as SAFE or UNSAFE before invoking the retrieval pipeline, ensuring the assistant stays on topic. The application supports multiple LLM providers (OpenAI, Groq) and vector stores (FAISS, ChromaDB) via a factory pattern, with automatic document deduplication using SHA-256 content hashes. Optional evidence citations surface the source document and chunk number alongside each response. Built with Python, LangChain, FAISS, ChromaDB, and Gradio, demonstrating skills in RAG architecture, vector similarity search, prompt engineering, LLM guardrails, and full-stack ML application development.
+
+🔗 [View HR Assistant Project](projects/hr_assistant/)
+
+![HR Assistant Basic Question](projects/hr_assistant/images/HRAssistant_BasicQuestions.png)
+
+![HR Assistant Question with Evidence](projects/hr_assistant/images/HRAssistant_QuestionWithEvidence.png)
+
+#### Skills Used
+Backend: LangChain, FAISS, ChromaDB, OpenAI, Groq, Pydantic
 
 Frontend: Gradio
 

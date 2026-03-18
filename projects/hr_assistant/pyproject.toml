@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "hr-assistant"
+version = "0.1.0"
+description = "A specialized HR assistant for company policies"
+authors = [
+    {name = "timhazed", email = "thayes@oldzinsoftware.com"}
+]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "3.12.7"
+python-dotenv = "^1.0"
+langchain-openai = "^0.2"
+langchain-community = "^0.3"
+langchain = "^0.3"
+langchain-core = "^0.3"
+faiss-cpu = "^1.9"
+chromadb = "^0.5"
+langchain-groq = "^0.2"
+pypdf = "^6.8.0"
+gradio = "^6.9.0"
+
+[tool.poetry.scripts]
+gradio-app = "src.gradio.app:launch"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8"
+ipykernel = "^6.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0"
+pytest-mock = "^3.12"
+pytest-cov = "^4.1"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = ["-v", "--tb=short", "-ra"]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+omit = ["src/cli/*", "*/__init__.py"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
