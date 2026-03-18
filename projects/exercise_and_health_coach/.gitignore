@@ -1,0 +1,42 @@
+## Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+## Environments & secrets
+.venv/
+venv/
+.env
+.env.*
+.python-version
+
+## Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+## Tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.cache/
+
+## Coverage
+.coverage
+.coverage.*
+htmlcov/
+
+## Editors/OS
+.DS_Store
+.vscode/
+.idea/
+
+## Logs
+logs/
+*.log
+
+## Generated validation outputs
+data/*_Run_*.jsonl

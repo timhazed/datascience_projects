@@ -32,6 +32,8 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Aging VAE](#25-aging-vae)
   - [HR Assistant](#26-hr-assistant)
   - [Image Designer Assistant](#27-image-designer-assistant)
+  - [Exercise and Recovery Coach](#28-exercise-and-recovery-coach)
+
 - [Contact](#contact)
 ---
 
@@ -394,6 +396,20 @@ Image Designer Assistant is a conversational image generation application powere
 Backend: LangChain, OpenAI (DALL-E 3, GPT-3.5 Turbo), Pillow, requests
 
 Frontend: Gradio
+
+### 28. Exercise and Recovery Coach
+Exercise and Recovery Coach is a SOLO (Spec-driven, Agentic, Audit-heavy) multi-agent coaching system built on Python 3.13 and LangChain that delivers personalized, safety-audited workout and recovery plans through four specialized AI agents. The Intake Agent extracts structured user context from free-text conversation; the Kinesiologist Specialist generates evidence-based workout programs validated against volume targets of 18-24 sets per muscle group; the Recovery Specialist produces sequenced mobility routines across SMR, dynamic mobility, and static stretching modalities; and the Clinical Gatekeeper LLM audits every generated plan, producing an `AuditLog` with APPROVED, MODIFIED, or REJECTED status. A State Router classifies user intent and routes requests to integrated, recovery-only, intake-collection, or safety-block workflows, with real-time pattern-matching for neurological, cardiovascular, acute injury, and inflammatory red flags that immediately halt plan generation. All agents return Pydantic-validated JSON via LangChain's `with_structured_output()`, enforcing strict schema compliance with automatic retry logic. The system ships with dual CLI and Gradio interfaces, a benchmarking validation runner for measuring intent routing accuracy and red-flag detection rates, and runtime-loaded SKILL.md persona files that define each agent's clinical role and constraints. Built with Python, LangChain, OpenAI, Pydantic, and Gradio, demonstrating skills in multi-agent orchestration, intent classification and routing, structured JSON output generation, multi-layer safety system design, and full-stack ML application development.
+
+🔗 [View Exercise and Recovery Coach Project](projects/exercise_and_health_coach/)
+
+![Exercise and Health Coach Workout Plan](projects/exercise_and_health_coach/images/exercise_and_health_coach_workout_plan.png)
+
+#### Skills Used
+Backend: LangChain, LangChain-OpenAI, OpenAI (GPT-4o-mini), Pydantic, PyYAML, python-dotenv
+
+Frontend: Gradio, CLI
+
+Testing: pytest, pytest-cov, pytest-mock, Ruff
 
 ## Contact
 

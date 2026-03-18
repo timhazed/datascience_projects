@@ -1,0 +1,48 @@
+# Exercise and Recovery Coach Configuration
+# SOLO Protocol multi-agent system
+
+# Default LLM provider (can be overridden per-agent)
+default_provider: "openai"
+
+# Provider configurations
+providers:
+  openai:
+    #model: "gpt-4o"
+    model: "gpt-4o-mini"
+    temperature: 0.3
+    max_tokens: 2048
+
+# Per-agent configuration (provider, model, and params)
+agents:
+  intake:
+    provider: "openai"
+    temperature: 0.2  # Low temperature for accurate extraction
+  kinesiologist:
+    provider: "openai"
+    temperature: 0.4  # Slightly more creative for exercise variety
+  recovery:
+    provider: "openai"
+    temperature: 0.3
+  gatekeeper:
+    provider: "openai"
+    temperature: 0.1  # Very conservative for safety decisions
+
+# Domain-specific thresholds
+exercise:
+  min_sets_per_muscle_group: 18
+  max_sets_per_muscle_group: 24
+  target_rpe_min: 7
+  target_rpe_max: 9
+
+recovery:
+  static_hold_min_seconds: 30
+  static_hold_max_seconds: 60
+  modality_order:
+    - "smr"
+    - "dynamic_mobility"
+    - "static_stretching"
+
+# Workflow settings
+workflow:
+  max_retries: 3
+  timeout_seconds: 120
