@@ -1,0 +1,37 @@
+[project]
+name = "image-designer-assistant"
+version = "0.1.0"
+description = "A Gradio-based image generation application using LangChain and DALL-E"
+authors = [
+    {name = "timhazed", email = "thayes@oldzinsoftware.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "gradio>=5.0",
+    "python-dotenv>=1.0",
+    "langchain>=0.3",
+    "langchain-openai>=0.3",
+    "langchain-community>=0.3",
+    "requests>=2.32",
+]
+
+[tool.poetry.scripts]
+gradio-app = "src.gradio.app:launch"
+
+[tool.poetry]
+package-mode = true
+packages = [{include = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8"
+ipykernel = "^6.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^8.0"
+pytest-mock = "^3.12"
+pytest-cov = "^4.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

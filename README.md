@@ -31,6 +31,7 @@ Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with
   - [Geoportugal](#24-geoportugal)
   - [Aging VAE](#25-aging-vae)
   - [HR Assistant](#26-hr-assistant)
+  - [Image Designer Assistant](#27-image-designer-assistant)
 - [Contact](#contact)
 ---
 
@@ -379,6 +380,18 @@ HR Assistant is a RAG-based chatbot for answering questions about Nestlé Human 
 
 #### Skills Used
 Backend: LangChain, FAISS, ChromaDB, OpenAI, Groq, Pydantic
+
+Frontend: Gradio
+
+### 27. Image Designer Assistant
+Image Designer Assistant is a conversational image generation application powered by a LangChain agent and OpenAI's DALL-E 3. Users describe images in natural language and iteratively refine their designs across multiple conversation turns — for example, generating a scene and then asking to change the background or add elements — with full conversation history preserved between requests. The agent orchestrates GPT-3.5 Turbo for dialogue and DALL-E 3 for 1024×1024 HD image generation, automatically extracting image URLs from tool responses, validating them with PIL, converting to PNG, and rendering them natively in the chat interface. The system gracefully handles OpenAI content policy restrictions by suggesting alternatives when copyrighted characters are requested. Built with Python, LangChain, and Gradio, demonstrating skills in LangChain agent design, multi-turn conversational context management, tool integration, image processing, and full-stack ML application development.
+
+🔗 [View Image Designer Assistant Project](projects/image_designer_assistant/)
+
+![Image Assistant Image and Refinement](projects/image_designer_assistant/images/image_assistant_image_and_refinement.png)
+
+#### Skills Used
+Backend: LangChain, OpenAI (DALL-E 3, GPT-3.5 Turbo), Pillow, requests
 
 Frontend: Gradio
 
