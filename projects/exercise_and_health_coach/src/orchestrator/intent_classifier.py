@@ -2,6 +2,7 @@ import re
 from dataclasses import dataclass
 
 from src.models.enums import IntentType
+from src.util.term_lists import EXERCISE_TERMS
 
 
 @dataclass
@@ -46,6 +47,15 @@ INTENT_PATTERNS: dict[IntentType, list[str]] = {
         # Body part focus (boulder shoulders, etc.)
         r"\bboulder\s*shoulders\b",
         r"\b(arms?|biceps?|triceps?)\s*(day|workout)\b",
+        # Fat-loss action verbs — covers "I want to lose fat", "help me burn fat"
+        r"\b(i\s*want\s*to|i\s*need\s*to|help\s*me)\s*(lose|burn|cut|lean|slim)\b",
+        # Sport-specific goals — covers "explosive power for basketball", "volleyball training"
+        r"\b(explosive|plyometric|plyo)\b",
+        r"\b(basketball|volleyball|soccer|football|rugby|sport[s]?)\b",
+        # Skill learning — non-optional suffix prevents false matches on
+        # "I am learning I have a knee condition" (optional suffix allows zero-length match).
+        r"\b(learning\s+to|learn\s+to|working\s+on)\s+(the\s+)?[\w\-]+\s*(progression|skill|movement)\b",
+        r"\b(learn|learning)\s+(the\s+)?[\w\-]+\s+progression\b",
     ],
     IntentType.RECOVERY_REQUEST: [
         r"\b(stretch|stretching|mobility|flexibility)\b",
@@ -55,6 +65,16 @@ INTENT_PATTERNS: dict[IntentType, list[str]] = {
         r"\b(yoga|pilates)\b",
         r"\b(relax|relaxation|cool\s*down)\b",
         r"\b(pain|ache|discomfort)\b(?!.*\b(chest|heart|cardiac)\b)",
+        # Muscle injury language — tweak/strain/pull/sprain
+        r"\b(tweak(ed)?|tweaking)\b",
+        r"\b(strain(ed)?|straining)\b",
+        r"\b(pull(ed)?|pulling)\b.*\b(muscle|hamstring|calf|quad|groin|back)\b",
+        r"\b(sprain(ed)?|spraining)\b",
+        # Named muscles described as injured/sore/tight/hurting
+        r"\b(hamstring|quad|glute|calf|calves|groin|hip\s*flexor|it[- ]?band)\b"
+        r".*\b(sore|tight|hurt|pain|ache|tweak|strain|pull|sprain|sore|tender|stiff)\b",
+        r"\b(sore|tight|hurt|pain|ache|tender|stiff)\b"
+        r".*\b(hamstring|quad|glute|calf|calves|groin|hip\s*flexor|it[- ]?band)\b",
         # Travel/sitting-related recovery
         r"\b(flight|travel|sitting|driving)\s*(for|all\s*day|hours?|\d+\s*(hour|hr))\b",
         r"\b(locked\s*up|seized\s*up|frozen)\b",
@@ -71,6 +91,15 @@ INTENT_PATTERNS: dict[IntentType, list[str]] = {
         # Recovery flow/routine
         r"\b(recovery\s*flow|mobility\s*flow|release\s*routine)\b",
         r"\b(deload|cns\s*(fried|fatigue))\b",
+        # Neck/sleep injury patterns (for cases like "slept on my neck wrong")
+        r"\b(slept\s*(on\s*)?(\w+\s*)?(wrong|badly|funny))\b",
+        r"\b(woke\s*up\s*with)\s*(a\s*)?(stiff|sore|tight)\b",
+        r"\b(can'?t\s*(look|turn|rotate|move))\s*(my\s*)?(\w+\s*)?(over|to|left|right)\b",
+        # CNS fatigue — matches "cns feels fried", "nervous system feels wiped" etc.
+        # \s* in the existing deload pattern only matches whitespace, missing the
+        # intervening word "feels". This regex accumulates recovery score via the
+        # normal scoring path so it competes even when exercise terms co-occur.
+        r"\b(cns|nervous\s+system)\s+\w*\s*(feels?\s+)?(fried|toast|wiped|drained)\b",
         # Standing/activity-related fatigue and recovery
         r"\b(throbbing)\b",
         r"\b(standing|stood)\s*(all\s*)?(night|day|for\s*hours?)\b",
@@ -94,8 +123,11 @@ INTENT_PATTERNS: dict[IntentType, list[str]] = {
         r"\b(workout|exercise)\s*(and|&|with|plus)\s*(recovery|mobility|stretch)",
     ],
     IntentType.INTAKE_UPDATE: [
-        r"\b(i\s*am|i'm)\s*\d+\s*(years?|yrs?)\b",
-        r"\b(my|i)\s*(age|weight|height)\s*(is|:)\s*\d+\b",
+        # Age: "I am 66", "I'm 66", "I am 66 years old" — no longer requires "years"
+        r"\b(i\s*am|i'm)\s*\d+\b",
+        # Age: "age 66", "my age is 66", "age: 66"
+        r"\b(my\s*)?age\s*(is\s*|:\s*)?\d+\b",
+        r"\b(my|i)\s*(weight|height)\s*(is|:)\s*\d+\b",
         r"\b(i\s*weigh|i\s*am)\s*\d+\s*(kg|lbs?|pounds?|kilos?)\b",
         r"\b(beginner|intermediate|advanced)\b",
         r"\b(i\s*have|i've\s*got)\s*(access\s*to|a|the)\s*(gym|equipment)\b",
@@ -227,6 +259,22 @@ class IntentClassifier:
             "movement prep",
             "deload",
             "cns fried",
+            # CNS fatigue variants (the bare "cns fried" above misses "cns feels fried",
+            # "cns is fried" etc. — add explicit variants for the override path)
+            "cns feels fried",
+            "cns is fried",
+            "nervous system fried",
+            "neurologically fried",
+            "system feels fried",
+            # Neck/sleep injury language (override path: no exercise terms expected)
+            "slept on my neck wrong",
+            "slept wrong",
+            "woke up with a stiff",
+            "can't look over",
+            "neck is stuck",
+            "neck stuck",
+            "can't turn my",
+            "slept on it wrong",
             # Standing/fatigue recovery
             "throbbing",
             "tension headache",
@@ -238,10 +286,15 @@ class IntentClassifier:
             "relaxation-focused",
             "relaxation focused",
             "quick relief",
+            # Muscle injury language
+            "tweaked",
+            "tweaked my",
+            "strained my",
+            "pulled my",
+            "sprained my",
         ]
-        exercise_terms = ["workout", "training", "lift", "program"]
         if any(term in message_lower for term in recovery_override_terms) and not any(
-            ex in message_lower for ex in exercise_terms
+            ex in message_lower for ex in EXERCISE_TERMS
         ):
             return ClassifiedIntent(
                 intent=IntentType.RECOVERY_REQUEST,

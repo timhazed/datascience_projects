@@ -1,3 +1,6 @@
+"""Unit tests for ConversationState."""
+
+
 from src.models.enums import Equipment, FitnessGoal, IntentType
 from src.models.schemas import Biometrics, MedicalHistory, UserContext
 from src.state.conversation_state import ConversationState, ConversationTurn, create_session
@@ -156,12 +159,6 @@ class TestConversationState:
         assert "Hello" in summary
         assert "build muscle" in summary
 
-    def test_clear_pending_clarifications(self):
-        state = ConversationState()
-        state.pending_clarifications = ["What is your age?", "What equipment do you have?"]
-        state.clear_pending_clarifications()
-        assert state.pending_clarifications == []
-
     def test_reset(self):
         state = ConversationState()
         original_session_id = state.session_id
@@ -203,13 +200,6 @@ class TestConversationState:
 
 class TestConversationStateWorkflow:
     """Test workflow-related state management."""
-
-    def test_current_workflow_tracking(self):
-        state = ConversationState()
-        assert state.current_workflow is None
-
-        state.current_workflow = "integrated"
-        assert state.current_workflow == "integrated"
 
     def test_updated_at_changes(self):
         state = ConversationState()

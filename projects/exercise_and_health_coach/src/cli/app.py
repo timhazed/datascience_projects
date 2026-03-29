@@ -3,7 +3,7 @@ import json
 import logging
 import sys
 
-from langchain_core.globals import set_debug, set_verbose
+from langchain_core.globals import set_debug
 
 from src.config.settings import get_settings
 from src.orchestrator.coach import ExerciseCoach
@@ -159,7 +159,6 @@ Examples:
 
     args = parser.parse_args()
 
-    # Used for agent tracing and debugging
     if (args.debug):
         set_debug(True)
     

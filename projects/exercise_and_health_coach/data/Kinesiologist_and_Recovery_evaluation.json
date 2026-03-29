@@ -1,0 +1,77 @@
+[
+    {
+        "question": "I'm 30, advanced, no injuries. I want a 10-min burnout for my biceps at the end of my gym session.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Full Gym. The user explicitly mentioned a 'gym session.' The agent should bypass equipment queries and deliver the bicep burnout plan immediately."
+    },
+    {
+        "question": "I'm 38, no injuries. I slept on my neck wrong and it's stuck—I can't look over my left shoulder.",
+        "predicted_response_failure": "What is your weight and fitness goal?",
+        "ground_truth": "Trigger Recovery Workflow. Standalone recovery for acute stiffness should have zero data requirements for biometrics. Deliver 'Gentle Neck Reset' instantly."
+    },
+    {
+        "question": "I'm 26, beginner. I want to learn to do a handstand at home.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Bodyweight. Handstands are inherently bodyweight exercises. The agent should provide stability drills and handstand progressions without further questions."
+    },
+    {
+        "question": "My shins are throbbing after running 5 miles in old shoes. Help.",
+        "predicted_response_failure": "Please share your age and training experience.",
+        "ground_truth": "Bypass Intake. This is a request for acute inflammatory relief. Skip to 'Shin Splint Recovery' and provide a safety warning regarding footwear."
+    },
+    {
+        "question": "33, 95kg, advanced. I'm training for a meet but my CNS feels fried and I'm irritable.",
+        "predicted_response_failure": "What are your fitness goals and what equipment do you have?",
+        "ground_truth": "Bypass Loops. The 'CNS Fried' state is a specialized status request. Deliver a 'Deload Protocol' and recovery advice immediately based on the neural state."
+    },
+    {
+        "question": "45, 100kg, beginner, Type 2 Diabetes. No injuries. Goal is weight loss.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Brisk Walking/Bodyweight. Given the health profile and goal, provide a metabolic walking plan and basic strength work without stalling for equipment details."
+    },
+    {
+        "question": "29, 70kg, advanced. I want to fix my 'winged scapula'. I have dumbbells.",
+        "predicted_response_failure": "How many days a week can you train?",
+        "ground_truth": "Move to Integrated Request. Goal, equipment, and level are provided. Deliver a 'Scapular Stability' plan immediately."
+    },
+    {
+        "question": "I just finished a 12-hour shift. My eyes are tired and I have a tension headache.",
+        "predicted_response_failure": "Do you have any health conditions or injuries?",
+        "ground_truth": "Assume Relaxation Intent. This is a stress-relief/occupational recovery request. Provide a 'Decompression Flow' (breathing/eye palming) instantly."
+    },
+    {
+        "question": "37, 72kg, intermediate. 4 months postpartum. Cleared by doctor to rebuild core.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Home/Bodyweight. Postpartum core rehab rarely requires heavy machinery. Provide 'Transverse Ab' breathing and floor-based stability drills."
+    },
+    {
+        "question": "I'm at a park with only a pull-up bar. Build me a 30-min 'Pull' workout.",
+        "predicted_response_failure": "What is your weight and experience level?",
+        "ground_truth": "Bypass Weight Requirement. The location and equipment are specific. Deliver the 'Park Pull Plan' immediately using standard bodyweight assumptions."
+    },
+    {
+        "question": "60, 75kg, beginner. Osteopenia in my hips. Want to build bone density safely.",
+        "predicted_response_failure": "Would you like me to create a workout, recovery, or both?",
+        "ground_truth": "Stop the Questioning. The user has requested a specific medical fitness plan. Move directly to a 'Bone Density' routine (box squats/carries)."
+    },
+    {
+        "question": "I have a sharp, electrical zap in my elbow when I grip heavy weights. What should I do?",
+        "predicted_response_failure": "What are your training goals?",
+        "ground_truth": "Safety Handoff. This is a high-severity neurological red flag. Stop all intake and hand off to the Gatekeeper for immediate rejection and medical referral."
+    },
+    {
+        "question": "30, 82kg, intermediate. I have a slight curve in my spine (scoliosis). Can I squat?",
+        "predicted_response_failure": "What are your fitness goals?",
+        "ground_truth": "Provide Technical Advice. This is a safety inquiry. Provide the 'Scoliosis Squat Guide' and bracing cues immediately[cite: 776, 782]."
+    },
+    {
+        "question": "I'm 22. STANDING AT A CONCERT ALL NIGHT. Feet and back are throbbing. HELP.",
+        "predicted_response_failure": "To create a plan, I need your weight and experience level.",
+        "ground_truth": "Zero-Friction Recovery. Acute relief request for environmental stress. Deliver a 'Concert Relief Flow' (decompression/ankle circles) instantly."
+    },
+    {
+        "question": "I'm 50, 80kg, beginner. OA in my fingers and knees. I have resistance bands.",
+        "predicted_response_failure": "How many minutes do you have for your session?",
+        "ground_truth": "Assume 30-45 Mins. Age, Weight, Goal (implied), and Equipment are known. Deliver the 'Low-Impact OA' plan immediately[cite: 677, 679]."
+    }
+]

@@ -1,3 +1,5 @@
+"""Unit tests for the skill loader module."""
+
 import pytest
 
 from src.skills.loader import SkillLoader, SkillLoadError, load_skill

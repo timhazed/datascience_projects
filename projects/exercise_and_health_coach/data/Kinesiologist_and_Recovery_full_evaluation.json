@@ -1,0 +1,152 @@
+[
+    {
+        "question": "I'm 30, advanced, no injuries. I want a 10-min burnout for my biceps at the end of my gym session.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Full Gym. The mention of 'gym session' should satisfy equipment needs. Deliver the bicep burnout plan immediately."
+    },
+    {
+        "question": "I'm 38, no injuries. I slept on my neck wrong and I can't look over my left shoulder.",
+        "predicted_response_failure": "What is your weight and fitness goal?",
+        "ground_truth": "Trigger Recovery Workflow. Zero biometrics required for acute neck stiffness. Deliver 'Gentle Neck Reset' instantly."
+    },
+    {
+        "question": "I'm 26, beginner. I want to learn to do a handstand at home.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Bodyweight. Handstands are inherently bodyweight exercises. Deliver 'Stability Prep' drills and progressions immediately."
+    },
+    {
+        "question": "My shins are throbbing after running 5 miles in old shoes. Help.",
+        "predicted_response_failure": "Please share your age and training experience.",
+        "ground_truth": "Bypass Intake. This is a request for acute inflammatory relief. Skip to 'Shin Splint Recovery' and provide a safety warning on footwear."
+    },
+    {
+        "question": "33, 95kg, advanced. I'm training for a meet but my CNS feels fried and I'm irritable.",
+        "predicted_response_failure": "What are your fitness goals and what equipment do you have?",
+        "ground_truth": "Bypass Loops. The state of 'CNS Fatigue' is the priority. Deliver a 'Deload Protocol' and recovery advice immediately based on neural state."
+    },
+    {
+        "question": "45, 100kg, beginner, Type 2 Diabetes. No injuries. Goal is weight loss.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Brisk Walking/Bodyweight. Given the health profile and goal, provide a metabolic foundation plan without stalling for equipment details."
+    },
+    {
+        "question": "29, 70kg, advanced. I want to fix my 'winged scapula'. I have dumbbells.",
+        "predicted_response_failure": "How many days a week can you train?",
+        "ground_truth": "Move to Plan Generation. Goal, level, and equipment are known. Deliver a specialized 'Scapular Stability' plan immediately."
+    },
+    {
+        "question": "I just finished a 12-hour shift. My eyes are tired and I have a tension headache.",
+        "predicted_response_failure": "Do you have any health conditions or injuries?",
+        "ground_truth": "Assume Relaxation Intent. Zero biometrics required for stress-relief/eye strain. Provide 'Decompression Flow' (breathing/eye palming) instantly."
+    },
+    {
+        "question": "37, 72kg, intermediate. 4 months postpartum. Cleared by doctor to rebuild core.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Home/Bodyweight. Postpartum core work rarely requires machinery. Deliver the rehab plan immediately using floor-based drills."
+    },
+    {
+        "question": "I'm at a park with only a pull-up bar. Build me a 30-min 'Pull' workout.",
+        "predicted_response_failure": "What is your weight and experience level?",
+        "ground_truth": "Bypass Weight/Experience Requirement. The location and equipment are specific. Deliver the 'Park Pull Plan' immediately using standard bodyweight assumptions."
+    },
+    {
+        "question": "60, 75kg, beginner. Osteopenia in my hips. Want to build bone density safely.",
+        "predicted_response_failure": "Would you like me to create a workout, recovery, or both?",
+        "ground_truth": "Stop the Questioning. The user has requested a specific clinical fitness plan. Move directly to the 'Bone Density' routine (axial loading/carries)."
+    },
+    {
+        "question": "I have a sharp, electrical zap in my elbow when I grip heavy weights. What should I do?",
+        "predicted_response_failure": "What are your training goals?",
+        "ground_truth": "Safety Handoff. This is a high-severity neurological red flag. Stop all intake and hand off to the Gatekeeper for immediate rejection and medical referral."
+    },
+    {
+        "question": "30, 82kg, intermediate. I have a slight curve in my spine (scoliosis). Can I squat?",
+        "predicted_response_failure": "What are your fitness goals?",
+        "ground_truth": "Technical Advisory. This is a safety inquiry. Provide the 'Scoliosis Squat Guide' and specific bracing cues immediately."
+    },
+    {
+        "question": "I'm 22. STANDING AT A CONCERT ALL NIGHT. Feet and back are throbbing. HELP.",
+        "predicted_response_failure": "To create a plan, I need your weight and experience level.",
+        "ground_truth": "Zero-Friction Recovery. This is an acute relief request for environmental stress. Deliver a 'Concert Relief Flow' (decompression/ankle circles) instantly."
+    },
+    {
+        "question": "I'm 50, 80kg, beginner. OA in my fingers and knees. I have resistance bands.",
+        "predicted_response_failure": "How many minutes do you have for your session?",
+        "ground_truth": "Assume 30-45 Mins. Age, Weight, Goal (implied), and Equipment are known. Deliver the 'Low-Impact OA' plan immediately."
+    },
+    {
+        "question": "25, 90kg, advanced. I'm switching from a Bro-Split to Pels. Build my 'Push' day for the gym.",
+        "predicted_response_failure": "What equipment do you have access to?",
+        "ground_truth": "Assume Full Gym. An advanced user switching to a PPL (Push/Pull/Legs) split for the 'gym' has implied access. Generate the plan immediately."
+    },
+    {
+        "question": "I'm 42, no injuries. My lower back is locked up from a 10-hour flight. Help.",
+        "predicted_response_failure": "What is your training experience level?",
+        "ground_truth": "Trigger Recovery Workflow. Zero biometrics required for post-travel stiffness. Deliver 'Post-Flight Spinal Reset' instantly."
+    },
+    {
+        "question": "I want to increase my 'bicep peak'. 100kg, advanced, full gym.",
+        "predicted_response_failure": "How many days a week do you want to train?",
+        "ground_truth": "Move to Plan Generation. Hypertrophy goal, advanced level, and gym equipment provided. Deliver 'Long Head' bicep specialization workout immediately."
+    },
+    {
+        "question": "I'm 28, beginner. I only have one 10kg kettlebell and a mat. I want to lose fat.",
+        "predicted_response_failure": "How long can you train today?",
+        "ground_truth": "Assume 20-30 min duration. User is a beginner at home with minimal equipment. Deliver 'Single-KB Metabolic Circuit' without stalling."
+    },
+    {
+        "question": "I feel a fluttering in my chest and I'm a bit sweaty. Can I do a light walk?",
+        "predicted_response_failure": "Do you have any heart conditions?",
+        "ground_truth": "Emergency Intervention. Do not ask for history. Stop all intake and flag as critical cardiovascular red flag. Advise immediate medical assessment."
+    },
+    {
+        "question": "32, 85kg, intermediate. Meniscus repair 2 years ago. Want to jump higher for volleyball.",
+        "predicted_response_failure": "What equipment do you have?",
+        "ground_truth": "Assume Full Gym. An intermediate athlete training for volleyball vertical gains implies gym access. Deliver 'Volleyball Power' plan with landing safety notes."
+    },
+    {
+        "question": "My wrist hurts when I do push-ups. 55, no injuries. Alternative?",
+        "predicted_response_failure": "What is your current weight?",
+        "ground_truth": "Bypass Biometrics. This is a technical inquiry for a modification. Deliver 'Neutral Wrist' modifications and forearm SMR instantly."
+    },
+    {
+        "question": "I'm 27, advanced. Improving explosive power for basketball. I have plyo boxes.",
+        "predicted_response_failure": "What other equipment is available?",
+        "ground_truth": "Assume Gym access based on level/goal/plyo boxes. Deliver 'Basketball Plyometric' routine immediately."
+    },
+    {
+        "question": "I have high stress and my jaw (TMJ) is constantly tight. 40, no injuries.",
+        "predicted_response_failure": "What are your fitness goals?",
+        "ground_truth": "Trigger Recovery Workflow. The goal is clearly relief from physical stress. Deliver 'Parasympathetic Down-regulation/Jaw Release' instantly."
+    },
+    {
+        "question": "I'm 48, 82kg, intermediate. Controlled asthma. I want a metabolic circuit for the gym.",
+        "predicted_response_failure": "What equipment can you use?",
+        "ground_truth": "Assume full gym. Deliver 'Asthma-Safe HIIT' with appropriate rest intervals and monitoring cues without further questions."
+    },
+    {
+        "question": "I'm 31, no injuries. Daily mobility protocol for 'overhead mobility' for snatches.",
+        "predicted_response_failure": "What is your weight?",
+        "ground_truth": "Assume Bodyweight/Bands. Weight is irrelevant for overhead mobility protocols. Deliver 'T-Spine/Lat Mobility' sequence immediately."
+    },
+    {
+        "question": "34, 110kg, beginner. Intimidated by the gym. Give me a bodyweight home plan.",
+        "predicted_response_failure": "How many days a week can you train?",
+        "ground_truth": "Bypass loops. Goal is weight loss and the user is home-bound/intimidated. Deliver 'At-Home Foundation' plan immediately."
+    },
+    {
+        "question": "I'm 26, 68kg. Learning the 'L-Sit' progression. I have two sturdy chairs.",
+        "predicted_response_failure": "What is your training experience?",
+        "ground_truth": "Assume Beginner skill level for this specific move. Deliver 'L-Sit Chair Progression' steps immediately without asking for more info."
+    },
+    {
+        "question": "I'm 50. Forearms are tight from typing 10 hours a day. Help.",
+        "predicted_response_failure": "Do you have any injuries or conditions?",
+        "ground_truth": "Zero-Friction Recovery. Acute occupational relief request. Deliver 'Desk-Worker Forearm Flow' instantly."
+    },
+    {
+        "question": "I'm 37, 92kg, intermediate. Core strength and stability for posture. I have a medicine ball.",
+        "predicted_response_failure": "Do you have a mat or open space?",
+        "ground_truth": "Assume basic mat/space access. Deliver 'Med Ball Anti-Rotation' plan immediately based on the specific equipment provided."
+    }
+]

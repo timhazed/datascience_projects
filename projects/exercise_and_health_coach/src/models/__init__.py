@@ -1,5 +1,3 @@
-"""Pydantic models and enums for the Exercise and Health Coach system."""
-
 from src.models.enums import (
     AuditStatus,
     Equipment,

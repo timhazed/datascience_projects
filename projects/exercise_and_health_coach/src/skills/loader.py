@@ -1,5 +1,3 @@
-"""Skill loader for reading SKILL.md files at runtime."""
-
 import contextlib
 from pathlib import Path
 from typing import Literal
@@ -9,9 +7,6 @@ SkillType = Literal["kinesiologist", "recovery", "gatekeeper", "intake"]
 
 # Base path for skills directory (relative to project root)
 SKILLS_DIR = Path(__file__).parent.parent.parent / "skills"
-
-# Module-level cache for loaded skills
-_skill_cache: dict[tuple[str, str], str] = {}
 
 
 class SkillLoadError(Exception):
@@ -115,6 +110,3 @@ def load_skill(skill_type: SkillType) -> str:
     return _default_loader.load(skill_type)
 
 
-def get_skill_loader() -> SkillLoader:
-    """Get the default skill loader instance."""
-    return _default_loader

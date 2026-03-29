@@ -1,3 +1,5 @@
+"""Basic tests for UI components (sanity checks only, excluded from coverage)."""
+
 from unittest.mock import MagicMock, patch
 
 

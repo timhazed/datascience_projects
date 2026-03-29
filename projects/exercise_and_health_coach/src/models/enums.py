@@ -106,3 +106,14 @@ class IntentType(str, Enum):
     INTAKE_UPDATE = "intake_update"
     GENERAL_QUESTION = "general_question"
     CLARIFICATION = "clarification"
+
+
+class WorkflowType(str, Enum):
+    """Available workflow types."""
+
+    INTEGRATED = "integrated"  # Exercise + Recovery
+    RECOVERY_ONLY = "recovery_only"
+    RECOVERY_FOLLOWUP = "recovery_followup"  # Short follow-up Q after a recovery plan
+    INTAKE_NEEDED = "intake_needed"  # More info required
+    SAFETY_BLOCK = "safety_block"  # Red flags detected
+    GENERAL_RESPONSE = "general_response"  # Q&A, not plan generation

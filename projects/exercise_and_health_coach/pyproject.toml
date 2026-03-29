@@ -24,18 +24,21 @@ packages = [{include = "src"}]
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.8"
+vulture = "^2.0"
 ipykernel = "^6.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^8.0"
 pytest-mock = "^3.12"
 pytest-cov = "^4.1"
+pytest-asyncio = "^1.3.0"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+asyncio_mode = "auto"
 addopts = [
     "-v",
     "--tb=short",
@@ -62,6 +65,12 @@ line-length = 100
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.vulture]
+min_confidence = 80
+paths = ["src/"]
+# Pydantic v2 lifecycle hooks — called by the framework, not user code
+ignore_names = ["model_post_init"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

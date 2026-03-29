@@ -1,0 +1,334 @@
+{
+  "run_at": "2026-03-28T10:23:39.594645",
+  "input": "data/Kinesiologist_and_Recovery_full_evaluation.json",
+  "mode": "pipeline",
+  "total": 30,
+  "passed": 21,
+  "failed": 9,
+  "failure_rate": 0.3,
+  "cases": [
+    {
+      "case": 1,
+      "question": "I'm 30, advanced, no injuries. I want a 10-min burnout for my biceps at the end of my gym session.",
+      "ground_truth": "Assume Full Gym. The mention of 'gym session' should satisfy equipment needs. Deliver the bicep burnout plan immediately.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: weight",
+      "missing_fields": [
+        "weight"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 2,
+      "question": "I'm 38, no injuries. I slept on my neck wrong and I can't look over my left shoulder.",
+      "ground_truth": "Trigger Recovery Workflow. Zero biometrics required for acute neck stiffness. Deliver 'Gentle Neck Reset' instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 3,
+      "question": "I'm 26, beginner. I want to learn to do a handstand at home.",
+      "ground_truth": "Assume Bodyweight. Handstands are inherently bodyweight exercises. Deliver 'Stability Prep' drills and progressions immediately.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 4,
+      "question": "My shins are throbbing after running 5 miles in old shoes. Help.",
+      "ground_truth": "Bypass Intake. This is a request for acute inflammatory relief. Skip to 'Shin Splint Recovery' and provide a safety warning on footwear.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 5,
+      "question": "33, 95kg, advanced. I'm training for a meet but my CNS feels fried and I'm irritable.",
+      "ground_truth": "Bypass Loops. The state of 'CNS Fatigue' is the priority. Deliver a 'Deload Protocol' and recovery advice immediately based on neural state.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Acute CNS/deload state — bypassing exercise intake gate",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 6,
+      "question": "45, 100kg, beginner, Type 2 Diabetes. No injuries. Goal is weight loss.",
+      "ground_truth": "Assume Brisk Walking/Bodyweight. Given the health profile and goal, provide a metabolic foundation plan without stalling for equipment details.",
+      "actual_workflow": "general_response",
+      "actual_routing_reason": "Information received - ready for workout/recovery request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 7,
+      "question": "29, 70kg, advanced. I want to fix my 'winged scapula'. I have dumbbells.",
+      "ground_truth": "Move to Plan Generation. Goal, level, and equipment are known. Deliver a specialized 'Scapular Stability' plan immediately.",
+      "actual_workflow": "general_response",
+      "actual_routing_reason": "Information received - ready for workout/recovery request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 8,
+      "question": "I just finished a 12-hour shift. My eyes are tired and I have a tension headache.",
+      "ground_truth": "Assume Relaxation Intent. Zero biometrics required for stress-relief/eye strain. Provide 'Decompression Flow' (breathing/eye palming) instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 9,
+      "question": "37, 72kg, intermediate. 4 months postpartum. Cleared by doctor to rebuild core.",
+      "ground_truth": "Assume Home/Bodyweight. Postpartum core work rarely requires machinery. Deliver the rehab plan immediately using floor-based drills.",
+      "actual_workflow": "general_response",
+      "actual_routing_reason": "Information received - ready for workout/recovery request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 10,
+      "question": "I'm at a park with only a pull-up bar. Build me a 30-min 'Pull' workout.",
+      "ground_truth": "Bypass Weight/Experience Requirement. The location and equipment are specific. Deliver the 'Park Pull Plan' immediately using standard bodyweight assumptions.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: age, fitness_goals, experience_level",
+      "missing_fields": [
+        "age",
+        "fitness_goals",
+        "experience_level"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 11,
+      "question": "60, 75kg, beginner. Osteopenia in my hips. Want to build bone density safely.",
+      "ground_truth": "Stop the Questioning. The user has requested a specific clinical fitness plan. Move directly to the 'Bone Density' routine (axial loading/carries).",
+      "actual_workflow": "general_response",
+      "actual_routing_reason": "Information received - ready for workout/recovery request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 12,
+      "question": "I have a sharp, electrical zap in my elbow when I grip heavy weights. What should I do?",
+      "ground_truth": "Safety Handoff. This is a high-severity neurological red flag. Stop all intake and hand off to the Gatekeeper for immediate rejection and medical referral.",
+      "actual_workflow": "safety_block",
+      "actual_routing_reason": "Red flag symptoms detected requiring medical clearance",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 13,
+      "question": "30, 82kg, intermediate. I have a slight curve in my spine (scoliosis). Can I squat?",
+      "ground_truth": "Technical Advisory. This is a safety inquiry. Provide the 'Scoliosis Squat Guide' and specific bracing cues immediately.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: equipment",
+      "missing_fields": [
+        "equipment"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 14,
+      "question": "I'm 22. STANDING AT A CONCERT ALL NIGHT. Feet and back are throbbing. HELP.",
+      "ground_truth": "Zero-Friction Recovery. This is an acute relief request for environmental stress. Deliver a 'Concert Relief Flow' (decompression/ankle circles) instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 15,
+      "question": "I'm 50, 80kg, beginner. OA in my fingers and knees. I have resistance bands.",
+      "ground_truth": "Assume 30-45 Mins. Age, Weight, Goal (implied), and Equipment are known. Deliver the 'Low-Impact OA' plan immediately.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 16,
+      "question": "25, 90kg, advanced. I'm switching from a Bro-Split to Pels. Build my 'Push' day for the gym.",
+      "ground_truth": "Assume Full Gym. An advanced user switching to a PPL (Push/Pull/Legs) split for the 'gym' has implied access. Generate the plan immediately.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 17,
+      "question": "I'm 42, no injuries. My lower back is locked up from a 10-hour flight. Help.",
+      "ground_truth": "Trigger Recovery Workflow. Zero biometrics required for post-travel stiffness. Deliver 'Post-Flight Spinal Reset' instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": true,
+      "pass": true
+    },
+    {
+      "case": 18,
+      "question": "I want to increase my 'bicep peak'. 100kg, advanced, full gym.",
+      "ground_truth": "Move to Plan Generation. Hypertrophy goal, advanced level, and gym equipment provided. Deliver 'Long Head' bicep specialization workout immediately.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: age",
+      "missing_fields": [
+        "age"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 19,
+      "question": "I'm 28, beginner. I only have one 10kg kettlebell and a mat. I want to lose fat.",
+      "ground_truth": "Assume 20-30 min duration. User is a beginner at home with minimal equipment. Deliver 'Single-KB Metabolic Circuit' without stalling.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: weight",
+      "missing_fields": [
+        "weight"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 20,
+      "question": "I feel a fluttering in my chest and I'm a bit sweaty. Can I do a light walk?",
+      "ground_truth": "Emergency Intervention. Do not ask for history. Stop all intake and flag as critical cardiovascular red flag. Advise immediate medical assessment.",
+      "actual_workflow": "safety_block",
+      "actual_routing_reason": "Red flag symptoms detected requiring medical clearance",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 21,
+      "question": "32, 85kg, intermediate. Meniscus repair 2 years ago. Want to jump higher for volleyball.",
+      "ground_truth": "Assume Full Gym. An intermediate athlete training for volleyball vertical gains implies gym access. Deliver 'Volleyball Power' plan with landing safety notes.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: equipment",
+      "missing_fields": [
+        "equipment"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 22,
+      "question": "My wrist hurts when I do push-ups. 55, no injuries. Alternative?",
+      "ground_truth": "Bypass Biometrics. This is a technical inquiry for a modification. Deliver 'Neutral Wrist' modifications and forearm SMR instantly.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: weight, fitness_goals, experience_level, equipment",
+      "missing_fields": [
+        "weight",
+        "fitness_goals",
+        "experience_level",
+        "equipment"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 23,
+      "question": "I'm 27, advanced. Improving explosive power for basketball. I have plyo boxes.",
+      "ground_truth": "Assume Gym access based on level/goal/plyo boxes. Deliver 'Basketball Plyometric' routine immediately.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 24,
+      "question": "I have high stress and my jaw (TMJ) is constantly tight. 40, no injuries.",
+      "ground_truth": "Trigger Recovery Workflow. The goal is clearly relief from physical stress. Deliver 'Parasympathetic Down-regulation/Jaw Release' instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 25,
+      "question": "I'm 48, 82kg, intermediate. Controlled asthma. I want a metabolic circuit for the gym.",
+      "ground_truth": "Assume full gym. Deliver 'Asthma-Safe HIIT' with appropriate rest intervals and monitoring cues without further questions.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 26,
+      "question": "I'm 31, no injuries. Daily mobility protocol for 'overhead mobility' for snatches.",
+      "ground_truth": "Assume Bodyweight/Bands. Weight is irrelevant for overhead mobility protocols. Deliver 'T-Spine/Lat Mobility' sequence immediately.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 27,
+      "question": "34, 110kg, beginner. Intimidated by the gym. Give me a bodyweight home plan.",
+      "ground_truth": "Bypass loops. Goal is weight loss and the user is home-bound/intimidated. Deliver 'At-Home Foundation' plan immediately.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Need more information: fitness_goals",
+      "missing_fields": [
+        "fitness_goals"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 28,
+      "question": "I'm 26, 68kg. Learning the 'L-Sit' progression. I have two sturdy chairs.",
+      "ground_truth": "Assume Beginner skill level for this specific move. Deliver 'L-Sit Chair Progression' steps immediately without asking for more info.",
+      "actual_workflow": "intake_needed",
+      "actual_routing_reason": "Continuing intake - still need more info",
+      "missing_fields": [
+        "pain_areas or health acknowledgment"
+      ],
+      "is_acute": false,
+      "pass": false
+    },
+    {
+      "case": 29,
+      "question": "I'm 50. Forearms are tight from typing 10 hours a day. Help.",
+      "ground_truth": "Zero-Friction Recovery. Acute occupational relief request. Deliver 'Desk-Worker Forearm Flow' instantly.",
+      "actual_workflow": "recovery_only",
+      "actual_routing_reason": "Recovery/mobility-only request",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    },
+    {
+      "case": 30,
+      "question": "I'm 37, 92kg, intermediate. Core strength and stability for posture. I have a medicine ball.",
+      "ground_truth": "Assume basic mat/space access. Deliver 'Med Ball Anti-Rotation' plan immediately based on the specific equipment provided.",
+      "actual_workflow": "integrated",
+      "actual_routing_reason": "Exercise request - generating integrated plan",
+      "missing_fields": [],
+      "is_acute": false,
+      "pass": true
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+"""Unit tests for validators."""
+
 import pytest
 
 from src.models.enums import FitnessGoal, MovementPattern, MuscleGroup

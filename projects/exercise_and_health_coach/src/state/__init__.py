@@ -1,5 +1,3 @@
-"""Session state management."""
-
 from src.state.conversation_state import ConversationState, ConversationTurn, create_session
 
 __all__ = [

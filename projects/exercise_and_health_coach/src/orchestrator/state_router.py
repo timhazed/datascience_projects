@@ -1,21 +1,88 @@
+import re
 from dataclasses import dataclass
-from enum import Enum
 
-from src.models.enums import Equipment, ExperienceLevel, FitnessGoal, IntentType
+from src.models.enums import Equipment, ExperienceLevel, FitnessGoal, IntentType, WorkflowType
 from src.models.schemas import UserContext
 from src.orchestrator.intent_classifier import ClassifiedIntent, IntentClassifier
 from src.state.conversation_state import ConversationState
-from src.validators.red_flag_scanner import RedFlagScanner
+from src.util.term_lists import EXERCISE_TERMS
+from src.validators.safety_judge import SafetyJudge
 
+# Question words that signal a follow-up question (condition d of follow-up check)
+_QUESTION_WORDS = {"what", "how", "should", "can", "is", "when", "where", "why", "does"}
 
-class WorkflowType(str, Enum):
-    """Available workflow types."""
+# Equipment terms that indicate the user has access to specific equipment beyond bodyweight.
+# Used by the location/context guards in _infer_equipment_from_message to avoid incorrectly
+# inferring BODYWEIGHT for a user who mentions "at home" but also mentions "dumbbells", or
+# who has "diabetes" but goes to a gym.
+# Note: "gym" is included so that "I have diabetes and train at a gym" is not inferred as
+# bodyweight-only. Known edge case: "at home, no gym" contains "gym" and skips the guard;
+# this is acceptable because "no equipment", "no weights", and "bodyweight only" cover that
+# phrasing via the early-return list above.
+_HOME_EQUIPMENT_TERMS = [
+    "barbell", "dumbbell", "dumbbells", "db ", "kettlebell",
+    "bands", "resistance band", "treadmill", "cable", "machine", "gym",
+]
 
-    INTEGRATED = "integrated"  # Exercise + Recovery
-    RECOVERY_ONLY = "recovery_only"
-    INTAKE_NEEDED = "intake_needed"  # More info required
-    SAFETY_BLOCK = "safety_block"  # Red flags detected
-    GENERAL_RESPONSE = "general_response"  # Q&A, not plan generation
+# Goal vocabulary: ordered HYPERTROPHY → STRENGTH → WEIGHT_LOSS → ENDURANCE →
+# ATHLETIC_PERFORMANCE → REHABILITATION. REHABILITATION is last so that a message
+# containing both a standard goal term ("strength") and a rehab term ("scoliosis")
+# returns the standard goal — not REHABILITATION.  Python 3.7+ dict insertion order
+# is guaranteed; no additional sorting is needed.
+#
+# "OA" is intentionally omitted from REHABILITATION: lowercasing "OA" → "oa"
+# false-matches "coach", "road", "board", etc.  The LLM intake agent expands
+# abbreviations before the router runs; use full medical terms only.
+_GOAL_VOCABULARY: dict[FitnessGoal, list[str]] = {
+    FitnessGoal.HYPERTROPHY: [
+        "hypertrophy", "build muscle", "muscle gain",
+        "push day", "pull day", "leg day", "arm day", "arms day",
+        "chest day", "back day", "shoulder day", "shoulders day",
+        "bro split", "bro-split", "ppl", "push/pull/legs", "push pull legs",
+        "boulder shoulders", "bigger", "mass", "size",
+        "bicep", "biceps", "burnout", "peak", "pump", "bicep peak",
+    ],
+    FitnessGoal.STRENGTH: [
+        "strength", "stronger",
+    ],
+    FitnessGoal.WEIGHT_LOSS: [
+        "lose weight", "weight loss", "fat loss",
+        "lose fat", "burn fat", "metabolic", "circuit", "hiit", "burn calories",
+    ],
+    FitnessGoal.ENDURANCE: [
+        "endurance", "marathon", "run", "running", "jog", "jogging",
+        "miles", " 5k", " 10k", "half marathon", "cardio",
+    ],
+    FitnessGoal.ATHLETIC_PERFORMANCE: [
+        "performance", "sport",
+        "handstand", "muscle up", "muscle-up", "pistol squat",
+        "planche", "front lever", "vertical jump", "box jump",
+        "explosive", "basketball", "volleyball", "plyo", "agility", "speed",
+    ],
+    FitnessGoal.REHABILITATION: [
+        # Corrective compound forms (bare "fix my" not used — matches "fix my PR")
+        "fix my shoulder", "fix my hip", "fix my knee", "fix my back",
+        "fix my posture", "fix my scapula", "correct my posture",
+        # Postural / structural
+        "winged scapula", "scapula", "scoliosis", "posture",
+        # Bone health
+        "bone density", "osteopenia", "osteoporosis",
+        # Arthritic conditions
+        "osteoarthritis", "osteoarthritic", "arthritis",
+        # Postpartum
+        "postpartum", "post-partum", "postnatal",
+    ],
+}
+
+# Negation/avoidance pattern for gym keyword inference.  Matches "intimidated by the gym",
+# "no gym", "don't go to the gym", etc., within a 25-character window before "gym".
+# "intimidated" is included explicitly because it is not a grammatical negation but must
+# still prevent full-gym inference for users who describe gym avoidance.
+_GYM_NEG_PATTERN: re.Pattern = re.compile(
+    r"\b(no|not|don't|doesn't|can't|cannot|without|avoid|skip|lack|intimidated)"
+    r"\b[\w\s]{0,25}\bgym\b",
+    re.IGNORECASE,
+)
 
 
 @dataclass
@@ -27,6 +94,7 @@ class RoutingDecision:
     reason: str
     missing_fields: list[str]
     safety_concerns: list[str]
+    is_acute: bool = False  # True when _is_acute_recovery_request fired; read by coach.py
 
 
 class StateRouter:
@@ -39,7 +107,7 @@ class StateRouter:
 
     def __init__(self):
         self.intent_classifier = IntentClassifier()
-        self.red_flag_scanner = RedFlagScanner(strict_mode=True)
+        self._safety_judge = SafetyJudge()
 
     def route(
         self,
@@ -72,6 +140,28 @@ class StateRouter:
 
         # Step 3: Handle non-action intents
         if intent.intent in (IntentType.GENERAL_QUESTION, IntentType.CLARIFICATION):
+            # Recovery follow-up check (router ordering §3).
+            # All four conditions must hold:
+            #   (a) last_workflow == RECOVERY_ONLY
+            #   (b) message word count ≤ 12
+            #   (c) message does NOT contain exercise_terms
+            #   (d) message contains '?' OR starts with a question word
+            last_wf = getattr(state, "last_workflow", None)
+            if last_wf == WorkflowType.RECOVERY_ONLY:
+                msg_lower = message.lower().strip()
+                word_count = len(msg_lower.split())
+                has_exercise_term = any(t in msg_lower for t in EXERCISE_TERMS)
+                first_word = msg_lower.split()[0] if msg_lower else ""
+                has_question_signal = "?" in message or first_word in _QUESTION_WORDS
+                if word_count <= 12 and not has_exercise_term and has_question_signal:
+                    return RoutingDecision(
+                        workflow=WorkflowType.RECOVERY_FOLLOWUP,
+                        intent=intent,
+                        reason="Short question in active recovery thread",
+                        missing_fields=[],
+                        safety_concerns=[],
+                    )
+
             return RoutingDecision(
                 workflow=WorkflowType.GENERAL_RESPONSE,
                 intent=intent,
@@ -102,8 +192,21 @@ class StateRouter:
             if inferred_equipment:
                 state.user_context.available_equipment.extend(inferred_equipment)
 
+        # Acute bypass for exercise intents — fires BEFORE the exercise intake gate so that
+        # a CNS-deload or acute-injury message classified as EXERCISE/INTEGRATED_REQUEST is
+        # not incorrectly blocked by a missing goals/weight/equipment check.
+        if is_exercise_intent and self._is_acute_recovery_request(message):
+            return RoutingDecision(
+                workflow=WorkflowType.RECOVERY_ONLY,
+                intent=intent,
+                reason="Acute CNS/deload state — bypassing exercise intake gate",
+                missing_fields=[],
+                safety_concerns=[],
+                is_acute=True,
+            )
+
         if is_exercise_intent and not state.user_context.is_complete_for_exercise():
-            missing = state.user_context.get_missing_required_fields()
+            missing = state.user_context.get_missing_required_fields_for_exercise()
             return RoutingDecision(
                 workflow=WorkflowType.INTAKE_NEEDED,
                 intent=intent,
@@ -113,13 +216,23 @@ class StateRouter:
             )
 
         is_recovery_intent = intent.intent == IntentType.RECOVERY_REQUEST
-        if is_recovery_intent and not state.user_context.is_complete_for_recovery():
+        if is_recovery_intent:
+            is_acute = self._is_acute_recovery_request(message)
+            if not is_acute and not state.user_context.is_complete_for_recovery():
+                return RoutingDecision(
+                    workflow=WorkflowType.INTAKE_NEEDED,
+                    intent=intent,
+                    reason="Need basic information for recovery plan",
+                    missing_fields=["age or pain areas"],
+                    safety_concerns=[],
+                )
             return RoutingDecision(
-                workflow=WorkflowType.INTAKE_NEEDED,
+                workflow=WorkflowType.RECOVERY_ONLY,
                 intent=intent,
-                reason="Need basic information for recovery plan",
-                missing_fields=["age or pain areas"],
+                reason="Recovery/mobility-only request",
+                missing_fields=[],
                 safety_concerns=[],
+                is_acute=is_acute,
             )
 
         # Step 5: Route to appropriate workflow
@@ -141,19 +254,12 @@ class StateRouter:
                 safety_concerns=[],
             )
 
-        if intent.intent == IntentType.RECOVERY_REQUEST:
-            return RoutingDecision(
-                workflow=WorkflowType.RECOVERY_ONLY,
-                intent=intent,
-                reason="Recovery/mobility-only request",
-                missing_fields=[],
-                safety_concerns=[],
-            )
-
         # Step 6: Intake update - continue collecting
         if intent.intent == IntentType.INTAKE_UPDATE:
-            # Check what's still missing after this update would be applied
-            missing = state.user_context.get_missing_required_fields()
+            # Use recovery-level missing fields for INTAKE_UPDATE so recovery-path users
+            # are not asked for weight/goals/equipment (exercise-specific fields).
+            # Exercise-specific fields are only requested when the user makes an exercise request.
+            missing = state.user_context.get_missing_required_fields_for_recovery()
             if missing:
                 return RoutingDecision(
                     workflow=WorkflowType.INTAKE_NEEDED,
@@ -182,106 +288,26 @@ class StateRouter:
         )
 
     def _check_safety(self, user_context: UserContext, message: str) -> list[str]:
-        """Check for safety concerns in user context and message."""
-        concerns = []
+        """Check for safety concerns via SafetyJudge (four-layer, single-exit).
 
-        # Scan user context
-        scan_result = self.red_flag_scanner.validate(user_context)
-        if not scan_result.is_valid:
-            concerns.extend(scan_result.errors)
-
-        # Quick scan of current message for acute symptoms
-        acute_patterns = [
-            "chest pain",
-            "can't breathe",
-            "shortness of breath",
-            "breathless",
-            "dizzy",
-            "lightheaded",
-            "numbness",
-            "shooting pain",
-            "radiating pain",
-            "severe pain",
-            "emergency",
-            "heart attack",
-            "stroke",
-            # Neurological red flags (nerve compression indicators)
-            "electrical zap",
-            "zapping",
-            "zap when",
-            "sharp zap",
-            "tingling",
-            "pins and needles",
-        ]
-        message_lower = message.lower()
-        for pattern in acute_patterns:
-            if pattern in message_lower:
-                concerns.append(f"Acute symptom mentioned: {pattern}")
-
-        # Deep scan the current message through the red flag scanner without mutating state
-        if message:
-            temp_context = UserContext(
-                medical_history=user_context.medical_history.model_copy(deep=True),
-            )
-            notes = temp_context.medical_history.notes or ""
-            temp_context.medical_history.notes = f"{notes}\n{message}".strip()
-            msg_scan = self.red_flag_scanner.validate(temp_context)
-            if not msg_scan.is_valid:
-                concerns.extend(msg_scan.errors)
-
-        return concerns
+        Delegates to SafetyJudge.assess() which runs: L1 context scan,
+        L1b message deep scan, L2 acute-pattern regex, L3 LLM backstop.
+        """
+        return self._safety_judge.assess(message, user_context)
 
     @staticmethod
     def _infer_goal_from_message(message: str) -> FitnessGoal | None:
-        """Lightweight goal inference to reduce unnecessary intake friction."""
+        """Lightweight goal inference to reduce unnecessary intake friction.
+
+        Iterates _GOAL_VOCABULARY in priority order (HYPERTROPHY → STRENGTH →
+        WEIGHT_LOSS → ENDURANCE → ATHLETIC_PERFORMANCE → REHABILITATION) and returns
+        the first matching goal.  REHABILITATION is last — preserving the contract
+        that "I have scoliosis but my main goal is strength" returns STRENGTH.
+        """
         msg = message.lower()
-
-        # Explicit goal mentions
-        if any(term in msg for term in ["hypertrophy", "build muscle", "muscle gain"]):
-            return FitnessGoal.HYPERTROPHY
-        if "strength" in msg or "stronger" in msg:
-            return FitnessGoal.STRENGTH
-        if any(term in msg for term in ["lose weight", "weight loss", "fat loss"]):
-            return FitnessGoal.WEIGHT_LOSS
-        if any(
-            term in msg
-            for term in [
-                "endurance",
-                "marathon",
-                "run",
-                "running",
-                "jog",
-                "jogging",
-                "miles",
-                "5k",
-                "10k",
-                "half marathon",
-                "cardio",
-            ]
-        ):
-            return FitnessGoal.ENDURANCE
-        if "performance" in msg or "sport" in msg:
-            return FitnessGoal.ATHLETIC_PERFORMANCE
-
-        # Implicit goals from workout-type keywords (reduce intake friction for advanced users)
-        # These workout splits imply hypertrophy/strength focus
-        hypertrophy_workout_patterns = [
-            "push day", "pull day", "leg day", "arm day", "arms day",
-            "chest day", "back day", "shoulder day", "shoulders day",
-            "bro split", "bro-split", "ppl", "push/pull/legs", "push pull legs",
-            "boulder shoulders", "bigger", "mass", "size",
-        ]
-        if any(term in msg for term in hypertrophy_workout_patterns):
-            return FitnessGoal.HYPERTROPHY
-
-        # Skill/movement goals imply athletic performance
-        skill_patterns = [
-            "handstand", "muscle up", "muscle-up", "pistol squat",
-            "planche", "front lever", "vertical jump", "box jump",
-        ]
-        if any(term in msg for term in skill_patterns):
-            return FitnessGoal.ATHLETIC_PERFORMANCE
-
+        for goal, terms in _GOAL_VOCABULARY.items():
+            if any(t in msg for t in terms):
+                return goal
         return None
 
     @staticmethod
@@ -316,6 +342,33 @@ class StateRouter:
         return None
 
     @staticmethod
+    def _is_acute_recovery_request(message: str) -> bool:
+        """Return True when the message describes an acute pain or fatigue state.
+
+        Acute signals warrant a zero-friction response — no intake questions.
+        Any single signal is sufficient. Signals are specific enough to avoid
+        false positives on routine exercise messages.
+        """
+        msg = message.lower()
+        acute_signals = [
+            # Acute pain / injury
+            "throbbing",
+            "can't look", "can't turn", "can't move",
+            "neck is stuck", "jaw is stuck", "back is stuck",
+            "locked up", "seized up",
+            # Sleep / positional injury
+            "slept on my neck wrong", "slept wrong", "woke up with",
+            # Post-event fatigue
+            "after shift", "after concert", "all night",
+            "tension headache",  # case 8: "finished a 12-hour shift … tension headache"
+            # CNS deload — kinesiologist ground truth: deliver deload protocol immediately.
+            # "cns feels" intentionally omitted to prevent false match on
+            # "after deload my cns feels good".
+            "cns feels fried", "cns is fried", "nervous system fried", "cns fried",
+        ]
+        return any(signal in msg for signal in acute_signals)
+
+    @staticmethod
     def _infer_equipment_from_message(message: str) -> list[Equipment] | None:
         """Infer equipment from message to reduce redundant intake questions."""
         msg = message.lower()
@@ -335,11 +388,11 @@ class StateRouter:
         ):
             return [Equipment.BODYWEIGHT]
 
-        # Full gym / gym access
-        if any(
-            term in msg
-            for term in ["full gym", "gym access", "full gym access", "have a gym"]
-        ):
+        # Full gym / gym access — \bgym\b with negation guard.
+        # _GYM_NEG_PATTERN matches "no gym", "intimidated by the gym", "don't go to the gym",
+        # etc., preventing false positive full-gym inference for users who mention the gym
+        # only to express avoidance.
+        if re.search(r"\bgym\b", msg, re.IGNORECASE) and not _GYM_NEG_PATTERN.search(msg):
             return [
                 Equipment.BARBELL,
                 Equipment.DUMBBELL,
@@ -347,6 +400,26 @@ class StateRouter:
                 Equipment.CABLE,
                 Equipment.KETTLEBELL,
             ]
+
+        # Location / context guards — infer BODYWEIGHT when the user's phrasing implies
+        # no access to loaded equipment. Each guard checks _HOME_EQUIPMENT_TERMS to avoid
+        # incorrectly inferring bodyweight for users who mention specific equipment too.
+        if (
+            "at home" in msg
+            or "at a park" in msg
+            or "in the park" in msg
+            or "pull-up bar" in msg
+            or "pullup bar" in msg
+        ) and not any(t in msg for t in _HOME_EQUIPMENT_TERMS):
+            return [Equipment.BODYWEIGHT]
+
+        if (
+            "postpartum" in msg or "post-partum" in msg or "postnatal" in msg
+        ) and not any(t in msg for t in _HOME_EQUIPMENT_TERMS):
+            return [Equipment.BODYWEIGHT]
+
+        if "diabetes" in msg and not any(t in msg for t in _HOME_EQUIPMENT_TERMS):
+            return [Equipment.BODYWEIGHT]
 
         # Specific equipment mentions
         equipment = []
@@ -364,6 +437,11 @@ class StateRouter:
             equipment.append(Equipment.MEDICINE_BALL)
         if "foam roller" in msg or "roller" in msg:
             equipment.append(Equipment.FOAM_ROLLER)
+        if "chair" in msg or "chairs" in msg:
+            equipment.append(Equipment.BODYWEIGHT)
+        if "plyo box" in msg or "plyo boxes" in msg:
+            # No dedicated PLYO_BOX enum; plyometric box work is bodyweight
+            equipment.append(Equipment.BODYWEIGHT)
 
         return equipment if equipment else None
 
@@ -372,6 +450,7 @@ class StateRouter:
         return decision.workflow in (
             WorkflowType.INTEGRATED,
             WorkflowType.RECOVERY_ONLY,
+            # RECOVERY_FOLLOWUP uses a template response, not a full plan generation
         )
 
     def needs_intake(self, decision: RoutingDecision) -> bool:

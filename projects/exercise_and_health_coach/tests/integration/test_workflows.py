@@ -1,11 +1,13 @@
+"""Integration tests for workflow execution."""
+
 from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.models.enums import Equipment, FitnessGoal
+from src.models.enums import Equipment, FitnessGoal, WorkflowType
 from src.models.schemas import Biometrics, MedicalHistory, UserContext
 from src.orchestrator.coach import ExerciseCoach
-from src.orchestrator.state_router import StateRouter, WorkflowType
+from src.orchestrator.state_router import StateRouter
 from src.state.conversation_state import create_session
 
 
@@ -29,19 +31,19 @@ class TestIntakeFlow:
         # Add age and weight (both required for biometrics.is_complete())
         session.user_context.biometrics.age = 30
         session.user_context.biometrics.weight_kg = 80
-        missing = session.user_context.get_missing_required_fields()
+        missing = session.user_context.get_missing_required_fields_for_exercise()
         assert "age" not in missing
         assert "weight" not in missing
         assert "fitness_goals" in missing
 
         # Add goals
         session.user_context.fitness_goals = [FitnessGoal.HYPERTROPHY]
-        missing = session.user_context.get_missing_required_fields()
+        missing = session.user_context.get_missing_required_fields_for_exercise()
         assert "fitness_goals" not in missing
 
         # Add experience
         session.user_context.experience_level = "intermediate"
-        missing = session.user_context.get_missing_required_fields()
+        missing = session.user_context.get_missing_required_fields_for_exercise()
         assert "equipment" in missing
 
         # Add equipment
@@ -163,8 +165,17 @@ class TestCoachIntegration:
     @pytest.fixture
     def mock_coach(self):
         """Create coach with mocked components."""
-        with patch("src.orchestrator.coach.get_llm_for_agent") as mock_llm:
+        with (
+            patch("src.orchestrator.coach.get_llm_for_agent") as mock_llm,
+            patch("src.validators.safety_judge.get_llm_for_agent") as mock_safety_llm,
+        ):
             mock_llm.return_value = MagicMock()
+            safety_llm = MagicMock()
+            no_response = MagicMock()
+            no_response.content = "NO"
+            safety_llm.return_value = no_response
+            safety_llm.invoke.return_value = no_response
+            mock_safety_llm.return_value = safety_llm
             coach = ExerciseCoach()
 
             # Mock intake agent to return realistic responses
@@ -176,7 +187,7 @@ class TestCoachIntegration:
                     confidence_score=0.5,
                 )
             )
-            return coach
+            yield coach
 
     def test_coach_handles_empty_session(self, mock_coach):
         """Test coach creates new session when none provided."""

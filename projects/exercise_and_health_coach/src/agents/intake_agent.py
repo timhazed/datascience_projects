@@ -143,7 +143,6 @@ class IntakeAgent(BaseAgent[IntakeResponse]):
         Returns:
             IntakeResponse with extracted information.
         """
-        print("Processing started by Intake Specialist")
         return self.invoke(
             user_message=user_message,
             existing_context=existing_context,
@@ -157,7 +156,6 @@ class IntakeAgent(BaseAgent[IntakeResponse]):
         conversation_history: str = "",
     ) -> IntakeResponse:
         """Async version of extract_from_message."""
-        print("Processing started by Intake Specialist")
         return await self.ainvoke(
             user_message=user_message,
             existing_context=existing_context,

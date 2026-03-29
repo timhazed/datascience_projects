@@ -26,6 +26,10 @@ agents:
   gatekeeper:
     provider: "openai"
     temperature: 0.1  # Very conservative for safety decisions
+  safety:
+    provider: "openai"
+    temperature: 0.0  # Deterministic — binary emergency decision
+    max_tokens: 5     # YES/NO = 1 token; budget: 1 × 1.3 = 2 → set 5 for margin
 
 # Domain-specific thresholds
 exercise:

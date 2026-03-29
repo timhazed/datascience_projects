@@ -13,17 +13,20 @@ The system coordinates four specialized AI agents through an intent-based routin
 | **Recovery Specialist** | Creates sequenced mobility/recovery routines | `RecoveryPlan` |
 | **Clinical Gatekeeper** | Audits plans for safety and red flags | `AuditLog` |
 
-The **State Router** classifies user intent and directs requests to the appropriate workflow while enforcing safety blocks for medical red flags.
+The **State Router** classifies user intent and directs requests to the appropriate workflow while enforcing safety blocks for medical red flags via a four-layer `SafetyJudge` (rule-based fast path + LLM semantic backstop).
 
 LLM provider is **OpenAI-only** (Groq removed due to lack of strict JSON schema support). All agents return validated Pydantic models via LangChain's `with_structured_output()`.
 
 ## Features
 
 - **Strict JSON outputs** validated against `WorkoutPlan` and `RecoveryPlan` Pydantic schemas
-- **Multi-layer safety system**:
-  - Rule-based red flag scanner (neurological, cardiovascular, acute injury, inflammatory)
+- **Four-layer safety system** via `SafetyJudge`:
+  - L1: `RedFlagScanner` on stored user context (known conditions)
+  - L1b: `RedFlagScanner` deep scan on the current message text (first-turn detection)
+  - L2: Acute-pattern string list (chest pain, electrical zap, etc.)
+  - L3: LLM semantic backstop for novel phrasings (e.g. "fluttering in my chest")
   - Volume and ratio validators for exercise prescription
-  - Clinical Gatekeeper audit on every generated plan
+  - Clinical Gatekeeper LLM audit on every generated plan
 - **Multi-turn conversational intake** with context persistence and minimal-intake guardrails
 - **Intent classification** routing to integrated, recovery-only, or safety-block workflows
 - **Dual interfaces**: CLI and Gradio web UI
@@ -104,15 +107,18 @@ src/
 │   ├── coach.py                # ExerciseCoach main entry point
 │   ├── state_router.py         # Intent-based workflow routing
 │   └── intent_classifier.py    # NLP intent classification
+├── prompts/                    # Prompt templates and helpers
 ├── skills/                     # Runtime-loaded SKILL.md persona files
 │   └── skill_loader.py         # load_skill() utility
 ├── state/                      # Conversation state management
 │   └── conversation_state.py   # ConversationState, create_session()
 ├── util/                       # Utilities
-│   └── validation_runner.py    # Benchmark runner for quality evaluation
+│   ├── validation_runner.py         # Benchmark runner for quality evaluation
+│   └── kinesiologist_eval_runner.py # Router routing accuracy evaluation (pipeline + router modes)
 ├── validators/                 # Safety and constraint validators
 │   ├── base.py                 # BaseValidator, ValidatorChain
 │   ├── red_flag_scanner.py     # Medical red flag detection
+│   ├── safety_judge.py         # Four-layer safety screener (L1–L3 regex + L4 LLM)
 │   ├── volume_validator.py     # Exercise volume constraints (18-24 sets/muscle)
 │   └── ratio_validator.py      # Push:pull ratio balance (1:1 target)
 ├── workflows/                  # Plan generation workflows
@@ -171,6 +177,10 @@ agents:
   gatekeeper:
     provider: "openai"
     temperature: 0.1    # Very conservative for safety
+  safety:
+    provider: "openai"
+    temperature: 0.0    # Deterministic — binary emergency decision
+    max_tokens: 5       # YES/NO = 1 token; hard cap prevents accidental verbosity
 
 exercise:
   min_sets_per_muscle_group: 18
@@ -193,43 +203,98 @@ workflow:
 
 ## Safety Features
 
-### 1. Red Flag Scanner (`red_flag_scanner.py`)
+### 1. SafetyJudge (`safety_judge.py`) — Four-layer screener
 
-Rule-based pattern matching for medical concerns that require professional evaluation:
+Every message passes through `SafetyJudge.assess()` before any plan is generated. Layers run fast → slow; the first non-empty result short-circuits the remaining layers so the LLM is only called when the rule-based layers produce no signal.
+
+| Layer | Mechanism | Catches |
+|-------|-----------|---------|
+| **L1** `_scan_context` | `RedFlagScanner` on stored `UserContext` | Conditions already in the user's profile (prior turns) |
+| **L1b** `_scan_message_deep` | `RedFlagScanner` via temp context with message appended | First-turn messages: "I have arrhythmia", cardiac terms |
+| **L2** `_scan_message_regex` | Plain-string `_ACUTE_PATTERNS` list | Known acute signals: "chest pain", "electrical zap", "dizzy" |
+| **L3** `_run_llm_assessment` | YES/NO LLM prompt; 2-attempt retry; fail-open | Novel phrasings not in any list: "fluttering in my chest" |
+
+- LLM is **not called** when L1, L1b, or L2 fires — no cost for known patterns
+- On LLM failure (both retries exhausted), returns `[]` (fail-open) — routing is never crashed
+- `temperature: 0.0`, `max_tokens: 5` — deterministic, minimal-cost binary decision
+
+### 2. Red Flag Scanner (`red_flag_scanner.py`)
+
+Rule-based pattern matching underpinning L1 and L1b:
 
 | Category | Examples | Action |
 |----------|----------|--------|
 | **Neurological** | Numbness, tingling, radiating pain, sciatica | Block |
-| **Cardiovascular** | Chest pain, shortness of breath, palpitations | Block |
+| **Cardiovascular** | Chest pain, shortness of breath, palpitations, arrhythmia | Block |
 | **Acute Injury** | Recent fracture, torn ligament, acute inflammation | Block |
 | **Inflammatory** | Active infection, severe swelling, fever | Block |
 
-### 2. Volume Validator (`volume_validator.py`)
+### 3. Volume Validator (`volume_validator.py`)
 
 Enforces evidence-based volume constraints:
 - **Target**: 18-24 sets per muscle group per week
 - **Over-volume**: Triggers retry (blocking error)
 - **Under-volume**: Warning only (non-blocking)
 
-### 3. Ratio Validator (`ratio_validator.py`)
+### 4. Ratio Validator (`ratio_validator.py`)
 
 Ensures balanced programming:
 - **Push:Pull ratio**: Target 1:1 (acceptable 0.8-1.2)
 - **Quad:Hip ratio**: Target balanced (acceptable 0.7-1.4)
 - All violations generate warnings (non-blocking)
 
-### 4. Clinical Gatekeeper Agent
+### 5. Clinical Gatekeeper Agent
 
 LLM-based audit of every generated plan:
 - Reviews for contraindications and safety concerns
 - Can reject or request modifications
 - Generates `AuditLog` with status (APPROVED, MODIFIED, REJECTED)
 
-## Validation Runner
+## Evaluation Runners
 
-Benchmark the system against a labeled question set to measure routing accuracy, red-flag detection, and false positive rates.
+### Kinesiologist Evaluation Runner
 
-### Running Validation
+Deterministic, LLM-free benchmark of the `StateRouter`'s routing decisions against kinesiologist ground truth. No API key required — the runner simulates intake extraction with regex heuristics.
+
+```bash
+# Pipeline mode (default) — pre-populates state from each message; full-pipeline simulation
+poetry run python -m src.util.kinesiologist_eval_runner
+
+# Router mode — routes with empty state; tests router inference in isolation
+poetry run python -m src.util.kinesiologist_eval_runner --mode router
+
+# Custom input file
+poetry run python -m src.util.kinesiologist_eval_runner \
+    --input data/Kinesiologist_and_Recovery_full_evaluation.json
+
+# Save report to a specific directory
+poetry run python -m src.util.kinesiologist_eval_runner --output-dir results/
+```
+
+**Two evaluation modes:**
+
+| Mode | State at routing | Use case |
+|------|-----------------|----------|
+| `pipeline` (default) | Pre-populated from message via regex extraction | End-to-end routing accuracy |
+| `router` | Empty (no context) | Router inference logic in isolation |
+
+**Evaluation case format (JSON array):**
+
+```json
+[
+  {
+    "question": "I'm 38, no injuries. I slept on my neck wrong. I can't look over my left shoulder.",
+    "predicted_response_failure": "What is your weight and fitness goal?",
+    "ground_truth": "Trigger Recovery Workflow. Zero biometrics required for acute neck stiffness."
+  }
+]
+```
+
+A timestamped JSON report is written to the output directory after each run.
+
+### Validation Runner
+
+Benchmark the full pipeline (LLM calls included) against a labeled JSONL question set to measure routing accuracy, red-flag detection, and false positive rates.
 
 ```bash
 # Full validation run
@@ -244,60 +309,24 @@ poetry run python -m src.util.validation_runner data/Validation_Questions.jsonl 
 
 Use `-v` to print progress (e.g. `[1/10] Processing: ...`) to stdout during the run.
 
-### Question Format (JSONL)
-
-Each line is a JSON object with:
-
-```json
-{
-  "question": "I'm 32, 85kg, intermediate. No injuries. Goal is vertical jump for volleyball.",
-  "expected_intent": "exercise_request",
-  "expected_response": "Optional reference response for manual review"
-}
-```
-
-**Valid `expected_intent` values:**
-- `exercise_request` - Workout plan requested
-- `recovery_request` - Recovery/mobility plan requested
-- `integrated_request` - Both exercise and recovery
-- `red_flag_check` - Should trigger safety block
-- `general_question` - Q&A, no plan generation
-
-### Output Metrics
-
-The runner generates a timestamped JSONL with per-question results:
-
-```json
-{
-  "question": "...",
-  "expected_intent": "exercise_request",
-  "predicted_intent": "exercise_request",
-  "workflow": "integrated",
-  "predicted_response": "...",
-  "is_rejected": false,
-  "has_workout_plan": true,
-  "has_recovery_plan": true,
-  "audit_status": "approved"
-}
-```
-
 **Summary statistics:**
 - **Intent accuracy**: Percentage of correct intent classifications
-- **Red-flag misses**: Questions with `expected_intent: red_flag_check` that were NOT blocked
-- **False blocks**: Non-red-flag questions that were incorrectly blocked
+- **Red-flag misses**: Questions that should trigger SAFETY_BLOCK but did not
+- **False blocks**: Non-red-flag questions incorrectly blocked
 
 Use these metrics to track regressions when adjusting prompts, thresholds, or model parameters.
 
 ## Workflow Types
 
-The `StateRouter` classifies requests into one of five workflows:
+The `StateRouter` classifies requests into one of six workflows:
 
 | Workflow | Trigger | Agents Used |
 |----------|---------|-------------|
 | `INTEGRATED` | Exercise request with complete intake | Kinesiologist + Recovery + Gatekeeper |
-| `RECOVERY_ONLY` | Recovery/mobility request | Recovery + Gatekeeper |
+| `RECOVERY_ONLY` | Recovery/mobility request (acute or complete intake) | Recovery + Gatekeeper |
+| `RECOVERY_FOLLOWUP` | Short follow-up question in an active recovery thread | Direct response, no plan regeneration |
 | `INTAKE_NEEDED` | Missing required user context | Intake Agent prompts for info |
-| `SAFETY_BLOCK` | Red flags detected | Immediate rejection with guidance |
+| `SAFETY_BLOCK` | Red flags detected by SafetyJudge (L1–L3) | Immediate rejection with guidance |
 | `GENERAL_RESPONSE` | Q&A, clarification, greeting | Direct response, no plan generation |
 
 ## Development
@@ -348,15 +377,31 @@ User Input
 └─────────────┘
     │
     ▼
-┌─────────────┐
-│ StateRouter │ ──▶ Classify intent + check red flags
-└─────────────┘
+┌──────────────────────────────────────────────┐
+│ StateRouter                                  │
+│                                              │
+│  IntentClassifier ──▶ EXERCISE / RECOVERY /  │
+│                        INTEGRATED / INTAKE   │
+│                                              │
+│  Inference (no intake friction):             │
+│    _GOAL_VOCABULARY dict                     │
+│    \bgym\b + _GYM_NEG_PATTERN               │
+│    experience level heuristics               │
+│                                              │
+│  SafetyJudge.assess(message, context)        │
+│    L1  RedFlagScanner on UserContext         │
+│    L1b RedFlagScanner deep scan on message   │
+│    L2  _ACUTE_PATTERNS string list           │
+│    L3  LLM YES/NO backstop (novel symptoms)  │
+└──────────────────────────────────────────────┘
     │
-    ├─── SAFETY_BLOCK ──▶ Reject with guidance
+    ├─── SAFETY_BLOCK ──────▶ Reject with guidance
     │
-    ├─── INTAKE_NEEDED ──▶ Prompt for missing info
+    ├─── INTAKE_NEEDED ─────▶ Prompt for missing info
     │
     ├─── GENERAL_RESPONSE ──▶ Direct Q&A response
+    │
+    ├─── RECOVERY_FOLLOWUP ─▶ Short follow-up (active recovery thread)
     │
     └─── INTEGRATED / RECOVERY_ONLY
             │

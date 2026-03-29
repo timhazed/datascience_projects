@@ -1,11 +1,20 @@
+"""Unit tests for orchestration components."""
+
 from unittest.mock import MagicMock, patch
 
 import pytest
 
-from src.models.enums import Equipment, FitnessGoal, IntentType
-from src.models.schemas import Biometrics, MedicalHistory, UserContext
+from src.models.enums import Equipment, FitnessGoal, IntentType, WorkflowType
+from src.models.schemas import (
+    AuditLog,
+    AuditStatus,
+    Biometrics,
+    CoachOutput,
+    MedicalHistory,
+    UserContext,
+)
 from src.orchestrator.intent_classifier import IntentClassifier
-from src.orchestrator.state_router import StateRouter, WorkflowType
+from src.orchestrator.state_router import StateRouter
 from src.state.conversation_state import create_session
 
 # =============================================================================
@@ -178,9 +187,11 @@ class TestStateRouter:
         assert result.workflow == WorkflowType.INTEGRATED
 
     def test_route_recovery_minimal_requirements(self, router):
+        # Step 4: is_complete_for_recovery() now requires age + health acknowledgment
         state = create_session()
         state.user_context = UserContext(
             biometrics=Biometrics(age=30),
+            pain_areas=["tight hips"],
         )
 
         result = router.route("My hips are tight", state)
@@ -481,3 +492,188 @@ class TestIntentToRoutingFlow:
 
         assert intent.intent == IntentType.RECOVERY_REQUEST
         assert routing.workflow == WorkflowType.RECOVERY_ONLY
+
+
+# =============================================================================
+# Recovery Follow-up Routing Tests (Step 3)
+# =============================================================================
+
+
+class TestRecoveryFollowupRouting:
+    """Tests for the inverted follow-up detection logic."""
+
+    @pytest.fixture
+    def router(self):
+        return StateRouter()
+
+    def _recovery_state(self):
+        """State pre-populated as if a recovery workflow just completed."""
+        state = create_session()
+        state.user_context = UserContext(
+            biometrics=Biometrics(age=66),
+            pain_areas=["left hamstring"],
+        )
+        state.minimal_intake_complete = True
+        state.last_workflow = WorkflowType.RECOVERY_ONLY
+        stub_audit = AuditLog(status=AuditStatus.APPROVED)
+        state.last_output = CoachOutput(
+            session_id=state.session_id,
+            audit=stub_audit,
+            user_message="Here is your hamstring recovery plan.",
+        )
+        return state
+
+    def test_icing_question_routes_to_recovery_followup(self, router):
+        state = self._recovery_state()
+        routing = router.route("What about icing the hamstring?", state)
+        assert routing.workflow == WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_short_question_routes_to_recovery_followup(self, router):
+        state = self._recovery_state()
+        routing = router.route("Should I rest it?", state)
+        assert routing.workflow == WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_can_i_massage_routes_to_recovery_followup(self, router):
+        state = self._recovery_state()
+        routing = router.route("Can I massage it?", state)
+        assert routing.workflow == WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_exercise_terms_guard_blocks_followup(self, router):
+        """Messages containing exercise_terms must NOT route to RECOVERY_FOLLOWUP."""
+        state = self._recovery_state()
+        routing = router.route("What about stretching before my workout?", state)
+        assert routing.workflow != WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_exercise_terms_sets_reps_guard(self, router):
+        """'sets' and 'reps' are exercise_terms — must not trigger recovery follow-up."""
+        state = self._recovery_state()
+        routing = router.route("5 sets of squats?", state)
+        assert routing.workflow != WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_declarative_statement_does_not_followup(self, router):
+        """Declarative request without '?' or question word must NOT false-positive."""
+        state = self._recovery_state()
+        routing = router.route("I need a recovery plan for my hamstring", state)
+        assert routing.workflow != WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_definitional_question_stays_general(self, router):
+        """'What is RPE?' must stay on the definitional path, no intake triggered."""
+        state = create_session()
+        state.minimal_intake_complete = True
+        routing = router.route("What is RPE?", state)
+        # Definitional questions must not trigger follow-up even if recovery thread exists
+        assert routing.workflow == WorkflowType.GENERAL_RESPONSE
+
+    def test_no_last_workflow_does_not_followup(self, router):
+        """Without last_workflow == RECOVERY_ONLY, follow-up routing must not activate."""
+        state = create_session()
+        state.minimal_intake_complete = True
+        routing = router.route("What about icing?", state)
+        assert routing.workflow != WorkflowType.RECOVERY_FOLLOWUP
+
+    def test_last_workflow_set_after_recovery(self, router):
+        """last_workflow is set to RECOVERY_ONLY after recovery plan (Step 3.4)."""
+        state = self._recovery_state()
+        assert state.last_workflow == WorkflowType.RECOVERY_ONLY
+
+
+# =============================================================================
+# Age + Injury Classification Tests (Steps 1-2)
+# =============================================================================
+
+
+class TestAgeAndInjuryClassification:
+    """Tests for bare-age INTAKE_UPDATE and injury keyword detection."""
+
+    @pytest.fixture
+    def classifier(self):
+        return IntentClassifier()
+
+    def test_bare_age_classifies_as_intake_update(self, classifier):
+        result = classifier.classify("I am 66 and I tweaked my left hamstring")
+        assert result.intent in (
+            IntentType.INTAKE_UPDATE,
+            IntentType.RECOVERY_REQUEST,
+        ), f"Got {result.intent} — bare age + injury should be INTAKE_UPDATE or RECOVERY_REQUEST"
+
+    def test_age_without_years_keyword(self, classifier):
+        result = classifier.classify("I am 66")
+        assert result.intent == IntentType.INTAKE_UPDATE
+
+    def test_age_with_years_still_works(self, classifier):
+        result = classifier.classify("I am 66 years old")
+        assert result.intent == IntentType.INTAKE_UPDATE
+
+    def test_tweaked_classified_as_recovery(self, classifier):
+        result = classifier.classify("I tweaked my hamstring")
+        assert result.intent == IntentType.RECOVERY_REQUEST
+
+    def test_icing_question_is_general_question(self, classifier):
+        """'What about icing?' must classify as GENERAL_QUESTION (router handles follow-up)."""
+        result = classifier.classify("What about icing the hamstring?")
+        assert result.intent == IntentType.GENERAL_QUESTION
+
+    def test_what_is_rpe_is_definitional(self, classifier):
+        result = classifier.classify("What is RPE?")
+        assert result.intent == IntentType.GENERAL_QUESTION
+
+
+# =============================================================================
+# Action Verb / Sport / Skill-Learning Intent Guard (Step 3)
+# =============================================================================
+
+
+class TestActionVerbIntentGuard:
+    """Step 3: new INTENT_PATTERNS[EXERCISE_REQUEST] patterns — correct classification
+    and false-positive guard for the skill-learning non-optional suffix."""
+
+    @pytest.fixture
+    def classifier(self):
+        return IntentClassifier()
+
+    def test_i_want_to_lose_fat_is_exercise_request(self, classifier):
+        """'I want to lose fat' → fat-loss action verb pattern → EXERCISE_REQUEST."""
+        result = classifier.classify("I want to lose fat and get leaner.")
+        assert result.intent in (
+            IntentType.EXERCISE_REQUEST,
+            IntentType.INTEGRATED_REQUEST,
+        )
+
+    def test_improving_explosive_power_is_exercise_request(self, classifier):
+        """'Improving explosive power for basketball' → sport/explosive pattern."""
+        result = classifier.classify(
+            "I'm 27, advanced. Improving explosive power for basketball."
+        )
+        assert result.intent in (
+            IntentType.EXERCISE_REQUEST,
+            IntentType.INTEGRATED_REQUEST,
+        )
+
+    def test_learning_lsit_progression_is_exercise_request(self, classifier):
+        """'Learning the L-Sit progression' → skill-learning pattern."""
+        result = classifier.classify(
+            "I'm 26, 68kg. Learning the L-Sit progression. I have two sturdy chairs."
+        )
+        assert result.intent in (
+            IntentType.EXERCISE_REQUEST,
+            IntentType.INTEGRATED_REQUEST,
+        )
+
+    def test_learning_condition_message_is_not_exercise_request(self, classifier):
+        """False-positive guard: 'I am learning I have a knee condition' must NOT classify
+        as EXERCISE_REQUEST.
+
+        Verifies the non-optional suffix constraint in the skill-learning regex. If the
+        suffix were optional (zero-length match allowed), this message would false-match.
+        """
+        result = classifier.classify("I am learning I have a knee condition.")
+        assert result.intent != IntentType.EXERCISE_REQUEST
+
+    def test_pure_age_intake_still_classifies_as_intake_update(self, classifier):
+        """Regression: bare 'I am 30, beginner' without an action verb → INTAKE_UPDATE.
+
+        Adding fat-loss / sport / skill patterns must not cause a pure intake message
+        to route as an exercise request via the demotion block.
+        """
+        result = classifier.classify("I am 30 years old, beginner.")
+        assert result.intent == IntentType.INTAKE_UPDATE

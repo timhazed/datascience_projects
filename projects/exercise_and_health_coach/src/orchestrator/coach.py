@@ -7,9 +7,16 @@ from langchain_core.language_models.chat_models import BaseChatModel
 from src.agents.intake_agent import IntakeAgent
 from src.config.settings import Settings, get_settings
 from src.llm.llm_factory import get_llm_for_agent
-from src.models.enums import AuditStatus, IntentType
-from src.models.schemas import AuditLog, CoachOutput, RecoveryPlan, UserContext, WorkoutPlan
-from src.orchestrator.state_router import RoutingDecision, StateRouter, WorkflowType
+from src.models.enums import IntentType, WorkflowType
+from src.models.schemas import (
+    AuditLog,
+    CoachOutput,
+    IntakeResponse,
+    RecoveryPlan,
+    UserContext,
+    WorkoutPlan,
+)
+from src.orchestrator.state_router import RoutingDecision, StateRouter
 from src.state.conversation_state import ConversationState, create_session
 from src.workflows.base import WorkflowResult
 from src.workflows.integrated_workflow import IntegratedWorkflow
@@ -116,6 +123,7 @@ class ExerciseCoach:
             skip_intake_check = (
                 is_definitional
                 or routing.workflow == WorkflowType.SAFETY_BLOCK
+                or routing.is_acute
             )
             if not skip_intake_check:
                 minimal_prompt = self._create_minimal_intake_prompt(state, routing)
@@ -149,14 +157,15 @@ class ExerciseCoach:
         if state is None:
             state = create_session()
 
-        # Extract context
-        intake_response = await self.intake_agent.aextract_from_message(
-            user_message=message,
-            existing_context=state.user_context,
-            conversation_history=state.get_conversation_summary(),
-        )
+        logger.info(f"[Coach] Processing message (async): {message[:50]}...")
+
+        # Step 1: Extract context from message
+        intake_response = await self._arun_intake(message, state)
         if intake_response.extracted_context:
             state.update_context(intake_response.extracted_context)
+
+        # Capture explicit "no health concerns" statements to reduce intake friction
+        self._record_health_denial_if_present(message, state)
 
         # Route
         routing = self.router.route(message, state)
@@ -171,6 +180,7 @@ class ExerciseCoach:
             skip_intake_check = (
                 is_definitional
                 or routing.workflow == WorkflowType.SAFETY_BLOCK
+                or routing.is_acute
             )
             if not skip_intake_check:
                 minimal_prompt = self._create_minimal_intake_prompt(state, routing)
@@ -194,8 +204,8 @@ class ExerciseCoach:
 
         return response, state
 
-    def _run_intake(self, message: str, state: ConversationState):
-        """Run intake agent to extract context."""
+    def _run_intake(self, message: str, state: ConversationState) -> IntakeResponse:
+        """Run intake agent to extract context. Returns empty response on failure."""
         try:
             return self.intake_agent.extract_from_message(
                 user_message=message,
@@ -204,8 +214,22 @@ class ExerciseCoach:
             )
         except Exception as e:
             logger.warning(f"[Coach] Intake extraction failed: {e}")
-            # Return empty response on failure
-            from src.models.schemas import IntakeResponse
+            return IntakeResponse(
+                extracted_context=UserContext(),
+                clarification_needed=[],
+                confidence_score=0.0,
+            )
+
+    async def _arun_intake(self, message: str, state: ConversationState) -> IntakeResponse:
+        """Async counterpart of _run_intake. Returns empty response on failure."""
+        try:
+            return await self.intake_agent.aextract_from_message(
+                user_message=message,
+                existing_context=state.user_context,
+                conversation_history=state.get_conversation_summary(),
+            )
+        except Exception as e:
+            logger.warning(f"[Coach] Async intake extraction failed: {e}")
             return IntakeResponse(
                 extracted_context=UserContext(),
                 clarification_needed=[],
@@ -236,11 +260,25 @@ class ExerciseCoach:
         # Use accumulated specific_requests from context, or current message
         specific_request = self._get_specific_request(message, state)
 
+        if routing.workflow == WorkflowType.RECOVERY_FOLLOWUP:
+            return self._create_recovery_followup_response(state)
+
         if routing.workflow == WorkflowType.INTEGRATED:
             result = self.integrated_workflow.execute(
                 user_context=state.user_context,
                 specific_request=specific_request,
             )
+            # Write last_output only when audit is present (error results have audit=None)
+            if result.audit is not None:
+                state.last_output = CoachOutput(
+                    session_id=state.session_id,
+                    audit=result.audit,
+                    user_message=result.user_message,
+                    workout_plan=result.workout_plan,
+                    recovery_plan=result.recovery_plan,
+                    follow_up_questions=result.follow_up_questions or [],
+                )
+                state.last_workflow = WorkflowType.INTEGRATED
             return self._workflow_result_to_response(result)
 
         if routing.workflow == WorkflowType.RECOVERY_ONLY:
@@ -248,6 +286,17 @@ class ExerciseCoach:
                 user_context=state.user_context,
                 specific_request=specific_request,
             )
+            # Write last_output only when audit is present (error results have audit=None)
+            if result.audit is not None:
+                state.last_output = CoachOutput(
+                    session_id=state.session_id,
+                    audit=result.audit,
+                    user_message=result.user_message,
+                    workout_plan=result.workout_plan,
+                    recovery_plan=result.recovery_plan,
+                    follow_up_questions=result.follow_up_questions or [],
+                )
+                state.last_workflow = WorkflowType.RECOVERY_ONLY
             return self._workflow_result_to_response(result)
 
         # Fallback
@@ -276,11 +325,24 @@ class ExerciseCoach:
         # Use accumulated specific_requests from context, or current message
         specific_request = self._get_specific_request(message, state)
 
+        if routing.workflow == WorkflowType.RECOVERY_FOLLOWUP:
+            return self._create_recovery_followup_response(state)
+
         if routing.workflow == WorkflowType.INTEGRATED:
             result = await self.integrated_workflow.aexecute(
                 user_context=state.user_context,
                 specific_request=specific_request,
             )
+            if result.audit is not None:
+                state.last_output = CoachOutput(
+                    session_id=state.session_id,
+                    audit=result.audit,
+                    user_message=result.user_message,
+                    workout_plan=result.workout_plan,
+                    recovery_plan=result.recovery_plan,
+                    follow_up_questions=result.follow_up_questions or [],
+                )
+                state.last_workflow = WorkflowType.INTEGRATED
             return self._workflow_result_to_response(result)
 
         if routing.workflow == WorkflowType.RECOVERY_ONLY:
@@ -288,6 +350,16 @@ class ExerciseCoach:
                 user_context=state.user_context,
                 specific_request=specific_request,
             )
+            if result.audit is not None:
+                state.last_output = CoachOutput(
+                    session_id=state.session_id,
+                    audit=result.audit,
+                    user_message=result.user_message,
+                    workout_plan=result.workout_plan,
+                    recovery_plan=result.recovery_plan,
+                    follow_up_questions=result.follow_up_questions or [],
+                )
+                state.last_workflow = WorkflowType.RECOVERY_ONLY
             return self._workflow_result_to_response(result)
 
         return CoachResponse(
@@ -332,20 +404,8 @@ class ExerciseCoach:
             questions.append("How old are you?")
             missing.append("age")
 
-        # Check if health concerns have been addressed (conditions, injuries, pain_areas)
-        has_health_info = (
-            bool(state.user_context.medical_history.conditions)
-            or bool(state.user_context.medical_history.injuries)
-            or bool(state.user_context.pain_areas)
-            or bool(
-                state.user_context.medical_history.notes
-                and any(
-                    word in state.user_context.medical_history.notes.lower()
-                    for word in ["none", "no ", "healthy", "no concerns", "no issues"]
-                )
-            )
-        )
-        if not has_health_info:
+        # Check if health concerns have been addressed — delegate to single authoritative definition
+        if not state.user_context.has_health_acknowledgment():
             questions.append(
                 "Do you have any health conditions, injuries, or concerns? (Say 'none' if clear)"
             )
@@ -467,6 +527,36 @@ class ExerciseCoach:
             "- Help with specific muscle groups or movement patterns\n\n"
             "What would you like to work on?",
         )
+
+    def _create_recovery_followup_response(self, state: ConversationState) -> CoachResponse:
+        """
+        Create a template-based response for short follow-up questions after a
+        recovery plan (e.g. 'What about icing?', 'Should I rest it?').
+
+        Templates + one disclaimer is the v1 policy. An optional capped LLM call
+        may be added in a later version when last_output has enough context.
+        """
+        tie_back = ""
+        if state.last_output is not None:
+            session_ref = state.last_output.user_message[:120]
+            tie_back = f"\n\nThis advice relates to your recent session: \"{session_ref}\""
+
+        followup_msg = (
+            "**General recovery guidance** (not individualised medical advice):\n\n"
+            "- **Icing**: Apply for 10–20 min within the first 48–72 hours of an acute injury to "
+            "reduce swelling. Wrap the ice pack in a cloth — never apply directly to skin.\n"
+            "- **Heat**: Use heat (warm towel, hot water bottle) after the acute phase (48–72 h) "
+            "to improve blood flow and ease muscle tightness.\n"
+            "- **Compression & elevation**: Can help reduce swelling in limb injuries in the first "
+            "24–48 hours.\n"
+            "- **Gentle movement**: Light, pain-free range-of-motion work is generally preferable "
+            "to complete rest for most soft-tissue injuries.\n"
+            "- **Rest from loading**: Avoid exercises that reproduce or worsen the pain.\n\n"
+            "**Disclaimer**: If your pain is severe, worsening, accompanied by numbness/tingling, "
+            "or not improving within a few days, please see a qualified healthcare provider."
+            f"{tie_back}"
+        )
+        return CoachResponse(message=followup_msg)
 
     def _workflow_result_to_response(self, result: WorkflowResult) -> CoachResponse:
         """Convert workflow result to coach response."""
@@ -604,13 +694,24 @@ class ExerciseCoach:
         response: CoachResponse,
         state: ConversationState,
     ) -> CoachOutput:
-        """Create formal CoachOutput from response."""
+        """
+        Create formal CoachOutput from response.
+
+        Raises:
+            ValueError: If response.audit is None — callers must not pass error
+                responses here, as auto-approving an unaudited plan would be unsafe.
+        """
+        if response.audit is None:
+            raise ValueError(
+                "create_output requires a CoachResponse with a populated audit. "
+                "Error responses (audit=None) must not be wrapped as CoachOutput."
+            )
         return CoachOutput(
             session_id=state.session_id,
             timestamp=datetime.now(),
             workout_plan=response.workout_plan,
             recovery_plan=response.recovery_plan,
-            audit=response.audit or AuditLog(status=AuditStatus.APPROVED),
+            audit=response.audit,
             user_message=response.message,
             follow_up_questions=response.follow_up_questions,
         )

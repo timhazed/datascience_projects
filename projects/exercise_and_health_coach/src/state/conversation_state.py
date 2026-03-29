@@ -4,7 +4,7 @@ from uuid import uuid4
 
 from pydantic import BaseModel, Field
 
-from src.models.enums import IntentType
+from src.models.enums import IntentType, WorkflowType
 from src.models.schemas import CoachOutput, UserContext
 
 
@@ -40,11 +40,12 @@ class ConversationState(BaseModel):
     # Workflow state
     intake_complete: bool = False
     minimal_intake_complete: bool = False  # Tier 1: age + health concerns confirmed
-    current_workflow: str | None = None
-    pending_clarifications: list[str] = Field(default_factory=list)
 
     # Previous outputs for reference
     last_output: CoachOutput | None = None
+
+    # Last workflow that completed successfully (used for follow-up routing)
+    last_workflow: WorkflowType | None = None
 
     def add_turn(
         self,
@@ -153,24 +154,9 @@ class ConversationState(BaseModel):
 
     def _check_minimal_intake(self) -> None:
         """Check if minimal safety intake (Tier 1) is complete."""
-        # Minimal intake requires age and health concern acknowledgment
+        # Delegates to the single authoritative definition on UserContext.
         has_age = self.user_context.biometrics.age is not None
-        # Health concerns confirmed if: conditions, injuries, or pain_areas listed,
-        # OR notes mention "none/no", OR explicit no_concerns
-        has_health_info = (
-            bool(self.user_context.medical_history.conditions)
-            or bool(self.user_context.medical_history.injuries)
-            or bool(self.user_context.pain_areas)
-            or bool(
-                self.user_context.medical_history.notes
-                and any(
-                    word in self.user_context.medical_history.notes.lower()
-                    for word in ["none", "no ", "healthy", "no concerns", "no issues"]
-                )
-            )
-            or self.user_context.medical_history.no_concerns_reported
-        )
-        self.minimal_intake_complete = has_age and has_health_info
+        self.minimal_intake_complete = has_age and self.user_context.has_health_acknowledgment()
 
     def set_minimal_intake_complete(self) -> None:
         """Manually mark minimal intake as complete (e.g., after explicit confirmation)."""
@@ -189,19 +175,14 @@ class ConversationState(BaseModel):
             lines.append(f"Assistant: {turn.assistant_response[:100]}...")
         return "\n".join(lines)
 
-    def clear_pending_clarifications(self) -> None:
-        """Clear pending clarification questions after they've been addressed."""
-        self.pending_clarifications = []
-
     def reset(self) -> None:
         """Reset state for a new session while keeping session_id."""
         self.user_context = UserContext()
         self.turns = []
         self.intake_complete = False
         self.minimal_intake_complete = False
-        self.current_workflow = None
-        self.pending_clarifications = []
         self.last_output = None
+        self.last_workflow = None
         self.updated_at = datetime.now()
 
 

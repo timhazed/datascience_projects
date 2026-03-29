@@ -29,6 +29,9 @@ dist/
 .coverage.*
 htmlcov/
 
+## Session handoff (see CursorCommandUsage.md — /memory)
+.tmp/
+
 ## Editors/OS
 .DS_Store
 .vscode/

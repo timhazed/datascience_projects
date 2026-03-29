@@ -1,0 +1,45 @@
+Human: I need a recovery plan. I keep tweaking my left hamstring during intense running in my HIT class. Currently I do weighted hip bridges, hamstring stretches and leg/quad stretching but I keep reinjuring my left hamstring on max sprints.
+
+AI: Welcome! For your recovery routine, I just need:
+Age
+Areas of tightness or discomfort (or say 'none' if fine)
+Example: "I'm 55, my wrist hurts when I do push-ups."
+
+Human: I am 66 and I tweaked my left hamstring
+
+AI: I'm here to help with exercise and recovery planning. You can ask me to:
+Create a workout plan (just tell me your goals and experience level)
+Design a recovery/mobility routine
+Help with specific muscle groups or movement patterns
+What would you like to work on?
+
+Human: I need a recovery plan. I keep tweaking my left hamstring during intense running in my HIT class. Currently I do weighted hip bridges, hamstring stretches and leg/quad stretching but I keep reinjuring my left hamstring on max sprints.
+
+AI: Here's your personalized recovery routine:
+Total Duration: 4 minutes
+Target Areas: left hamstring, hamstrings, hip flexors, quads
+Smr
+Hamstring Foam Roll: 60s (light)
+Inhale deeply, exhale as you roll slowly over the muscle.
+Dynamic Mobility
+Leg Swings (Front to Back): 30s
+Breathe in as you swing forward, breathe out as you swing back.
+Walking Lunges: 30s
+Inhale as you step forward, exhale as you lower into the lunge.
+Static Stretching
+Standing Hamstring Stretch: 30s (light)
+Inhale deeply, exhale as you lean forward gently.
+Seated Forward Bend: 30s (light)
+Inhale as you lengthen the spine, exhale as you reach forward.
+Why this routine: The plan focuses on the left hamstring, which is the primary area of concern. SMR with foam rolling helps desensitize and relieve tension in the hamstring. Dynamic movements like leg swings and walking lunges promote blood flow and prepare the muscles for activity without aggressive stretching. Static stretches are included to lengthen the hamstring and surrounding muscles, ensuring flexibility and reducing the risk of re-injury.
+Note: Recovery plan is appropriate for a senior athlete with a history of hamstring injury. Ensure exercises are performed with caution to prevent falls and allow for adequate recovery time.
+Things to watch:
+Senior athlete (age 66): Consider fall risk, allow extra recovery time, and include balance work.
+
+Human: What about icing the hamstring?
+
+AI: I'm here to help with exercise and recovery planning. You can ask me to:
+Create a workout plan (just tell me your goals and experience level)
+Design a recovery/mobility routine
+Help with specific muscle groups or movement patterns
+What would you like to work on?

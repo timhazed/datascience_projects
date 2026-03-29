@@ -1,5 +1,3 @@
-"""Agents for the Exercise and Health Coach system."""
-
 from src.agents.base_agent import BaseAgent
 from src.agents.clinical_gatekeeper import ClinicalGatekeeper
 from src.agents.intake_agent import IntakeAgent

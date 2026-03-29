@@ -1,3 +1,5 @@
+"""Unit tests for Pydantic models and enums."""
+
 import pytest
 from pydantic import ValidationError
 
@@ -10,6 +12,7 @@ from src.models.enums import (
     MuscleGroup,
     RecoveryModality,
     RedFlagCategory,
+    WorkflowType,
 )
 from src.models.schemas import (
     AuditLog,
@@ -70,6 +73,12 @@ class TestEnums:
         assert IntentType.RECOVERY_REQUEST.value == "recovery_request"
         assert len(IntentType) == 6
 
+    def test_workflow_type_importable_from_enums(self):
+        """WorkflowType must be importable from models.enums — no circular import."""
+        assert WorkflowType.RECOVERY_ONLY.value == "recovery_only"
+        assert WorkflowType.RECOVERY_FOLLOWUP.value == "recovery_followup"
+        assert WorkflowType.GENERAL_RESPONSE.value == "general_response"
+
 
 class TestBiometrics:
     """Test Biometrics model validation."""
@@ -112,26 +121,6 @@ class TestMedicalHistory:
     def test_empty_history(self):
         history = MedicalHistory()
         assert history.conditions == []
-        assert not history.has_red_flags()
-
-    def test_red_flag_detection(self):
-        history = MedicalHistory(conditions=["chest pain when exercising"])
-        assert history.has_red_flags()
-
-    def test_red_flag_in_injuries(self):
-        history = MedicalHistory(injuries=["acute shoulder tear"])
-        assert history.has_red_flags()
-
-    def test_red_flag_in_notes(self):
-        history = MedicalHistory(notes="Patient has uncontrolled hypertension")
-        assert history.has_red_flags()
-
-    def test_no_red_flags(self):
-        history = MedicalHistory(
-            conditions=["mild asthma"],
-            injuries=["old ankle sprain"],
-        )
-        assert not history.has_red_flags()
 
 
 class TestUserContext:
@@ -139,7 +128,7 @@ class TestUserContext:
 
     def test_empty_context(self):
         ctx = UserContext()
-        missing = ctx.get_missing_required_fields()
+        missing = ctx.get_missing_required_fields_for_exercise()
         assert "age" in missing
         assert "weight" in missing
         assert "fitness_goals" in missing
@@ -153,15 +142,50 @@ class TestUserContext:
             available_equipment=[Equipment.BODYWEIGHT],
         )
         assert ctx.is_complete_for_exercise()
-        assert ctx.get_missing_required_fields() == []
+        assert ctx.get_missing_required_fields_for_exercise() == []
 
     def test_recovery_requires_less(self):
-        ctx = UserContext(biometrics=Biometrics(age=30))
+        # Requires age + health acknowledgment (pain_areas satisfies health check)
+        ctx = UserContext(biometrics=Biometrics(age=30), pain_areas=["hamstring"])
         assert ctx.is_complete_for_recovery()
 
     def test_recovery_with_pain_areas(self):
-        ctx = UserContext(pain_areas=["lower back"])
+        # Requires age + health acknowledgment — pain_areas satisfies health, age added
+        ctx = UserContext(biometrics=Biometrics(age=30), pain_areas=["lower back"])
         assert ctx.is_complete_for_recovery()
+
+    def test_recovery_incomplete_without_age(self):
+        ctx = UserContext(pain_areas=["hamstring"])
+        assert not ctx.is_complete_for_recovery()
+
+    def test_recovery_incomplete_without_health_ack(self):
+        ctx = UserContext(biometrics=Biometrics(age=30))
+        assert not ctx.is_complete_for_recovery()
+
+    def test_has_health_acknowledgment_pain_areas(self):
+        ctx = UserContext(pain_areas=["hamstring"])
+        assert ctx.has_health_acknowledgment()
+
+    def test_has_health_acknowledgment_injuries(self):
+        ctx = UserContext(medical_history=MedicalHistory(injuries=["sprained ankle"]))
+        assert ctx.has_health_acknowledgment()
+
+    def test_has_health_acknowledgment_no_concerns_flag(self):
+        ctx = UserContext(medical_history=MedicalHistory(no_concerns_reported=True))
+        assert ctx.has_health_acknowledgment()
+
+    def test_has_health_acknowledgment_notes_keyword(self):
+        ctx = UserContext(medical_history=MedicalHistory(notes="no issues at all"))
+        assert ctx.has_health_acknowledgment()
+
+    def test_has_health_acknowledgment_raw_notes_no_keyword(self):
+        # Raw notes without an acceptance keyword must NOT satisfy the check
+        ctx = UserContext(medical_history=MedicalHistory(notes="I had a tough workout yesterday"))
+        assert not ctx.has_health_acknowledgment()
+
+    def test_has_health_acknowledgment_empty(self):
+        ctx = UserContext()
+        assert not ctx.has_health_acknowledgment()
 
 
 class TestExercise:

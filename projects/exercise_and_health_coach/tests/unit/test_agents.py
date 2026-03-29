@@ -1,3 +1,5 @@
+"""Unit tests for agents."""
+
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest

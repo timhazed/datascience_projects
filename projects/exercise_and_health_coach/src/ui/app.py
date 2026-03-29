@@ -1,5 +1,4 @@
 import logging
-import time
 
 import gradio as gr
 
@@ -137,39 +136,31 @@ def create_demo() -> gr.Blocks:
             clear_btn = gr.Button("Clear Chat")
             reset_btn = gr.Button("New Session")
 
-        # Latency display (always visible)
-        latency_text = gr.Markdown("**Last response:** —")
-
         # Status display
         with gr.Accordion("Session Info", open=False):
             status_text = gr.Markdown("*No active session*")
 
         def handle_submit(user_msg: str, history: list, state_dict: dict | None):
             """
-            Handle user message and generate bot response.
+            Handle user message and generate bot response in one step.
 
-            Yields twice: first to show user message immediately, then with the
-            assistant response when ready. This avoids the confusing delay where
-            nothing appears until the full response is generated.
+            Combined into a single function so session state flows correctly
+            (Gradio's .then() chain can drop state between steps).
             """
             if not user_msg.strip():
-                return "", history, state_dict, get_status_text(state_dict), gr.Skip()
+                return "", history, state_dict, get_status_text(state_dict)
 
             # Add user message (messages format: {role, content})
             history = history + [{"role": "user", "content": user_msg}]
 
-            # Yield immediately so user sees their message right away
-            yield "", history, state_dict, get_status_text(state_dict), "**Last response:** *Processing...*"
-
             # Process and get response (state must flow through in same call)
-            start = time.perf_counter()
             user_text = _normalize_message_content(user_msg)
             response, new_state = respond(user_text, history[:-1], state_dict)
-            elapsed = time.perf_counter() - start
 
-            # Append assistant response and yield final result
+            # Append assistant response
             history = history + [{"role": "assistant", "content": response}]
-            yield "", history, new_state, get_status_text(new_state), f"**Last response:** {elapsed:.1f}s"
+
+            return "", history, new_state, get_status_text(new_state)
 
         def clear_chat():
             """Clear chat history but keep session."""
@@ -208,29 +199,27 @@ def create_demo() -> gr.Blocks:
                 return "*Error reading session*"
 
         # Event handlers (single function ensures state persists between user msg and response)
-        submit_outputs = [msg, chatbot, state, status_text, latency_text]
-        msg.submit(handle_submit, [msg, chatbot, state], submit_outputs)
-        submit_btn.click(handle_submit, [msg, chatbot, state], submit_outputs)
+        msg.submit(
+            handle_submit,
+            [msg, chatbot, state],
+            [msg, chatbot, state, status_text],
+        )
 
-        def clear_chat_with_latency():
-            result = clear_chat()
-            return result[0], result[1], result[2], "**Last response:** —"
-
-        def new_session_with_latency():
-            result = new_session()
-            return result[0], result[1], result[2], "**Last response:** —"
+        submit_btn.click(
+            handle_submit,
+            [msg, chatbot, state],
+            [msg, chatbot, state, status_text],
+        )
 
         clear_btn.click(
-            clear_chat_with_latency,
-            outputs=[chatbot, state, status_text, latency_text],
+            clear_chat,
+            outputs=[chatbot, state, status_text],
         )
 
         reset_btn.click(
-            new_session_with_latency,
-            outputs=[chatbot, state, status_text, latency_text],
+            new_session,
+            outputs=[chatbot, state, status_text],
         )
-
-        gr.Markdown("---\n*Powered by Old Zin Software Corp*")
 
     return demo
 
@@ -243,7 +232,7 @@ def main() -> None:
     port_str = os.environ.get("GRADIO_SERVER_PORT")
     # Omit server_port to auto-find (7860-7959). Set GRADIO_SERVER_PORT for specific port.
     launch_kwargs: dict = {
-        "server_name": "0.0.0.0",
+        "server_name": "127.0.0.1",
         "share": False,
         "theme": gr.themes.Soft(),
     }

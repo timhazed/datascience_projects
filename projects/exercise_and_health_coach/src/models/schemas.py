@@ -42,25 +42,6 @@ class MedicalHistory(BaseModel):
     notes: str | None = None
     no_concerns_reported: bool = False
 
-    def has_red_flags(self) -> bool:
-        """Check for potential red flag conditions."""
-        red_flag_keywords = [
-            "chest pain",
-            "heart",
-            "cardiac",
-            "stroke",
-            "seizure",
-            "uncontrolled",
-            "acute",
-            "severe",
-            "numbness",
-            "tingling",
-            "dizziness",
-        ]
-        all_text = " ".join(
-            self.conditions + self.injuries + self.medications + (self.notes or "").split()
-        ).lower()
-        return any(keyword in all_text for keyword in red_flag_keywords)
 
 
 class UserContext(BaseModel):
@@ -78,13 +59,48 @@ class UserContext(BaseModel):
     specific_requests: list[str] = Field(default_factory=list)
     pain_areas: list[str] = Field(default_factory=list)
 
-    def get_missing_required_fields(self) -> list[str]:
-        """Return list of required fields that are missing."""
+    def has_health_acknowledgment(self) -> bool:
+        """
+        Return True when the user has provided any health/injury information.
+
+        This is the single authoritative definition shared by
+        is_complete_for_recovery() and _check_minimal_intake().
+
+        Conditions (any one is sufficient):
+        - medical_history.conditions populated
+        - medical_history.injuries populated
+        - pain_areas populated
+        - medical_history.no_concerns_reported is True
+        - medical_history.notes contains an acceptance keyword
+          ("none", "no ", "healthy", "no concerns", "no issues")
+
+        Note: raw notes text without a keyword is NOT sufficient — the user
+        must have explicitly named a condition/area or stated no concerns.
+        """
+        if (
+            bool(self.medical_history.conditions)
+            or bool(self.medical_history.injuries)
+            or bool(self.pain_areas)
+            or self.medical_history.no_concerns_reported
+        ):
+            return True
+        if self.medical_history.notes:
+            return any(
+                word in self.medical_history.notes.lower()
+                for word in ["none", "no ", "healthy", "no concerns", "no issues"]
+            )
+        return False
+
+    def get_missing_required_fields_for_exercise(self) -> list[str]:
+        """Return required fields missing for exercise prescription."""
         missing = []
         if not self.biometrics.is_complete():
             if self.biometrics.age is None:
                 missing.append("age")
-            if self.biometrics.weight_kg is None:
+            is_bodyweight_only = bool(self.available_equipment) and all(
+                e == Equipment.BODYWEIGHT for e in self.available_equipment
+            )
+            if self.biometrics.weight_kg is None and not is_bodyweight_only:
                 missing.append("weight")
         if not self.fitness_goals:
             missing.append("fitness_goals")
@@ -94,17 +110,28 @@ class UserContext(BaseModel):
             missing.append("equipment")
         return missing
 
+    def get_missing_required_fields_for_recovery(self) -> list[str]:
+        """Return required fields missing for recovery prescription (age + health ack)."""
+        missing = []
+        if self.biometrics.age is None:
+            missing.append("age")
+        if not self.has_health_acknowledgment():
+            missing.append("pain_areas or health acknowledgment")
+        return missing
+
     def is_complete_for_exercise(self) -> bool:
         """Check if context is complete for exercise prescription."""
-        return len(self.get_missing_required_fields()) == 0
+        return len(self.get_missing_required_fields_for_exercise()) == 0
 
     def is_complete_for_recovery(self) -> bool:
         """
         Check if context is complete for recovery prescription.
 
-        Recovery is low risk; allow quick-start even with minimal info.
+        Requires age + health/pain acknowledgment. Intentional UX change from v1
+        (which returned True always): users who previously skipped intake will now
+        be prompted for age + pain area before their first recovery plan.
         """
-        return True
+        return self.biometrics.age is not None and self.has_health_acknowledgment()
 
 
 # =============================================================================
