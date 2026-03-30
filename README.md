@@ -1,424 +1,362 @@
-# Data Science Projects by Tim Hayes
+# Data Science & AI Systems Engineering Portfolio
 
-Welcome to my GitHub repository! I'm Tim Hayes, a passionate Data Scientist with a strong background in machine learning, deep learning, and data analysis. This repository showcases a collection of my projects that demonstrate my skills and expertise in various data science domains.
+**Tim Hayes**
 
-## Table of Contents
-- [Projects](#projects)
-  - [3D Roof Reconstruction CNN](#1-3d-roof-reconstruction-cnn)
-  - [CNN: Dogs and Cats](#2a-cnn---dogs-and-cats)
-  - [CNN: Seedling Classification](#2b-cnn---seedling-classification)
-  - [Chatbot](#3-chatbot)
-  - [Ensemble Techniques](#4-ensemble-techniques)
-  - [GenAI and Prompt Eng: Aspect Sentiment Analysis](#5-genai---aspect-sentiment-analysis)
-  - [GenAI and Prompt Eng: Sentiment Analysis](#6-genai---sentiment-analysis)
-  - [Hypothesis Testing](#7-hypothesis-testing)
-  - [Image Captioning](#8-image-captioning)
-  - [Langchain - Aspect Sentiment Analysis](#9-langchain---aspect-sentiment-analysis)
-  - [Linear Regression](#10-linear-regression)
-  - [Logistic Regression and Decision Trees](#11-logistic-regression-and-decision-trees)
-  - [NLP](#12-nlp)
-  - [Neural Networks](#13-neural-networks)
-  - [Pandas and Visualization](#14-pandas-and-visualization)
-  - [Pdf Summarizer](#15-pdf-summarizer)
-  - [Pipelining and Hypertuning](#16-pipelining-and-hypertuning)
-  - [Point Cloud Visualizer](#17-point-cloud-visualizer)
-  - [Roof Fusion](#18-Roof-Fusion)
-  - [SAM v2 Image Segmentation](#19-sam-v2-image-segmentation)
-  - [Unsupervised Learning](#20-unsupervised-learning)
-  - [Voice Assistant](#21-voice-assistant)
-  - [LLM Framework Benchmarking](#22-llm-framework-benchmarking)
-  - [Chatbot Datapipeline](#23-chatbot-datapipeline)
-  - [Geoportugal](#24-geoportugal)
-  - [Aging VAE](#25-aging-vae)
-  - [HR Assistant](#26-hr-assistant)
-  - [Image Designer Assistant](#27-image-designer-assistant)
-  - [Exercise and Recovery Coach](#28-exercise-and-recovery-coach)
+I design and build production-grade AI systems — multi-agent pipelines, RAG architectures, deep learning models, and the data infrastructure that supports them — applying a consistent engineering methodology from exploration through deployment. What distinguishes this work is not the breadth of projects, but the rigor behind each one: failure analysis before implementation, structured evaluation, and systems designed to be extended and handed off.
 
-- [Contact](#contact)
+Core focus areas include:
+
+* Generative AI and Agentic Systems
+* Retrieval-Augmented Generation (RAG)
+* Multi-Agent Architectures
+* End-to-End Data Pipelines
+* Deep Learning and Computer Vision
+
 ---
 
-## Projects
+## Methodology
 
-### 1. 3D Roof Reconstruction CNN
-This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data. The application 
-supports models based on EfficientNet and ResNet50, as well as additional functionality such as data augmentation, early stopping, and loss visualization. The goal of this 
-application is to use commercial roof point cloud and aerial images to determine height, azimuth, tilt, and perimeters for the planes in the point cloud. The application is 
-multi-task in nature, where each plane parameter (azimuth, tilt, height, and perimeter) is predicted through dedicated output layers.
+A consistent engineering lifecycle is applied across every project in this repository:
 
+**Exploration → Architecture → Critique → Implementation → Review → Evaluation → Refactor**
+
+The critique phase — conducted before any code is written — is where most engineering failures are preventable and where most teams skip ahead. Structured evaluation closes the loop: it measures whether the system actually does what it claims to do under realistic conditions, not just whether the tests pass.
+
+See [methodology/](methodology/) for the full engineering playbook: lifecycle phases, design patterns, principles, and the decision framework for selecting the right architecture.
+
+---
+
+## Highlighted Systems
+
+### Agentic AI Systems
+
+* [Exercise and Recovery Coach](projects/exercise_and_health_coach/)
+* [LLM Framework Benchmarking](projects/LLM%20Framework%20Benchmarking/)
+
+### Retrieval-Augmented Generation (RAG)
+
+* [HR Assistant](projects/hr_assistant/)
+* [Chatbot DataPipeline](projects/Chatbot_DataPipeline/)
+
+### Deep Learning & Computer Vision
+
+* [3D Roof Reconstruction CNN](projects/3D%20Roof%20Reconstruction%20CNN/)
+* [Aging VAE](projects/Aging%20VAE/)
+
+### Full-Stack AI Applications
+
+* [GeoPortugal](projects/Geoportugal/)
+* [Image Designer Assistant](projects/image_designer_assistant/)
+
+For the complete project catalog with full descriptions, skills, and tools, see [PROJECTS.md](PROJECTS.md).
+
+---
+
+# Projects
+
+---
+
+## Deep Learning & Computer Vision
+
+### 3D Roof Reconstruction CNN
+
+This application leverages deep learning models to predict azimuth, tilt, height, and perimeter of planes from a roof using aerial images and point cloud data.
+
+**Approach:** Multi-input CNN (ResNet50 / EfficientNet) with multi-task outputs.
+
+**Key Capability:** Fusion of aerial imagery and point cloud data for geometric prediction.
+
+**Non-Augmented Models**
 ![Non-Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/ResNet50_NonAugmented.png)
 ![Non-Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_NonAugmented.png)
 
+**Augmented Models**
 ![Augmented ResNet50 Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/ResNet50_Augmented.png)
 ![Augmented EfficientNet Training and Validation Loss](projects/3D%20Roof%20Reconstruction%20CNN/images/EfficientNet_Augmented.png)
 
 🔗 [View Project](projects/3D%20Roof%20Reconstruction%20CNN/)
 
-#### Skills and Tools
-TensorFlow, Keras, Seaborn, Pandas, Matplotlib, Sklearn
+**Skills and Tools:** TensorFlow, Keras, Pandas, Matplotlib, Sklearn
 
+---
 
-### 2a. CNN - Dogs and Cats
-Jupyter Notebook using the kaggle dataset https://www.kaggle.com/datasets/samuelcortinhas/cats-and-dogs-image-classification to classify images as cats or dogs
+### Aging VAE
 
+A Variational Autoencoder-based system for facial age progression using latent space manipulation.
+
+![Aging VAE Neutral Layout](projects/Aging%20VAE/images/VAE_Image_Neutral.png)
+![Aging VAE Plus 30 Aged Layout](projects/Aging%20VAE/images/VAE_Image_Plus_30.png)
+
+🔗 [View Project](projects/Aging%20VAE/)
+
+**Skills Used**
+Backend: TensorFlow, VAE, NumPy, OpenCV
+Frontend: Gradio
+
+---
+
+### SAM v2 Image Segmentation
+
+Segment Anything Model (SAM)-based segmentation system for aerial imagery.
+
+![SAM v2 Image Segmentation](projects/SAM%20v2%20image%20segmentation/images/samv2_segmentation.png)
+
+🔗 [View Project](projects/SAM%20v2%20image%20segmentation/)
+
+---
+
+### Point Cloud Visualizer
+
+PyQt-based application for 3D point cloud visualization.
+
+![Point Cloud Surfaces](projects/Point%20Cloud%20Visualizer/images/point_cloud.jpg)
+
+🔗 [View Project](projects/Point%20Cloud%20Visualizer/)
+
+---
+
+### Roof Fusion
+
+3D roof reconstruction preprocessing and visualization system.
+
+![Aerial Image with Corners](projects/roof%20fusion/images/aerial_with_corners.png)
+![Aerial 3D Image with Normals](projects/roof%20fusion/images/aerial_3d_with_normals.jpg)
+
+🔗 [View Project](projects/roof%20fusion/)
+
+---
+
+## Generative AI & Agentic Systems
+
+### Exercise and Recovery Coach
+
+Multi-agent system generating personalized, safety-audited workout and recovery plans.
+
+![Exercise and Health Coach Workout Plan](projects/exercise_and_health_coach/images/exercise_and_health_coach_workout_plan.png)
+
+🔗 [View Project](projects/exercise_and_health_coach/)
+
+**Skills Used**
+LangChain, OpenAI, Pydantic, Gradio
+
+---
+
+### Image Designer Assistant
+
+Conversational multi-turn image generation system using LangChain and DALL-E.
+
+![Image Assistant Image and Refinement](projects/image_designer_assistant/images/image_assistant_image_and_refinement.png)
+
+🔗 [View Project](projects/image_designer_assistant/)
+
+---
+
+### LLM Framework Benchmarking
+
+Framework benchmarking system comparing LangGraph, CrewAI, and AutoGen.
+
+![Benchmark Scoring Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_scoring_results_20250309_175727.png)
+![Benchmark Leaderboard Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_results_leaderboard_20250309_175727.png)
+
+🔗 [View Autogen Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/autogen_crop_yield_simple_agent/)
+🔗 [View Autogen MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
+🔗 [View CrewAI Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/crewai_crop_yield_simple_agent/)
+🔗 [View CrewAI MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/crewai_multi_agent/)
+🔗 [View LangGraph Crop Yield Benchmark](projects/LLM%20Framework%20Benchmarking/langgraph_crop_yield_simple_agent/)
+🔗 [View LangGraph MultiAgent Benchmark](projects/LLM%20Framework%20Benchmarking/langgraph_multi_agent/)
+
+---
+
+## Retrieval-Augmented Generation (RAG) & Data Systems
+
+### Chatbot DataPipeline
+
+Modular ETL pipeline for transforming unstructured documents into semantically searchable data.
+
+🔗 [Data Pipeline](projects/Chatbot_DataPipeline/data_pipeline/)
+🔗 [Extract](projects/Chatbot_DataPipeline/extract_and_normalize/)
+🔗 [Chunker](projects/Chatbot_DataPipeline/chunks/)
+🔗 [Insert DB](projects/Chatbot_DataPipeline/insert_db/)
+
+**Skills and Tools:** Prefect, Docker, Qdrant, Sentence Transformers
+
+---
+
+### HR Assistant
+
+RAG-based chatbot with intent guardrails and evidence-backed responses.
+
+![HR Assistant Basic Question](projects/hr_assistant/images/HRAssistant_BasicQuestions.png)
+![HR Assistant Question with Evidence](projects/hr_assistant/images/HRAssistant_QuestionWithEvidence.png)
+
+🔗 [View Project](projects/hr_assistant/)
+
+---
+
+## Full-Stack AI Applications
+
+### GeoPortugal
+
+Geospatial full-stack application for exploring Portugal's administrative regions.
+
+![Geoportugal Layout](projects/Geoportugal/images/GeoPortugal_Frontend.png)
+
+🔗 [View Project](projects/Geoportugal)
+
+---
+
+## Machine Learning & Data Science Foundations
+
+### CNN - Dogs and Cats
 
 ![Dogs and Cats Best Model](projects/CNN/Dogs%20and%20Cats/images/inception_results.jpg)
 
 🔗 [View Project](projects/CNN/Dogs%20and%20Cats)
 
-#### Skills and Tools
-CNN, Data Augmentation, Transfer Learning
+---
 
-### 2b. CNN - Seedling Classification
-In recent times, the field of agriculture has been in urgent need of modernization since the amount of manual work is very extensive. Despite advances people in agriculture 
-still need the ability to sort and recognize diferent plants and weeds. The Aarhus Signal Processing Group in collaboration with the University of Southern Denmark has provided 
-data containing images o funique plants belonging to twelve species. Build several CNN's and determine the best one to classify the twelve types of seedlings.
-
+### CNN - Seedling Classification
 
 ![Seedlings Best Model](projects/CNN/Seedlings%20Classification/images/inception_results.jpg)
 
 🔗 [View Project](projects/CNN/Seedlings%20Classification)
 
-#### Skills and Tools
-CNN, Data Augmentation, Transfer Learning
+---
 
-### 3. Chatbot
-An intelligent chatbot built using NLP techniques and machine learning to handle user queries effectively.
+### Chatbot
 
 ![Chatbot with Blenderbot](projects/Chatbot/images/chatbot_blenderbot.jpg)
 
 🔗 [View Project](projects/Chatbot/)
 
-#### Skills and Tools
-Blenderbot, Flask, Transformers
+---
 
-### 4. Ensemble Techniques
-Analyze the data of Visa applicants, build a predictive model to facilitate the process of visa approvals, and based on important factors that significantly influence the Visa 
-status recommend a suitable profile for the applicants for whom the visa should be certified or denied.
-
+### Ensemble Techniques
 
 ![Easy Visa Best Model](projects/Ensemble%20Techniques/images/stacking_results.jpg)
 
 🔗 [View Project](projects/Ensemble%20Techniques/)
 
-#### Skills and Tools
-EDA, Data Pre-processing, Boosting, Bagging, Stacking, Hypertuning
+---
 
-### 5. GenAI - Aspect Sentiment Analysis
-Conduct a sentiment analysis of user-generated reviews across various digital channels and platforms. Through the application of LLM prompt engineering methodologies and 
-sentiment analysis, we'll figure out if sentiments expressed by users for our courier services are Positive or Negative. Analyze the reviews, identify themes, polarity and 
-sentiment and present the findings with actionable business insights.
-
+### GenAI - Aspect Sentiment Analysis
 
 ![Expressway Logistics Final Results](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/images/final_results.jpg)
 
 🔗 [View Project](projects/GenAI%20-%20Aspect%20Sentiment%20Analysis/)
 
-#### Skills and Tools
-Azure, Prompt Engineering, OpenAI, wordcloud, sklearn, seaborn
+---
 
-### 6. GenAI - Sentiment Analysis
-You are part of a multinational computer, phone, laptop and hardware manufacturer. Your objective as a product analyst is to use Generative AI, and craft an effective prompt 
-which can take an unstructured customer review as input and return a structured response, which can be then used to take action in a manner which optimizes for the overall 
-customer experience of your product. As you structure your data from the review, make sure to capture the date of the review, product / service in question, the rating, a short 
-summary (upto 100 words) of the feedback for the product / service, list of actions items which can improve the product / service, any mention of competitors - if yes, what was 
-better in their experience, the overall sentiment (positive, negative, or neutral).
-
+### GenAI - Sentiment Analysis
 
 🔗 [View Project](projects/GenAI%20-%20Sentiment%20Analysis/)
 
-#### Skills and Tools
-Prompt Engineering, Sentiment Analysis
+---
 
-### 7. Hypothesis Testing
-This project used statistical analysis, a/b testing, and visualization to decide whether the new landing page of an online news portal (E-news Express) is effective enough to 
-gather new subscribers or not. The simulated dataset has certain important metrics such as converted status and time spent on the page that will help to conclude the effectiveness
- of the new landing page. Apart from that, the dependence of conversion on the preferred language will also be analyzed in this project.
-
+### Hypothesis Testing
 
 ![ENews Express Testing Approach](projects/Hypothesis%20Testing/images/testing_approach.jpg)
 
 🔗 [View Project](projects/Hypothesis%20Testing/)
 
-#### Skills and Tools
-Hypothesis Testing, a/b testing, Data Visualization, Statistical Inference
+---
 
-### 8. Image Captioning
-A deep learning model that generates descriptive captions for images.
+### Image Captioning
 
 ![Mountain Image With Caption](projects/Image%20Captioning/images/image_with_caption.jpg)
 
 🔗 [View Project](projects/Image%20Captioning/)
 
-#### Skills and Tools
-Gradio, Blip
+---
 
-### 9. Langchain - Aspect Sentiment Analysis
-This application uses LangChain and Pydantic to perform aspect-based sentiment analysis on a dataset of reviews. It leverages a language model to evaluate specific aspects of 
-each review, such as "Operational Efficiency" and "Customer Satisfaction", and predicts both the sentiment (positive or negative) and the polarity score for each aspect.
-
+### LangChain - Aspect Sentiment Analysis
 
 ![Results after three iterations](projects//Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_ThreeIterations.png)
-
 ![Results after ten iterations](projects/Langchain%20-%20Aspect%20Sentiment%20Analysis/images/Results_TenIterations.png)
 
 🔗 [View Project](projects/Langchain%20-%20Aspect%20Sentiment%20Analysis/)
 
-#### Skills and Tools
-Langchain, OpenAI, wordcloud, sklearn, seaborn
+---
 
-### 10. Linear Regression
-Analyze the used devices dataset, build a model which will help develop a dynamic pricing strategy for used and refurbished devices, and identify factors that significantly 
-influence the price.
-
+### Linear Regression
 
 ![ReCell Best Fit](projects/Linear%20Regression/images/best_fit.jpg)
 
 🔗 [View Project](projects/Linear%20Regression/)
 
-#### Skills and Tools
-EDA, Linear Regression, Linear Regression assumptions, Business insights and recommendations
+---
 
-### 11. Logistic Regression and Decision Trees
-Analyze the data of INN Hotels to find which factors have a high influence on booking cancellations, build a predictive model that can predict which booking is going to be 
-canceled in advance, and help in formulating profitable policies for cancellations and refunds.
+### Logistic Regression and Decision Trees
 
 ![INN Hotels Precision-Recall](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_precision_recall.jpg)
 ![INN Hotels Classification](projects/Logistic%20Regression%20and%20Decision%20Trees/images/lg_4197_classification.jpg)
 
 🔗 [View Project](projects/Logistic%20Regression%20and%20Decision%20Trees/)
 
-#### Skills and Tools
-EDA, Data Pre-processing, Logistic regression, Multicollinearity, Finding optimal threshold using AUC-ROC curve, Decision trees, Pruning
+---
 
-### 12. NLP
-Twitter possesses 330 million monthly active users, which allows businesses to reach a broad population and connect with customers without intermediaries. On the other hand, 
-there’s so much information that it’s difficult for brands to quickly detect negative social mentions that could harm their business.
-
-That's why sentiment analysis/classification, which involves monitoring emotions in conversations on social media platforms, has become a key strategy in social media marketing.
-
-Listening to how customers feel about the product/service on Twitter allows companies to understand their audience, keep on top of what’s being said about their brand and their 
-competitors, and discover new trends in the industry.
-
+### NLP
 
 ![Twitter US Airline Best Model](projects/NLP/images/lstm_model.jpg)
 
 🔗 [View Project](projects/NLP/)
 
-#### Skills and Tools
-Count Vectorizer, TfIDF Vectorizer, LSTM
+---
 
-### 13. Neural Networks
-Businesses like banks that provide service have to worry about the problem of 'Churn' i.e. customers leaving and joining another service provider. It is important to understand 
-which aspects of the service influence a customer's decision in this regard. Management can concentrate efforts on the improvement of service, keeping in mind these priorities. 
-Provide a thorough analysis identifying whether or not customer will leave (churn in the next 6 months).
-
+### Neural Networks
 
 ![INN Bank Churn Best Model](projects/Neural%20Networks/images/model4.jpg)
 ![INN Bank Churn Shap Values](projects/Neural%20Networks/images/model4_shap.jpg)
 
 🔗 [View Project](projects/Neural%20Networks/)
 
-#### Skills and Tools
-Neural Networks, Tensorflow, Keras, SHAP
+---
 
-### 14. Pandas and Visualization
-The food aggregator company has stored the data of the different orders made by the registered customers in their online portal. They want to analyze the data to draw some 
-actionable insights for the business. Suppose you are hired as a Data Scientist in this company and the Data Science team has shared some of the key questions that need to be 
-answered. Perform the data analysis to find answers to these questions that will help the company to improve the business.
-
+### Pandas and Visualization
 
 ![Food Hub EDA](projects/Pandas%20and%20Visualization/images/eda.jpg)
 
 🔗 [View Project](projects/Pandas%20and%20Visualization/)
 
-#### Skills and Tools
-Exploratory Data Analysis (Variable Identification, Univariate analysis, Bi-Variate analysis), Python
+---
 
-### 15. Pdf Summarizer
-A tool that summarizes lengthy PDF documents using NLP techniques.
+### Pdf Summarizer
 
 ![Pdf Summarizer](projects/Pdf%20Summarizer/images/summarizer.jpg)
 
 🔗 [View Project](projects/Pdf%20Summarizer/)
 
-#### Skills and Tools
-OpenAI, LangChain, ChromaDb and Flask
+---
 
-### 16. Pipelining and Hypertuning
-"ReneWind" is a company working on improving the machinery/processes involved in the production of wind energy using machine learning and has collected data of generator failure 
-of wind turbines using sensors. The objective is to build various classification models, tune them and find the best one that will help identify failures so that the generator 
-could be repaired before failing/breaking and the overall maintenance cost of the generators can be brought down.
-
+### Pipelining and Hypertuning
 
 ![ReneWind Best Model](projects/Pipelining%20and%20Hypertuning/images/tuned_xgb_under.jpg)
 
 🔗 [View Project](projects/Pipelining%20and%20Hypertuning/)
 
-#### Skills and Tools
-EDA, Scaling, Regularization, Oversampling, Undersampling, Imputation, Pipelining, Hypertuning
+---
 
-### 17. Point Cloud Visualizer
-PyQt-based Python application that visualizes 3D point clouds using PyVista. It loads point clouds from JSON files, displays both the mesh and a triangulated surface, and allows 
-the user to control opacity and switch between different directories containing point cloud data.
-
-
-![Point Cloud Surfaces](projects/Point%20Cloud%20Visualizer/images/point_cloud.jpg)
-
-🔗 [View Project](projects/Point%20Cloud%20Visualizer/)
-
-#### Skills and Tools
-PyQt5, PyVista, PyVistaQt
-
-### 18. Roof Fusion
-Application for a 3D roof reconstruction application based on aerial images and Digital Surface Model (DSM) data. The application performs preprocessing, visualization, and corner detection for the roof planes and normal vectors.
-
-![Aerial Image with Corners](projects/roof%20fusion/images/aerial_with_corners.png)
-
-![Aerial 3D Image with Normals](projects/roof%20fusion/images/aerial_3d_with_normals.jpg)
-
-[View Project](projects/roof%20fusion/)
-
-#### Skills and Tools
-scipy, Harris Corner Detection, Shi-Tomasi corner detection, cv2, pyvista
-
-### 19. SAM v2 Image Segmentation
-This project provides a SAM (Segment Anything Model) based image segmentation application for aerial images of rooftops. The application processes aerial images and point cloud 
-data to generate segmentation masks and provides tools for visualizing and analyzing the results. This README explains how to use the application.
-
-
-![SAM v2 Image Segmentation](projects/SAM%20v2%20image%20segmentation/images/samv2_segmentation.png)
-
-🔗 [View Project](projects/SAM%20v2%20image%20segmentation/)
-
-### 20. Unsupervised Learning
-Exploration of unsupervised learning techniques like clustering and dimensionality reduction.
+### Unsupervised Learning
 
 ![Trade Ahead Best Clustering](projects/Unsupervised%20Learning/images/tsne_scatter_plot.jpg)
 
 🔗 [View Project](projects/Unsupervised%20Learning/)
 
-#### Skills and Tools
-Unsupervised Learning, PCA, t-SNE, KMeans, Hierarchical Clustering
+---
 
-### 21. Voice Assistant
-Developed a voice-activated assistant using speech recognition and NLP for interactive user experiences.
+### Voice Assistant
 
 ![Voice Assistant](projects/Voice%20Assistant/images/voice_assistant.jpg)
 
 🔗 [View Project](projects/Voice%20Assistant/)
 
-#### Skills and Tools
-OpenAI, Whisper, gTTS, Flask
-
-### 22. LLM Framework Benchmarking
-Developed a benchmarking framework to evaluate LLM framework performance in crop yield prediction and multi-agent question answering. Designed a scoring algorithm that measures accuracy, speed, and resource efficiency. Integrated CrewAI, AutoGen, and LangGraph frameworks with reusable data processing and metric calculation components. Implemented retry logic, rate limiting, and configurable parameters for scalable benchmarking. Delivered detailed performance reports and visualizations for model evaluation and optimization.
-
-🔗 [View Autogen Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/autogen_crop_yield_simple_agent/)
-
-🔗 [View Autogen MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/autogen_multi_agent/)
-
-🔗 [View CrewAI Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/crewai_crop_yield_simple_agent/)
-
-🔗 [View CrewAI MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/crewai_multi_agent/)
-
-🔗 [View Langgraph Crop Yield Benchmark Project](projects/LLM%20Framework%20Benchmarking/langgraph_crop_yield_simple_agent/)
-
-🔗 [View Langgraph MultiAgent Benchmark Project](projects/LLM%20Framework%20Benchmarking/langgraph_multi_agent/)
-
-![Benchmark Scoring Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_scoring_results_20250309_175727.png)
-![Benchmark Leaderboard Results](projects/LLM%20Framework%20Benchmarking/benchmark_manager/final_results/benchmark_manager/benchmark_results_leaderboard_20250309_175727.png)
-
-#### Skills and Tools
-LLM Prompt Eng, Langgraph, CrewAI, Autogen, Groq, Algorithms
-
-### 23. Chatbot Datapipeline
-The Chatbot_Datapipeline is a modular ETL system designed to transform unstructured sustainable agriculture documents into semantically searchable content for use in chatbot applications. It consists of four coordinated components: extract_and_normalize downloads PDFs and HTML content, extracts clean text, and uses LLMs (OpenAI, Groq) to generate structured metadata; chunker segments the text into overlapping, schema-compliant chunks optimized for embedding; insert_db generates SentenceTransformer embeddings and stores them with metadata into a Qdrant vector database; and datapipeline orchestrates the entire workflow using Prefect and Docker, enabling configurable execution, fault isolation, and centralized logging. Each subproject includes its own project-specific README that provides in-depth documentation on features, configuration, and usage.
-
-🔗 [View datapipeline project](projects/Chatbot_DataPipeline/data_pipeline/)
-
-🔗 [View extract and normalize project](projects/Chatbot_DataPipeline/extract_and_normalize/)
-
-🔗 [View chunker project](projects/Chatbot_DataPipeline/chunks/)
-
-🔗 [View insert db project](projects/Chatbot_DataPipeline/insert_db/)
-
-#### Skills and Tools
-Prefect, Docker, ETL Pipeline, Prompt Eng and Schema Validation, Qdrant, Sentence Transformers
-
-### 24. Geoportugal
-GeoPortugal is a full-stack geospatial application for exploring Portugal's administrative geography. Users can search and discover Portuguese districts, municipalities, and localities through an interactive map interface, view detailed location information including population data and nearby places, and compare multiple locations side-by-side. The application features hierarchical navigation through Portugal's administrative divisions, full-text search with intelligent matching, and geospatial queries for finding nearby locations.
-
-🔗 [View Geoportugal Project](projects/Geoportugal)
-
-![Geoportugal Layout](projects/Geoportugal/images/GeoPortugal_Frontend.png)
-
-#### Skills and Tools
-Backend: FastAPI, SQLAlchemy 2.0, PostgreSQL with PostGIS, Redis (caching), Strawberry GraphQL                                                         
-
-Frontend: Next.js 15, React 19, TypeScript, Apollo Client, Leaflet/React-Leaflet, TailwindCSS   
-
-### 25. Aging VAE
-Aging VAE is a face aging application built with TensorFlow/Keras that uses Variational Autoencoders to manipulate facial age in images. The system learns a 512-dimensional latent space from the UTKFace dataset and computes age directions through latent arithmetic—subtracting mean embeddings of young faces from old faces. A key innovation is gender-orthogonalized aging, which removes the gender component from the age vector to prevent unwanted attribute leakage during transformation. The application supports multi-resolution training (64×64 and 128×128) with automatic model detection, and includes an interactive Gradio web interface for real-time age manipulation. Built with Python, TensorFlow, Keras, OpenCV, NumPy, and Gradio, demonstrating skills in deep generative models, latent space manipulation, convolutional neural networks, and full-stack ML application development.
-
-🔗 [View Aging VAE Project](projects/Aging%20VAE/)
-
-![Aging VAE Neutral Layout](projects/Aging%20VAE/images/VAE_Image_Neutral.png)
-
-![Aging VAE Plus 30 Aged Layout](projects/Aging%20VAE/images/VAE_Image_Plus_30.png)
-
-#### Skills Used
-Backend: TensorFlow, VAE, Numpy, OpenCV
-
-Frontend: Gradio
-
-### 26. HR Assistant
-HR Assistant is a RAG-based chatbot for answering questions about Nestlé Human Resources policies. The system loads HR policy documents (PDF and TXT), chunks them with cross-page reassembly to preserve paragraph continuity, and stores embeddings in a vector database for semantic retrieval. A key feature is the LLM-as-a-Judge intent guardrail that classifies queries as SAFE or UNSAFE before invoking the retrieval pipeline, ensuring the assistant stays on topic. The application supports multiple LLM providers (OpenAI, Groq) and vector stores (FAISS, ChromaDB) via a factory pattern, with automatic document deduplication using SHA-256 content hashes. Optional evidence citations surface the source document and chunk number alongside each response. Built with Python, LangChain, FAISS, ChromaDB, and Gradio, demonstrating skills in RAG architecture, vector similarity search, prompt engineering, LLM guardrails, and full-stack ML application development.
-
-🔗 [View HR Assistant Project](projects/hr_assistant/)
-
-![HR Assistant Basic Question](projects/hr_assistant/images/HRAssistant_BasicQuestions.png)
-
-![HR Assistant Question with Evidence](projects/hr_assistant/images/HRAssistant_QuestionWithEvidence.png)
-
-#### Skills Used
-Backend: LangChain, FAISS, ChromaDB, OpenAI, Groq, Pydantic
-
-Frontend: Gradio
-
-### 27. Image Designer Assistant
-Image Designer Assistant is a conversational image generation application powered by a LangChain agent and OpenAI's DALL-E 3. Users describe images in natural language and iteratively refine their designs across multiple conversation turns — for example, generating a scene and then asking to change the background or add elements — with full conversation history preserved between requests. The agent orchestrates GPT-3.5 Turbo for dialogue and DALL-E 3 for 1024×1024 HD image generation, automatically extracting image URLs from tool responses, validating them with PIL, converting to PNG, and rendering them natively in the chat interface. The system gracefully handles OpenAI content policy restrictions by suggesting alternatives when copyrighted characters are requested. Built with Python, LangChain, and Gradio, demonstrating skills in LangChain agent design, multi-turn conversational context management, tool integration, image processing, and full-stack ML application development.
-
-🔗 [View Image Designer Assistant Project](projects/image_designer_assistant/)
-
-![Image Assistant Image and Refinement](projects/image_designer_assistant/images/image_assistant_image_and_refinement.png)
-
-#### Skills Used
-Backend: LangChain, OpenAI (DALL-E 3, GPT-3.5 Turbo), Pillow, requests
-
-Frontend: Gradio
-
-### 28. Exercise and Recovery Coach
-Exercise and Recovery Coach is a SOLO (Spec-driven, Agentic, Audit-heavy) multi-agent coaching system built on Python 3.13 and LangChain that delivers personalized, safety-audited workout and recovery plans through four specialized AI agents. The Intake Agent extracts structured user context from free-text conversation; the Kinesiologist Specialist generates evidence-based workout programs validated against volume targets of 18-24 sets per muscle group; the Recovery Specialist produces sequenced mobility routines across SMR, dynamic mobility, and static stretching modalities; and the Clinical Gatekeeper LLM audits every generated plan, producing an `AuditLog` with APPROVED, MODIFIED, or REJECTED status. A State Router classifies user intent and routes requests to integrated, recovery-only, intake-collection, or safety-block workflows, with real-time pattern-matching for neurological, cardiovascular, acute injury, and inflammatory red flags that immediately halt plan generation. All agents return Pydantic-validated JSON via LangChain's `with_structured_output()`, enforcing strict schema compliance with automatic retry logic. The system ships with dual CLI and Gradio interfaces, a benchmarking validation runner for measuring intent routing accuracy and red-flag detection rates, and runtime-loaded SKILL.md persona files that define each agent's clinical role and constraints. Built with Python, LangChain, OpenAI, Pydantic, and Gradio, demonstrating skills in multi-agent orchestration, intent classification and routing, structured JSON output generation, multi-layer safety system design, and full-stack ML application development.
-
-🔗 [View Exercise and Recovery Coach Project](projects/exercise_and_health_coach/)
-
-![Exercise and Health Coach Workout Plan](projects/exercise_and_health_coach/images/exercise_and_health_coach_workout_plan.png)
-
-#### Skills Used
-Backend: LangChain, LangChain-OpenAI, OpenAI (GPT-4o-mini), Pydantic, PyYAML, python-dotenv
-
-Frontend: Gradio, CLI
-
-Testing: pytest, pytest-cov, pytest-mock, Ruff
+---
 
 ## Contact
 
-I'm always open to discussing new projects, opportunities, or collaborations. Feel free to reach out!
+I am open to selective consulting, advisory roles, and technically challenging engagements.
 
-- **Email:** [thayes@oldzinsoftware.com](mailto:thayes@oldzinsoftware.com)
-- **LinkedIn:** [linkedin.com/in/timhazed](https://www.linkedin.com/in/tim-hayes-b26103/)
-- **GitHub:** [github.com/timhazed](https://github.com/timhazed)
+* **Email:** [thayes@oldzinsoftware.com](mailto:thayes@oldzinsoftware.com)
+* **LinkedIn:** [linkedin.com/in/tim-hayes-b26103](https://www.linkedin.com/in/tim-hayes-b26103/)
+* **GitHub:** [github.com/timhazed](https://github.com/timhazed)
 
----
-
-*Thank you for visiting my repository!*
