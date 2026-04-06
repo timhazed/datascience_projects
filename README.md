@@ -30,6 +30,7 @@ See [methodology/](methodology/) for the full engineering playbook: lifecycle ph
 
 ### Agentic AI Systems
 
+* [NewsGenie](projects/newsgenie/)
 * [Exercise and Recovery Coach](projects/exercise_and_health_coach/)
 * [LLM Framework Benchmarking](projects/LLM%20Framework%20Benchmarking/)
 
@@ -127,6 +128,20 @@ PyQt-based application for 3D point cloud visualization.
 ---
 
 ## Generative AI & Agentic Systems
+
+### NewsGenie
+
+LangGraph-based multi-agent news assistant that decomposes free-form queries into parallel domain fetches (Business, Sports, World) or web search, validated across four LLM configurations.
+
+![NewsGenie Base UI](projects/newsgenie/images/base_ui.png)
+![NewsGenie Sports](projects/newsgenie/images/latest_sports.png)
+
+🔗 [View Project](projects/newsgenie/)
+
+**Skills Used**
+LangGraph, OpenAI, Groq, Pydantic, NewsAPI, Guardian API, ESPN Scoreboard, Streamlit
+
+---
 
 ### Exercise and Recovery Coach
 

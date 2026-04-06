@@ -451,6 +451,8 @@ NewsGenie is a multi-agent real-time news assistant powered by LangGraph. A supe
 ![NewsGenie Architecture](projects/newsgenie/images/news_genie_architecture.png)
 
 ![NewsGenie Base UI](projects/newsgenie/images/base_ui.png)
+![NewsGenie Sports](projects/newsgenie/images/latest_sports.png)
+![NewsGenie Weather](projects/newsgenie/images/weather.png)
 
 #### Skills Used
 Backend: LangGraph, LangChain, OpenAI (GPT-4o-mini), Groq, Pydantic, NewsAPI, Guardian API, ESPN Scoreboard API, SerpAPI, Serper, tenacity, Poetry
