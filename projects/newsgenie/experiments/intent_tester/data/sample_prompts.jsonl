@@ -1,0 +1,20 @@
+{"prompt": "What's happening with Apple and Tesla stock prices today?", "ground_truth": "INTENT: Business News | QUERY: Apple and Tesla stock prices today"}
+{"prompt": "Who won the Champions League match last night?", "ground_truth": "INTENT: Sports News | QUERY: Champions League match result last night"}
+{"prompt": "What is the weather forecast for Chicago this weekend?", "ground_truth": "INTENT: Web Search | QUERY: weather forecast Chicago this weekend"}
+{"prompt": "What are the latest developments in the Israel-Gaza conflict?", "ground_truth": "INTENT: General News | QUERY: latest developments Israel-Gaza conflict"}
+{"prompt": "How did the S&P 500 perform today and who won the NBA game last night?", "ground_truth": "INTENT: Business News | QUERY: S&P 500 performance today\nINTENT: Sports News | QUERY: NBA game result last night"}
+{"prompt": "Give me the top business and world news headlines", "ground_truth": "INTENT: Business News | QUERY: top business headlines\nINTENT: General News | QUERY: top world news headlines"}
+{"prompt": "What is the capital of France?", "ground_truth": "INTENT: Web Search | QUERY: capital of France"}
+{"prompt": "Latest news on the Federal Reserve interest rate decision", "ground_truth": "INTENT: Business News | QUERY: Federal Reserve interest rate decision"}
+{"prompt": "What happened in the Premier League over the weekend?", "ground_truth": "INTENT: Sports News | QUERY: Premier League results this weekend"}
+{"prompt": "Tell me about the upcoming US presidential election news", "ground_truth": "INTENT: General News | QUERY: upcoming US presidential election news"}
+{"prompt": "How is the crypto market doing?", "ground_truth": "INTENT: Business News | QUERY: crypto market performance"}
+{"prompt": "What's the score of the World Cup match?", "ground_truth": "INTENT: Sports News | QUERY: World Cup match score"}
+{"prompt": "Who is the CEO of NVIDIA?", "ground_truth": "INTENT: Web Search | QUERY: CEO of NVIDIA"}
+{"prompt": "Catch me up on tech news and global political headlines", "ground_truth": "INTENT: Business News | QUERY: tech news\nINTENT: General News | QUERY: global political headlines"}
+{"prompt": "What did LeBron James say about his retirement and how is Tesla stock doing?", "ground_truth": "INTENT: Sports News | QUERY: LeBron James retirement comments\nINTENT: Business News | QUERY: Tesla stock price"}
+{"prompt": "What happened in the NFL playoffs and what is the latest on Ukraine?", "ground_truth": "INTENT: Sports News | QUERY: NFL playoffs results\nINTENT: General News | QUERY: latest news on Ukraine"}
+{"prompt": "Latest earnings reports from big tech companies", "ground_truth": "INTENT: Business News | QUERY: big tech company earnings reports"}
+{"prompt": "What restaurants are open near me tonight?", "ground_truth": "INTENT: Web Search | QUERY: restaurants open near me tonight"}
+{"prompt": "What is the Dow Jones at right now?", "ground_truth": "INTENT: Business News | QUERY: Dow Jones current value"}
+{"prompt": "Give me business, sports, and general news from today", "ground_truth": "INTENT: Business News | QUERY: business news today\nINTENT: Sports News | QUERY: sports news today\nINTENT: General News | QUERY: general news today"}

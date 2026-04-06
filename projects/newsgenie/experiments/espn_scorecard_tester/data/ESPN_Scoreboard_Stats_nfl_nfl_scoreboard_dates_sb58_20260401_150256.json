@@ -1,0 +1,64 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_nfl_nfl_scoreboard_dates_sb58_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_nfl_nfl_scoreboard_dates_sb58_20260401_150256.json",
+  "case_id": "nfl_scoreboard_dates_sb58",
+  "league": "nfl",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 69.29,
+      "max": 69.29,
+      "mean": 69.29,
+      "p50": 69.29,
+      "p95": 69.29
+    }
+  },
+  "calls": [
+    {
+      "case_id": "nfl_scoreboard_dates_sb58",
+      "league": "nfl",
+      "description": "NFL \u2014 single-day dates=YYYYMMDD (Super Bowl LVIII); may be empty off-archive windows",
+      "dates": "20240211",
+      "limit": 30,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20240211&limit=30",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 69.29,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 1,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401547378",
+          "shortName": "SF VS KC",
+          "name": "San Francisco 49ers at Kansas City Chiefs",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Kansas City Chiefs",
+              "abbrev": "KC",
+              "score": "25"
+            },
+            {
+              "name": "San Francisco 49ers",
+              "abbrev": "SF",
+              "score": "22"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}

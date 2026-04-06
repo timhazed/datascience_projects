@@ -1,0 +1,51 @@
+{
+  "run_timestamp": "2026-03-31T10:33:11.983110",
+  "provider": "openai",
+  "model": "gpt-3.5-turbo-0125",
+  "total_prompts": 10,
+  "valid_prompts": 10,
+  "errors": 0,
+  "elapsed_seconds": 7.56,
+  "intent_exact_match_count": 9,
+  "intent_exact_match_accuracy": 0.9,
+  "intent_partial_match_count": 9,
+  "intent_partial_match_accuracy": 0.9,
+  "avg_intent_precision": 0.9,
+  "avg_intent_recall": 0.9,
+  "avg_intent_f1": 0.9,
+  "avg_query_similarity": 0.649,
+  "per_intent": {
+    "Business News": {
+      "ground_truth_count": 5,
+      "predicted_count": 5,
+      "true_positives": 4,
+      "intent_precision": 0.8,
+      "intent_recall": 0.8,
+      "avg_query_similarity": 0.663
+    },
+    "General News": {
+      "ground_truth_count": 3,
+      "predicted_count": 4,
+      "true_positives": 3,
+      "intent_precision": 0.75,
+      "intent_recall": 1.0,
+      "avg_query_similarity": 0.917
+    },
+    "Sports News": {
+      "ground_truth_count": 4,
+      "predicted_count": 4,
+      "true_positives": 4,
+      "intent_precision": 1.0,
+      "intent_recall": 1.0,
+      "avg_query_similarity": 0.65
+    },
+    "Web Search": {
+      "ground_truth_count": 3,
+      "predicted_count": 3,
+      "true_positives": 3,
+      "intent_precision": 1.0,
+      "intent_recall": 1.0,
+      "avg_query_similarity": 0.848
+    }
+  }
+}

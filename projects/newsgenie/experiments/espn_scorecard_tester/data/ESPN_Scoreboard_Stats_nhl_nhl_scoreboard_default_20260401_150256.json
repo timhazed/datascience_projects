@@ -1,0 +1,136 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_nhl_nhl_scoreboard_default_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_nhl_nhl_scoreboard_default_20260401_150256.json",
+  "case_id": "nhl_scoreboard_default",
+  "league": "nhl",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 205.62,
+      "max": 205.62,
+      "mean": 205.62,
+      "p50": 205.62,
+      "p95": 205.62
+    }
+  },
+  "calls": [
+    {
+      "case_id": "nhl_scoreboard_default",
+      "league": "nhl",
+      "description": "NHL \u2014 default scoreboard window",
+      "dates": null,
+      "limit": 30,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?limit=30",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 205.62,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 10,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401803529",
+          "shortName": "DAL @ BOS",
+          "name": "Dallas Stars at Boston Bruins",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Boston Bruins",
+              "abbrev": "BOS",
+              "score": "6"
+            },
+            {
+              "name": "Dallas Stars",
+              "abbrev": "DAL",
+              "score": "3"
+            }
+          ]
+        },
+        {
+          "id": "401803530",
+          "shortName": "NYI @ BUF",
+          "name": "New York Islanders at Buffalo Sabres",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Buffalo Sabres",
+              "abbrev": "BUF",
+              "score": "4"
+            },
+            {
+              "name": "New York Islanders",
+              "abbrev": "NYI",
+              "score": "3"
+            }
+          ]
+        },
+        {
+          "id": "401803531",
+          "shortName": "MTL @ TB",
+          "name": "Montreal Canadiens at Tampa Bay Lightning",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Tampa Bay Lightning",
+              "abbrev": "TB",
+              "score": "1"
+            },
+            {
+              "name": "Montreal Canadiens",
+              "abbrev": "MTL",
+              "score": "4"
+            }
+          ]
+        },
+        {
+          "id": "401803532",
+          "shortName": "OTT @ FLA",
+          "name": "Ottawa Senators at Florida Panthers",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Florida Panthers",
+              "abbrev": "FLA",
+              "score": "6"
+            },
+            {
+              "name": "Ottawa Senators",
+              "abbrev": "OTT",
+              "score": "3"
+            }
+          ]
+        },
+        {
+          "id": "401803533",
+          "shortName": "NJ @ NYR",
+          "name": "New Jersey Devils at New York Rangers",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "New York Rangers",
+              "abbrev": "NYR",
+              "score": "4"
+            },
+            {
+              "name": "New Jersey Devils",
+              "abbrev": "NJ",
+              "score": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}

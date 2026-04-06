@@ -1,0 +1,64 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_nfl_nfl_scoreboard_default_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_nfl_nfl_scoreboard_default_20260401_150256.json",
+  "case_id": "nfl_scoreboard_default",
+  "league": "nfl",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 129.79,
+      "max": 129.79,
+      "mean": 129.79,
+      "p50": 129.79,
+      "p95": 129.79
+    }
+  },
+  "calls": [
+    {
+      "case_id": "nfl_scoreboard_default",
+      "league": "nfl",
+      "description": "NFL \u2014 default scoreboard window (no date filter)",
+      "dates": null,
+      "limit": 30,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?limit=30",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 129.79,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 1,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401772988",
+          "shortName": "SEA VS NE",
+          "name": "Seattle Seahawks at New England Patriots",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "New England Patriots",
+              "abbrev": "NE",
+              "score": "13"
+            },
+            {
+              "name": "Seattle Seahawks",
+              "abbrev": "SEA",
+              "score": "29"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}

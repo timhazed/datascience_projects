@@ -1,0 +1,100 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_nba_nba_scoreboard_limit_3_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_nba_nba_scoreboard_limit_3_20260401_150256.json",
+  "case_id": "nba_scoreboard_limit_3",
+  "league": "nba",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 68.86,
+      "max": 68.86,
+      "mean": 68.86,
+      "p50": 68.86,
+      "p95": 68.86
+    }
+  },
+  "calls": [
+    {
+      "case_id": "nba_scoreboard_limit_3",
+      "league": "nba",
+      "description": "NBA \u2014 scoreboard with limit=3 (validates max_events cap when slate is non-empty)",
+      "dates": null,
+      "limit": 3,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?limit=3",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 68.86,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 3,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401810954",
+          "shortName": "PHX @ ORL",
+          "name": "Phoenix Suns at Orlando Magic",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Orlando Magic",
+              "abbrev": "ORL",
+              "score": "115"
+            },
+            {
+              "name": "Phoenix Suns",
+              "abbrev": "PHX",
+              "score": "111"
+            }
+          ]
+        },
+        {
+          "id": "401810955",
+          "shortName": "CHA @ BKN",
+          "name": "Charlotte Hornets at Brooklyn Nets",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Brooklyn Nets",
+              "abbrev": "BKN",
+              "score": "86"
+            },
+            {
+              "name": "Charlotte Hornets",
+              "abbrev": "CHA",
+              "score": "117"
+            }
+          ]
+        },
+        {
+          "id": "401810956",
+          "shortName": "TOR @ DET",
+          "name": "Toronto Raptors at Detroit Pistons",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Detroit Pistons",
+              "abbrev": "DET",
+              "score": "127"
+            },
+            {
+              "name": "Toronto Raptors",
+              "abbrev": "TOR",
+              "score": "116"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}

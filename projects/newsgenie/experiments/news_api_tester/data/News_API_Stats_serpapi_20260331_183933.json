@@ -1,0 +1,304 @@
+{
+  "run_timestamp": "2026-03-31T18:39:33.844618+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/data/Intent_Validation_Mini.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/news_api_tester/data/News_API_Stats_serpapi_20260331_183933.json",
+  "elapsed_total_seconds": 27.48,
+  "dotenv_loaded_from": "/Users/timhazed/src/research_projects/newgenie/.env",
+  "keys_configured": {
+    "marketaux": true,
+    "guardian": true,
+    "newsapi": true,
+    "serpapi": true,
+    "serper": true
+  },
+  "web_search_provider": "serpapi",
+  "summary_by_api": {
+    "marketaux": {
+      "total_calls": 5,
+      "successes": 5,
+      "failures_http_or_error": 0,
+      "skipped_missing_key": 0,
+      "latency_ms": {
+        "count": 5,
+        "min": 3637.73,
+        "max": 6860.28,
+        "mean": 4952.65,
+        "p50": 5096.23,
+        "p95": 6534.95,
+        "p99": 6795.21
+      }
+    },
+    "guardian": {
+      "total_calls": 4,
+      "successes": 4,
+      "failures_http_or_error": 0,
+      "skipped_missing_key": 0,
+      "latency_ms": {
+        "count": 4,
+        "min": 172.36,
+        "max": 601.87,
+        "mean": 486.68,
+        "p50": 586.25,
+        "p95": 600.76,
+        "p99": 601.65
+      }
+    },
+    "newsapi": {
+      "total_calls": 3,
+      "successes": 3,
+      "failures_http_or_error": 0,
+      "skipped_missing_key": 0,
+      "latency_ms": {
+        "count": 3,
+        "min": 72.29,
+        "max": 177.47,
+        "mean": 139.03,
+        "p50": 167.32,
+        "p95": 176.45,
+        "p99": 177.27
+      }
+    },
+    "web_search": {
+      "total_calls": 3,
+      "successes": 3,
+      "failures_http_or_error": 0,
+      "skipped_missing_key": 0,
+      "latency_ms": {
+        "count": 3,
+        "min": 104.86,
+        "max": 121.33,
+        "mean": 115.81,
+        "p50": 121.25,
+        "p95": 121.32,
+        "p99": 121.33
+      },
+      "provider": "serpapi"
+    }
+  },
+  "latency_long_poles_mean_ms_desc": [
+    {
+      "api": "marketaux",
+      "mean_latency_ms": 4952.65,
+      "p95_latency_ms": 6534.95,
+      "total_calls": 5
+    },
+    {
+      "api": "guardian",
+      "mean_latency_ms": 486.68,
+      "p95_latency_ms": 600.76,
+      "total_calls": 4
+    },
+    {
+      "api": "newsapi",
+      "mean_latency_ms": 139.03,
+      "p95_latency_ms": 176.45,
+      "total_calls": 3
+    },
+    {
+      "api": "web_search",
+      "mean_latency_ms": 115.81,
+      "p95_latency_ms": 121.32,
+      "total_calls": 3
+    }
+  ],
+  "calls": [
+    {
+      "call_id": 1,
+      "record_index": 0,
+      "prompt": "What is the current stock price of Nvidia and how did they do in their last earnings call?",
+      "intent": "Business News",
+      "api": "marketaux",
+      "query": "Nvidia stock price and last earnings call",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 5096.23,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 2,
+      "record_index": 1,
+      "prompt": "Who won the Super Bowl and what is the current price of Bitcoin?",
+      "intent": "Sports News",
+      "api": "guardian",
+      "query": "Who won the Super Bowl",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 594.44,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 3,
+      "record_index": 1,
+      "prompt": "Who won the Super Bowl and what is the current price of Bitcoin?",
+      "intent": "Business News",
+      "api": "marketaux",
+      "query": "current price of Bitcoin",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 6860.28,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 4,
+      "record_index": 2,
+      "prompt": "Tell me about the peace talks in the Middle East and the current weather in London.",
+      "intent": "General News",
+      "api": "newsapi",
+      "query": "peace talks in the Middle East",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 177.47,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 5,
+      "record_index": 2,
+      "prompt": "Tell me about the peace talks in the Middle East and the current weather in London.",
+      "intent": "Web Search",
+      "api": "web_search",
+      "query": "current weather in London",
+      "web_search_provider": "serpapi",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 121.25,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 6,
+      "record_index": 3,
+      "prompt": "Did the Yankees win last night?",
+      "intent": "Sports News",
+      "api": "guardian",
+      "query": "Did the Yankees win last night?",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 601.87,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 7,
+      "record_index": 4,
+      "prompt": "What are the latest headlines regarding the global chip shortage?",
+      "intent": "Business News",
+      "api": "marketaux",
+      "query": "latest headlines regarding the global chip shortage",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 5233.65,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 8,
+      "record_index": 5,
+      "prompt": "I need the latest scores for the UEFA Champions League, the current USD to EUR exchange rate, and news about the Mars rover.",
+      "intent": "Sports News",
+      "api": "guardian",
+      "query": "UEFA Champions League scores",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 578.06,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 9,
+      "record_index": 5,
+      "prompt": "I need the latest scores for the UEFA Champions League, the current USD to EUR exchange rate, and news about the Mars rover.",
+      "intent": "Business News",
+      "api": "marketaux",
+      "query": "USD to EUR exchange rate",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 3935.38,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 10,
+      "record_index": 5,
+      "prompt": "I need the latest scores for the UEFA Champions League, the current USD to EUR exchange rate, and news about the Mars rover.",
+      "intent": "General News",
+      "api": "newsapi",
+      "query": "news about the Mars rover",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 167.32,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 11,
+      "record_index": 6,
+      "prompt": "How do I bake a sourdough bread from scratch?",
+      "intent": "Web Search",
+      "api": "web_search",
+      "query": "How do I bake a sourdough bread from scratch?",
+      "web_search_provider": "serpapi",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 121.33,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 12,
+      "record_index": 7,
+      "prompt": "Give me a summary of the latest G7 summit and the results of the Wimbledon finals.",
+      "intent": "General News",
+      "api": "newsapi",
+      "query": "latest G7 summit summary",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 72.29,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 13,
+      "record_index": 7,
+      "prompt": "Give me a summary of the latest G7 summit and the results of the Wimbledon finals.",
+      "intent": "Sports News",
+      "api": "guardian",
+      "query": "Wimbledon finals results",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 172.36,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 14,
+      "record_index": 8,
+      "prompt": "What is the federal reserve saying about interest rates?",
+      "intent": "Business News",
+      "api": "marketaux",
+      "query": "federal reserve interest rates",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 3637.73,
+      "error": null,
+      "skip_reason": null
+    },
+    {
+      "call_id": 15,
+      "record_index": 9,
+      "prompt": "Is there a festival happening in downtown Austin this weekend?",
+      "intent": "Web Search",
+      "api": "web_search",
+      "query": "festival happening in downtown Austin this weekend",
+      "web_search_provider": "serpapi",
+      "success": true,
+      "http_status": 200,
+      "latency_ms": 104.86,
+      "error": null,
+      "skip_reason": null
+    }
+  ]
+}

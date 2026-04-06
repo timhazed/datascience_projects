@@ -32,6 +32,7 @@ Full catalog of projects in this repository.
 - [HR Assistant](#26-hr-assistant)
 - [Image Designer Assistant](#27-image-designer-assistant)
 - [Exercise and Recovery Coach](#28-exercise-and-recovery-coach)
+- [NewsGenie](#29-newsgenie)
 
 ---
 
@@ -439,6 +440,26 @@ Backend: LangChain, LangChain-OpenAI, OpenAI (GPT-4o-mini), Pydantic, PyYAML, py
 Frontend: Gradio, CLI
 
 Testing: pytest, pytest-cov, pytest-mock, Ruff
+
+---
+
+### 29. NewsGenie
+NewsGenie is a multi-agent real-time news assistant powered by LangGraph. A supervisor LLM decomposes free-form conversational queries into up to three parallel domain fetches — Business, Sports, and World News — or routes to open-ended web search, then assembles results as structured article cards. The system makes a single LLM call (the supervisor routing step); all domain agents fetch directly from news APIs (NewsAPI, The Guardian, ESPN Scoreboard) and normalize results to a common `NormalizedArticle` schema. Five distinct failure modes are handled gracefully — missing API keys, provider outages, unparseable LLM output, category filter mismatches, and total agent failure — ensuring the system always returns a response. Bounded conversation history (last 10 turns, FIFO-trimmed) enables coherent multi-turn follow-up without re-stating context. Experimental harnesses validated routing accuracy across four LLM configurations and benchmarked API feed latency to guide provider selection (MarketAux and Alpha Vantage rejected for latency and rate-limit reasons).
+
+🔗 [View NewsGenie Project](projects/newsgenie/)
+
+![NewsGenie Architecture](projects/newsgenie/images/news_genie_architecture.png)
+
+![NewsGenie Base UI](projects/newsgenie/images/base_ui.png)
+
+#### Skills Used
+Backend: LangGraph, LangChain, OpenAI (GPT-4o-mini), Groq, Pydantic, NewsAPI, Guardian API, ESPN Scoreboard API, SerpAPI, Serper, tenacity, Poetry
+
+Frontend: Streamlit (category chip selectors, multi-turn chat, session state management)
+
+Experimentation: Intent routing validation (4 LLM configurations, regex-parsed structured output), API latency benchmarking (MarketAux, Guardian, NewsAPI, SerpAPI, Serper), ESPN scoreboard undocumented API harness
+
+Testing: pytest, pytest-cov, Ruff
 
 ---
 

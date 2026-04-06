@@ -1,0 +1,136 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_mlb_mlb_scoreboard_default_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_mlb_mlb_scoreboard_default_20260401_150256.json",
+  "case_id": "mlb_scoreboard_default",
+  "league": "mlb",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 71.23,
+      "max": 71.23,
+      "mean": 71.23,
+      "p50": 71.23,
+      "p95": 71.23
+    }
+  },
+  "calls": [
+    {
+      "case_id": "mlb_scoreboard_default",
+      "league": "mlb",
+      "description": "MLB \u2014 default scoreboard window",
+      "dates": null,
+      "limit": 30,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?limit=30",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 71.23,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 14,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401814754",
+          "shortName": "TEX @ BAL",
+          "name": "Texas Rangers at Baltimore Orioles",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Baltimore Orioles",
+              "abbrev": "BAL",
+              "score": "5"
+            },
+            {
+              "name": "Texas Rangers",
+              "abbrev": "TEX",
+              "score": "8"
+            }
+          ]
+        },
+        {
+          "id": "401814751",
+          "shortName": "CHW @ MIA",
+          "name": "Chicago White Sox at Miami Marlins",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Miami Marlins",
+              "abbrev": "MIA",
+              "score": "9"
+            },
+            {
+              "name": "Chicago White Sox",
+              "abbrev": "CHW",
+              "score": "2"
+            }
+          ]
+        },
+        {
+          "id": "401814753",
+          "shortName": "PIT @ CIN",
+          "name": "Pittsburgh Pirates at Cincinnati Reds",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Cincinnati Reds",
+              "abbrev": "CIN",
+              "score": "3"
+            },
+            {
+              "name": "Pittsburgh Pirates",
+              "abbrev": "PIT",
+              "score": "8"
+            }
+          ]
+        },
+        {
+          "id": "401814755",
+          "shortName": "WSH @ PHI",
+          "name": "Washington Nationals at Philadelphia Phillies",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Philadelphia Phillies",
+              "abbrev": "PHI",
+              "score": "3"
+            },
+            {
+              "name": "Washington Nationals",
+              "abbrev": "WSH",
+              "score": "2"
+            }
+          ]
+        },
+        {
+          "id": "401814752",
+          "shortName": "COL @ TOR",
+          "name": "Colorado Rockies at Toronto Blue Jays",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Toronto Blue Jays",
+              "abbrev": "TOR",
+              "score": "5"
+            },
+            {
+              "name": "Colorado Rockies",
+              "abbrev": "COL",
+              "score": "1"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}

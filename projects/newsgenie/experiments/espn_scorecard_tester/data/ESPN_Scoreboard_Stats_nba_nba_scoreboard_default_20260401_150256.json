@@ -1,0 +1,136 @@
+{
+  "run_timestamp": "2026-04-01T15:02:56.233753+00:00",
+  "input_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/scoreboard_cases.jsonl",
+  "output_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Stats_nba_nba_scoreboard_default_20260401_150256.json",
+  "scoreboard_results_file": "/Users/timhazed/src/research_projects/newgenie/experiments/espn_scorecard_tester/data/ESPN_Scoreboard_Results_nba_nba_scoreboard_default_20260401_150256.json",
+  "case_id": "nba_scoreboard_default",
+  "league": "nba",
+  "summary": {
+    "cases_total": 1,
+    "http_success": 1,
+    "http_failed": 0,
+    "vet_passed": 1,
+    "vet_failed": 0,
+    "latency_ms": {
+      "count": 1,
+      "min": 79.81,
+      "max": 79.81,
+      "mean": 79.81,
+      "p50": 79.81,
+      "p95": 79.81
+    }
+  },
+  "calls": [
+    {
+      "case_id": "nba_scoreboard_default",
+      "league": "nba",
+      "description": "NBA \u2014 default scoreboard window",
+      "dates": null,
+      "limit": 30,
+      "request_url": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?limit=30",
+      "success": true,
+      "vet_passed": true,
+      "latency_ms": 79.81,
+      "http_status": 200,
+      "error": null,
+      "vet_reasons": [],
+      "event_count": 7,
+      "status_names": [
+        "STATUS_FINAL"
+      ],
+      "events_preview": [
+        {
+          "id": "401810954",
+          "shortName": "PHX @ ORL",
+          "name": "Phoenix Suns at Orlando Magic",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Orlando Magic",
+              "abbrev": "ORL",
+              "score": "115"
+            },
+            {
+              "name": "Phoenix Suns",
+              "abbrev": "PHX",
+              "score": "111"
+            }
+          ]
+        },
+        {
+          "id": "401810955",
+          "shortName": "CHA @ BKN",
+          "name": "Charlotte Hornets at Brooklyn Nets",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Brooklyn Nets",
+              "abbrev": "BKN",
+              "score": "86"
+            },
+            {
+              "name": "Charlotte Hornets",
+              "abbrev": "CHA",
+              "score": "117"
+            }
+          ]
+        },
+        {
+          "id": "401810956",
+          "shortName": "TOR @ DET",
+          "name": "Toronto Raptors at Detroit Pistons",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Detroit Pistons",
+              "abbrev": "DET",
+              "score": "127"
+            },
+            {
+              "name": "Toronto Raptors",
+              "abbrev": "TOR",
+              "score": "116"
+            }
+          ]
+        },
+        {
+          "id": "401810957",
+          "shortName": "NY @ HOU",
+          "name": "New York Knicks at Houston Rockets",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Houston Rockets",
+              "abbrev": "HOU",
+              "score": "111"
+            },
+            {
+              "name": "New York Knicks",
+              "abbrev": "NY",
+              "score": "94"
+            }
+          ]
+        },
+        {
+          "id": "401858694",
+          "shortName": "DAL @ MIL",
+          "name": "Dallas Mavericks at Milwaukee Bucks",
+          "status": "STATUS_FINAL",
+          "teams": [
+            {
+              "name": "Milwaukee Bucks",
+              "abbrev": "MIL",
+              "score": "123"
+            },
+            {
+              "name": "Dallas Mavericks",
+              "abbrev": "DAL",
+              "score": "99"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": "Undocumented ESPN APIs \u2014 use low request frequency. Vet rules are per-line `expect` in JSONL; see data/scoreboard_cases.jsonl. Full response body: `scoreboard_results_file`."
+}
