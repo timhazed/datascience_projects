@@ -386,6 +386,7 @@ Geospatial full-stack application for exploring Portugal's administrative region
 I am open to selective consulting, advisory roles, and technically challenging engagements.
 
 * **Email:** [thayes@oldzinsoftware.com](mailto:thayes@oldzinsoftware.com)
+* **Website:** [www.oldzinsoftware.com](https://www.oldzinsoftware.com)
 * **LinkedIn:** [linkedin.com/in/tim-hayes-b26103](https://www.linkedin.com/in/tim-hayes-b26103/)
 * **GitHub:** [github.com/timhazed](https://github.com/timhazed)
 
