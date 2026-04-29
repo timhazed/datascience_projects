@@ -30,6 +30,7 @@ See [methodology/](methodology/) for the full engineering playbook: lifecycle ph
 
 ### Agentic AI Systems
 
+* [Agentic Healthcare Assistant](projects/agentic%20healthcare%20assistant/)
 * [NewsGenie](projects/newsgenie/)
 * [Exercise and Recovery Coach](projects/exercise_and_health_coach/)
 * [LLM Framework Benchmarking](projects/LLM%20Framework%20Benchmarking/)
@@ -128,6 +129,19 @@ PyQt-based application for 3D point cloud visualization.
 ---
 
 ## Generative AI & Agentic Systems
+
+### Agentic Healthcare Assistant
+
+A LangGraph-orchestrated clinical assistant that accepts natural-language queries, decomposes them into a sequential plan, and dispatches each sub-task across five specialized tool nodes (patient resolution, history retrieval, appointment booking, and disease research), returning a single synthesized response from one conversational interface.
+
+![Agentic Healthcare Assistant Architecture](projects/agentic%20healthcare%20assistant/images/langgraph_architecture.png)
+![Agentic Healthcare Assistant What drug](projects/agentic%20healthcare%20assistant/images/What_drug_am_I_taking.png)
+
+
+🔗 [View Project](projects/agentic%20healthcare%20assistant/)
+
+**Skills Used**
+LangGraph, LangChain, LangGraph Checkpoint (SqliteSaver), OpenAI, Groq, Pydantic, FAISS, ragas, pypdf, SQLite, Poetry, Streamlit
 
 ### NewsGenie
 

@@ -4,11 +4,10 @@ The methodology applied to real projects. Each case study traces how the lifecyc
 
 Case studies are the bridge between theory and practice. They demonstrate that this methodology is not aspirational — it has been applied, tested, and refined through real work.
 
-## In Progress
+## Completed
 
-Case studies will be added as projects are completed and the lessons from each are ready to be documented.
+- [`agentic_healthcare_assistant.md`](agentic_healthcare_assistant.md) — LangGraph clinical assistant: sequential dispatch, asymmetric LLM usage, checkpointing migration, and experiment-gated promotion
 
-Planned:
-- `roof_cnn.md` — 3D Roof Reconstruction CNN: multi-input fusion, augmentation decisions, and evaluation strategy
-- `rag_pipeline.md` — HR Assistant RAG pipeline: chunking strategy, retrieval calibration, and guardrail design
+## Planned
+- `newsgenie.md` — LLM Framework Benchmarking: exploration methodology, experimentation and comparative evaluation design
 - `llm_benchmarking.md` — LLM Framework Benchmarking: exploration methodology and comparative evaluation design

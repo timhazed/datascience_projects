@@ -33,6 +33,7 @@ Full catalog of projects in this repository.
 - [Image Designer Assistant](#27-image-designer-assistant)
 - [Exercise and Recovery Coach](#28-exercise-and-recovery-coach)
 - [NewsGenie](#29-newsgenie)
+- [Agentic Healthcare Assistant](#30-agentic-healthcare-assistant)
 
 ---
 
@@ -464,6 +465,26 @@ Experimentation: Intent routing validation (4 LLM configurations, regex-parsed s
 Testing: pytest, pytest-cov, Ruff
 
 ---
+### 30. Agentic Healthcare Assistant
+
+A unified clinical operations assistant built on a LangGraph `StateGraph` that accepts natural-language queries, decomposes them into an ordered plan of sub-tasks, and dispatches each to one of five specialized tool nodes: patient identity resolution, history retrieval, history mutation, appointment booking, and disease research. History retrieval combines SQLite structured lookup with FAISS vector similarity search over embedded clinical PDFs. Disease research runs parallel Serper and Medline (NCBI PubMed) retrieval followed by LLM summarization. Conversation memory persists across sessions via LangGraph `SqliteSaver` checkpointing, with a rolling summary written per patient thread to prevent unbounded context growth.
+
+![Agentic Healthcare Assistant Architecture](projects/agentic%20healthcare%20assistant/images/langgraph_architecture.png)
+
+![Agentic Healthcare Assistant Base UI](projects/agentic%20healthcare%20assistant/images/startup_screen.png)
+![Agentic Healthcare Assistant What drug](projects/agentic%20healthcare%20assistant/images/What_drug_am_I_taking.png)
+![Agentic Healthcare Assistant Metrics](projects/agentic%20healthcare%20assistant/images/main_metrics.png)
+
+
+#### Skills Used
+Backend: LangGraph, LangChain, LangGraph Checkpoint (SqliteSaver), OpenAI, Groq, Pydantic, FAISS, ragas, pypdf, SQLite, Poetry
+
+Frontend: Streamlit (Active Patient panel, multi-turn chat, session state management)
+
+Experimentation: Three tool-fitness experiments run against architecture-defined thresholds — intent guard classification, RAG retrieval quality, and appointment booking correctness.
+
+Testing: pytest, pytest-asyncio, pytest-mock, pytest-cov, Ruff
+
 
 ## Contact
 
