@@ -1,0 +1,97 @@
+erDiagram
+    %% ─── data/healthcare.db ───────────────────────────────────────────────────
+
+    patients {
+        TEXT patient_id PK "P-<sha256[:6]>"
+        TEXT phone      "phone / MRN surrogate"
+        TEXT email
+        TEXT name
+        INT  age
+        TEXT gender
+        TEXT address
+        TEXT summary
+        TEXT conditions  "JSON array"
+        TEXT medications "JSON array"
+        TEXT allergies   "JSON array"
+        TEXT notes       "raw PDF text"
+        TEXT last_updated "ISO 8601"
+    }
+
+    doctors {
+        TEXT doctor_id PK "D-001 … D-005"
+        TEXT name         "name + specialty label"
+        TEXT specialty
+    }
+
+    slots {
+        TEXT slot_id      PK "UUID"
+        TEXT doctor_id    FK
+        TEXT specialty
+        TEXT slot_datetime "ISO 8601"
+        INT  booked        "0=available  1=booked"
+    }
+
+    bookings {
+        TEXT booking_id PK "UUID"
+        TEXT slot_id    FK
+        TEXT patient_id FK "→ patients (soft ref)"
+        TEXT reason
+        TEXT urgency    "routine|urgent|emergency"
+        TEXT booked_at  "ISO 8601"
+    }
+
+    session_log {
+        INT  id          PK "AUTOINCREMENT"
+        TEXT session_id  "per-process UUID"
+        TEXT datetime    "ISO 8601"
+        TEXT operation   "e.g. Patient Lookup"
+        INT  success     "0 or 1"
+        REAL latency_ms
+        TEXT error
+    }
+
+    doctors ||--o{ slots    : "has"
+    slots   ||--o| bookings : "booked as"
+
+    %% ─── data/checkpoints.db ─────────────────────────────────────────────────
+
+    checkpoints {
+        TEXT thread_id            PK "= patient_id slug (or session UUID)"
+        TEXT checkpoint_ns        PK "namespace; empty string default"
+        TEXT checkpoint_id        PK "UUID per superstep"
+        TEXT parent_checkpoint_id     "previous checkpoint_id"
+        TEXT type                     "serialisation format"
+        BLOB checkpoint               "serialised HealthcareState"
+        BLOB metadata                 "LangGraph internal metadata"
+    }
+
+    writes {
+        TEXT thread_id     PK "= parent checkpoint thread_id"
+        TEXT checkpoint_ns PK
+        TEXT checkpoint_id PK "parent checkpoint"
+        TEXT task_id       PK "node that produced this write"
+        INT  idx           PK "write index within task"
+        TEXT channel           "state key written (e.g. messages)"
+        TEXT type
+        BLOB value             "serialised channel delta"
+    }
+
+    checkpoints ||--o{ writes : "produces"
+
+    %% ─── data/faiss/ (conceptual) ────────────────────────────────────────────
+
+    faiss_index {
+        TEXT patient_id "metadata key"
+        TEXT name
+        INT  age
+        TEXT gender
+        TEXT summary
+        TEXT conditions  "comma-separated"
+        BLOB vector      "text-embedding-3-small 1536-dim"
+    }
+
+    %% ─── cross-store references (soft / runtime) ─────────────────────────────
+
+    patients }o--o{ checkpoints  : "patient_id = thread_id"
+    patients }o--o{ faiss_index  : "patient_id in metadata"
+    patients }o--o{ bookings     : "patient_id (soft ref)"

@@ -1,0 +1,203 @@
+=== Phase 9 Gate — Sat Apr 11 15:48:40 CDT 2026 ===
+
+--- --health ---
+
+[HEALTH] API keys
+  ✓  GROQ_API_KEY
+  ✓  OPENAI_API_KEY (embeddings — always required)
+  ✓  SERPER_API_KEY
+
+[HEALTH] Configuration
+  ✓  Provider: groq  (openai/gpt-oss-120b)
+  ✓  Search provider: serper
+  ✓  max_tokens_guard: 1024  (ok)
+  ✓  max_tokens_planner: 512  (ok)
+
+[HEALTH] Storage
+  ✓  SQLite DB exists and non-empty  (data/healthcare.db)
+  ✓  FAISS index directory exists  (data/faiss)
+
+[HEALTH] All checks passed — ready to run.
+
+--- --list-db ---
+
+[LIST-DB] Patients
+  Total patients: 30
+
+[LIST-DB] Appointment slots by specialty
+  Specialty                      Total   Available
+  ---------------------------- ------- -----------
+  Cardiology                       240         240
+  Endocrinology                    240         238
+  General Practice                 240         240
+  Nephrology                       240         240
+  Pulmonology                      240         240
+
+[LIST-DB] FAISS index: present (data/faiss)
+
+--- hypertension --strict ---
+
+[QUERY]  Retrieve Ramesh Kulkarni's history and update his medication to Telmisartan 80mg.
+[PLAN]   resolve_patient → retrieve_history → update_history
+[RESULT] **Patient:** Ramesh Kulkarni (ID P‑1f6a80)
+
+**Current Medical History**
+- **Essential Hypertension (ICD‑10 I10)** – documented as a chronic condition and the primary reason for his antihypertensive therapy.  
+- No other medical conditions are recorded in the available documentation.
+
+**Medication Update**
+- His medication list has been successfully updated to **include Telmisartan 80 mg** (added to the existing regimen for hypertension).
+
+All tasks completed without error. If you need a detailed medication list or further modifications, please let me know.
+[TRACE]  intent_guard → planner → patient_resolver → history_retriever → history_writer → summarizer
+[STATUS] ✓ 3 tasks completed  |  0 errors  |  latency: 2.5 s
+  ✓  resolve_patient
+  ✓  retrieve_history
+  ✓  update_history
+
+--- diabetes --strict --show-trace ---
+
+[QUERY]  Find the latest diabetes management guidelines and book a follow-up for David Thompson.
+[PLAN]   resolve_patient → search_disease → book_appointment
+[RESULT] **Patient:** David Thompson (ID P‑cfb1d0)  
+
+**Requested information:** Latest diabetes‑management guidelines  
+**Requested action:** Follow‑up appointment (already booked)
+
+---
+
+### Summary of the latest international diabetes‑care guidance (2025 IDF)
+
+| Area | Key Recommendation |
+|------|--------------------|
+| **Overall goal** | Early, durable glycaemic control to prevent complications. |
+| **First‑line glucose‑lowering therapy** | Metformin remains the cornerstone for most adults with type 2 diabetes. |
+| **When to add organ‑protective agents** | • **SGLT2‑inhibitors** or **GLP‑1‑RA** are reserved for patients with established cardiovascular or renal disease, or high‑risk profiles. <br>• Statins and RAAS‑inhibitors are recommended for all patients with diabetes (unless contraindicated). |
+| **Therapeutic standards** | Two tiers – **Basic** (metformin + lifestyle) and **Optimal** (adds organ‑protective agents, individualized combos). |
+| **Sulfonylureas** | Effective, inexpensive option for resource‑limited settings; acceptable when cost is a barrier. |
+| **Initial combination therapy** | Starting with two agents (e.g., metformin + SGLT2‑i in high‑risk patients) achieves target HbA1c faster and improves durability versus stepwise addition. |
+| **Microvascular‑complication screening** | • Follow ADA recommendations: annual retinal exam, urine albumin‑to‑creatinine ratio, and foot exam. <br>• Routine nerve‑conduction studies in children/adolescents with type 1 diabetes are **not** recommended when metabolic control is tight. |
+| **Shared decision‑making** | Treatment choices should be individualized, emphasizing adherence, persistence, and patient preferences. |
+
+*These points reflect the most recent (2025) International Diabetes Federation guidance and align with ADA and CDC recommendations.*
+
+---
+
+### Follow‑up Appointment (already scheduled)
+
+| Detail | Information |
+|--------|-------------|
+| **Appointment ID** | 3423b028‑d1d3‑4996‑847e‑05
+[TRACE]  intent_guard: SAFE → planner: 3 sub-goals — User named a patient (David Thompson), so start with resolve_patient. Then they request latest diabetes management guidelines, which requires a disease search. Finally they want to book a follow-up appointment for the patient. → patient_resolver: resolved 'David Thompson' → P-cfb1d0 → disease_search: 6 results synthesised for 'diabetes management guidelines latest' → appointment: booked endocrinology at 2026-04-13T11:00:00 for P-cfb1d0 → summarizer: summary produced (1979 chars)
+[STATUS] ✓ 3 tasks completed  |  0 errors  |  latency: 6.4 s
+  ✓  resolve_patient
+  ✓  search_disease
+  ✓  book_appointment
+
+--- ckd --strict ---
+
+[QUERY]  My 70-year-old father has chronic kidney disease. Book a nephrologist and summarize treatment options.
+[PLAN]   search_disease
+[RESULT] **Summary of Treatment Options for Advanced Chronic Kidney Disease (CKD)**  
+
+| Category | What It Involves | Typical Indications | Key Benefits / Considerations |
+|----------|------------------|---------------------|--------------------------------|
+| **Renal‑replacement therapy (RRT)** – the definitive options when GFR falls to a level that cannot sustain life. | | | |
+| • **Kidney transplantation** | Surgical placement of a donor kidney (living or deceased donor). | Generally offered when the patient is medically fit, has adequate cardiovascular reserve, and can adhere to lifelong immunosuppression. | Best long‑term survival and quality‑of‑life; avoids dialysis‑related complications. Requires transplant evaluation, donor availability, and lifelong immunosuppressive therapy. |
+| • **In‑center hemodialysis (HD)** | Thrice‑weekly 3–5 h sessions at a dialysis center using a vascular access (fistula, graft, or catheter). | Standard for most patients who are not transplant candidates or who prefer facility‑based care. | Highly supervised; rapid solute clearance. Requires travel to a center (logistical and financial burden). |
+| • **Peritoneal dialysis (PD)** – home‑based. | Continuous ambulatory PD (CAPD) or automated PD (APD) using the peritoneal membrane as a filter. | Suitable for patients who are motivated, have adequate manual dexterity, and have a safe home environment. | Greater lifestyle flexibility, fewer trips to a center, better preservation of residual kidney function. Uptake is low (≈24 % when patients are educated before dialysis) due to medical and non‑medical barriers. |
+| • **Supportive‑care pathway (no dialysis)** | Focuses on symptom control, dietary management, blood pressure control, and advance‑care planning. | Chosen when the burden of dialysis outweighs expected benefits (e.g., severe comorbidities, limited life expectancy, patient preference). | Prioritizes quality of life; avoids dialysis‑related complications. Requires coordinated palliative‑care support. |
+| **Adjunctive medical strategies** (used alongside or before RRT) | • Tight blood‑pressure control (ACE‑I/ARB, target <130/80 mm Hg)  <br>• Management of diabetes, dyslipidemia, anemia, mineral‑bone disorder (phosphate binders, vitamin D analogues)  <br>• Lifestyle: low‑sodium diet, smoking cessation, regular exercise  <br>• Cardiovascular risk reduction (statins, antiplatelet therapy as indicated) | Initiated early in CKD (stage 3–4) to slow progression and reduce cardiovascular events. | Improves survival and may delay need for RRT. |
+| **Patient‑centered education & modality choice** | Structured, interactive programs (group or individual, in‑person or virtual) that present all
+[TRACE]  intent_guard → planner → disease_search → summarizer
+[STATUS] ✓ 1 tasks completed  |  0 errors  |  latency: 5.4 s
+  ✓  search_disease
+
+--- all --strict ---
+
+[QUERY]  My 70-year-old father has chronic kidney disease. Book a nephrologist and summarize treatment options.
+[PLAN]   search_disease
+[RESULT] **Summary of Treatment Options for Advanced CKD (including ESKD)**  
+
+| Option | Who it’s best suited for | Key benefits | Typical considerations for a 70‑year‑old |
+|--------|------------------------|--------------|----------------------------------------|
+| **Kidney transplantation** | Patients with acceptable cardiovascular health, limited frailty, and no active malignancy or uncontrolled infection. | Improves survival and quality‑of‑life; eliminates need for dialysis. | Age ≥ 70 is no longer an absolute barrier, but careful cardiac, pulmonary, and functional assessment is required. Living‑donor transplants have better outcomes than deceased‑donor in older recipients. |
+| **Peritoneal dialysis (PD)** – home‑based | Patients who are cognitively intact, have reliable caregiver support, and prefer staying at home. | Greater flexibility, fewer trips to a center, often better preservation of residual kidney function. | Requires manual dexterity for exchanges; training can be done at home or in a clinic. Older adults with limited vision or severe arthritis may need additional assistance. |
+| **In‑center hemodialysis (HD)** – 3×/week | Patients who need close medical monitoring, have limited home support, or have contraindications to PD (e.g., extensive abdominal surgery, severe obesity). | Structured schedule, immediate access to staff for complications. | Vascular access (AV fistula/graft) surgery may be needed; intradialytic hypotension is more common in frail elders. |
+| **Conservative (non‑dialysis) care** | Patients with high comorbidity burden, limited life expectancy, or who decline dialysis after informed discussion. | Focus on symptom control, nutrition, psychosocial support; avoids dialysis‑related burdens. | Requires a multidisciplinary palliative‑care team; advance‑care‑planning is essential. |
+| **Adjunct medical therapies (used at any stage)** | All CKD patients | • Blood‑pressure control (ACE‑I/ARB) to slow progression  \n• Management of anemia (ESA, iron)  \n• Mineral‑bone disease control (phosphate binders, vitamin D)  \n• Cardiovascular risk reduction (stat
+[TRACE]  intent_guard → planner → disease_search → summarizer
+[STATUS] ✓ 1 tasks completed  |  0 errors  |  latency: 5.7 s
+  ✓  search_disease
+  [PASS] scenario succeeded — error-free
+
+[QUERY]  Retrieve Ramesh Kulkarni's history and update his medication to Telmisartan 80mg.
+[PLAN]   resolve_patient → retrieve_history → update_history
+[RESULT] **Patient:** Ramesh Kulkarni (65‑year‑old male) – Patient ID **P‑1f6a80**
+
+**Medical History (as retrieved)**
+- **Essential Hypertension** (ICD‑10 I10) – documented as his chronic condition and the reason for routine follow‑up.
+- **Other conditions:** none recorded in the available records.
+
+**Medication Update**
+- **Telmisartan 80 mg** has been **added** to his medication list (operation: append).
+
+All three tasks (patient resolution, history retrieval, and medication update) were completed successfully. If you need the full medication list or further modifications, just let me know.
+[TRACE]  intent_guard → planner → patient_resolver → history_retriever → history_writer → summarizer
+[STATUS] ✓ 3 tasks completed  |  0 errors  |  latency: 2.7 s
+  ✓  resolve_patient
+  ✓  retrieve_history
+  ✓  update_history
+  [PASS] scenario succeeded — error-free
+
+[QUERY]  Find the latest diabetes management guidelines and book a follow-up for David Thompson.
+[PLAN]   resolve_patient → search_disease → book_appointment
+[RESULT] **Patient:** David Thompson (ID P‑cfb1d0)  
+
+**Latest Diabetes‑Management Guidelines – Key Points**
+
+1. **Dietary Sodium Restriction** – All major international guidelines now recommend limiting daily salt intake (often ≤2 g sodium ≈5 g salt) to reduce micro‑ and macrovascular complications. Emerging longitudinal data in diabetic cohorts link higher sodium intake with faster progression of complications.  
+
+2. **Blood‑Pressure Goal** – Target BP for most adults with diabetes and hypertension is **< 130/80 mmHg**. Real‑world data show low awareness and achievement of this goal, highlighting the need for patient education and systematic monitoring.  
+
+3. **Comprehensive Cardiovascular & Renal Risk Management** –  
+   * Routine assessment of BP, lipid profile, and smoking status.  
+   * Periodic evaluation of renal function (eGFR, albumin‑to‑creatinine ratio).  
+   * Early referral to specialists (cardiology, nephrology, ophthalmology) when indicated.  
+
+4. **Integrated Care Pathway** – Combine glycemic control with the above risk‑factor management, lifestyle counseling, and regular complication screening (eye, foot, kidney, cardiovascular).  
+
+These recommendations are reflected in the latest CDC and international consensus updates (2023‑2024).
+
+---
+
+**Follow‑up Appointment**
+
+Your follow‑up has been scheduled:
+
+- **Provider:** Dr. Iyer – Endocrinology  
+- **Date & Time:** 13 April 2026, 14:00 h (local time)  
+- **Appointment ID:** bcc46255-2445-4bf1-ab88-88e1eb059023  
+
+Please arrive 10 minutes early and bring any recent labs (HbA1c, lipid panel, renal function) if available. If you need to reschedule, let us know.
+
+---
+
+**Status of Requested Tasks**
+
+| Task | Outcome |
+|------|----------|
+| Resolve patient | ✅ Successful (David Thompson identified) |
+| Retrieve latest guidelines | ✅ Successful (summary provided above) |
+| Book follow‑up appointment | ✅ Successful (details above) |
+
+All requested actions have been completed. Let us know if you need additional information or assistance.
+[TRACE]  intent_guard → planner → patient_resolver → disease_search → appointment → summarizer
+[STATUS] ✓ 3 tasks completed  |  0 errors  |  latency: 6.0 s
+  ✓  resolve_patient
+  ✓  search_disease
+  ✓  book_appointment
+  [PASS] scenario succeeded — error-free
+
+=== Scenario gate: 3/3 passed  |  strict (error-free): 3/3 ===
+

@@ -1,0 +1,65 @@
+flowchart TD
+    START(["▶ START"])
+    END_UNSAFE(["⏹ END\n(UNSAFE)"])
+    END_SUMMARY(["⏹ END"])
+
+    %% ── Core nodes ──────────────────────────────────────────────────────────
+    IG["🛡 intent_guard\n─────────────────\nLLM-as-judge\nSAFE / UNSAFE verdict\nwrites: intent_safe"]
+    PL["🧠 planner\n─────────────────\nLLM decomposes query\ninto ordered SubGoals\nwrites: planner_output\n        pending_tasks"]
+
+    %% ── Task nodes ──────────────────────────────────────────────────────────
+    RP["👤 resolve_patient\n─────────────────\nSQLite fuzzy name search\nno LLM\nwrites: patient_id"]
+    RH["📋 retrieve_history\n─────────────────\nSQLite GET + FAISS\nLLM synthesis\nwrites: completed_tasks"]
+    UH["✏️ update_history\n─────────────────\nSQLite UPDATE + FAISS upsert\nno LLM\nwrites: completed_tasks"]
+    BA["📅 book_appointment\n─────────────────\nSQLite slot query + atomic UPDATE\nno LLM\nwrites: completed_tasks"]
+    SD["🔬 search_disease\n─────────────────\nSerper + Medline → domain filter\nLLM synthesis\nwrites: completed_tasks"]
+    DU["⚠️ drain_unknown_task\n─────────────────\nPops unrecognised task\nwrites: completed_tasks\n        error"]
+
+    %% ── Terminal node ───────────────────────────────────────────────────────
+    SU["📝 summarizer\n─────────────────\nLLM final synthesis\nwrites: final_summary\n        messages ← AIMessage\n        conversation_summary\n        (at cadence)"]
+
+    %% ── Routing functions (conditional edges) ───────────────────────────────
+    RI{{"_route_intent\nintent_safe?"}}
+    RN{{"_route_next_task\npending_tasks[0].task"}}
+
+    %% ── Flow ────────────────────────────────────────────────────────────────
+    START --> IG
+    IG --> RI
+    RI -->|"SAFE"| PL
+    RI -->|"UNSAFE"| END_UNSAFE
+
+    PL --> RN
+
+    RN -->|"resolve_patient"| RP
+    RN -->|"retrieve_history"| RH
+    RN -->|"update_history"| UH
+    RN -->|"book_appointment"| BA
+    RN -->|"search_disease"| SD
+    RN -->|"unknown task"| DU
+    RN -->|"pending_tasks == []"| SU
+
+    RP --> RN
+    RH --> RN
+    UH --> RN
+    BA --> RN
+    SD --> RN
+    DU --> RN
+
+    SU --> END_SUMMARY
+
+    %% ── Styling ─────────────────────────────────────────────────────────────
+    classDef guard   fill:#fee2e2,stroke:#ef4444,color:#111
+    classDef planner fill:#ede9fe,stroke:#7c3aed,color:#111
+    classDef task    fill:#dbeafe,stroke:#2563eb,color:#111
+    classDef drain   fill:#fef9c3,stroke:#ca8a04,color:#111
+    classDef summary fill:#dcfce7,stroke:#16a34a,color:#111
+    classDef router  fill:#f1f5f9,stroke:#64748b,color:#111
+    classDef term    fill:#1e293b,stroke:#1e293b,color:#fff
+
+    class IG guard
+    class PL planner
+    class RP,RH,UH,BA,SD task
+    class DU drain
+    class SU summary
+    class RI,RN router
+    class START,END_UNSAFE,END_SUMMARY term

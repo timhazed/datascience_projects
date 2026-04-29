@@ -1,0 +1,28 @@
+# Environment
+.env
+.env.*
+
+# temp
+.tmp/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+*.db
+*.faiss
+
+# IDE
+.vscode/
+.idea/
+*.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/

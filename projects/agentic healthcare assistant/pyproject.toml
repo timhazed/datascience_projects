@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "agentic-healthcare-assistant"
+version = "0.1.0"
+description = "Agentic Healthcare Assistant for Medical Task Automation"
+authors = ["timhazed <thayes@oldzinsoftware.com>"]
+readme = "README.md"
+packages = [{include = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.13"
+langchain = "^0.3"
+langchain-core = "^0.3"
+langchain-community = "^0.3"
+langchain-openai = "^0.3"
+langchain-groq = "^0.2"
+langgraph = "^0.3"
+langgraph-checkpoint-sqlite = "^2.0"
+pydantic = "^2.0"
+pydantic-settings = "^2.0"
+python-dotenv = "^1.0"
+pyyaml = "^6.0"
+faiss-cpu = "^1.9"
+streamlit = "^1.40"
+google-search-results = "^2.4"
+httpx = "^0.27"
+openai = "^1.0"
+openpyxl = "^3.1"
+pypdf = "^6.0"
+ragas = "^0.4"
+datasets = "^4.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8"
+ipykernel = "^6.0"
+pytest = "^8.0"
+pytest-mock = "^3.12"
+pytest-cov = "^4.1"
+pytest-asyncio = "^0.24"
+
+[tool.poetry.scripts]
+streamlit-app = "src.ui.streamlit_cli:main"
+healthcare-cli = "src.cli.run_query:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+cache_dir = "/tmp/.pytest_cache"
+addopts = ["-v", "--tb=short", "-ra", "--cov=src", "--cov-report=term-missing"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+data_file = "/tmp/.coverage"
+omit = ["src/ui/*", "src/cli/*", "*/__init__.py"]
+
+[tool.coverage.report]
+fail_under = 85
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

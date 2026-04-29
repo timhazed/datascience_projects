@@ -1,0 +1,40 @@
+# config.yaml
+provider:
+  groq:                          # or "openai" — exactly one key
+    model: "openai/gpt-oss-120b"
+    temperature: 0.5             # reasoning models: 0.5–0.7 recommended (not 0.0–0.1)
+    temperature_summarizer: 0.6
+    temperature_search: 0.6
+    # Reasoning models (gpt-oss, etc.) spend budget before the structured tool call;
+    # 512 truncates PlannerOutput JSON → Groq tool_use_failed / invalid JSON.
+    max_tokens_planner: 1536
+    max_tokens_history: 400
+    max_tokens_search: 650
+    max_tokens_appointment: 150
+    max_tokens_summarizer: 700
+    max_tokens_guard: 1024          # reasoning models consume tokens on reasoning trace before output; 25 produces empty string
+    # Groq reasoning controls — gpt-oss-120b specific
+    # reasoning_format "parsed" is required when using tool-calling / structured output
+    # (planner_chain uses with_structured_output — "raw" would cause a 400 error)
+    reasoning_effort: "medium"
+    reasoning_format: "parsed"
+
+search:
+  #provider: "serpapi"            # or "serper" — switch here to change 
+  provider: "serper"           
+
+embeddings:
+  provider: "openai"            
+  model: "text-embedding-3-small"
+
+db:
+  sqlite_path: "data/healthcare.db"
+  faiss_path: "data/faiss"
+  max_recent_turns: 10
+  max_summary_chars: 1500
+  memory_summary_cadence_turns: 3
+  checkpoint_db_path: "data/checkpoints.db"
+  checkpointing_enabled: true
+
+graph:
+  recursion_limit: 100  # maximum number of supersteps to execute 

@@ -1,0 +1,58 @@
+flowchart LR
+    %% ── Entry ────────────────────────────────────────────────────────────────
+    Q(["👤 User Query\n─────────────\n'My 70-year-old father\nhas CKD. Book a\nnephrologist. Summarize\ntreatment methods.'"])
+
+    %% ── Guard ────────────────────────────────────────────────────────────────
+    IG["🛡 intent_guard\n─────────────\nverdict: SAFE\nmedical context\nconfirmed"]
+
+    %% ── Planner ──────────────────────────────────────────────────────────────
+    PL["🧠 planner\n─────────────\ndecomposes into\n4 ordered SubGoals\n\n① resolve_patient\n② retrieve_history\n③ book_appointment\n④ search_disease"]
+
+    %% ── Task nodes ───────────────────────────────────────────────────────────
+    RP["👤 resolve_patient\n─────────────\nSQLite LIKE search\n→ P-4a2f91\n\npending: [②③④]\ncompleted: [①✓]"]
+
+    RH["📋 retrieve_history\n─────────────\nSQLite GET patient\n+ FAISS similarity\n→ LLM synthesis\n\nCKD stage 3,\ncurrent meds,\ncreatinine trend\n\npending: [③④]\ncompleted: [①②✓]"]
+
+    BA["📅 book_appointment\n─────────────\nSQLite slot query\nspecialty=Nephrology\n→ atomic UPDATE\n\nDr. Patel — Nephrology\n2026-05-02 09:00\n\npending: [④]\ncompleted: [①②③✓]"]
+
+    SD["🔬 search_disease\n─────────────\nSerper + Medline fetch\n→ domain filter\n→ LLM synthesis\n\nRAS inhibitors,\nlow-protein diet,\nSGLT2 inhibitors\n\npending: []\ncompleted: [①②③④✓]"]
+
+    %% ── Summarizer ───────────────────────────────────────────────────────────
+    SU["📝 summarizer\n─────────────\nLLM composes\nall 4 TaskResults\ninto one response\n\n→ final_summary\n→ AIMessage written\n   to checkpoint"]
+
+    %% ── Checkpoint ───────────────────────────────────────────────────────────
+    CP[("💾 checkpoints.db\n─────────────\nthread_id = P-4a2f91\nmessages channel\naccumulates\nHumanMessage +\nAIMessage")]
+
+    %% ── Output ───────────────────────────────────────────────────────────────
+    OUT(["✅ Response\n─────────────\n• CKD history summary\n• Appointment confirmed\n  Dr. Patel 2026-05-02\n• Treatment guidelines\n  with citations"])
+
+    %% ── Flow ─────────────────────────────────────────────────────────────────
+    Q   --> IG
+    IG  -->|"SAFE"| PL
+    PL  -->|"pending_tasks\n= [①②③④]"| RP
+    RP  -->|"patient_id\nresolved"| RH
+    RH  -->|"history\nretrieved"| BA
+    BA  -->|"slot\nbooked"| SD
+    SD  -->|"pending = []"| SU
+    SU  --> CP
+    SU  --> OUT
+
+    %% ── State snapshots (notes) ──────────────────────────────────────────────
+    PL -.->|"state written\nto checkpoint\nbefore each node"| CP
+
+    %% ── Styling ──────────────────────────────────────────────────────────────
+    classDef query   fill:#1e293b,stroke:#1e293b,color:#f8fafc
+    classDef guard   fill:#fee2e2,stroke:#ef4444,color:#111
+    classDef planner fill:#ede9fe,stroke:#7c3aed,color:#111
+    classDef task    fill:#dbeafe,stroke:#2563eb,color:#111
+    classDef summary fill:#dcfce7,stroke:#16a34a,color:#111
+    classDef db      fill:#fef9c3,stroke:#ca8a04,color:#111
+    classDef out     fill:#f0fdf4,stroke:#16a34a,color:#111
+
+    class Q query
+    class IG guard
+    class PL planner
+    class RP,RH,BA,SD task
+    class SU summary
+    class CP db
+    class OUT out
