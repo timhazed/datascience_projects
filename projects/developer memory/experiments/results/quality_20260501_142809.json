@@ -1,0 +1,3959 @@
+{
+  "timestamp": "2026-05-01T14:28:09.901418+00:00",
+  "decision_thresholds": {
+    "within_2pp_use_e4b": true,
+    "over_5pp_use_26b": true
+  },
+  "model_summaries": {
+    "gemma4:e4b": {
+      "intent_summarizer": {
+        "n_cases": 8,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.625,
+        "rubric_scorer": "heuristic",
+        "mean_tokens_per_sec": 76.98
+      },
+      "snippet_summarizer": {
+        "n_cases": 5,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.6533,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 75.88
+      },
+      "persona_synthesizer": {
+        "n_cases": 3,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.5167,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 74.99
+      },
+      "coaching_analyzer": {
+        "n_cases": 6,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.6444,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 75.7
+      },
+      "skills_synthesizer": {
+        "n_cases": 2,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.3,
+        "rubric_scorer": "heuristic",
+        "mean_tokens_per_sec": 75.46
+      }
+    },
+    "gemma4:26b": {
+      "intent_summarizer": {
+        "n_cases": 8,
+        "mean_compliance_rate": 0.5,
+        "min_compliance_rate": 0.0,
+        "mean_rubric_rate": 0.3333,
+        "rubric_scorer": "heuristic",
+        "mean_tokens_per_sec": 75.01
+      },
+      "snippet_summarizer": {
+        "n_cases": 5,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.68,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 75.31
+      },
+      "persona_synthesizer": {
+        "n_cases": 3,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.65,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 73.4
+      },
+      "coaching_analyzer": {
+        "n_cases": 6,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.5222,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 74.61
+      },
+      "skills_synthesizer": {
+        "n_cases": 2,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.4,
+        "rubric_scorer": "heuristic",
+        "mean_tokens_per_sec": 74.43
+      }
+    }
+  },
+  "model_results": {
+    "gemma4:e4b": [
+      {
+        "case_id": "intent_sum_001",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 2.055,
+        "avg_tokens_per_sec": 78.46,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 15,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This function processes a payment using an external client (likely Stripe) while ensuring idempotency. It checks a local cache using the idempotency key to prevent redundant charges and returns the stored result if available.\", \"tech_stack\": [\"Idempotency pattern\", \"Payment proce"
+      },
+      {
+        "case_id": "intent_sum_002",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.983,
+        "avg_tokens_per_sec": 78.45,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY these settings exist (system tuning, not just variable names)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This file centralizes various application configuration constants, defining parameters such as database collection names, external service endpoints (Ollama), worker counts, file paths, and operational thresholds.\", \"tech_stack\": [\"Configuration Management\", \"Constants\"], \"semant"
+      },
+      {
+        "case_id": "intent_sum_003",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.221,
+        "avg_tokens_per_sec": 77.81,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Provides a client wrapper for ChromaDB designed to idempotently upsert document chunks. It checks for existing content hashes and updates metadata if the content exists but the file path changes, or inserts new chunks otherwise.\", \"tech_stack\": [\"ChromaDB\", \"Idempotency\", \"Vector"
+      },
+      {
+        "case_id": "intent_sum_004",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.292,
+        "avg_tokens_per_sec": 77.87,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "non-fatal failure handling mentioned or implied in intent_summary"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This function ensures that the necessary AI model is pre-warmed with a dummy request when the server starts up. This proactive step minimizes the latency experienced by the user on the very first request after deployment or restart.\", \"tech_stack\": [\"FastAPI\", \"httpx\", \"asyncio\","
+      },
+      {
+        "case_id": "intent_sum_005",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.101,
+        "avg_tokens_per_sec": 77.95,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "tech_stack includes at least: embeddings or persona or weighting",
+          "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This function calculates a temporal weight for a list of search results based on their indexing date. It boosts the weight of documents indexed within the last 180 days, prioritizing recent content.\", \"tech_stack\": [\"datetime\", \"timedelta\", \"data transformation\"], \"semantic_type\""
+      },
+      {
+        "case_id": "snippet_sum_001",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.785,
+        "avg_tokens_per_sec": 76.92,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer explains the quarantine-not-drop philosophy (not just mechanics)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "reason": "The response only describes the steps without explaining the underlying quarantine-not-drop philosophy."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline actions and the Streamlit UI review panel."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed, only generic semantic_type usage."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "reason": "It only describes mechanics without discussing the quarantine-not-drop philosophy."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details both the pipeline steps and the UI review queue."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "reason": "It only describes mechanics without discussing the quarantine-not-drop philosophy."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details both the backend quarantine process and the Streamlit UI review queue."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed, only generic semantic_type information."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "reason": "It only describes mechanics without discussing the quarantine-not-drop philosophy."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details both the backend quarantine process and the Streamlit UI review queue."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed, only generic semantic_type information."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "reason": "It only describes mechanics without discussing the quarantine-not-drop philosophy."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline steps and the UI review queue."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "Upon masking failure or if the confidence score is below 0.8, the system quarantines the file by:\n\n1.  **Quarantining and Indexing:** The file is marked with the `[CONTENT_QUARANTINED]` sentinel, added to the internal `quarantined_files` list, and upserted to ChromaDB with `semantic_type=quarantine`"
+      },
+      {
+        "case_id": "snippet_sum_002",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.569,
+        "avg_tokens_per_sec": 76.85,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "mentions the operator.add reducer role in safe parallel accumulation"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximum GPU utilization and improved throughput as the reason for using Send."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, guiding developers on when to prefer the pattern."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximum GPU utilization and improved throughput as the reason for using Send."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, guiding developers on when to prefer the pattern."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximum GPU utilization and improved throughput as the reason for using Send."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, guiding developers on when to prefer the pattern."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximum GPU utilization and improved throughput as the reason for using Send."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, guiding developers on when to prefer the pattern."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "It cites GPU utilization and throughput benefits."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or reducer."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with sequential loops, guiding usage."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The sync pipeline uses `Send` to achieve maximum GPU utilization by dispatching all chunks simultaneously into the Ollama request queue. A sequential loop, by contrast, would execute 200 separate, blocking Ollama calls. This parallel approach allows the M4 Max MoE model to process files concurrently"
+      },
+      {
+        "case_id": "snippet_sum_003",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.537,
+        "avg_tokens_per_sec": 76.63,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 14,
+        "rubric_rate": 0.9333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "explains that throughput is equivalent \u2014 the decision is resource-based"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response details that RAM\u202f\u2265\u202f16\u202fGB selects gemma4:26b and lower RAM selects a smaller model."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "PASS",
+                "reason": "It states the selection is RAM\u2011driven, not speed\u2011driven, implying throughput is equivalent."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response references the OLLAMA_MODEL environment variable as being overridden by RAM\u2011based selection."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response details that RAM\u202f\u2265\u202f16\u202fGB selects gemma4:26b and lower RAM selects a smaller model."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "PASS",
+                "reason": "It states the selection is RAM\u2011driven, not speed\u2011driven, implying throughput is considered equal."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response references the OLLAMA_MODEL environment variable as an override point."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response details using 26b for \u226516\u202fGB RAM and a fallback for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "It notes the decision is RAM-driven but does not state throughput is equivalent."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response references the OLLAMA_MODEL environment variable."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response details using gemma4:26b for \u226516\u202fGB RAM and a fallback to gemma4:e4b (or error) for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "PASS",
+                "reason": "It states the selection is RAM\u2011driven, not speed\u2011driven, indicating throughput is considered equivalent."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response explicitly references the OLLAMA_MODEL environment variable."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response details using gemma4:26b for \u226516\u202fGB RAM and a fallback to gemma4:e4b for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "PASS",
+                "reason": "It states the selection is RAM\u2011driven, not speed\u2011driven, indicating throughput is not a factor."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response references the OLLAMA_MODEL environment variable as being overridden by RAM\u2011based selection."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The system selects the model based primarily on the available RAM, which can override the model set by the `OLLAMA_MODEL` environment variable.\n\nThe selection logic is:\n*   **RAM $\\ge$ 16 GB:** Uses `gemma4:26b`.\n*   **RAM 8\u201316 GB:** Uses `gemma4:e4b`.\n*   **RAM < 8 GB:** Raises a `RuntimeError`.\n\nM"
+      },
+      {
+        "case_id": "persona_syn_001",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 14.358,
+        "avg_tokens_per_sec": 75.64,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 13,
+        "rubric_rate": 0.65,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+          "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a clear archetype description."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "FAIL",
+                "reason": "No concrete guideline (e.g., \"check for Pydantic validators\") is provided."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "The description cites concrete practices such as contract\u2011first modelling and functional purity."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "reason": "The field lists stylistic tendencies rather than noting missing patterns."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a clear archetype of a defensive, contract\u2011first developer."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "FAIL",
+                "reason": "The response describes the developer's philosophy but does not give a concrete guideline for reviewers to follow."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "It cites concrete practices such as Pydantic contracts, strict typing, factory closures, and functional purity."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies list concrete anti\u2011patterns like under\u2011documented helpers and over\u2011use of return\u2011value error handling."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a clear archetype of a defensive, contract\u2011first developer."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "FAIL",
+                "reason": "The response describes general habits but does not provide a concrete guideline for reviewers to follow."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "It cites concrete practices such as Pydantic contracts, strict typing, and functional purity, which are actionable for coaching."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies list concrete anti\u2011patterns like under\u2011documenting helpers and preferring return\u2011value error handling."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a clear archetype description."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "FAIL",
+                "reason": "The response describes general habits but does not give a concrete guideline for reviewers."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "It cites concrete practices such as Pydantic contracts, strict typing, and functional purity."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "reason": "The field lists tendencies rather than noting missing patterns like an absent async/await usage."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a clear archetype of a defensive, contract\u2011first developer."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "FAIL",
+                "reason": "The response describes the developer's philosophy but does not give a concrete guideline for reviewers to follow."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "It cites concrete practices such as Pydantic contracts, strict typing, factory closures, and functional purity."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies list concrete anti\u2011patterns like under\u2011documented helpers and overuse of return\u2011value error handling."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"data-contract-first modelling (Pydantic)\", \"strict type annotation enforcement\", \"composition via factory closures\", \"boundary input validation\", \"functional purity (avoiding global state)\"], \"style_summary\": \"A highly defensive, contract-first developer who prioritizes data "
+      },
+      {
+        "case_id": "persona_syn_002",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.254,
+        "avg_tokens_per_sec": 75.79,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+          "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+          "profile does not fabricate patterns not present in the tendency_data"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the sample size or qualify confidence based on the small dataset."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "FAIL",
+                "reason": "The pattern is listed neutrally as \"managing sync/async boundaries\" without being flagged as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response introduces dominant patterns that are not found in the provided tendency data, indicating fabrication."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the sample size or qualify confidence based on the small dataset."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "FAIL",
+                "reason": "The pattern is listed neutrally as \"managing sync/async boundaries\" without being flagged as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response introduces dominant patterns that are not found in the provided tendency data, indicating fabrication."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of sample size or confidence qualifiers."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "FAIL",
+                "reason": "The sync/async pattern is listed neutrally, not flagged as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response includes patterns that may not be present in the provided tendency data, indicating possible fabrication."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the sample size or qualify confidence based on the small dataset."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "FAIL",
+                "reason": "The pattern is listed neutrally as \"managing sync/async boundaries\" rather than being flagged as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response introduces dominant patterns that are not found in the provided tendency data, indicating fabrication."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the sample size or qualify confidence based on the small dataset."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "FAIL",
+                "reason": "The pattern is listed neutrally as \"managing sync/async boundaries\" rather than being flagged as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response introduces dominant patterns that are not found in the provided tendency data, indicating fabrication."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"strong type contract enforcement\", \"managing sync/async boundaries\", \"backend service development\"], \"style_summary\": \"A backend developer who prioritizes explicit type contracts and robust API definitions. They operate in complex, I/O-bound environments, frequently managing "
+      },
+      {
+        "case_id": "coaching_001",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.894,
+        "avg_tokens_per_sec": 76.32,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 8,
+        "rubric_rate": 0.5333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+          "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "FAIL",
+                "reason": "While the deviation_score is 0.8, the response does not mention removal of quarantine logic from the PII sanitizer."
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "The rationale does not reference PII flowing into ChromaDB or masking."
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"validates_inputs_at_boundary\"."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.8, meeting the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII or ChromaDB"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains validates_inputs_at_boundary"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.8, meeting the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII or ChromaDB masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains validates_inputs_at_boundary"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.8, meeting the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII flowing into ChromaDB"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains validates_inputs_at_boundary"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "FAIL",
+                "reason": "While the deviation_score is 0.8, the response does not mention removal of quarantine logic from the PII sanitizer."
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "The rationale does not reference PII flowing into ChromaDB or masking."
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"validates_inputs_at_boundary\"."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.8, \"rationale\": \"The removal of the comprehensive try/except block and the confidence score check significantly increases the risk profile, violating the persona's low risk tolerance and preference for explicit error handling.\", \"patterns_matched\": [\"prefers_explicit_error_retu"
+      },
+      {
+        "case_id": "coaching_002",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 8.163,
+        "avg_tokens_per_sec": 75.12,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 15,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.0, which is below 0.3."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition is consistent with the developer's established pattern, acknowledging alignment."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains 'uses_pydantic_for_data_contracts'."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.3"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "rationale states the addition is consistent with the developer's established pattern"
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains uses_pydantic_for_data_contracts"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.3"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "rationale states the addition is consistent with the developer's established pattern"
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains uses_pydantic_for_data_contracts"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.3"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "rationale states the addition is consistent with the developer's established pattern"
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains uses_pydantic_for_data_contracts"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.3"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "rationale states the addition is consistent with the developer's established pattern"
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains uses_pydantic_for_data_contracts"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.0, \"rationale\": \"The addition of a new field using Pydantic's Field function is perfectly consistent with the developer's established pattern of using Pydantic for data contracts and maintaining type safety.\", \"patterns_matched\": [\"uses_pydantic_for_data_contracts\", \"uses_type_"
+      },
+      {
+        "case_id": "coaching_003",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.176,
+        "avg_tokens_per_sec": 75.89,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+          "mid-function import is also flagged as a style deviation"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.85, meeting the high threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention sovereignty or webhook leakage"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response does not reference any mid-function import"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.85, meeting the >=0.65 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention the sovereignty violation or an external webhook URL"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response does not flag a mid-function import"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.85, meeting the >=0.65 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention the sovereignty violation or an external webhook URL"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response does not flag a mid-function import"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.85, meeting the high threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention the sovereignty violation or webhook URL"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response does not flag a mid-function import"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.85, meeting the high threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention the external webhook or metadata leak"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response does not flag a mid-function import"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.85, \"rationale\": \"Introducing a synchronous, blocking network call (HTTP POST) creates a significant side effect, which increases complexity and risk. This contradicts the persona's low risk tolerance and preference for clean, predictable function boundaries.\", \"patterns_matche"
+      },
+      {
+        "case_id": "coaching_004",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.726,
+        "avg_tokens_per_sec": 75.97,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explains WHY isinstance is safer than string name comparison"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.1, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "The rationale discusses tuple catching and exception flow control, not why isinstance is safer than string name comparison"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.1, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "The rationale does not mention isinstance versus string name comparison"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains validates_inputs_at_boundary"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.1, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "The rationale discusses tuple catching and exception flow control, not why isinstance is safer than string name comparison"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.1, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "The rationale discusses tuple catching but does not explain why isinstance is safer than string name comparison"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.1, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "rationale does not discuss why isinstance is safer than string name comparison"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains validates_inputs_at_boundary"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.1, \"rationale\": \"The refactoring improves exception specificity and safety by using tuple catching, aligning with low risk tolerance. However, the code still relies heavily on exceptions for flow control, which contradicts the stated preference for explicit error returns.\", \"pa"
+      },
+      {
+        "case_id": "coaching_005",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.426,
+        "avg_tokens_per_sec": 76.45,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.6 threshold."
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_type_annotations\"."
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions a style contradiction but does not explicitly reference IDE support or Pydantic validation."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.6 threshold."
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_type_annotations\"."
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions removal of type hints but does not explicitly state the IDE or Pydantic validation impact."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.6 threshold."
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_type_annotations\"."
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions a style contradiction but does not explicitly reference IDE support or Pydantic validation."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.6 threshold."
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_type_annotations\"."
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions removal of type hints but does not explicitly state the IDE or Pydantic validation impact."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains \"uses_type_annotations\""
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention IDE support or Pydantic validation consequences"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.9, \"rationale\": \"The developer removed type annotations from the function signature, directly contradicting the established pattern of using type hints, which is a core part of their coding style.\", \"patterns_matched\": [\"uses_type_annotations\"]}"
+      },
+      {
+        "case_id": "skills_syn_001",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 11.484,
+        "avg_tokens_per_sec": 76.09,
+        "rubric_criteria_count": 5,
+        "rubric_passed_total": 15,
+        "rubric_rate": 0.6,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "minimum 400 words [got 325 words, need 400]",
+          "skills document reads as professional documentation, not a data dump"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "## Tech Stack\n- **Pydantic** \u2014 Primary tool for defining strict data contracts, ensuring type safety across API endpoints and internal data structures.\n- **FastAPI** \u2014 Used for building high-performance, asynchronous API endpoints, leveraging Pydantic for request/response validation.\n- **LangChain /"
+      },
+      {
+        "case_id": "skills_syn_002",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 11.29,
+        "avg_tokens_per_sec": 74.83,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "output acknowledges small corpus (14 documents) as a confidence qualifier",
+          "output notes limited tech diversity (only Python/pytest/Pydantic) without fabricating additional technologies",
+          "output contains all three required sections: ## Tech Stack, ## Patterns, ## Tendencies"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "## Tech Stack\n- **Python** \u2014 The primary language used for all application logic and services.\n- **Pydantic** \u2014 Used extensively for defining data models and ensuring strict runtime type validation for inputs and outputs.\n- **pytest** \u2014 The standard framework for unit and integration testing; all ne"
+      },
+      {
+        "case_id": "intent_sum_006",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.424,
+        "avg_tokens_per_sec": 75.1,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+          "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This module defines regular expressions and a function to detect and mask common types of Personally Identifiable Information (PII) from a given string. It solves the problem of data leakage by redacting sensitive information like emails, IP addresses, and API keys.\", \"tech_stack"
+      },
+      {
+        "case_id": "intent_sum_007",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.361,
+        "avg_tokens_per_sec": 75.15,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This class acts as a file system event handler, specifically designed to detect file modifications within a watched directory. It implements debouncing logic to prevent excessive calls to the synchronization function, ensuring that the sync function is only triggered after a spec"
+      },
+      {
+        "case_id": "intent_sum_008",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.319,
+        "avg_tokens_per_sec": 75.08,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"This file configures various development tools, including pytest, coverage, and ruff, to standardize testing and linting practices. It sets options for running tests, defining code coverage exclusions, and specifying which linting rules should be enforced.\", \"tech_stack\": [\"pytes"
+      },
+      {
+        "case_id": "coaching_006",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.583,
+        "avg_tokens_per_sec": 74.44,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions global mutable state but does not explain that the factory closure already caches the chain via closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched array contains \"avoids_global_mutable_state\" as required."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions global mutable state but does not explain that the factory closure already caches the chain via closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The response lists \"avoids_global_mutable_state\" in its patterns_matched array."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions global mutable state but does not state that the closure already caches the chain, so it fails to meet the requirement."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains 'avoids_global_mutable_state', satisfying the criterion."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.9, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions global mutable state but does not explain that the factory closure already provides caching via its closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "The response lists \"avoids_global_mutable_state\" in its patterns_matched array."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention the closure\u2011based caching, only cites global mutable state"
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains the required pattern"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.9, \"rationale\": \"The introduction and reliance on `_CHAIN_CACHE` constitutes a global mutable state, which directly violates the developer's core pattern of avoiding such structures.\", \"patterns_matched\": [\"avoids_global_mutable_state\"]}"
+      },
+      {
+        "case_id": "persona_syn_003",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 12.75,
+        "avg_tokens_per_sec": 73.54,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 18,
+        "rubric_rate": 0.9,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "The response lists patterns but does not provide a named archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "PASS",
+                "reason": "It outlines concrete patterns and tendencies that a reviewer can check against."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "The 'deviation_tendencies' field lists specific behaviors to watch for."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns are consistent with the input description."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "PASS",
+                "reason": "The style_summary explicitly labels the persona as a 'contract-first developer', providing a clear archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "PASS",
+                "reason": "The dominant_patterns and deviation_tendencies give concrete criteria a reviewer can check against a PR."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "The 'deviation_tendencies' field lists specific tendencies to watch for."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns and tendencies are derived from the provided response and no extraneous patterns are introduced."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "The response lists patterns and a style summary but does not provide a specific named archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "PASS",
+                "reason": "It enumerates concrete patterns and deviation tendencies that a reviewer can check against."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "The 'deviation_tendencies' field lists specific behaviors to watch for."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns are consistent with the input and no extraneous patterns are introduced."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "PASS",
+                "reason": "The style_summary explicitly labels the persona as a 'contract-first developer', providing a clear archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "PASS",
+                "reason": "The dominant_patterns and deviation_tendencies give concrete criteria a reviewer can check against."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "The 'deviation_tendencies' list outlines specific deviation cues to flag."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns and tendencies are consistent with the described contract\u2011first, type\u2011strict approach and no extraneous patterns are introduced."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "PASS",
+                "reason": "The style_summary explicitly labels the persona as a 'contract-first developer', providing a clear archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "PASS",
+                "reason": "The dominant_patterns and deviation_tendencies give concrete criteria a reviewer can check against a PR."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "The 'deviation_tendencies' list specifies behaviors to watch for."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns and tendencies are plausible and consistent with a contract\u2011first, type\u2011strict approach, with no extraneous invented concepts."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"explicit data contract definition (Pydantic)\", \"composition over inheritance (factory closures)\", \"strict type annotation enforcement\", \"boundary input validation\", \"functional purity and state isolation\"], \"style_summary\": \"A highly disciplined, contract-first developer who "
+      },
+      {
+        "case_id": "snippet_sum_004",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 4.748,
+        "avg_tokens_per_sec": 74.49,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+          "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only mentions truncation and does not contrast it with a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "The response contains no retry internals or exception details."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only mentions truncation and does not contrast it with a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only notes truncation and does not contrast it with a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only notes truncation due to token limit and does not differentiate it from a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed in the answer."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only notes truncation and does not contrast it with a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The model's output is capped at 512 tokens because `num_predict=512` is set on the `intent_summarizer` via the `ChatOllama` constructor, causing the output to be truncated at that limit."
+      },
+      {
+        "case_id": "snippet_sum_005",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.632,
+        "avg_tokens_per_sec": 74.53,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing the parser, updating routing, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file at tests/agents/test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing the parser, updating routing, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file at tests/agents/test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing the parser, updating routing, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file at tests/agents/test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "Provides clear steps to implement parser, update routing, and add tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "Does not discuss the plain function vs node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "Specifies creating test_X_parser.py in tests/agents/."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing the parser, updating routing, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file in tests/agents/ named test_X_parser.py."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "1.  **Implement the Parser:** Create the new parser module, ensuring it exports a `parse_file(path, content)` function.\n2.  **Update Routing:** Modify `src/agents/multimodal_parser.py` by adding the new file extension mapping to the dispatch dictionary.\n3.  **Add Tests:** Create a corresponding test"
+      }
+    ],
+    "gemma4:26b": [
+      {
+        "case_id": "intent_sum_001",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 8.479,
+        "avg_tokens_per_sec": 75.41,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+          "tech_stack includes at least one of: Stripe, payments, financial",
+          "semantic_type is Logic or Interface"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_002",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 7.213,
+        "avg_tokens_per_sec": 75.38,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "semantic_type is Config",
+          "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+          "tech_stack includes ChromaDB or Ollama"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_003",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 7.292,
+        "avg_tokens_per_sec": 74.7,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+          "semantic_type is Logic or Interface"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Implements an idempotent client for ChromaDB that manages chunk insertion and updates using content hashes to prevent duplicate entries and ensure metadata consistency.\", \"tech_stack\":"
+      },
+      {
+        "case_id": "intent_sum_004",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 7.247,
+        "avg_tokens_per_sec": 74.96,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "non-fatal failure handling mentioned or implied in intent_summary",
+          "semantic_type is Config or Logic",
+          "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_005",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.784,
+        "avg_tokens_per_sec": 75.0,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Implements a temporal weighting algorithm that boosts the importance of documents indexed within the last 180 days, allowing for recency-biased retrieval results.\", \"tech_stack\": [\"Python\", \"datetime\", \"temporal weighting\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "snippet_sum_001",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 8.627,
+        "avg_tokens_per_sec": 75.19,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 15,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "reason": "The response clarifies that files are quarantined rather than dropped, emphasizing review instead of deletion."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline steps (masking failure, confidence check, sentinel, ChromaDB upsert) and the UI review queue for manual approval."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack trace information are revealed."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "reason": "The response clarifies that files are quarantined rather than dropped, emphasizing review before removal."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline steps (masking failure, sentinel, ChromaDB upsert) and the UI review queue for manual action."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed; only generic semantic_type is mentioned."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "reason": "The response clarifies that files are quarantined rather than dropped, emphasizing review instead of deletion."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline steps (masking failure, confidence check, sentinel, ChromaDB upsert) and the UI review queue for manual approval."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed; only generic semantic_type information is mentioned."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "reason": "The response clarifies that files are quarantined rather than dropped, emphasizing review instead of deletion."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It details the pipeline steps (masking failure, confidence check, sentinel, ChromaDB upsert) and the UI review queue for manual approval."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed; only generic semantic_type information is mentioned."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "reason": "It states that files are quarantined rather than dropped, emphasizing review before removal."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "reason": "It describes the pipeline steps (masking failure, sentinel, ChromaDB upsert) and the UI review queue for manual action."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "reason": "No internal IDs or stack traces are revealed; only generic semantic_type is mentioned."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "If masking fails or confidence is below 0.8, the system quarantines the file by adding a `[CONTENT_QUARANTINED]` sentinel, adding it to the `quarantined_files` list, and upserting it to ChromaDB with `semantic_type=quarantine`. These files are not indexed as normal content but are displayed in a \"PI"
+      },
+      {
+        "case_id": "snippet_sum_002",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.203,
+        "avg_tokens_per_sec": 75.57,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 11,
+        "rubric_rate": 0.7333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "mentions the operator.add reducer role in safe parallel accumulation"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "It states the parallel dispatch maximizes GPU utilization, explaining the throughput motivation."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "PASS",
+                "reason": "It notes that summaries are accumulated using operator.add, indicating its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel dispatch with a sequential loop, guiding developers on when to apply the pattern."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximizing GPU utilization as the reason for parallel dispatch."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, indicating when to prefer the pattern for GPU throughput."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximizing GPU utilization as the reason for parallel dispatch."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, indicating when to prefer the pattern for GPU throughput."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximizing GPU utilization as the reason for parallel dispatch."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, indicating when to prefer the pattern for GPU throughput."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "reason": "The response cites maximizing GPU utilization as the reason for parallel dispatch."
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "reason": "The response does not reference operator.add or its reducer role."
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "reason": "It contrasts parallel Send with a sequential loop, indicating when to prefer the pattern for GPU throughput."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The `Send` mechanism enables parallel dispatch of `ParsedChunk` objects to the `intent_summarizer`, allowing files to be processed simultaneously in the Ollama request queue. This maximizes GPU utilization for the M4 Max MoE model, whereas a sequential loop would result in 200 sequential Ollama call"
+      },
+      {
+        "case_id": "snippet_sum_003",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.448,
+        "avg_tokens_per_sec": 74.94,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "explains that throughput is equivalent \u2014 the decision is resource-based"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response states gemma4:26b is used when RAM\u202f\u2265\u202f16\u202fGB and gemma4:e4b when RAM is between 8\u201116\u202fGB."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "It notes the decision is RAM\u2011driven but does not mention that throughput is equivalent."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response references the OLLAMA_MODEL environment variable as a way to set a preferred model."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response states 26b is used when RAM \u226516\u202fGB and falls back to e4b when RAM is <16\u202fGB."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "The response does not mention throughput equivalence, only RAM\u2011based selection."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "It notes the OLLAMA_MODEL variable can set a preferred model."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "It states 26b is used when RAM \u226516\u202fGB and falls back to e4b for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "It does not mention throughput equivalence."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "It notes the OLLAMA_MODEL variable can set a preferred model."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response states 26b is used when RAM \u226516\u202fGB and falls back to e4b for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "The response does not mention throughput equivalence."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response notes the OLLAMA_MODEL variable can set a preferred model."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "reason": "The response states 26b is used for \u226516\u202fGB RAM and falls back to e4b for lower RAM."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "reason": "The response does not mention throughput equivalence."
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "reason": "The response notes the OLLAMA_MODEL variable can set a preferred model."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The system uses `gemma4:26b` or `gemma4:e4b` based on available RAM. Selection follows these rules:\n* **RAM $\\ge$ 16 GB**: Uses `gemma4:26b`.\n* **RAM 8\u201316 GB**: Uses `gemma4:e4b`.\n* **RAM < 8 GB**: Raises a `RuntimeError`.\n\nWhile the `OLLAMA_MODEL` environment variable can set a preferred model, the"
+      },
+      {
+        "case_id": "persona_syn_001",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 13.26,
+        "avg_tokens_per_sec": 73.13,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 17,
+        "rubric_rate": 0.85,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary combines the listed patterns into a clear archetype of a defensive, contract\u2011oriented developer."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "reason": "It advises reviewers to look for factory closures, Pydantic models, and avoidance of deep class hierarchies and global mutable state."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "The description includes concrete preferences (functional\u2011lite architecture, strict type\u2011annotated interfaces) that are actionable for coaching."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies note the developer may eschew standard OO patterns, indicating a missing pattern."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary weaves the listed patterns into a unified contract\u2011driven developer archetype."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "reason": "It advises reviewers to check for strict boundary validation and the avoidance of global mutable state."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "The description cites concrete practices such as Pydantic contracts, functional factories, and type\u2011annotated interfaces."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "reason": "The deviation_tendencies list does not clearly indicate missing patterns, only mentions over\u2011reliance on exceptions and Pydantic."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary combines the listed patterns into a clear contract\u2011driven developer archetype."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "reason": "Guidelines such as enforcing strict boundary validation and avoiding global mutable state are actionable for reviewers."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "It cites concrete patterns (Pydantic contracts, functional factories, type\u2011annotated interfaces) rather than vague traits."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies note reliance on standard exception handling and heavy Pydantic dependency, indicating missing or overused patterns."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "The style_summary integrates the listed patterns into a clear contract\u2011driven archetype."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "reason": "Guidelines such as checking for strict boundary validation and avoiding global mutable state are provided."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "The description cites concrete practices like Pydantic models, functional factories, and immutable design."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "reason": "The field lists tendencies but does not explicitly note missing patterns."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "reason": "Provides a style_summary that unifies the listed patterns into a clear archetype."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "reason": "Suggests checking for strict boundary validation and avoidance of global mutable state."
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "reason": "Details concrete practices such as Pydantic contracts and functional factories."
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "reason": "The field lists tendencies but does not explicitly note missing patterns."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"pydantic-driven data contracts\", \"functional factory patterns\", \"strict type-annotated interfaces\", \"boundary-level input validation\", \"stateless/immutable-focused design\"], \"style_summary\": \"A contract-driven developer who prioritizes structural integrity and predictability "
+      },
+      {
+        "case_id": "persona_syn_002",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 13.244,
+        "avg_tokens_per_sec": 73.83,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 9,
+        "rubric_rate": 0.6,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+          "profile does not fabricate patterns not present in the tendency_data"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of the sample size or confidence qualifier."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies explicitly label asynchronous mixing as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "PASS",
+                "reason": "No invented patterns are evident; all listed patterns could plausibly derive from the data."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of sample size or confidence qualifier."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "reason": "The response explicitly calls out a risk of event-loop blocking due to unmanaged sync/async mixing."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "PASS",
+                "reason": "All listed patterns appear plausible and no evidence of fabrication is present."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of the sample size or confidence qualifier."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies explicitly label asynchronous mixing as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "reason": "The response lists patterns that cannot be verified against the provided tendency_data, suggesting possible fabrication."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of the sample size or confidence qualifier."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "reason": "The response explicitly labels asynchronous mixing as a risk in deviation_tendencies."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "PASS",
+                "reason": "No evidence of invented patterns; all listed patterns appear plausible and consistent with typical tendency data."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of the sample size or confidence qualifier."
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "reason": "The deviation_tendencies explicitly label asynchronous mixing as a risk."
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "PASS",
+                "reason": "No invented patterns are evident; all listed patterns could plausibly derive from the data."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"dominant_patterns\": [\n    \"type-driven development\",\n    \"hybrid sync/async execution\",\n    \"monolithic function design\"\n  ],\n  \"style_summary\": \"A developer who prioritizes explicit type contracts to ensure interface clarity, yet adopts a procedural, monolithic approach to implementation that "
+      },
+      {
+        "case_id": "coaching_001",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.825,
+        "avg_tokens_per_sec": 74.34,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+          "patterns_matched includes validates_inputs_at_boundary as a deviated pattern"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII flowing into ChromaDB or masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and lacks the required pattern"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII flowing into ChromaDB without masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not include validates_inputs_at_boundary"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII flowing into ChromaDB or masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not include the required pattern"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII, ChromaDB, or masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not contain the required pattern"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.7 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention PII flowing into ChromaDB without masking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not include validates_inputs_at_boundary"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "```json\n{\n  \"deviation_score\": 0.9,\n  \"rationale\": \"The diff removes critical input validation (threshold check) and error handling, directly contradicting the persona's low risk tolerance and boundary validation patterns.\",\n  \"patterns_matched\": []\n}\n```"
+      },
+      {
+        "case_id": "coaching_002",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.42,
+        "avg_tokens_per_sec": 74.96,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 15,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The deviation_score is 0.0, which is below the 0.3 threshold."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition aligns perfectly with the persona's use of Pydantic, confirming it as an additive improvement."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_pydantic_for_data_contracts\"."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.0, which is below 0.3."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition aligns perfectly with the persona's use of Pydantic, confirming it as an additive improvement."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_pydantic_for_data_contracts\"."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.0, which is below 0.3."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition aligns perfectly with the persona's use of Pydantic, confirming it as an additive improvement."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_pydantic_for_data_contracts\"."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.0, which is below the 0.3 threshold."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition aligns perfectly with the persona's use of Pydantic, confirming it as an additive improvement."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_pydantic_for_data_contracts\"."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.0, which is below the 0.3 threshold."
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "reason": "The rationale states the addition aligns perfectly with the persona's use of Pydantic, confirming it as an additive improvement."
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "reason": "The patterns_matched list contains \"uses_pydantic_for_data_contracts\"."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.0, \"rationale\": \"The addition of a validated Pydantic field with type annotations and constraints aligns perfectly with the persona's use of Pydantic for data contracts.\", \"patterns_matched\": [\"uses_pydantic_for_data_contracts\", \"uses_type_annotations\"]}"
+      },
+      {
+        "case_id": "coaching_003",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 16.276,
+        "avg_tokens_per_sec": 74.32,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+          "mid-function import is also flagged as a style deviation"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.7, meeting the threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention webhook URL or repo metadata"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "no mid-function import is identified in the response"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.7, meeting the threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention webhook URL or repo metadata"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "no mid-function import is identified in the response"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.7, which meets the >=0.65 threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not explicitly mention the external webhook URL or metadata leakage"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "response contains no reference to a mid-function import"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.7, meeting the threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention webhook URL or repo metadata"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "no mid-function import is identified in the response"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.7, meeting the threshold"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention webhook URL or repo metadata"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "reason": "no mid-function import is identified in the response"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.7, \"rationale\": \"The implementation introduces an external network call using an unvalidated environment variable and payload, failing to validate inputs at the boundary as required by the persona.\", \"patterns_matched\": []}"
+      },
+      {
+        "case_id": "coaching_004",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 20.416,
+        "avg_tokens_per_sec": 73.99,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 11,
+        "rubric_rate": 0.7333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explains WHY isinstance is safer than string name comparison"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "PASS",
+                "reason": "rationale states that using specific exception types instead of string-based checks is more robust"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched list contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention isinstance, only refers to string-based checking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention isinstance, only refers to string-based checking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention isinstance, only refers to string-based checking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.0, which is below 0.2"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention isinstance, only refers to string-based checking"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "reason": "patterns_matched contains \"validates_inputs_at_boundary\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.0, \"rationale\": \"The refactor replaces fragile string-based type checking with explicit exception handling for `ValidationError`, aligning with the persona's focus on validation and type-aware logic.\", \"patterns_matched\": [\"validates_inputs_at_boundary\"]}"
+      },
+      {
+        "case_id": "coaching_005",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.915,
+        "avg_tokens_per_sec": 75.53,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+          "patterns_matched includes uses_type_annotations as a deviated pattern"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not contain uses_type_annotations"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale mentions removal of annotations but does not reference IDE support or Pydantic validation"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not include uses_type_annotations"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention IDE support or Pydantic validation consequences"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not include uses_type_annotations"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale does not mention IDE support or Pydantic validation consequences"
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not contain uses_type_annotations"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale mentions removal of annotations but does not reference IDE support or Pydantic validation"
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "reason": "deviation_score is 0.9, which meets the >=0.6 threshold"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "patterns_matched is empty and does not contain uses_type_annotations"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "reason": "rationale mentions removal of annotations but does not reference IDE support or Pydantic validation"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.9, \"rationale\": \"The diff removes explicit type annotations, which is a core dominant pattern for this developer.\", \"patterns_matched\": []}"
+      },
+      {
+        "case_id": "skills_syn_001",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 17.865,
+        "avg_tokens_per_sec": 74.29,
+        "rubric_criteria_count": 5,
+        "rubric_passed_total": 20,
+        "rubric_rate": 0.8,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "minimum 400 words [got 249 words, need 400]"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "## Tech Stack\n- **Pydantic** \u2014 enforces strict data contracts and schema validation across all modules\n- **FastAPI** \u2014 provides the high-performance asynchronous API layer for the service\n- **LangGraph & LangChain** \u2014 orchestrates complex, stateful LLM workflows and agentic pipelines\n- **ChromaDB** "
+      },
+      {
+        "case_id": "skills_syn_002",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 19.13,
+        "avg_tokens_per_sec": 74.56,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "output acknowledges small corpus (14 documents) as a confidence qualifier",
+          "output notes limited tech diversity (only Python/pytest/Pydantic) without fabricating additional technologies",
+          "output contains all three required sections: ## Tech Stack, ## Patterns, ## Tendencies"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "## Tech Stack\n- **Python** \u2014 the primary language used for all core business logic and service implementation\n- **pytest** \u2014 the standard framework for executing unit and integration tests\n- **Pydantic** \u2014 utilized for robust data validation and defining structured schemas\n\n## Patterns\n- **Type Anno"
+      },
+      {
+        "case_id": "intent_sum_006",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.635,
+        "avg_tokens_per_sec": 74.58,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+          "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Provides a utility to detect and redact sensitive information such as emails, IPv4 addresses, and API keys from text strings to prevent accidental data leakage.\", \"tech_stack\": [\"re\", \"Regular Expressions\", \"Python\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "intent_sum_007",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.843,
+        "avg_tokens_per_sec": 74.87,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Implements a file system event handler that triggers an incremental synchronization function upon file modifications, utilizing a debouncing mechanism to prevent excessive sync calls during rapid file changes.\", \"tech_stack\": [\"watchdog\", \"Python\", \"Debouncing pattern\", \"File sys"
+      },
+      {
+        "case_id": "intent_sum_008",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.18,
+        "avg_tokens_per_sec": 75.17,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "heuristic",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)"
+        ],
+        "judge_evaluations": [],
+        "last_response_preview": "{\"intent_summary\": \"Configures the project's development environment by defining testing parameters for pytest, coverage reporting rules, and linting standards for Ruff.\", \"tech_stack\": [\"pytest\", \"coverage.py\", \"Ruff\", \"TOML\"], \"semantic_type\": \"Config\"}"
+      },
+      {
+        "case_id": "coaching_006",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.084,
+        "avg_tokens_per_sec": 74.53,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.4,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+          "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.8, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions global mutable state but does not explain that the factory closure already caches the chain via closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "The listed patterns do not contain \"avoids_global_mutable_state\"."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.8, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions the violation of global mutable state but does not explain that the factory closure already caches the chain."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "The listed patterns do not contain \"avoids_global_mutable_state\"."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.8, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "PASS",
+                "reason": "The rationale states that the global cache defeats the existing closure pattern, indicating the closure already handles caching."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "The listed patterns do not contain \"avoids_global_mutable_state\"."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.8, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions the violation of avoiding global mutable state but does not explain that the factory closure already caches the chain via its closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "The listed patterns are \"prefers_factory_closures_over_classes\" and \"uses_type_annotations\", not \"avoids_global_mutable_state\"."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "reason": "The response reports a deviation_score of 0.8, which meets the >=0.7 threshold."
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "reason": "The rationale mentions the violation of avoiding global mutable state but does not explain that the factory closure already caches the chain via its closure scope."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "reason": "The listed patterns do not contain \"avoids_global_mutable_state\"."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.8, \"rationale\": \"The introduction of `_CHAIN_CACHE` to store the chain globally directly violates the developer's core pattern of avoiding global mutable state.\", \"patterns_matched\": [\"prefers_factory_closures_over_classes\", \"uses_type_annotations\"]}"
+      },
+      {
+        "case_id": "persona_syn_003",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 12.813,
+        "avg_tokens_per_sec": 73.24,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.5,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+          "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "The response lists patterns but does not provide a named archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "reason": "It lacks concrete actionable guidance for reviewers."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "It provides a 'deviation_tendencies' list indicating what to watch for."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns appear to be derived from the given input."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "The response lists patterns and a style summary but does not provide a named archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "reason": "It lacks concrete actionable guidance or checklist for reviewers."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "It includes a 'deviation_tendencies' field describing potential deviation."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns appear consistent with the input and no extraneous patterns are introduced."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "The response provides a descriptive summary but does not give a concise named archetype."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "reason": "It lacks concrete, actionable checklist items for reviewers."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "It includes a deviation_tendencies field indicating potential deviation focus."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns match the input without adding new ones."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "No explicit named archetype is provided."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "reason": "The output lacks concrete actionable guidance or checklist for reviewers."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "It includes a 'deviation_tendencies' field describing potential deviations."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns appear plausible and no extraneous patterns are introduced."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "reason": "No named archetype is provided."
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "reason": "The response lacks concrete actionable guidance for reviewers."
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "reason": "It includes a deviation_tendencies section indicating potential deviations."
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "reason": "All listed patterns appear consistent with the input and no extraneous patterns are introduced."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"contract-driven data modeling with Pydantic\", \"functional-style factory closures\", \"defensive boundary validation\", \"strict type-annotated APIs\", \"stateless/immutable-oriented design\"], \"style_summary\": \"A contract-driven developer who prioritizes system reliability through s"
+      },
+      {
+        "case_id": "snippet_sum_004",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 4.954,
+        "avg_tokens_per_sec": 75.83,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+          "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "It only mentions truncation and does not differentiate from failure."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "No mention of graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only mentions truncation and does not differentiate it from an explicit failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not discuss graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are revealed in the answer."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "It only mentions truncation and does not differentiate from a failure state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response does not mention graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "No retry internals or exception types are exposed."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "It only mentions truncation and does not differentiate from failure."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "No mention of graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "The response contains no retry internals or exception details."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "reason": "The response only notes truncation and does not contrast it with an explicit error state."
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "reason": "The response makes no mention of graceful degradation or pipeline continuation."
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "reason": "The response contains no retry internals or exception type details."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The `intent_summarizer` has a `num_predict` cap of 512 tokens set via the `ChatOllama` constructor, which causes the model to truncate its output at 512 tokens."
+      },
+      {
+        "case_id": "snippet_sum_005",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 5,
+        "compliance_passes": 5,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.962,
+        "avg_tokens_per_sec": 75.04,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 10,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing parse_file, updating the dispatch mapping, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file in tests/agents/ named test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing parse_file, updating the dispatch mapping, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file in tests/agents/ (e.g., test_X_parser.py)."
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "Provides clear step-by-step instructions including parser implementation, routing update, and test creation."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "Does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "Specifies creating a test file in tests/agents/ named test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 4,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "The response lists implementing parse_file, updating the dispatch mapping, and adding tests."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "The response does not mention the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "It specifies creating a test file in tests/agents/ like test_X_parser.py."
+              }
+            ]
+          },
+          {
+            "run": 5,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "reason": "Provides clear step-by-step instructions including parser implementation, routing update, and test creation."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "reason": "Does not discuss the plain function versus node factory distinction."
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "reason": "Specifies creating a test file in tests/agents/ named test_X_parser.py."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "To add a new file type parser, follow these steps:\n\n1.  **Implement the parser**: Create a new parser module that exports a `parse_file(path, content)` function.\n2.  **Update routing**: Add the new file extension mapping to the `dispatch` dictionary in `src/agents/multimodal_parser.py`.\n3.  **Add te"
+      }
+    ]
+  }
+}

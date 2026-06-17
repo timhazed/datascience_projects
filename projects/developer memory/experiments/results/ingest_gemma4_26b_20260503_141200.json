@@ -1,0 +1,39 @@
+{
+  "run_id": "ingest_gemma4_26b_20260503_141200",
+  "experiment": "E-INGEST-01",
+  "timestamp": "2026-05-03T14:12:00.437449+00:00",
+  "config": {
+    "llm_model": "gemma4:26b",
+    "embed_model": "nomic-embed-text",
+    "max_files_per_repo": 10,
+    "path": "src.server.sync_repository() [production]"
+  },
+  "summary": {
+    "total_repos": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "total_chunks_upserted": 1,
+    "total_files_quarantined": 1,
+    "total_elapsed_seconds": 8.8
+  },
+  "repo_results": [
+    {
+      "label": "datascience_projects",
+      "repo_url": "https://github.com/timhazed/datascience_projects",
+      "branch": "trunk",
+      "success": true,
+      "upsert_count": 1,
+      "quarantine_count": 1,
+      "error": null,
+      "elapsed_seconds": 8.8,
+      "trace_tail": [
+        "delta_extractor: 1 changed files",
+        "delta_extractor: 1 changed files",
+        "pii_sanitizer: quarantine README.md",
+        "chunk_dispatcher: no chunks \u2014 routing to chroma_upsert",
+        "chroma_upsert: quarantine README.md"
+      ]
+    }
+  ]
+}

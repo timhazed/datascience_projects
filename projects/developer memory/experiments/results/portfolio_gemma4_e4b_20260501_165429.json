@@ -1,0 +1,65 @@
+{
+  "run_id": "portfolio_gemma4_e4b_20260501_165429",
+  "model": "gemma4:e4b",
+  "embed_model": "nomic-embed-text",
+  "timestamp": "2026-05-01T21:54:29.828671+00:00",
+  "projects": [
+    "agentic_healthcare_assistant",
+    "newsgenie",
+    "exercise_and_health_coach"
+  ],
+  "ingest_stats": null,
+  "query_results": [
+    {
+      "id": "pq012",
+      "query": "What are the top three technical strengths consistent across my portfolio of projects?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Expected themes: structured output via Pydantic, graceful fallback / retry patterns, multi-agent coordination. The hardest query \u2014 requires cross-project synthesis from indexed intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/intake_agent.py",
+          "chunk_index": 2,
+          "content_preview": ")",
+          "cosine_distance": 0.4415
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/search/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Experiment 2 \u2014 Disease Search Findings\n\n## Runs\n\n| Date | RAGAS faithfulness | Success rate | Avg latency | Notes |\n|------|--------------------|-------------|-------------|-------|\n| 2026-04-09 | Not computed (manual QA) | 20/20 (100%) | 1,660ms | Baseline run; RAGAS noted as future enhancement |\n| 2026-04-14 | **0.960 \u2713 PASS** | 20/20 (100%) | 2,037ms | Automated RAGAS faithfulness added; Medline abstracts enabled |\n\n---\n\n## Latest Run \u2014 2026-04-14\n\n### Model\n`llama-3.3-70b-versatile` (Groq)\n\n### Search providers\nSerper (Google Search) + Medline (NCBI PubMed E-utilities, Title/Abstract sea",
+          "cosine_distance": 0.4423
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 3,
+          "content_preview": "the tiered `_create_general_response` path unchanged. Log this as a known gap.\n5. **Other `GENERAL_QUESTION` / `CLARIFICATION`** \u2014 tiered `_create_general_response` (definitional \u2192 contextual \u2192 menu).\n6. **Exercise / recovery intake and workflows** \u2014 as today, with aligned `is_complete_for_recovery` and split missing-field lists.\n\n### `INTAKE_UPDATE` completion path\n\nWhen intake is complete but the user only sent demographics/injury, `state_router.py` 168\u2013175 returns `GENERAL_RESPONSE` (\"ready for request\"). **Coach** must respond consistently: **continue recovery thread** (e.g. offer to gener",
+          "cosine_distance": 0.4442
+        },
+        {
+          "project": "newsgenie",
+          "path": "docs/Experiments_Lessons_Learned.md",
+          "chunk_index": 1,
+          "content_preview": "oq `gpt-oss-20b` | 80% (8/10) | ~3.3 |\n\n**Per-intent pattern (top models):** Sports News and Web Search reached **100%** precision/recall on the mini set; **Business vs General** drove the misses.\n\n**Consensus error:** All four models misclassified the same case \u2014 **\u201cGlobal Chip Shortage\u201d** \u2014 as **General News** where ground truth labeled **Business News**. That points to **taxonomy ambiguity** (macro supply-chain vs \u201cgeneral\u201d world news), not a single flaky model.\n\n### Lessons learned\n\n1. **Mini benchmarks are directional.** They do **not** replace the production criterion (\u226590% on a **50-que",
+          "cosine_distance": 0.4495
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/history/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Findings \u2014 Experiment 1: Medical History Management\n\n## Run: 2026-04-10\n\n| Field | Value |\n|-------|-------|\n| Date | 2026-04-10 |\n| Model | `llama-3.3-70b-versatile` |\n| Embeddings | `text-embedding-3-small` |\n| Dataset | `dataset/` (original_data + generated_data, ~30 patients) |\n| QA input | `experiments/history/data/history_qanda.jsonl` |\n| Test cases | 6 (1 write round-trip + 5 QA pairs) |\n\n### Results\n\n| Test case | Patient | Result | Latency | Score |\n|-----------|---------|--------|---------|-------|\n| Write round-trip | David Thompson | \u2713 PASS | 6ms | \u2014 |\n| Diagnosis QA | Ramesh Kul",
+          "cosine_distance": 0.4564
+        }
+      ],
+      "answer": "## Portfolio Synthesis: Top Technical Strengths\n\nBased on the provided summaries, your portfolio demonstrates a high degree of technical maturity across multiple domains. The consistent strengths are not limited to a single technology but rather encompass sophisticated architectural patterns and rigorous development practices.\n\n### \ud83d\udd0d Extraction Summary\n\nThe following projects provide relevant technical data:\n*   **[agentic_healthcare_assistant]** (Summaries [2] and [5]): Demonstrates advanced RAG implementation, external API integration (Medline, Serper), and structured QA testing.\n*   **[exercise_and_health_coach]** (Summaries [1] and [3]): Focuses on complex, multi-step conversational state management and workflow refinement.\n*   **[newsgenie]** (Summary [4]): Highlights deep analysis of classification ambiguity and the necessity of robust, multi-model benchmarking.\n\n### \ud83d\udd04 Contrast Analysis\n\nWhile the projects tackle vastly different domains (medical search, fitness coaching, news classification), the technical approaches reveal distinct areas of focus:\n\n| Feature | [agentic_healthcare_assistant] | [exercise_and_health_coach] | [newsgenie] |\n| :--- | :--- | :--- | :--- |\n| **Primary Focus** | Knowledge Retrieval & Structured QA | Conversational State & Workflow | Classification & Taxonomy Resolution |\n| **Key Technical Pattern** | Integrating external, specialized data sources (Medline, Serper) [agentic_healthcare_assistant]. | Defining explicit state transitions and consistent agent behavior (e.g., `state_router.py` logic) [exercise_and_health_coach]. | Identifying systemic failure modes and ambiguity across models (e.g., \"Global Chip Shortage\") [newsgenie]. |\n| **Evaluation Rigor** | Quantitative metrics (RAGAS faithfulness, Success rate, Latency) [agentic_healthcare_assistant]. | Defining specific, required agent responses for continuity (e.g., \"continue recovery thread\") [exercise_and_health_coach]. | Establishing directional benchmarks and identifying limitations of mini-sets [newsgenie]. |\n\nThe contrast shows that the portfolio is not merely using LLMs, but is applying specialized architectural patterns\u2014**Knowledge Graph/RAG** for medical data, **Finite State Machine** for coaching, and **Taxonomy Mapping** for news\u2014to solve domain-specific problems.\n\n### \u2728 Synthesis: Top Three Technical Strengths\n\nThe top three technical strengths consistent across your portfolio are:\n\n#### 1. Advanced Retrieval-Augmented Generation (RAG) and Knowledge Integration\nYou consistently demonstrate the ability to move beyond simple LLM prompting by integrating specialized, external knowledge bases. This is critical for building reliable, domain-specific agents.\n*   **Evidence:** Successful integration of specialized APIs like Medline and Serper for medical search [agentic_healthcare_assistant].\n*   **Evidence:** Utilizing specific, modern embedding models (`text-embedding-3-small`) for structured data retrieval and QA [agentic_healthcare_assistant].\n\n#### 2. Robust State and Workflow Management\nThe architecture shows a strong focus on managing complex, multi-step user interactions, ensuring the agent maintains context and guides the user through defined processes.\n*   **Evidence:** Implementing detailed state routing logic (`state_router.py`) to manage the transition from intake completion to general request handling [exercise_and_health_coach].\n*   **Evidence:** Defining consistent, required agent behavior (e.g., the coach must \"continue recovery thread\") to maintain conversational continuity [exercise_and_health_coach].\n\n#### 3. Rigorous, Multi-Dimensional Evaluation and Benchmarking\nA defining strength is the commitment to measurable performance, moving beyond anecdotal success. You are systematically tracking metrics and identifying systemic failure points.\n*   **Evidence:** Tracking quantitative metrics like RAGAS faithfulness, Success rate, and Avg latency across multiple runs [agentic_healthcare_assistant].\n*   **Evidence:** Conducting deep analysis to identify *systemic* errors (e.g., \"taxonomy ambiguity\" causing consensus error across four models) rather than blaming a single model [newsgenie].\n*   **Evidence:** Defining clear test cases (e.g., \"Write round-trip,\" \"Diagnosis QA\") and tracking scores and latency [agentic_healthcare_assistant].",
+      "latency_s": 27.51
+    }
+  ]
+}

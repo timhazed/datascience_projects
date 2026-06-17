@@ -1,0 +1,104 @@
+flowchart TD
+    CLIENT(["MCP Client\nClaude Code / Cursor"]):::client
+
+    CLIENT -->|sync_repository| SG_START
+    CLIENT -->|query_memory| QG_START
+    CLIENT -->|get_dev_persona| PG_START
+    CLIENT -->|analyze_diff| DG_START
+    CLIENT -->|generate_skills_pkg| KG_START
+
+    subgraph SYNC ["Sync — build_sync_graph()"]
+        direction TB
+        SG_START(["START"]):::io
+        SG_DE["delta_extractor\nSHA freshness + git delta"]:::node
+        SG_CF["cache_filter\nBulk hash check vs ChromaDB"]:::node
+        SG_PII["pii_sanitizer\nPresidio + spaCy"]:::node
+        SG_MP["multimodal_parser\n.py .md .pdf source"]:::node
+        SG_CD["chunk_dispatcher\nSend fan-out x N"]:::node
+        SG_SU["summarize_and_upsert xN\nLLM intent summary + upsert"]:::llmnode
+        SG_QU["chroma_upsert_quarantined\nSentinel upsert"]:::node
+        SG_SHA["sha_store_update\nWrite commit SHA on clean finish"]:::node
+        SG_END(["END"]):::io
+
+        SG_START --> SG_DE
+        SG_DE -->|error or up_to_date| SG_END
+        SG_DE -->|delta ready| SG_CF
+        SG_CF -->|files empty| SG_QU
+        SG_CF -->|files to process| SG_PII
+        SG_PII -->|error| SG_END
+        SG_PII --> SG_MP
+        SG_MP --> SG_CD
+        SG_CD -->|chunks empty| SG_QU
+        SG_CD -->|Send x N parallel| SG_SU
+        SG_SU --> SG_QU
+        SG_QU --> SG_SHA
+        SG_SHA --> SG_END
+    end
+
+    subgraph QUERY ["Query — build_query_graph()"]
+        direction TB
+        QG_START(["START"]):::io
+        QG_GD["query_guard\nReject empty / malformed"]:::node
+        QG_SS["semantic_searcher\nEmbed + ChromaDB filter search"]:::node
+        QG_SN["snippet_summarizer\nExtract, Contrast, Synthesize"]:::llmnode
+        QG_END(["END"]):::io
+
+        QG_START --> QG_GD
+        QG_GD -->|invalid| QG_END
+        QG_GD -->|valid| QG_SS
+        QG_SS --> QG_SN
+        QG_SN --> QG_END
+    end
+
+    subgraph PERSONA ["Persona — build_persona_graph()"]
+        direction TB
+        PG_START(["START"]):::io
+        PG_TS["tendency_scanner\nPatterns + temporal weight"]:::node
+        PG_PS["persona_synthesizer\nLLM developer profile"]:::llmnode
+        PG_END(["END"]):::io
+
+        PG_START --> PG_TS
+        PG_TS -->|no data| PG_END
+        PG_TS -->|data present| PG_PS
+        PG_PS --> PG_END
+    end
+
+    subgraph DIFF ["Diff — build_diff_graph()"]
+        direction TB
+        DG_START(["START"]):::io
+        DG_DV["diff_validator\nNon-empty + parseable"]:::node
+        DG_PL["persona_loader\nFetch persona from ChromaDB"]:::node
+        DG_CA["coaching_analyzer\nLLM Why + deviation score"]:::llmnode
+        DG_DG["deviation_guard\nAlert if score above 0.65"]:::node
+        DG_END(["END"]):::io
+
+        DG_START --> DG_DV
+        DG_DV -->|invalid| DG_END
+        DG_DV -->|valid| DG_PL
+        DG_PL --> DG_CA
+        DG_CA --> DG_DG
+        DG_DG --> DG_END
+    end
+
+    subgraph SKILLS ["Skills — build_skills_graph()"]
+        direction TB
+        KG_START(["START"]):::io
+        KG_CG["skills_cache_guard\nSHA gate + probe ChromaDB metadata"]:::node
+        KG_SA["skills_aggregator\nLogic n=500, Config n=50, Interface n=50"]:::node
+        KG_SY["skills_synthesizer\nLLM generates PROJECT_SKILLS.md"]:::llmnode
+        KG_FE["file_exporter\nWrite file + record skills SHA"]:::node
+        KG_END(["END"]):::io
+
+        KG_START --> KG_CG
+        KG_CG -->|cache hit| KG_END
+        KG_CG -->|cache miss| KG_SA
+        KG_SA -->|no data| KG_END
+        KG_SA -->|data ready| KG_SY
+        KG_SY --> KG_FE
+        KG_FE --> KG_END
+    end
+
+    classDef client   fill:#1a1a2e,stroke:#e94560,color:#fff,font-weight:bold
+    classDef io       fill:#16213e,stroke:#0f3460,color:#a8dadc,font-weight:bold
+    classDef node     fill:#0f3460,stroke:#533483,color:#e0e0e0
+    classDef llmnode  fill:#533483,stroke:#e94560,color:#fff,font-weight:bold

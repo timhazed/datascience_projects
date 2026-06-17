@@ -1,0 +1,51 @@
+# Developer Memory — .dockerignore
+# Keep the build context lean — exclude everything not needed inside the image.
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments (Poetry creates .venv locally)
+.venv/
+venv/
+env/
+
+# Tests and experiments — not needed in production image
+tests/
+experiments/
+
+# Local data volumes — mounted at runtime, never baked into the image
+chroma_data/
+ollama_storage/
+
+# IDE and OS artifacts
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets — must never enter build context
+.env
+.env.*
+!.env.example
+
+# Git history — not needed in the image
+.git/
+.gitignore
+
+# Docs
+docs/
+
+# Docker files themselves (not needed inside container)
+Dockerfile
+docker-compose.yml
+.dockerignore

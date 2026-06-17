@@ -1,0 +1,59 @@
+{
+  "experiment": "ingest_latency_benchmark",
+  "version": "1.0",
+  "timestamp": "2026-05-04T14:14:53.208564+00:00",
+  "config": {
+    "repo_url": "https://github.com/timhazed/datascience_projects",
+    "branch": "trunk",
+    "model": "gemma4:e2b",
+    "embed_model": "nomic-embed-text",
+    "max_files": 5,
+    "ollama_concurrency": 2,
+    "fresh_collection": true,
+    "no_pii": false,
+    "collection": "devmem_latency_bench"
+  },
+  "summary": {
+    "total_files_in_repo": 1775,
+    "files_submitted": 5,
+    "files_sanitized": 5,
+    "files_quarantined": 0,
+    "chunks_produced": 39,
+    "chunks_inserted": 39,
+    "chunks_skipped": 0,
+    "chunks_error": 0,
+    "pipeline_error": null,
+    "total_pipeline_s": 244.727,
+    "throughput_files_per_s": 0.02,
+    "throughput_chunks_per_s": 0.16,
+    "throughput_llm_inserts_per_s": 0.16
+  },
+  "stage_timings_s": {
+    "git_clone": 7.005,
+    "delta_extractor": 0.059,
+    "pii_sanitizer": null,
+    "multimodal_parser": null,
+    "summarize_and_upsert": 236.83,
+    "chroma_upsert_quarantined": null,
+    "total_pipeline": 244.727
+  },
+  "trace_tail": [
+    "delta_extractor: 5 changed files",
+    "delta_extractor: 5 changed files",
+    "pii_sanitizer: skip .gitignore",
+    "pii_sanitizer: ok README.md",
+    "pii_sanitizer: ok methodology/README.md",
+    "pii_sanitizer: skip projects/.gitignore",
+    "pii_sanitizer: ok PROJECTS.md",
+    "delta_extractor: 5 changed files",
+    "delta_extractor: 5 changed files",
+    "pii_sanitizer: skip .gitignore",
+    "pii_sanitizer: ok README.md",
+    "pii_sanitizer: ok methodology/README.md",
+    "pii_sanitizer: skip projects/.gitignore",
+    "pii_sanitizer: ok PROJECTS.md",
+    "multimodal_parser: README.md \u2192 11 chunks",
+    "multimodal_parser: methodology/README.md \u2192 6 chunks",
+    "multimodal_parser: PROJECTS.md \u2192 22 chunks"
+  ]
+}

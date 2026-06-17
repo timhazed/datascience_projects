@@ -1,0 +1,36 @@
+sequenceDiagram
+    autonumber
+    actor Dev as Developer
+    participant MCP as MCP Server :9000
+    participant Chroma as ChromaDB
+    participant SHA as SHAStore
+    participant Ollama as Ollama gpt-oss:20b
+
+    Dev->>MCP: generate_skills_pkg { target_path, force: false }
+
+    MCP->>Chroma: skills_cache_guard get_indexed_repo_metadata limit=1 no embedding cost
+    Chroma-->>MCP: { repo_url, branch, commit_sha: def456 }
+
+    MCP->>SHA: get_skills_entry repo_url + branch
+    SHA-->>MCP: { skills_sha: abc123, skills_path }
+
+    Note over MCP: stored skills_sha abc123 != commit_sha def456, cache miss
+
+    par Three targeted ChromaDB queries
+        MCP->>Chroma: Logic chunks n=500 ranked by symbol density
+        MCP->>Chroma: Config chunks n=50
+        MCP->>Chroma: Interface chunks n=50
+    end
+
+    Chroma-->>MCP: SkillsData { logic_chunks top 20, pattern_summaries 20, file_manifest 100, identifier_index 100x5 }
+
+    MCP->>Ollama: skills_synthesizer temp=0.2 num_predict=4096 num_ctx=16384 6-section prompt
+    Ollama-->>MCP: PROJECT_SKILLS.md content
+
+    MCP->>MCP: file_exporter validate target_path within SKILLS_EXPORT_DIR
+    MCP->>MCP: write PROJECT_SKILLS.md
+
+    MCP->>SHA: set_skills_sha get-merge-update preserves commit_sha
+    MCP-->>Dev: { path, bytes_written: 8420 }
+
+    Note over Dev: Second call same corpus: cache_hit = true, under 2s, no LLM call

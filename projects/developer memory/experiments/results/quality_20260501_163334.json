@@ -1,0 +1,1505 @@
+{
+  "timestamp": "2026-05-01T16:33:34.812737+00:00",
+  "decision_thresholds": {
+    "within_2pp_use_e4b": true,
+    "over_5pp_use_26b": true
+  },
+  "model_summaries": {
+    "gemma4:26b": {
+      "intent_summarizer": {
+        "n_cases": 8,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.7917,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 75.83
+      },
+      "snippet_summarizer": {
+        "n_cases": 5,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 76.14
+      },
+      "persona_synthesizer": {
+        "n_cases": 3,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.5694,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 74.08
+      },
+      "coaching_analyzer": {
+        "n_cases": 6,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.5278,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 75.36
+      },
+      "skills_synthesizer": {
+        "n_cases": 2,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.7,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 74.23
+      }
+    }
+  },
+  "model_results": {
+    "gemma4:26b": [
+      {
+        "case_id": "intent_sum_001",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 8.332,
+        "avg_tokens_per_sec": 76.3,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "\"Ensures payment processing is idempotent by checking an idempotency key against previously processed requests, preventing duplicate charges via the Stripe client.\""
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "PASS",
+                "evidence": "\"Stripe\""
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "Ensures payment processing is idempotent by checking an idempotency key against previously processed requests, preventing duplicate charges via the Stripe client."
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "PASS",
+                "evidence": "Stripe"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Ensures payment processing is idempotent by checking an idempotency key against previously processed requests, preventing duplicate charges via the Stripe client.\", \"tech_stack\": [\"Stripe\", \"Idempotency pattern\", \"Python\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "intent_sum_002",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 8.662,
+        "avg_tokens_per_sec": 76.06,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "PASS",
+                "evidence": "Defines global configuration constants for the application, including database settings for Chroma, LLM parameters for Ollama, and operational thresholds for parsing and PII detection."
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "Config"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "PASS",
+                "evidence": "[\"ChromaDB\", \"Ollama\", \"Python\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "PASS",
+                "evidence": "Defines global configuration constants for the application, including database settings for Chroma, LLM parameters for Ollama, and operational thresholds for parsing and PII detection."
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "Config"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "PASS",
+                "evidence": "ChromaDB"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Defines global configuration constants for the application, including database settings for Chroma, LLM parameters for Ollama, and operational thresholds for parsing and PII detection.\", \"tech_stack\": [\"ChromaDB\", \"Ollama\", \"Python\"], \"semantic_type\": \"Config\"}"
+      },
+      {
+        "case_id": "intent_sum_003",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.643,
+        "avg_tokens_per_sec": 75.74,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "PASS",
+                "evidence": "\"ChromaDB\""
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "PASS",
+                "evidence": "\"ChromaDB\""
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Implements an idempotent client for ChromaDB that manages chunk insertion and updates using content hashes to prevent duplicate entries and ensure metadata consistency.\", \"tech_stack\": [\"ChromaDB\", \"SHA-256\", \"idempotency pattern\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "intent_sum_004",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.625,
+        "avg_tokens_per_sec": 75.51,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "non-fatal failure handling mentioned or implied in intent_summary"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "to mitigate initial request latency caused by model loading"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "PASS",
+                "evidence": "\"semantic_type\": \"Logic\""
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "to mitigate initial request latency caused by model loading"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "PASS",
+                "evidence": "\"semantic_type\": \"Logic\""
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Pre-loads the Ollama model into memory during the server's startup phase to mitigate initial request latency caused by model loading.\", \"tech_stack\": [\"FastAPI\", \"httpx\", \"Ollama\", \"asyncio\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "intent_sum_005",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.779,
+        "avg_tokens_per_sec": 76.13,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "PASS",
+                "evidence": "ensuring more recent information is prioritized during retrieval"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "PASS",
+                "evidence": "temporal weighting"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "PASS",
+                "evidence": "\"Implements a temporal weighting algorithm that boosts the importance of documents indexed within the last 180 days, allowing for recency-biased retrieval results.\""
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "PASS",
+                "evidence": "\"temporal weighting\""
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Implements a temporal weighting algorithm that boosts the importance of documents indexed within the last 180 days, allowing for recency-biased retrieval results.\", \"tech_stack\": [\"Python\", \"datetime\", \"temporal weighting\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "snippet_sum_001",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 8.62,
+        "avg_tokens_per_sec": 75.98,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.8333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer explains the quarantine-not-drop philosophy (not just mechanics)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "evidence": "If masking fails or confidence is below 0.8, the system quarantines the file ... displayed in a \"PII Review Queue\" panel in the Streamlit UI, where a user can manually approve or exclude the entries."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the quarantine-not-drop philosophy (not just mechanics)",
+                "verdict": "PASS",
+                "evidence": "If masking fails or confidence is below 0.8, the system quarantines the file ... where a user can manually approve or exclude the entries."
+              },
+              {
+                "criterion": "covers both the pipeline behaviour AND the UI review path",
+                "verdict": "PASS",
+                "evidence": "If masking fails or confidence is below 0.8, the system quarantines the file by adding a `[CONTENT_QUARANTINED]` sentinel, adding it to the `quarantined_files` list, and upserting it to ChromaDB ... displayed in a \"PII Review Queue\" panel in the Streamlit UI, where a user can manually approve or exclude the entries."
+              },
+              {
+                "criterion": "does not expose internal ChromaDB IDs or stack traces in the response",
+                "verdict": "PASS",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "If masking fails or confidence is below 0.8, the system quarantines the file by adding a `[CONTENT_QUARANTINED]` sentinel, adding it to the `quarantined_files` list, and upserting it to ChromaDB with `semantic_type=quarantine`. These files are not indexed as normal content but are displayed in a \"PI"
+      },
+      {
+        "case_id": "snippet_sum_002",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.287,
+        "avg_tokens_per_sec": 76.09,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.8333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "mentions the operator.add reducer role in safe parallel accumulation"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "evidence": "allowing files to be processed simultaneously in the Ollama request queue to maximize GPU utilization"
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "PASS",
+                "evidence": "The resulting summaries are then accumulated using `operator.add`"
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "evidence": "In contrast, a sequential loop would result in 200 sequential Ollama calls"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains the throughput motivation (GPU saturation), not just the API mechanics",
+                "verdict": "PASS",
+                "evidence": "This maximizes GPU utilization for the M4 Max MoE model"
+              },
+              {
+                "criterion": "mentions the operator.add reducer role in safe parallel accumulation",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer is actionable \u2014 a developer could understand when to use this pattern vs a loop",
+                "verdict": "PASS",
+                "evidence": "This maximizes GPU utilization ... whereas a sequential loop would result in 200 sequential Ollama calls."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The `Send` mechanism enables parallel dispatch of `ParsedChunk` objects to the `intent_summarizer`, allowing files to be processed simultaneously in the Ollama request queue. This maximizes GPU utilization for the M4 Max MoE model, whereas a sequential loop would result in 200 sequential Ollama call"
+      },
+      {
+        "case_id": "snippet_sum_003",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.44,
+        "avg_tokens_per_sec": 75.52,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "explains that throughput is equivalent \u2014 the decision is resource-based"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "evidence": "* **`gemma4:26b`**: Selected when RAM \u2265 16 GB.\n* **`gemma4:e4b`**: Selected when RAM is between 8-16 GB."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "evidence": "While the `OLLAMA_MODEL` environment variable can set a preferred model, the `_check_memory()` function may override this setting on low-RAM machines."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer explains both the preference (26b) and the fallback trigger (< 16 GB RAM)",
+                "verdict": "PASS",
+                "evidence": "RAM \u2265 16 GB: Uses `gemma4:26b`. RAM 8\u201316 GB: Uses `gemma4:e4b`."
+              },
+              {
+                "criterion": "explains that throughput is equivalent \u2014 the decision is resource-based",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mentions the OLLAMA_MODEL env var for operator control",
+                "verdict": "PASS",
+                "evidence": "While the `OLLAMA_MODEL` environment variable can set a preferred model, the `_check_memory()` function may override this setting on low-RAM machines."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The system uses `gemma4:26b` or `gemma4:e4b` based on available RAM. Selection follows these rules:\n* **RAM $\\ge$ 16 GB**: Uses `gemma4:26b`.\n* **RAM 8\u201316 GB**: Uses `gemma4:e4b`.\n* **RAM < 8 GB**: Raises a `RuntimeError`.\n\nWhile the `OLLAMA_MODEL` environment variable can set a preferred model, the"
+      },
+      {
+        "case_id": "persona_syn_001",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 13.684,
+        "avg_tokens_per_sec": 73.7,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 7,
+        "rubric_rate": 0.875,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "evidence": "\"A defensive and contract-oriented developer who prioritizes data integrity and predictable execution. They favor a functional-lite architecture using factory closures and Pydantic models to enforce strict boundaries, avoiding the complexity of deep class hierarchies and global mutable state in favor of explicit, well-documented, and type-safe interfaces.\""
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "evidence": "\"They favor a functional-lite architecture using factory closures and Pydantic models to enforce strict boundaries\""
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "evidence": "[\"Pydantic-driven data modeling\", \"factory-based functional patterns\", \"strict type-annotated interfaces\", \"boundary-level input validation\", \"stateless/immutable-state preference\"]"
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "PASS",
+                "evidence": "[\"may eschew standard object-oriented patterns in favor of closures\", \"potential for increased verbosity due to explicit error handling and boundary validation\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a coherent developer archetype \u2014 not just a list of traits",
+                "verdict": "PASS",
+                "evidence": "A contract-driven developer who prioritizes structural integrity and predictability through heavy use of Pydantic models and type annotations. They favor a functional approach using factory closures over traditional class hierarchies and implement defensive programming via strict boundary validation and the avoidance of global mutable state."
+              },
+              {
+                "criterion": "mentions at least one actionable style guideline a reviewer could apply when reading this developer's PRs",
+                "verdict": "PASS",
+                "evidence": "implement defensive programming via strict boundary validation and the avoidance of global mutable state"
+              },
+              {
+                "criterion": "profile is specific enough to be useful for coaching (not generic like 'writes clean code')",
+                "verdict": "PASS",
+                "evidence": "pydantic-driven data contracts, functional factory patterns, strict type-annotated interfaces, boundary-level input validation, stateless/immutable-focused design"
+              },
+              {
+                "criterion": "deviation_tendencies or anti-patterns field reflects absence of patterns (e.g. no async/await pattern observed)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"pydantic-driven data contracts\", \"functional factory patterns\", \"strict type-annotated interfaces\", \"boundary-level input validation\", \"stateless/immutable-focused design\"], \"style_summary\": \"A contract-driven developer who prioritizes structural integrity and predictability "
+      },
+      {
+        "case_id": "persona_syn_002",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 13.131,
+        "avg_tokens_per_sec": 74.66,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+          "profile does not fabricate patterns not present in the tendency_data"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "evidence": "\"risk of event-loop blocking due to unmanaged synchronous/asynchronous mixing\""
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile notes the small sample size (12 docs) as a confidence qualifier \u2014 low data should lower certainty",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mixes_sync_and_async_calls is flagged as a risk pattern, not just described neutrally",
+                "verdict": "PASS",
+                "evidence": "\"risk of event-loop blocking due to unmanaged synchronous/asynchronous mixing\""
+              },
+              {
+                "criterion": "profile does not fabricate patterns not present in the tendency_data",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"dominant_patterns\": [\n    \"type-driven development\",\n    \"hybrid sync/async execution\",\n    \"monolithic function design\"\n  ],\n  \"style_summary\": \"A developer who prioritizes explicit type contracts to ensure interface clarity, yet adopts a procedural, monolithic approach to implementation that "
+      },
+      {
+        "case_id": "coaching_001",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 11.058,
+        "avg_tokens_per_sec": 75.46,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+          "patterns_matched includes validates_inputs_at_boundary as a deviated pattern"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.9"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 removing quarantine logic from PII sanitizer is a critical safety regression",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.9"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty risk: PII could flow into ChromaDB without masking",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "```json\n{\n  \"deviation_score\": 0.9,\n  \"rationale\": \"The diff removes critical input validation (threshold check) and error handling, directly contradicting the persona's low risk tolerance and boundary validation patterns.\",\n  \"patterns_matched\": []\n}\n```"
+      },
+      {
+        "case_id": "coaching_002",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.387,
+        "avg_tokens_per_sec": 75.91,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.0"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "evidence": "\"rationale\": \"The addition of a validated Pydantic field with type annotations and constraints aligns perfectly with the persona's use of Pydantic for data contracts.\""
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "evidence": "\"uses_pydantic_for_data_contracts\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.3) \u2014 adding a typed, validated field to a Pydantic model is consistent with persona",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.0"
+              },
+              {
+                "criterion": "rationale acknowledges the addition is an additive improvement aligned with existing patterns",
+                "verdict": "PASS",
+                "evidence": "\"rationale\": \"The addition of a validated Pydantic field with type annotations and constraints aligns perfectly with the persona's use of Pydantic for data contracts.\""
+              },
+              {
+                "criterion": "patterns_matched includes uses_pydantic_for_data_contracts",
+                "verdict": "PASS",
+                "evidence": "\"uses_pydantic_for_data_contracts\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.0, \"rationale\": \"The addition of a validated Pydantic field with type annotations and constraints aligns perfectly with the persona's use of Pydantic for data contracts.\", \"patterns_matched\": [\"uses_pydantic_for_data_contracts\", \"uses_type_annotations\"]}"
+      },
+      {
+        "case_id": "coaching_003",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 16.224,
+        "avg_tokens_per_sec": 74.92,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "mid-function import is also flagged as a style deviation",
+          "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.7"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.65) \u2014 outbound HTTP call from a zero-trust sovereign system violates data sovereignty requirement",
+                "verdict": "PASS",
+                "evidence": "0.7"
+              },
+              {
+                "criterion": "rationale explicitly names the sovereignty violation: external webhook URL could leak repo metadata",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "mid-function import is also flagged as a style deviation",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.7, \"rationale\": \"The implementation introduces an external network call using an unvalidated environment variable and payload, failing to validate inputs at the boundary as required by the persona.\", \"patterns_matched\": []}"
+      },
+      {
+        "case_id": "coaching_004",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 20.213,
+        "avg_tokens_per_sec": 74.74,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 5,
+        "rubric_rate": 0.8333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "rationale explains WHY isinstance is safer than string name comparison"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "evidence": "0.0"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "PASS",
+                "evidence": "use specific exception types instead of string-based type checking, which is more robust"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "evidence": "[\"validates_inputs_at_boundary\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is low (< 0.2) \u2014 this is a correctness improvement, fully aligned with boundary validation pattern",
+                "verdict": "PASS",
+                "evidence": "0.0"
+              },
+              {
+                "criterion": "rationale explains WHY isinstance is safer than string name comparison",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "patterns_matched includes validates_inputs_at_boundary",
+                "verdict": "PASS",
+                "evidence": "\"validates_inputs_at_boundary\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.0, \"rationale\": \"The refactor replaces fragile string-based type checking with explicit exception handling for `ValidationError`, aligning with the persona's focus on validation and type-aware logic.\", \"patterns_matched\": [\"validates_inputs_at_boundary\"]}"
+      },
+      {
+        "case_id": "coaching_005",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 6.925,
+        "avg_tokens_per_sec": 76.06,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "patterns_matched includes uses_type_annotations as a deviated pattern",
+          "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.9"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.6) \u2014 removing type annotations from a public method directly violates a strong persona pattern",
+                "verdict": "PASS",
+                "evidence": "\"deviation_score\": 0.9"
+              },
+              {
+                "criterion": "patterns_matched includes uses_type_annotations as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "rationale is concrete: untyped parameters make IDE support and Pydantic validation impossible",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.9, \"rationale\": \"The diff removes explicit type annotations, which is a core dominant pattern for this developer.\", \"patterns_matched\": []}"
+      },
+      {
+        "case_id": "skills_syn_001",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 39.395,
+        "avg_tokens_per_sec": 73.84,
+        "rubric_criteria_count": 5,
+        "rubric_passed_total": 9,
+        "rubric_rate": 0.9,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "minimum 400 words"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "output contains ## Tech Stack section listing dominant technologies with usage context",
+                "verdict": "PASS",
+                "evidence": "## Tech Stack"
+              },
+              {
+                "criterion": "output contains ## Patterns section describing the developer's established coding style",
+                "verdict": "PASS",
+                "evidence": "## Patterns"
+              },
+              {
+                "criterion": "output contains ## Tendencies section with actionable insights for new contributors",
+                "verdict": "PASS",
+                "evidence": "## Tendencies"
+              },
+              {
+                "criterion": "skills document reads as professional documentation, not a data dump",
+                "verdict": "PASS",
+                "evidence": "serves as the primary web framework for constructing high-performance, asynchronous API endpoints that handle complex LLM orchestration requests without blocking the event loop."
+              },
+              {
+                "criterion": "minimum 400 words",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "## Tech Stack\n- **FastAPI** \u2014 serves as the primary web framework for constructing high-performance, asynchronous API endpoints that handle complex LLM orchestration requests without blocking the event loop.\n- **Pydantic** \u2014 acts as the foundational layer for data integrity by enforcing strict schem"
+      },
+      {
+        "case_id": "skills_syn_002",
+        "chain_type": "skills_synthesizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 38.336,
+        "avg_tokens_per_sec": 74.62,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 3,
+        "rubric_rate": 0.5,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "output acknowledges small corpus (14 documents) as a confidence qualifier",
+          "output notes limited tech diversity (only Python/pytest/Pydantic) without fabricating additional technologies"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "output notes limited tech diversity (only Python/pytest/Pydantic) without fabricating additional technologies",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "output contains all three required sections: ## Tech Stack, ## Patterns, ## Tendencies",
+                "verdict": "PASS",
+                "evidence": "## Tech Stack\n## Patterns\n## Tendencies"
+              },
+              {
+                "criterion": "output acknowledges small corpus (14 documents) as a confidence qualifier",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "output notes limited tech diversity (only Python/pytest/Pydantic) without fabricating additional technologies",
+                "verdict": "PASS",
+                "evidence": "- **Python** \u2014 Serving as the foundational language for the entire repository, Python is used to implement all core business logic, service layers, and utility modules.\n- **pytest** \u2014 This is our primary testing framework and is utilized across the majority of the codebase to ensure the integrity of our logic-heavy modules.\n- **Pydantic** \u2014 We use Pydantic as our primary engine for data validation and settings management, specifically to bridge the gap between raw environment variables and our internal application state."
+              },
+              {
+                "criterion": "output contains all three required sections: ## Tech Stack, ## Patterns, ## Tendencies",
+                "verdict": "PASS",
+                "evidence": "## Tech Stack\n...\n## Patterns\n...\n## Tendencies\n..."
+              },
+              {
+                "criterion": "output acknowledges small corpus (14 documents) as a confidence qualifier",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "## Tech Stack\n\n- **Python** \u2014 Serving as the foundational language for the entire repository, Python is used to implement all core business logic, service layers, and utility modules. New contributors should leverage Python's full feature set, particularly its ability to handle complex data structur"
+      },
+      {
+        "case_id": "intent_sum_006",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.766,
+        "avg_tokens_per_sec": 75.72,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "[\"re\", \"Regular Expressions\", \"Python\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "[\"re\", \"Regular Expressions\", \"Python\"]"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Provides a utility to detect and redact sensitive information such as emails, IPv4 addresses, and API keys from text strings to prevent accidental data leakage.\", \"tech_stack\": [\"re\", \"Regular Expressions\", \"Python\"], \"semantic_type\": \"Logic\"}"
+      },
+      {
+        "case_id": "intent_sum_007",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.878,
+        "avg_tokens_per_sec": 75.41,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "PASS",
+                "evidence": "\"watchdog\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "PASS",
+                "evidence": "\"watchdog\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Implements a file system event handler that triggers an incremental synchronization function upon file modifications, utilizing a debouncing mechanism to prevent excessive sync calls during rapid file changes.\", \"tech_stack\": [\"watchdog\", \"Python\", \"Debouncing pattern\", \"File sys"
+      },
+      {
+        "case_id": "intent_sum_008",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.2,
+        "avg_tokens_per_sec": 75.79,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "\"Config\""
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "PASS",
+                "evidence": "[\"pytest\", \"coverage.py\", \"Ruff\", \"TOML\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "\"Config\""
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "PASS",
+                "evidence": "[\"pytest\", \"coverage.py\", \"Ruff\", \"TOML\"]"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"intent_summary\": \"Configures the project's development environment by defining testing parameters for pytest, coverage reporting rules, and linting standards for Ruff.\", \"tech_stack\": [\"pytest\", \"coverage.py\", \"Ruff\", \"TOML\"], \"semantic_type\": \"Config\"}"
+      },
+      {
+        "case_id": "coaching_006",
+        "chain_type": "coaching_analyzer",
+        "expected_schema": "AnalysisResult",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 10.142,
+        "avg_tokens_per_sec": 75.05,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+          "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "evidence": "0.8"
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "evidence": "The introduction of `_CHAIN_CACHE` to store the chain globally directly violates the developer's core pattern of avoiding global mutable state."
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "deviation_score is high (>= 0.7) \u2014 introducing a global _CHAIN_CACHE defeats the closure pattern that is already solving this correctly",
+                "verdict": "PASS",
+                "evidence": "0.8"
+              },
+              {
+                "criterion": "rationale explains that the factory closure already caches the chain via closure scope \u2014 the global cache is redundant and introduces mutable global state",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "patterns_matched includes avoids_global_mutable_state as a deviated pattern",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"deviation_score\": 0.8, \"rationale\": \"The introduction of `_CHAIN_CACHE` to store the chain globally directly violates the developer's core pattern of avoiding global mutable state.\", \"patterns_matched\": [\"prefers_factory_closures_over_classes\", \"uses_type_annotations\"]}"
+      },
+      {
+        "case_id": "persona_syn_003",
+        "chain_type": "persona_synthesizer",
+        "expected_schema": "PersonaProfile",
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 13.099,
+        "avg_tokens_per_sec": 73.87,
+        "rubric_criteria_count": 4,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.5,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+          "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "evidence": "\"deviation_tendencies\": [\"may prioritize structural correctness and type-safety over exhaustive edge-case testing\", \"tends to avoid object-oriented complexity in favor of simpler, closure-based logic\"]"
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "evidence": "\"dominant_patterns\": [\"pydantic-driven data contracts\", \"factory-based functional patterns\", \"defensive boundary validation\", \"strict type-annotated APIs\", \"stateless modular architecture\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "profile synthesises patterns into a named archetype (e.g. 'defensive systems engineer', 'contract-first developer')",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "profile is actionable for a code reviewer \u2014 could use it to evaluate a PR without re-reading all the files",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "profile includes a section on what to look for in deviations (tells the coaching_analyzer what to flag)",
+                "verdict": "PASS",
+                "evidence": "\"deviation_tendencies\": [\"may prioritize structural integrity and type-safety over exhaustive edge-case testing coverage\"]"
+              },
+              {
+                "criterion": "does not hallucinate patterns not present in the input data",
+                "verdict": "PASS",
+                "evidence": "\"dominant_patterns\": [\"contract-driven data modeling with Pydantic\", \"functional-style factory closures\", \"defensive boundary validation\", \"strict type-annotated APIs\", \"stateless/immutable-oriented design\"]"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\"dominant_patterns\": [\"contract-driven data modeling with Pydantic\", \"functional-style factory closures\", \"defensive boundary validation\", \"strict type-annotated APIs\", \"stateless/immutable-oriented design\"], \"style_summary\": \"A contract-driven developer who prioritizes system reliability through s"
+      },
+      {
+        "case_id": "snippet_sum_004",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 5.019,
+        "avg_tokens_per_sec": 76.27,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+          "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "evidence": "The `intent_summarizer` has a `num_predict` cap of 512 tokens set via the `ChatOllama` constructor, which causes the model to truncate its output at 512 tokens."
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer distinguishes between truncation (silent, token cap) vs failure (explicit error state)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer mentions graceful degradation \u2014 pipeline continues even if one chunk fails",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer does not expose retry internals or exception types to the user in the final response",
+                "verdict": "PASS",
+                "evidence": "The `intent_summarizer` has a `num_predict` cap of 512 tokens set via the `ChatOllama` constructor, which causes the model to truncate its output at 512 tokens."
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "The `intent_summarizer` has a `num_predict` cap of 512 tokens set via the `ChatOllama` constructor, which causes the model to truncate its output at 512 tokens."
+      },
+      {
+        "case_id": "snippet_sum_005",
+        "chain_type": "snippet_summarizer",
+        "expected_schema": null,
+        "runs": 2,
+        "compliance_passes": 2,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 7.818,
+        "avg_tokens_per_sec": 76.84,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 4,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "evidence": "1.  **Implement the parser**: Create a new parser module that exports a `parse_file(path, content)` function.\n2.  **Update routing**: Add the new file extension mapping to the `dispatch` dictionary in `src/agents/multimodal_parser.py`.\n3.  **Add tests**: Create a new test file in `tests/agents/` (e.g., `test_X_parser.py`) covering the happy path, empty files, and binary/corrupt content edge cases."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "evidence": "Create a new test file in `tests/agents/` (e.g., `test_X_parser.py`)"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "answer gives concrete steps (add extension mapping, create parse_file function, add tests)",
+                "verdict": "PASS",
+                "evidence": "1.  **Implement the parser**: Create a new parser module that exports a `parse_file(path, content)` function.\n2.  **Update routing**: Add the new file extension mapping to the `dispatch` dictionary in `src/agents/multimodal_parser.py`.\n3.  **Add tests**: Create a new test file in `tests/agents/` (e.g., `test_X_parser.py`) covering the happy path, empty files, and binary/corrupt content edge cases."
+              },
+              {
+                "criterion": "answer explains the plain function vs node factory distinction \u2014 new parsers should NOT be node factories",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "answer mentions the test requirement (tests/agents/test_X_parser.py) so the developer knows what's expected",
+                "verdict": "PASS",
+                "evidence": "Create a new test file in `tests/agents/` (e.g., `test_X_parser.py`)"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "To add a new file type parser, follow these steps:\n\n1.  **Implement the parser**: Create a new parser module that exports a `parse_file(path, content)` function.\n2.  **Update routing**: Add the new file extension mapping to the `dispatch` dictionary in `src/agents/multimodal_parser.py`.\n3.  **Add te"
+      }
+    ]
+  }
+}

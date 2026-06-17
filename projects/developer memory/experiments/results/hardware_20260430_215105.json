@@ -1,0 +1,198 @@
+{
+  "hardware": {
+    "hostname": "Tims-MBP.attlocal.net",
+    "platform": "Darwin",
+    "platform_version": "Darwin Kernel Version 25.4.0: Thu Mar 19 19:33:25 PDT 2026; root:xnu-12377.101.15~1/RELEASE_ARM64_T6041",
+    "architecture": "arm64",
+    "python_version": "3.13.8",
+    "cpu_model": "arm",
+    "physical_cores": 14,
+    "logical_cores": 14,
+    "cpu_freq_mhz": 4,
+    "ram_gb": 36.0,
+    "ram_available_gb": 19.3,
+    "gpu_backend": "Metal \u2014 Apple M4 Max",
+    "apple_chip": "Apple M4 Max",
+    "ollama_version": "0.22.0",
+    "est_memory_bandwidth_gbs": 546
+  },
+  "results": [
+    {
+      "model": "gemma4:26b",
+      "timestamp": "2026-04-30T21:51:05.741080+00:00",
+      "host": "http://localhost:11434",
+      "warm_runs": 3,
+      "prompts": [
+        {
+          "prompt_id": "p1_ultra_short",
+          "prompt_label": "Ultra-short (1 token out)",
+          "prompt_chars": 29,
+          "cold": {
+            "first_token_ms": 6417.2,
+            "tokens_per_sec": 77.58,
+            "prompt_tokens_per_sec": 185.03,
+            "eval_count": 91,
+            "prompt_eval_count": 23,
+            "elapsed_s": 6.42
+          },
+          "warm_avg": {
+            "first_token_ms": 1116.1,
+            "tokens_per_sec": 79.34,
+            "prompt_tokens_per_sec": 1319.62,
+            "eval_count": 70.5,
+            "prompt_eval_count": 23.0,
+            "elapsed_s": 1.13
+          }
+        },
+        {
+          "prompt_id": "p2_short_factual",
+          "prompt_label": "Short factual (2 sentences)",
+          "prompt_chars": 52,
+          "cold": {
+            "first_token_ms": 4476.4,
+            "tokens_per_sec": 77.35,
+            "prompt_tokens_per_sec": 335.69,
+            "eval_count": 368,
+            "prompt_eval_count": 27,
+            "elapsed_s": 5.06
+          },
+          "warm_avg": {
+            "first_token_ms": 4811.55,
+            "tokens_per_sec": 76.94,
+            "prompt_tokens_per_sec": 1147.78,
+            "eval_count": 400.5,
+            "prompt_eval_count": 27.0,
+            "elapsed_s": 5.46
+          }
+        },
+        {
+          "prompt_id": "p3_structured",
+          "prompt_label": "Structured output (JSON)",
+          "prompt_chars": 122,
+          "cold": {
+            "first_token_ms": 5297.2,
+            "tokens_per_sec": 77.18,
+            "prompt_tokens_per_sec": 415.66,
+            "eval_count": 432,
+            "prompt_eval_count": 45,
+            "elapsed_s": 5.95
+          },
+          "warm_avg": {
+            "first_token_ms": 4016.6,
+            "tokens_per_sec": 76.83,
+            "prompt_tokens_per_sec": 1933.91,
+            "eval_count": 362.0,
+            "prompt_eval_count": 45.0,
+            "elapsed_s": 4.97
+          }
+        },
+        {
+          "prompt_id": "p4_code_short",
+          "prompt_label": "Short code generation",
+          "prompt_chars": 136,
+          "cold": {
+            "first_token_ms": 12904.4,
+            "tokens_per_sec": 75.51,
+            "prompt_tokens_per_sec": 341.62,
+            "eval_count": 1024,
+            "prompt_eval_count": 40,
+            "elapsed_s": 14.07
+          },
+          "warm_avg": {
+            "first_token_ms": 5648.2,
+            "tokens_per_sec": 75.43,
+            "prompt_tokens_per_sec": 1506.19,
+            "eval_count": 1024.0,
+            "prompt_eval_count": 40.0,
+            "elapsed_s": 14.0
+          }
+        },
+        {
+          "prompt_id": "p5_reasoning",
+          "prompt_label": "Multi-step reasoning",
+          "prompt_chars": 243,
+          "cold": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 75.22,
+            "prompt_tokens_per_sec": 574.62,
+            "eval_count": 1024,
+            "prompt_eval_count": 84,
+            "elapsed_s": 14.15
+          },
+          "warm_avg": {
+            "first_token_ms": 6279.0,
+            "tokens_per_sec": 75.06,
+            "prompt_tokens_per_sec": 3085.1,
+            "eval_count": 1024.0,
+            "prompt_eval_count": 84.0,
+            "elapsed_s": 14.07
+          }
+        },
+        {
+          "prompt_id": "p6_code_long",
+          "prompt_label": "Long code generation",
+          "prompt_chars": 252,
+          "cold": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 75.05,
+            "prompt_tokens_per_sec": 590.37,
+            "eval_count": 1024,
+            "prompt_eval_count": 73,
+            "elapsed_s": 14.16
+          },
+          "warm_avg": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 75.19,
+            "prompt_tokens_per_sec": 3160.86,
+            "eval_count": 1024.0,
+            "prompt_eval_count": 73.0,
+            "elapsed_s": 14.04
+          }
+        },
+        {
+          "prompt_id": "p7_architecture",
+          "prompt_label": "Architecture analysis (long context in)",
+          "prompt_chars": 550,
+          "cold": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 74.97,
+            "prompt_tokens_per_sec": 780.45,
+            "eval_count": 1024,
+            "prompt_eval_count": 138,
+            "elapsed_s": 14.22
+          },
+          "warm_avg": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 74.37,
+            "prompt_tokens_per_sec": 5939.49,
+            "eval_count": 1024.0,
+            "prompt_eval_count": 138.0,
+            "elapsed_s": 14.19
+          }
+        },
+        {
+          "prompt_id": "p8_synthesis",
+          "prompt_label": "Long synthesis (max output)",
+          "prompt_chars": 428,
+          "cold": {
+            "first_token_ms": 14469.9,
+            "tokens_per_sec": 73.19,
+            "prompt_tokens_per_sec": 661.22,
+            "eval_count": 1024,
+            "prompt_eval_count": 99,
+            "elapsed_s": 14.53
+          },
+          "warm_avg": {
+            "first_token_ms": 0.0,
+            "tokens_per_sec": 73.17,
+            "prompt_tokens_per_sec": 3948.71,
+            "eval_count": 1024.0,
+            "prompt_eval_count": 99.0,
+            "elapsed_s": 14.41
+          }
+        }
+      ],
+      "deployment_mode": "hybrid"
+    }
+  ]
+}

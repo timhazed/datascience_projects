@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "developer-memory"
+version = "0.1.0"
+description = "Sovereign Developer Memory & Coaching System — MCP v2.5"
+authors = ["timhazed"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = ">=3.13.8,<3.14"
+fastmcp = ">=2.0"
+langgraph = ">=1.0,<2.0"         # installed: 1.1.x; requires Send + CompiledStateGraph (1.x API)
+langchain-ollama = ">=0.2"       # ChatOllama + OllamaEmbeddings (replaces langchain-community path)
+langchain-community = ">=0.3"   # retained for other integrations; NOT used for Ollama clients
+langchain-core = ">=0.3"
+chromadb = "0.5.20"              # pinned: server image is chromadb/chroma:0.5.20; both must match exactly
+pydantic = ">=2.0"
+pydantic-settings = ">=2.0"
+gitpython = ">=3.1"
+pygithub = ">=2.0"
+watchdog = ">=4.0"
+streamlit = ">=1.35"
+pypdf = ">=4.0"
+presidio-analyzer = ">=2.2"
+presidio-anonymizer = ">=2.2"
+spacy = ">=3.7"          # presidio NLP backend
+httpx = ">=0.27"
+psutil = ">=6.0"          # memory preflight check (server.py) + footprint benchmark
+python-dotenv = ">=1.0"  # .env loading for experiments (GROQ_API_KEY, GROQ_MODEL)
+langchain-groq = "^1.1.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0"
+pytest-asyncio = ">=0.23"
+pytest-cov = ">=5.0"
+ruff = ">=0.4"           # linting + formatting; enforced in every phase exit gate
+langchain-core = {version = ">=0.3", extras = ["testing"]}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--cov=src --cov-report=term-missing --cov-fail-under=85"
+pythonpath = ["."]
+
+[tool.coverage.run]
+omit = ["tests/*", "experiments/*", "ui/*", "src/cli/*"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]   # line-length enforced by formatter, not linter

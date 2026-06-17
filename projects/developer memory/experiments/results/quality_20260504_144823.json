@@ -1,0 +1,1331 @@
+{
+  "timestamp": "2026-05-04T14:48:23.583629+00:00",
+  "decision_thresholds": {
+    "within_2pp_use_faster_model": true,
+    "over_5pp_use_quality_model": true
+  },
+  "model_summaries": {
+    "phi4-mini": {
+      "intent_summarizer": {
+        "n_cases": 8,
+        "mean_compliance_rate": 1.0,
+        "min_compliance_rate": 1.0,
+        "mean_rubric_rate": 0.625,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 108.57
+      }
+    },
+    "qwen3:4b": {
+      "intent_summarizer": {
+        "n_cases": 8,
+        "mean_compliance_rate": 0.0,
+        "min_compliance_rate": 0.0,
+        "mean_rubric_rate": 0.0278,
+        "rubric_scorer": "llm-judge",
+        "mean_tokens_per_sec": 98.25
+      }
+    }
+  },
+  "model_results": {
+    "phi4-mini": [
+      {
+        "case_id": "intent_sum_001",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 1.225,
+        "avg_tokens_per_sec": 105.59,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 9,
+        "rubric_rate": 1.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "Ensures that repeated payment requests with the same idempotency key do not trigger multiple charges by caching previous results to prevent duplicate processing."
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "PASS",
+                "evidence": "_stripe_client.charge"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "Ensures that repeated payment requests with the same idempotency key do not trigger multiple charges by caching previous results to prevent duplicate processing."
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "PASS",
+                "evidence": "_stripe_client.charge"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "Ensures that repeated payment requests with the same idempotency key do not trigger multiple charges by caching previous results to prevent duplicate processing."
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "PASS",
+                "evidence": "_stripe_client.charge"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Ensures that repeated payment requests with the same idempotency key do not trigger multiple charges by caching previous results to prevent duplicate processing.\", \n  \"tech_stack\": [\"idempotency\", \"_stripe_client.charge\"], \n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_002",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.71,
+        "avg_tokens_per_sec": 109.58,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "tech_stack includes ChromaDB or Ollama"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "PASS",
+                "evidence": "Defines configuration constants for a system, likely related to an AI or machine learning application involving chroma collection and OLLAMA model interactions."
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "Config"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "PASS",
+                "evidence": "\"Defines configuration constants for a system, likely related to an AI or machine learning application involving chroma collection and OLLAMA model interactions.\""
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "\"Config\""
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "PASS",
+                "evidence": "\"Defines configuration constants for a system, likely related to an AI or machine learning application involving chroma collection and OLLAMA model interactions.\""
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "\"Config\""
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Defines configuration constants for a system, likely related to an AI or machine learning application involving chroma collection and OLLAMA model interactions.\", \n  \"tech_stack\": [\"Configuration Constants\", \"Environment Variables\"],\n  \"semantic_type\": \"Config\"\n}"
+      },
+      {
+        "case_id": "intent_sum_003",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.831,
+        "avg_tokens_per_sec": 108.19,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "PASS",
+                "evidence": "ChromaDB"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "PASS",
+                "evidence": "ChromaDB"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "PASS",
+                "evidence": "ChromaDB"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Implements a ChromaDB client that ensures unique insertion of data chunks using SHA-256 hashes to avoid duplicate storage, with upsert operations for metadata and content.\", \n  \"tech_stack\": [\"ChromaDB\", \"SHA-256 hashing\"],\n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_004",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.717,
+        "avg_tokens_per_sec": 109.19,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "non-fatal failure handling mentioned or implied in intent_summary"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "to mitigate cold-start latency"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "\"to mitigate cold-start latency\""
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "PASS",
+                "evidence": "to mitigate cold-start latency"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Pre-warms an Ollama model upon server startup to mitigate cold-start latency for the first request by sending a warming prompt.\", \n  \"tech_stack\": [\"FastAPI\", \"httpx\"], \n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_005",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.739,
+        "avg_tokens_per_sec": 108.67,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 3,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "tech_stack includes at least: embeddings or persona or weighting",
+          "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Applies a recency-based weighting to documents based on their indexing date; recent documents within the last 180 days are given triple weight.\", \n  \"tech_stack\": [\"datetime\", \"timedelta\"], \n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_006",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.749,
+        "avg_tokens_per_sec": 107.8,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "[\"re\", \"regex\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "[\"re\", \"regex\"]"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "PASS",
+                "evidence": "\"Logic\""
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "[\"re\", \"regex\"]"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Masks Personally Identifiable Information (PII) such as emails, IPv4 addresses and API keys in a given string to protect sensitive data.\", \n  \"tech_stack\": [\"re\", \"regex\"], \n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_007",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.746,
+        "avg_tokens_per_sec": 109.46,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 3,
+        "rubric_rate": 0.3333,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+          "tech_stack includes Watchdog"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "PASS",
+                "evidence": "Logic"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Monitors file system events to trigger a sync function after changes with debounce logic that prevents immediate consecutive triggers within a specified time frame.\",\n  \"tech_stack\": [\"FileSystemEventHandler\", \"Callable\", \"time\"],\n  \"semantic_type\": \"Logic\"\n}"
+      },
+      {
+        "case_id": "intent_sum_008",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 3,
+        "compliance_rate": 1.0,
+        "avg_elapsed_s": 0.811,
+        "avg_tokens_per_sec": 110.05,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 6,
+        "rubric_rate": 0.6667,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "\"Config\""
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "PASS",
+                "evidence": "[\"pytest\", \"coverage.py\", \"ruff.lint\"]"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "Config"
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "PASS",
+                "evidence": "[\"pytest\", \"ruff.lint\"]"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "PASS",
+                "evidence": "Config"
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "PASS",
+                "evidence": "[\"pytest\",\"ruff.lint\"]"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": "{\n  \"intent_summary\": \"Configures pytest settings for asynchronous test execution and coverage reporting, while excluding certain directories from the tests. Also sets up Ruff linting with specific rules to ignore.\", \n  \"tech_stack\": [\"pytest\", \"coverage.py\", \"ruff.lint\"], \n  \"semantic_type\": \"Confi"
+      }
+    ],
+    "qwen3:4b": [
+      {
+        "case_id": "intent_sum_001",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.995,
+        "avg_tokens_per_sec": 99.83,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+          "tech_stack includes at least one of: Stripe, payments, financial",
+          "semantic_type is Logic or Interface"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY idempotency is needed (duplicate payment prevention), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least one of: Stripe, payments, financial",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_002",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.636,
+        "avg_tokens_per_sec": 99.72,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "tech_stack includes ChromaDB or Ollama",
+          "semantic_type is Config",
+          "intent_summary explains WHY these settings exist (system tuning, not just variable names)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY these settings exist (system tuning, not just variable names)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB or Ollama",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_003",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.846,
+        "avg_tokens_per_sec": 98.18,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "semantic_type is Logic or Interface",
+          "tech_stack includes ChromaDB",
+          "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the three-case upsert contract and WHY it prevents duplicate indexing",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes ChromaDB",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_004",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.81,
+        "avg_tokens_per_sec": 98.2,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "non-fatal failure handling mentioned or implied in intent_summary",
+          "semantic_type is Config or Logic",
+          "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY warmup matters (cold-start latency elimination), not just WHAT the function does",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config or Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "non-fatal failure handling mentioned or implied in intent_summary",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_005",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.857,
+        "avg_tokens_per_sec": 97.69,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "tech_stack includes at least: embeddings or persona or weighting",
+          "semantic_type is Logic",
+          "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY temporal weighting prevents stale tendencies from dominating persona",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes at least: embeddings or persona or weighting",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_006",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.989,
+        "avg_tokens_per_sec": 96.75,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 2,
+        "rubric_rate": 0.2222,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+          "semantic_type is Logic",
+          "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY this pre-processing step exists before Presidio (fast regex for known patterns)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack does not incorrectly tag this as a Presidio node \u2014 this is pure regex",
+                "verdict": "PASS",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_007",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.945,
+        "avg_tokens_per_sec": 96.92,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+          "tech_stack includes Watchdog",
+          "semantic_type is Logic or Interface"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains WHY debouncing is necessary (file save events fire multiple times per logical save)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Logic or Interface",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes Watchdog",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      },
+      {
+        "case_id": "intent_sum_008",
+        "chain_type": "intent_summarizer",
+        "expected_schema": "SummarizedChunk",
+        "runs": 3,
+        "compliance_passes": 0,
+        "compliance_rate": 0.0,
+        "avg_elapsed_s": 10.743,
+        "avg_tokens_per_sec": 98.69,
+        "rubric_criteria_count": 3,
+        "rubric_passed_total": 0,
+        "rubric_rate": 0.0,
+        "rubric_scorer": "llm-judge",
+        "most_failed_rubric_criteria": [
+          "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+          "tech_stack includes pytest and ruff",
+          "semantic_type is Config"
+        ],
+        "judge_evaluations": [
+          {
+            "run": 1,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 2,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          },
+          {
+            "run": 3,
+            "evaluations": [
+              {
+                "criterion": "intent_summary explains the quality gate philosophy (80% coverage threshold as CI gate, not a suggestion)",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "semantic_type is Config",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              },
+              {
+                "criterion": "tech_stack includes pytest and ruff",
+                "verdict": "FAIL",
+                "evidence": "ABSENT"
+              }
+            ]
+          }
+        ],
+        "last_response_preview": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,1015 @@
+{
+  "run_id": "portfolio_gemma4_e4b_20260501_170331",
+  "model": "gemma4:e4b",
+  "embed_model": "nomic-embed-text",
+  "timestamp": "2026-05-01T22:03:31.143138+00:00",
+  "projects": [
+    "agentic_healthcare_assistant",
+    "newsgenie",
+    "exercise_and_health_coach"
+  ],
+  "ingest_stats": null,
+  "query_results": [
+    {
+      "id": "pq001",
+      "query": "Which projects use a vector store for semantic search?",
+      "category": "tech_stack",
+      "difficulty": "simple",
+      "expected_projects": [
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Only healthcare uses FAISS; newsgenie and exercise_coach have no RAG layer \u2014 tests whether intent summaries correctly reflect absence of vector stores in the other two projects",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/db/patient_vector_store.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"PatientVectorStore \u2014 FAISS-backed vector store for patient notes and summaries.\n\nWraps langchain_community.vectorstores.FAISS with a focused interface for\nper-patient upsert and semantic search. The FAISS index is persisted to disk\nafter every upsert so the store survives restarts.\n\nRequired metadata fields for every upsert:\n    patient_id, name, age, gender, summary, conditions\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nfrom pathlib import Path\nfrom typing import Any\n\nfrom langchain_community.vectorstores import FAISS\nfrom langchain_core.documents import Document\n\nlogger = log",
+          "cosine_distance": 0.3183
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/tools/search_tool.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"search_tool \u2014 LangChain @tool wrapping SearchProvider.search + search_chain.\n\nThis tool is used by the experiment runner and any LangChain agent that needs\nto search for disease information directly. The graph pipeline uses\ndisease_search_node instead (which injects dependencies via factory).\n\nTyped input: SearchDiseaseParams (validated by LangChain before invoke).\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nfrom collections.abc import Callable\nfrom typing import Any\n\nfrom langchain_core.tools import tool\n\nfrom src.models.disease_search_result import DiseaseSearchResult\nfrom src",
+          "cosine_distance": 0.3647
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/graph/healthcare_graph.py",
+          "chunk_index": 6,
+          "content_preview": "s = OpenAIEmbeddings(model=settings.embeddings.model)\n    vector_store = PatientVectorStore(str(settings.db.faiss_path), embeddings)\n\n    # Combine web search with Medline \u2014 Medline results placed first so the LLM\n    # sees peer-reviewed PubMed abstracts before consumer web content.\n    # Per Experiment 2 findings rec. 2: always fetch both regardless of result count;\n    # rec. 3: Medline (higher authority) precedes web results in the prompt.\n    web_fn = search_fn or _noop_search_fn\n\n    def _combined_search(query: str, max_results: int) -> list[SearchResultItem]:\n        medline_results = s",
+          "cosine_distance": 0.3655
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/graph/healthcare_graph.py",
+          "chunk_index": 3,
+          "content_preview": "ppointmentDB,\n    vector_store: PatientVectorStore,\n    db_path: str,\n    search_fn: Callable[[str, int], list[SearchResultItem]],\n    faiss_k: int = 3,\n    max_recent_turns: int = 10,\n    memory_summary_chain: Any | None = None,\n    checkpointer: Any = None,\n    max_summary_chars: int = 1500,\n    cadence: int = 3,\n) -> CompiledStateGraph:\n    \"\"\"Wire and compile the healthcare StateGraph from pre-built dependencies.\n\n    Accepts chains and DB instances as explicit kwargs so integration tests can\n    inject mock chains and real in-memory SQLite without touching the LLM factory.\n\n    Args:\n    ",
+          "cosine_distance": 0.3656
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/agents/disease_search_node.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"disease_search_node \u2014 web search + clinical synthesis.\n\nCalls a search_fn (duck-typed: any callable(query, max_results) \u2192 list) then\nformats results as a numbered list and invokes the search chain. In production\nsearch_fn is SearchProvider.search; in tests it is a mock callable.\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nfrom collections.abc import Callable\nfrom typing import Any\n\nfrom pydantic import ValidationError\n\nfrom src.models.graph_state import HealthcareState\nfrom src.models.search_disease_params import SearchDiseaseParams\nfrom src.models.search_result_item import Sear",
+          "cosine_distance": 0.3779
+        }
+      ],
+      "answer": "### \ud83d\udd0d Relevant Projects Identified\n\nThe project utilizing a vector store for semantic search is:\n\n*   **`agentic_healthcare_assistant`**\n\n### \ud83d\udd04 Contrast and Analysis\n\nAll identified usage of vector stores for semantic search is contained within the `agentic_healthcare_assistant` project. There are no contrasting implementations or alternative technologies presented in the context.\n\nThe core component responsible for this functionality is the `PatientVectorStore` [agentic_healthcare_assistant].\n\n| Feature | Implementation Detail | Project |\n| :--- | :--- | :--- |\n| **Vector Store Type** | FAISS-backed vector store [agentic_healthcare_assistant]. | `agentic_healthcare_assistant` |\n| **Purpose** | Semantic search for patient notes and summaries [agentic_healthcare_assistant]. | `agentic_healthcare_assistant` |\n| **Data Scope** | Requires metadata fields including `patient_id, name, age, gender, summary, conditions` for every upsert [agentic_healthcare_assistant]. | `agentic_healthcare_assistant` |\n| **Integration** | The store is initialized and used within the main `healthcare_graph` structure [agentic_healthcare_assistant]. | `agentic_healthcare_assistant` |\n\n### \ud83d\udca1 Synthesis and Judgment\n\nThe **`agentic_healthcare_assistant`** project is the sole system that implements and utilizes a vector store for semantic search.\n\n**Details of Implementation:**\n\n1.  **Component:** The system uses a dedicated `PatientVectorStore` class, which wraps `langchain_community.vectorstores.FAISS` [agentic_healthcare_assistant].\n2.  **Functionality:** This store is designed for per-patient upsert and semantic search over patient notes and summaries [agentic_healthcare_assistant].\n3.  **Integration:** The `PatientVectorStore` is a critical dependency for the main `healthcare_graph` [agentic_healthcare_assistant], ensuring that the graph can perform semantic retrieval of patient data during its execution flow [agentic_healthcare_assistant].\n4.  **Persistence:** The FAISS index is persisted to disk after every upsert, allowing the store to survive application restarts [agentic_healthcare_assistant].",
+      "latency_s": 14.43
+    },
+    {
+      "id": "pq002",
+      "query": "Which projects support switching between Groq and OpenAI as the LLM provider?",
+      "category": "tech_stack",
+      "difficulty": "simple",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Exercise coach dropped Groq due to lack of strict JSON schema support in with_structured_output \u2014 a good test of whether the reason for the absence is captured in intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 0,
+          "content_preview": "# Architecture\n\n## System Overview\n\nThe Exercise and Recovery Coach implements a **Parallel-Sequential Flow** architecture following the SOLO Protocol (Spec-driven, Agentic, Audit-heavy).\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                        ExerciseCoach                            \u2502\n\u2502                     (Main Orchestrator)                         \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                              \u2502\n                              \u25bc\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502  ",
+          "cosine_distance": 0.3963
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/config/search_config.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"SearchConfig \u2014 web search provider selection.\"\"\"\n\nfrom typing import Literal\n\nfrom pydantic import BaseModel, Field\n\n\nclass SearchConfig(BaseModel):\n    \"\"\"Configuration for the web search provider used by the disease search node.\"\"\"\n\n    provider: Literal[\"serpapi\", \"serper\"] = Field(\n        description=\"Active search provider; switch here to change \u2014 no code change required\"\n    )",
+          "cosine_distance": 0.4197
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/config/test_settings.py",
+          "chunk_index": 2,
+          "content_preview": "dationError, match=\"Unknown provider\"):\n        Settings(**data)\n\n\ndef test_nested_sections_roundtrip(tmp_path):\n    cfg = _write_yaml(tmp_path, _VALID_YAML)\n    s = load_settings(cfg)\n    assert s.provider_config.temperature_summarizer == 0.3\n    assert s.provider_config.max_tokens_guard == 25\n    assert s.db.faiss_path == Path(\"data/faiss\")",
+          "cosine_distance": 0.4212
+        },
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 1,
+          "content_preview": "bSearchNode` \u2192 SerpAPI or Serper (configurable)\n4. **Assemble node** \u2014 deterministic, no I/O. Collects all agent results, groups articles by intent, and builds the `SupervisorResponse`.\n\nFor more details, see [Overall Architecture](docs/ARCHITECTURE.md).\n\n---\n\n## Setup\n\n### Prerequisites\n\n- Python 3.13+\n- [Poetry](https://python-poetry.org/docs/#installation)\n\n### Install\n\n```bash\ngit clone <repo-url>\ncd newsgenie\npoetry install\ncp .env.example .env\n# Edit .env and fill in your API keys (see Keys section below)\n```\n\n### API keys\n\nAll keys have empty-string defaults \u2014 a missing key disables tha",
+          "cosine_distance": 0.4238
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/utils/provider_builder.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Abstract base class for LLM provider builders.\"\"\"\n\nfrom abc import ABC, abstractmethod\n\nfrom langchain_core.language_models import BaseChatModel\n\nfrom src.data import LLMConfig\n\n\nclass LLMProviderBuilder(ABC):\n    \"\"\"\n    Abstract builder contract for LLM provider construction.\n    One concrete subclass per supported LLM provider.\n    Implement this class and register with LLMFactory.register() to add a new provider.\n    \"\"\"\n\n    @abstractmethod\n    def build(self, config: LLMConfig) -> BaseChatModel:\n        \"\"\"Construct and return a fully configured LLM instance for this provider.\"\"\"",
+          "cosine_distance": 0.4264
+        }
+      ],
+      "answer": "### Cross-Project Evaluation: LLM Provider Switching\n\n#### \ud83d\udd0d Extraction Summary\n\nBased on the provided summaries, none of the projects explicitly mention support for switching between Groq and OpenAI as the LLM provider.\n\n*   **`agentic_healthcare_assistant`** [2] and [3] focus on configuring and testing search providers (`serpapi`, `serper`) and general settings, but do not list Groq or OpenAI.\n*   **`exercise_and_health_coach`** [1] describes its overall architecture but does not specify LLM provider options.\n*   **`newsgenie`** [5] defines an abstract builder pattern (`LLMProviderBuilder`) designed to support multiple LLM providers, indicating architectural flexibility, but the provided code snippet does not list Groq or OpenAI as supported implementations.\n*   **`newsgenie`** [4] provides general setup instructions for API keys but does not specify the supported LLM providers.\n\n#### \ud83d\udd04 Contrast Analysis\n\n| Feature | `newsgenie` | `agentic_healthcare_assistant` | `exercise_and_health_coach` |\n| :--- | :--- | :--- | :--- |\n| **LLM Provider Switching** | Architecturally designed for it (Abstract Builder Pattern) [5]. | Not addressed in the context. | Not addressed in the context. |\n| **Mention of Groq/OpenAI** | No mention. | No mention. | No mention. |\n| **Focus of Configuration** | LLM Provider construction [5]; General setup [4]. | Search Provider configuration (SerpAPI/Serper) [2]. | Overall system flow (SOLO Protocol) [1]. |\n\n#### \ud83d\udca1 Synthesis and Judgment\n\nInsufficient data in context.\n\nWhile the `newsgenie` project utilizes an `LLMProviderBuilder` abstract class [5] which is designed to allow for the implementation of multiple concrete LLM providers, none of the provided summaries mention or confirm support for either Groq or OpenAI.",
+      "latency_s": 15.8
+    },
+    {
+      "id": "pq003",
+      "query": "Which projects use LangGraph for orchestration?",
+      "category": "tech_stack",
+      "difficulty": "simple",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Exercise coach uses LangChain chains directly without a StateGraph; tests tech stack attribution accuracy",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/orchestrator/__init__.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Orchestration components for the Exercise and Health Coach.\"\"\"\n\nfrom src.orchestrator.coach import CoachResponse, ExerciseCoach\nfrom src.orchestrator.intent_classifier import ClassifiedIntent, IntentClassifier\nfrom src.orchestrator.state_router import RoutingDecision, StateRouter, WorkflowType\n\n__all__ = [\n    \"ExerciseCoach\",\n    \"CoachResponse\",\n    \"IntentClassifier\",\n    \"ClassifiedIntent\",\n    \"StateRouter\",\n    \"RoutingDecision\",\n    \"WorkflowType\",\n]",
+          "cosine_distance": 0.3929
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/ui/components/__init__.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Reusable UI components (populated in later refactor phases).\"\"\"",
+          "cosine_distance": 0.4066
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/intake_agent.py",
+          "chunk_index": 2,
+          "content_preview": ")",
+          "cosine_distance": 0.4143
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 0,
+          "content_preview": "# Architecture\n\n## System Overview\n\nThe Exercise and Recovery Coach implements a **Parallel-Sequential Flow** architecture following the SOLO Protocol (Spec-driven, Agentic, Audit-heavy).\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                        ExerciseCoach                            \u2502\n\u2502                     (Main Orchestrator)                         \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                              \u2502\n                              \u25bc\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502  ",
+          "cosine_distance": 0.4194
+        },
+        {
+          "project": "newsgenie",
+          "path": "tests/ui/test_app.py",
+          "chunk_index": 2,
+          "content_preview": "mpose_query(\"\")\n        assert \"Cooking\" in text\n        assert \"Show me the latest news on\" in text\n        assert NewsCategory.WEB in categories\n\n    def test_topic_chip_with_text(self, session):\n        session.selected_chip = \"Fashion\"\n        text, categories = _compose_query(\"spring trends\")\n        assert \"spring trends\" in text\n        assert \"Fashion\" in text\n        assert NewsCategory.WEB in categories",
+          "cosine_distance": 0.4251
+        }
+      ],
+      "answer": "## \ud83d\udd0d Cross-Project Evaluation: LangGraph Orchestration\n\n### 1. Extraction\nBased on the provided project summaries, the term \"LangGraph\" is not present in any of the retrieved files or documentation.\n\n*   **Relevant Projects:** None.\n*   **Observed Orchestration Patterns:** The `exercise_and_health_coach` project utilizes a **Parallel-Sequential Flow** architecture and defines components like `StateRouter` and `ExerciseCoach` as the main orchestrator [exercise_and_health_coach] [exercise_and_health_coach].\n\n### 2. Contrast\nSince the keyword \"LangGraph\" is absent from all summaries, no contrast can be drawn regarding its implementation or usage across the projects.\n\n### 3. Synthesis and Judgment\n\n**Conclusion:**\nInsufficient data in context. None of the provided project summaries mention or demonstrate the use of LangGraph for orchestration.",
+      "latency_s": 10.43
+    },
+    {
+      "id": "pq004",
+      "query": "How do my projects handle conversation history and memory across turns?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: SqliteSaver checkpoint + rolling summary compression; NewsGenie: last-10-turns FIFO trim; exercise coach has session state but no multi-turn summarization \u2014 tests semantic understanding of memory strategies",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "src/ui/app.py",
+          "chunk_index": 3,
+          "content_preview": "(\n            query=query,\n            conversation_history=_build_history(st.session_state.messages),\n        )\n        with st.spinner(\"Fetching news\u2026\"):\n            try:\n                output = get_graph().invoke(state)\n            except Exception as exc:\n                st.error(f\"I encountered an issue processing your request. {exc}\")\n                return\n\n        response: SupervisorResponse = output[\"final_response\"]\n        _render_response(response)\n        st.session_state.messages.append({\"role\": \"assistant\", \"response\": response})\n\n        # Clear chip after submit\n        st.s",
+          "cosine_distance": 0.3057
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/state/conversation_state.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Conversation state management for multi-turn sessions.\"\"\"\n\nfrom datetime import datetime\nfrom typing import Any\nfrom uuid import uuid4\n\nfrom pydantic import BaseModel, Field\n\nfrom src.models.enums import IntentType, WorkflowType\nfrom src.models.schemas import CoachOutput, UserContext\n\n\nclass ConversationTurn(BaseModel):\n    \"\"\"Single turn in a conversation.\"\"\"\n\n    turn_id: str = Field(default_factory=lambda: str(uuid4())[:8])\n    timestamp: datetime = Field(default_factory=datetime.now)\n    user_message: str\n    assistant_response: str\n    intent: IntentType | None = None\n    context_updat",
+          "cosine_distance": 0.3538
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/agents/test_summarizer_node.py",
+          "chunk_index": 2,
+          "content_preview": "aptured[0][\"conversation_memory\"].strip() == \"\"\n\n\ndef test_conversation_summary_from_state_included_in_context() -> None:\n    \"\"\"When state has conversation_summary, it is included in conversation_memory.\"\"\"\n    captured: list[dict] = []\n    prior_summary = \"Alice is a 45-year-old with CKD stage 3.\"\n\n    def _capture(inv: dict) -> str:\n        captured.append(inv)\n        return \"ok\"\n\n    node = make_summarizer_node(RunnableLambda(_capture), memory_summary_chain=None)\n    node(_state(\n        completed_tasks=_tasks((\"retrieve_history\", True)),\n        conversation_summary=prior_summary,\n      ",
+          "cosine_distance": 0.3554
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/agents/summarizer_node.py",
+          "chunk_index": 1,
+          "content_preview": "nversation_summary when a rollup fires.\n        \"\"\"\n        # Accumulate under REPLACE semantics \u2014 read prior trace and extend it.\n        trace_prior = list(state.get(\"trace\", []))\n\n        completed = state.get(\"completed_tasks\", [])\n        tasks_json = json.dumps([t.model_dump() for t in completed], default=str)\n\n        # Phase 4: conversation_memory sourced from checkpoint state via\n        # build_planner_memory_inputs \u2014 reads both messages channel and\n        # conversation_summary (rolling summary) for richer context.\n        _, conversation_memory = build_planner_memory_inputs(\n     ",
+          "cosine_distance": 0.3563
+        },
+        {
+          "project": "newsgenie",
+          "path": "tests/graph/test_supervisor_node.py",
+          "chunk_index": 2,
+          "content_preview": "icMock()\n        mock_llm.invoke.return_value = MagicMock(content=\"INTENT: Web Search | QUERY: test\")\n        with patch(\"src.graph.supervisor_node.LLMFactory\") as mock_factory:\n            mock_factory.get.return_value = mock_llm\n            supervisor_node(state)\n        return mock_llm.invoke.call_args[0][0]\n\n    def test_history_injected_into_prompt(self):\n        \"\"\"Non-empty conversation_history appears in the formatted prompt.\"\"\"\n        history = [\n            {\"role\": \"user\", \"content\": \"Tell me about markets\"},\n            {\"role\": \"assistant\", \"content\": \"[Covered: markets news]\"},\n",
+          "cosine_distance": 0.3597
+        }
+      ],
+      "answer": "## \ud83e\udde0 Portfolio Synthesis: Conversation History and Memory\n\n### \ud83d\udd0d 1. Extraction: Relevant Data Points\n\nThe projects utilize three distinct approaches for managing conversation history and memory: session state management, structured turn tracking, and advanced rolling summarization.\n\n| Project | Mechanism | Key Details |\n| :--- | :--- | :--- |\n| **newsgenie** | Session State & Prompt Injection | History is managed via `st.session_state.messages` [newsgenie]. The history is explicitly built using `_build_history` [newsgenie] and injected into the prompt context, as demonstrated by testing history injection into the prompt [newsgenie]. |\n| **exercise_and_health_coach** | Structured State Modeling | Uses a dedicated `ConversationTurn` class defined with Pydantic models [exercise_and_health_coach]. This structure captures `turn_id`, `timestamp`, `user_message`, and `assistant_response` for every turn [exercise_and_health_coach]. |\n| **agentic_healthcare_assistant** | Rolling Summary & Multi-Source Memory | Employs a sophisticated memory system that sources `conversation_memory` from two sources: the raw messages channel and a dedicated `conversation_summary` (a rolling summary) [agentic_healthcare_assistant]. This summary is passed through the state and is included in the context when a rollup fires [agentic_healthcare_assistant]. |\n\n### \ud83c\udd9a 2. Contrast: Differences in Approach\n\nThe primary difference lies in the *granularity* and *mechanism* of memory retention:\n\n*   **State Management vs. Structure:**\n    *   **`newsgenie`** relies on the application's session state (`st.session_state.messages`) [newsgenie], which is effective for simple, stateless web applications but treats history as a list of messages.\n    *   **`exercise_and_health_coach`** enforces a strict, typed structure using Pydantic models (`ConversationTurn`) [exercise_and_health_coach], ensuring that every piece of data (like `timestamp` or `intent`) is explicitly tracked per turn.\n\n*   **Memory Depth (Raw History vs. Summary):**\n    *   **`newsgenie`** and **`exercise_and_health_coach`** primarily focus on passing the raw, turn-by-turn history [newsgenie] [exercise_and_health_coach].\n    *   **`agentic_healthcare_assistant`** goes beyond raw history by implementing a **rolling summary** (`conversation_summary`) [agentic_healthcare_assistant]. This mechanism is designed to provide a condensed, high-level context alongside the raw messages, which is crucial for complex, long-running, or domain-specific tasks (like healthcare) [agentic_healthcare_assistant].\n\n### \ud83d\udca1 3. Synthesis: Integrated Judgment\n\nThe projects demonstrate a clear progression in complexity, moving from simple session state tracking to highly structured, context-aware memory management.\n\n**Recommendation:** For building complex, domain-specific, or long-running conversational agents, the **`agentic_healthcare_assistant`** approach is the most robust and architecturally advanced method [agentic_healthcare_assistant].\n\n**Summary Table: Memory Handling Comparison**\n\n| Feature | newsgenie | exercise_and_health_coach | agentic_healthcare_assistant |\n| :--- | :--- | :--- | :--- |\n| **Primary Mechanism** | Session State (`st.session_state`) [newsgenie] | Structured Pydantic Model (`ConversationTurn`) [exercise_and_health_coach] | Rolling Summary + State Passing [agentic_healthcare_assistant] |\n| **Context Source** | Raw message list (History) [newsgenie] | Raw message list (Turn-by-Turn) [exercise_and_health_coach] | Raw messages **AND** Summarized Context [agentic_healthcare_assistant] |\n| **Best For** | Simple, web-based interactions [newsgenie] | Ensuring data integrity and explicit turn tracking [exercise_and_health_coach] | Complex, multi-step, or long-term memory tasks (e.g., medical records) [agentic_healthcare_assistant] |\n\n**Conclusion:**\n\nWhile **`newsgenie`** provides a functional implementation using standard session state [newsgenie], and **`exercise_and_health_coach`** provides excellent data integrity through structured modeling [exercise_and_health_coach], the **`agentic_healthcare_assistant`** model represents the highest level of architectural maturity. By combining raw message history with a dedicated, rolling `conversation_summary` [agentic_healthcare_assistant], it effectively mitigates the context window limitations inherent in passing only raw history, making it superior for maintaining coherence over extended interactions [agentic_healthcare_assistant].",
+      "latency_s": 27.48
+    },
+    {
+      "id": "pq005",
+      "query": "Show me all the places where I implemented retry logic for LLM calls",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "exercise_and_health_coach",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: 3-attempt exponential backoff; Exercise: structured output retry runners; NewsGenie: fallback chain on parse failure \u2014 all three use it but in different forms",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/utils/retry.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"invoke_with_retry \u2014 retry wrapper for LangChain chain invocations.\n\nRetries on transient LLM failures (OutputParserException, ValueError) with\nexponential backoff: 1 s after attempt 1, 2 s after attempt 2.\n\nPhilosophy note: this function uses multiple return/raise paths by design.\nThe guard-clause pattern (early raise on non-retryable) is acceptable per\nthe architecture spec; the mid-loop break on success is the only alternative\nto restructuring into a single-exit loop with a flag variable, which would\nobscure the intent. This exception is documented here per Architecture.md Section 3.\n\"\"\"\n",
+          "cosine_distance": 0.311
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/utils/test_retry.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Tests for src/utils/retry.py \u2014 invoke_with_retry().\"\"\"\n\nfrom unittest.mock import MagicMock, call, patch\n\nimport pytest\nfrom langchain_core.exceptions import OutputParserException\n\nfrom src.utils.retry import invoke_with_retry\n\n# ---------------------------------------------------------------------------\n# Helpers\n# ---------------------------------------------------------------------------\n\ndef _chain_that_succeeds(return_value: str = \"ok\") -> MagicMock:\n    \"\"\"Chain that succeeds on the first call.\"\"\"\n    chain = MagicMock()\n    chain.invoke.return_value = return_value\n    return chain\n\n\n",
+          "cosine_distance": 0.3474
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/utils/test_retry.py",
+          "chunk_index": 1,
+          "content_preview": "\") as mock_sleep:\n        result = invoke_with_retry(chain, {})\n    assert result == \"recovered\"\n    mock_sleep.assert_called_once_with(1)\n\n\ndef test_raises_after_three_value_errors():\n    chain = _chain_that_always_fails(ValueError(\"bad\"))\n    with patch(\"src.utils.retry.time.sleep\") as mock_sleep:\n        with pytest.raises(ValueError):\n            invoke_with_retry(chain, {})\n    assert chain.invoke.call_count == 3\n    assert mock_sleep.call_args_list == [call(1), call(2)]\n\n\n# ---------------------------------------------------------------------------\n# Non-retryable exceptions pass through",
+          "cosine_distance": 0.3746
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/base_agent.py",
+          "chunk_index": 1,
+          "content_preview": "\n\n        Returns:\n            Formatted user message string.\n        \"\"\"\n        pass\n\n    def invoke(self, **kwargs: Any) -> T:\n        \"\"\"\n        Execute the agent with retry logic.\n\n        Args:\n            **kwargs: Input data for the agent.\n\n        Returns:\n            Validated output matching the output schema.\n\n        Raises:\n            AgentExecutionError: If all retries fail.\n        \"\"\"\n        last_error: Exception | None = None\n\n        for attempt in range(1, self.max_retries + 1):\n            try:\n                logger.debug(f\"[{self.name}] Attempt {attempt}/{self.max_ret",
+          "cosine_distance": 0.3783
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_agents.py",
+          "chunk_index": 6,
+          "content_preview": "invoke_retries(self, mock_llm, sample_intake_response):\n        \"\"\"Test async invoke retries on failure.\"\"\"\n        mock_llm.ainvoke = AsyncMock(\n            side_effect=[\n                Exception(\"First fail\"),\n                sample_intake_response,\n            ]\n        )\n        mock_llm.with_structured_output.return_value = mock_llm\n\n        agent = IntakeAgent(llm=mock_llm, max_retries=3)\n        result = await agent.ainvoke(user_message=\"test\")\n\n        assert result == sample_intake_response\n        assert mock_llm.ainvoke.call_count == 2\n\n    @pytest.mark.asyncio\n    async def test_a",
+          "cosine_distance": 0.38
+        }
+      ],
+      "answer": "As a Senior Software Architect, I have analyzed the provided context and identified two distinct, yet effective, implementations of retry logic for LLM calls. The implementations differ significantly in scope and architectural pattern.\n\n### Summary of Retry Implementations\n\n| Project | Location/Pattern | Mechanism | Scope | Key Feature |\n| :--- | :--- | :--- | :--- | :--- |\n| **agentic\\_healthcare\\_assistant** | Dedicated Utility Function (`invoke_with_retry`) [1] | Wrapper function using `try/except` and exponential backoff [1]. | General LangChain chain invocation [1]. | Handles transient failures (e.g., `OutputParserException`, `ValueError`) and implements backoff timing [1]. |\n| **exercise\\_and\\_health\\_coach** | Agent Core Method (`invoke`) [4] | Loop structure (`for attempt in range(1, self.max_retries + 1):`) [4]. | Full agent execution lifecycle [4]. | Integrates retry logic directly into the agent's base class, managing the attempt count via `self.max_retries` [4]. |\n\n***\n\n### Detailed Analysis of Retry Implementations\n\n#### 1. Dedicated Utility Wrapper (agentic\\_healthcare\\_assistant)\n\nThe `agentic_healthcare_assistant` project implements retry logic using a dedicated utility function, `invoke_with_retry` [1]. This approach abstracts the retry mechanism away from the calling business logic, making it reusable across different parts of the application.\n\n*   **Mechanism:** This function acts as a wrapper for LangChain chain invocations [1]. It specifically targets transient LLM failures, such as `OutputParserException` or `ValueError` [1].\n*   **Resilience:** It employs **exponential backoff** for retries, waiting 1 second after the first attempt and 2 seconds after the second attempt [1].\n*   **Testing:** The retry behavior is rigorously tested, confirming that the system correctly handles multiple failures and subsequent backoff delays (e.g., asserting `mock_sleep.call_args_list == [call(1), call(2)]`) [3].\n\n#### 2. Integrated Agent Method (exercise\\_and\\_health\\_coach)\n\nThe `exercise_and_health_coach` project implements retry logic by integrating it directly into the `invoke` method of the base agent class [4]. This pattern ensures that the entire agent execution flow is protected by the retry mechanism.\n\n*   **Mechanism:** The `invoke` method utilizes a standard `for` loop that iterates up to `self.max_retries` times [4]. The core logic is wrapped in a `try...except` block within this loop [4].\n*   **Scope:** This logic governs the execution of the entire agent, ensuring that if the agent fails to produce a validated output, it attempts to re-run the process up to the defined limit [4].\n*   **Testing:** The functionality is confirmed by unit tests that simulate failures and verify the correct number of invocation attempts (e.g., asserting `mock_llm.ainvoke.call_count == 2`) [5].\n\n### Architectural Contrast and Judgment\n\nThe two implementations represent two valid architectural patterns for handling transient failures:\n\n1.  **Utility Wrapper (agentic\\_healthcare\\_assistant):** This is the **Service Layer** approach. It is highly reusable and clean because the retry logic is isolated. It is ideal when the retry mechanism needs to be applied to many different, unrelated components (e.g., any function that calls a LangChain chain) [1].\n2.  **Integrated Method (exercise\\_and\\_health\\_coach):** This is the **Domain/Object Layer** approach. It is ideal when the retry logic is intrinsically tied to the lifecycle of a specific object (the Agent) [4].\n\n**Recommendation:**\nThe `agentic_healthcare_assistant` approach using a dedicated utility wrapper (`invoke_with_retry`) is generally superior for maximizing code reusability and maintaining separation of concerns, as it cleanly separates the \"how to retry\" from the \"what to execute\" [1].",
+      "latency_s": 26.68
+    },
+    {
+      "id": "pq006",
+      "query": "Which projects use Pydantic models to validate LLM output?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "exercise_and_health_coach",
+        "newsgenie"
+      ],
+      "notes": "All three use Pydantic \u2014 but exercise coach relies most heavily on it (every agent output is a validated model). Tests whether intent summaries capture this as a cross-cutting pattern",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_models.py",
+          "chunk_index": 6,
+          "content_preview": "tput model.\"\"\"\n\n    def test_approved_output(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(status=AuditStatus.APPROVED),\n            user_message=\"Here is your workout plan.\",\n        )\n        assert output.is_approved()\n\n    def test_modified_output_is_approved(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(\n                status=AuditStatus.MODIFIED,\n                modifications=[\"Reduced volume\"],\n            ),\n            user_message=\"Here is your modified workout plan.\",\n ",
+          "cosine_distance": 0.3056
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/validators/base.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Base validator interface for the Exercise and Health Coach system.\"\"\"\n\nfrom abc import ABC, abstractmethod\nfrom typing import Any, Generic, TypeVar\n\nfrom pydantic import BaseModel\n\nT = TypeVar(\"T\", bound=BaseModel)\n\n\nclass ValidationResult(BaseModel):\n    \"\"\"Result of a validation check.\"\"\"\n\n    is_valid: bool\n    errors: list[str] = []\n    warnings: list[str] = []\n    suggestions: list[str] = []\n    metadata: dict[str, Any] = {}\n\n\nclass BaseValidator(ABC, Generic[T]):\n    \"\"\"\n    Abstract base class for validators.\n\n    Validators check domain-specific rules and can either:\n    - Return er",
+          "cosine_distance": 0.319
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/data/response.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"\nResponse models returned to the UI and CLI.\n\nIntentSection and SupervisorResponse share this file: SupervisorResponse is a direct\nstructural wrapper around IntentSection. Same single reason to change.\n\"\"\"\n\nfrom pydantic import BaseModel, Field\n\nfrom src.data.enums import AgentName\nfrom src.data.normalized_article import NormalizedArticle\n\n\nclass IntentSection(BaseModel):\n    \"\"\"\n    One section of the final response, corresponding to one PlanStep.\n    Constructed programmatically from agent_results articles for that agent.\n    Multi-step plans produce multiple IntentSections in SupervisorR",
+          "cosine_distance": 0.3369
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 4,
+          "content_preview": "Modality (SMR, DYNAMIC_MOBILITY, STATIC_STRETCHING)\n\u2502   \u2514\u2500\u2500 exercises: list[RecoveryExercise]\n\u2502       \u251c\u2500\u2500 name, duration_seconds, sets\n\u2502       \u251c\u2500\u2500 target_areas: list[str]\n\u2502       \u2514\u2500\u2500 intensity: str (light, moderate, deep)\n\u251c\u2500\u2500 total_duration_minutes: int\n\u251c\u2500\u2500 target_areas: list[str]\n\u2514\u2500\u2500 rationale: str\n\nAuditLog\n\u251c\u2500\u2500 status: AuditStatus (APPROVED, MODIFIED, REJECTED)\n\u251c\u2500\u2500 red_flags: list[RedFlag]\n\u251c\u2500\u2500 modifications: list[str]\n\u251c\u2500\u2500 warnings: list[str]\n\u2514\u2500\u2500 approval_notes / rejection_reason: str\n```\n\n## CLI Observability\n\nVerbose and debug behavior is centralized in `src/cli/app.py` via LangChain global",
+          "cosine_distance": 0.3397
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/integration/test_workflows.py",
+          "chunk_index": 3,
+          "content_preview": "er()\n\n\nclass TestValidatorIntegration:\n    \"\"\"Test validators integrate correctly with workflows.\"\"\"\n\n    def test_volume_validation_in_workout(self, sample_workout_plan):\n        \"\"\"Test volume validator runs on workout plans.\"\"\"\n        from src.validators.volume_validator import VolumeValidator\n\n        validator = VolumeValidator()\n        validator.min_sets = 1\n        validator.max_sets = 100\n\n        result = validator.validate(sample_workout_plan)\n        assert result.is_valid\n\n    def test_ratio_validation_in_workout(self, sample_workout_plan):\n        \"\"\"Test ratio validator runs on",
+          "cosine_distance": 0.3475
+        }
+      ],
+      "answer": "## Cross-Project Evaluation: Pydantic for LLM Output Validation\n\n### \ud83d\udd0d Extraction of Relevant Data\n\nThe following projects utilize Pydantic models for defining, structuring, and validating data outputs, which in the context of these summaries, relate to the results of agentic or LLM-driven processes.\n\n| Project | Pydantic Usage | Purpose |\n| :--- | :--- | :--- |\n| **exercise_and_health_coach** | Defines structured output models (`CoachOutput`, `AuditLog`) [1], [4]. | Ensures the final, complex workout plan and its associated audit trail adhere to a strict schema. |\n| **exercise_and_health_coach** | Implements a generic validation framework (`ValidationResult`, `BaseValidator`) [2]. | Provides a reusable, abstract mechanism for checking domain-specific rules against input data. |\n| **exercise_and_health_coach** | Uses specific validators (e.g., `VolumeValidator`) [5]. | Validates the internal consistency and adherence to rules (e.g., minimum/maximum sets) within the generated workout plan. |\n| **newsgenie** | Defines response models (`IntentSection`, `SupervisorResponse`) [3]. | Structures the final, multi-section response generated by multiple agents, ensuring a consistent format for the UI/CLI. |\n\n### \ud83c\udd9a Contrast of Validation Patterns\n\nWhile both projects rely on Pydantic, they employ distinct architectural patterns for validation:\n\n*   **`exercise_and_health_coach` (Deep Domain Validation):** This project uses Pydantic not just for structure, but for deep, programmatic validation of domain logic. It establishes a comprehensive validation layer (`BaseValidator`) [2] that is then instantiated with specific rules (e.g., volume, ratio) [5]. The models define not only the output structure (`CoachOutput`) [1] but also the metadata required for auditing the generation process (`AuditLog`) [4].\n*   **`newsgenie` (Structural Aggregation):** This project focuses primarily on structuring the *aggregation* of results. It uses Pydantic to wrap and standardize the output from multiple, potentially disparate, agent results into a single, predictable format (`SupervisorResponse` containing multiple `IntentSection`s) [3]. The validation here is focused on ensuring the overall structural integrity of the final response payload.\n\n### \ud83d\udca1 Synthesis and Judgment\n\nBoth the `exercise_and_health_coach` and `newsgenie` projects use Pydantic models to validate and structure LLM output, but they represent two different levels of complexity in the validation pipeline.\n\n**Judgment:** Both projects are highly dependent on Pydantic for robust output management.\n\n*   **`exercise_and_health_coach`** demonstrates a more complex, multi-layered validation system. It uses Pydantic to enforce **structural integrity** (defining `CoachOutput` and `AuditLog`) and **domain-specific business logic** (via `BaseValidator` and `VolumeValidator`) [2], [5], [4].\n*   **`newsgenie`** demonstrates a strong pattern for **multi-agent output aggregation**. It uses Pydantic to ensure that the final, composite response from multiple sources adheres to a single, predictable schema (`SupervisorResponse`) [3].\n\n***\n\n#### Summary Table: Pydantic Usage\n\n| Project | Primary Validation Focus | Key Pydantic Models |\n| :--- | :--- | :--- |\n| **exercise_and_health_coach** | Domain Logic & Auditability | `CoachOutput`, `AuditLog`, `ValidationResult` [1], [4], [2] |\n| **newsgenie** | Multi-Agent Output Structuring | `IntentSection`, `SupervisorResponse` [3] |",
+      "latency_s": 24.33
+    },
+    {
+      "id": "pq007",
+      "query": "How do my projects implement safety guardrails or content filtering?",
+      "category": "safety",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Healthcare: domain whitelist on disease search, RAGAS faithfulness eval; Exercise: 4-layer SafetyJudge (RedFlagScanner \u2192 acute regex \u2192 LLM backstop). NewsGenie has no safety layer \u2014 tests whether safety patterns are captured in summaries",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/orchestrator/state_router.py",
+          "chunk_index": 2,
+          "content_preview": "reason=\"Red flag symptoms detected requiring medical clearance\",\n                missing_fields=[],\n                safety_concerns=safety_concerns,\n            )\n\n        # Step 3: Handle non-action intents\n        if intent.intent in (IntentType.GENERAL_QUESTION, IntentType.CLARIFICATION):\n            # Recovery follow-up check (router ordering \u00a73).\n            # All four conditions must hold:\n            #   (a) last_workflow == RECOVERY_ONLY\n            #   (b) message word count \u2264 12\n            #   (c) message does NOT contain exercise_terms\n            #   (d) message contains '?' OR st",
+          "cosine_distance": 0.4278
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/orchestrator/state_router.py",
+          "chunk_index": 7,
+          "content_preview": "def needs_intake(self, decision: RoutingDecision) -> bool:\n        \"\"\"Check if more intake information is needed.\"\"\"\n        return decision.workflow == WorkflowType.INTAKE_NEEDED\n\n    def is_blocked(self, decision: RoutingDecision) -> bool:\n        \"\"\"Check if request is blocked due to safety.\"\"\"\n        return decision.workflow == WorkflowType.SAFETY_BLOCK",
+          "cosine_distance": 0.4282
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/orchestrator/coach.py",
+          "chunk_index": 5,
+          "content_preview": "achResponse(\n            message=\"I'm not sure how to help with that. Could you tell me more?\",\n        )\n\n    def _create_safety_response(self, routing: RoutingDecision) -> CoachResponse:\n        \"\"\"Create response for safety-blocked request.\"\"\"\n        lines = [\"**Safety Notice**\\n\"]\n        consult_msg = (\n            \"Based on what you've shared, I recommend consulting with a \"\n            \"healthcare provider before starting an exercise program.\\n\"\n        )\n        lines.append(consult_msg)\n\n        if routing.safety_concerns:\n            lines.append(\"**Concerns identified:**\")\n        ",
+          "cosine_distance": 0.4392
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_INTAKE_AGENT_FRICTION.md",
+          "chunk_index": 5,
+          "content_preview": "sage`) are gated on `is_exercise_intent` at `state_router.py:105\u2013120`.\nThey only fire for `EXERCISE_REQUEST` / `INTEGRATED_REQUEST` intents. If a postpartum or diabetes\nmessage routes as `RECOVERY_REQUEST`, equipment and goal inference are intentionally skipped (recovery\ndoesn't require equipment or fitness goals). This is by design; do not move inference outside the\n`is_exercise_intent` guard.\n\n**Tests added**: `test_gym_session_infers_full_gym`, `test_at_home_infers_bodyweight`,\n`test_park_pullup_bar_infers_bodyweight`, `test_postpartum_infers_bodyweight`,\n`test_diabetes_beginner_infers_body",
+          "cosine_distance": 0.4453
+        },
+        {
+          "project": "newsgenie",
+          "path": "experiments/espn_scorecard_tester/__init__.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"ESPN scoreboard API experiment \u2014 JSONL-driven harness + response vetting.\"\"\"",
+          "cosine_distance": 0.4476
+        }
+      ],
+      "answer": "## \ud83d\udee1\ufe0f Cross-Project Evaluation: Safety Guardrails and Content Filtering\n\n### \ud83d\udd0d Extraction of Safety Mechanisms\n\nThe implementation of safety guardrails and content filtering is highly detailed and concentrated within the `exercise_and_health_coach` project, utilizing multiple layers of checks.\n\n#### **Project: `exercise_and_health_coach`**\nThis project employs a multi-layered approach covering symptom detection, workflow blocking, and contextual content skipping:\n\n*   **Symptom Detection and Medical Clearance:** The system can detect \"Red flag symptoms detected requiring medical clearance\" [exercise_and_health_coach].\n*   **Workflow Blocking:** A dedicated mechanism exists to check if a request is blocked due to safety, returning a `SAFETY_BLOCK` workflow type [exercise_and_health_coach].\n*   **Safety Response Generation:** When a request is safety-blocked, the system generates a specific \"Safety Notice\" that recommends consulting with a healthcare provider [exercise_and_health_coach]. This response also incorporates specific `safety_concerns` identified during routing [exercise_and_health_coach].\n*   **Contextual Content Filtering (State Management):** The system intentionally skips advanced features (like equipment and goal inference) if the user's message routes as a `RECOVERY_REQUEST` (e.g., for postpartum or diabetes messages). This ensures that recovery messages do not trigger inappropriate inference logic [exercise_and_health_coach].\n*   **Testing Guardrails:** The project includes specific tests to validate these guardrails, such as `test_postpartum_infers_bodyweight` and `test_diabetes_beginner_infers_body` [exercise_and_health_coach].\n\n#### **Project: `newsgenie`**\n*   **Response Vetting:** This project mentions using a \"JSONL-driven harness + response vetting\" process for its API experiments [newsgenie].\n\n### \ud83d\udd04 Contrast and Comparison\n\n| Feature | `exercise_and_health_coach` | `newsgenie` |\n| :--- | :--- | :--- |\n| **Mechanism Type** | Deep, multi-stage, state-aware, and medically focused. | General API output validation. |\n| **Scope** | Symptom detection, workflow blocking, and contextual feature gating. | Vetting of generated responses against an API source (ESPN scoreboard). |\n| **Granularity** | High. Can identify specific \"Red flag symptoms\" and generate tailored safety notices. | Low. Only mentions \"response vetting\" without detailing the criteria. |\n| **Focus** | User safety and adherence to medical protocol. | Data integrity and output accuracy. |\n\nThe primary difference is the **depth and specificity** of the guardrails. The `exercise_and_health_coach` implements a highly specialized, state-machine-driven safety system that directly addresses medical risk and user context. The `newsgenie` project, while mentioning \"response vetting,\" describes a more general data integrity check.\n\n### \ud83d\udca1 Synthesis and Judgment\n\nThe projects implement safety guardrails using distinct, but equally critical, methodologies.\n\n**The `exercise_and_health_coach` project demonstrates a highly mature and robust implementation of safety guardrails.** Its approach is not merely a simple filter but a comprehensive, multi-stage system that:\n\n1.  **Detects Risk:** It actively scans for medical red flags and symptoms [exercise_and_health_coach].\n2.  **Controls Flow:** It uses a dedicated `SAFETY_BLOCK` workflow to halt progression when risk is detected [exercise_and_health_coach].\n3.  **Mitigates Harm:** It provides mandatory, actionable safety advice (consulting a healthcare provider) when the block is triggered [exercise_and_health_coach].\n4.  **Maintains Context:** It prevents the system from making inappropriate assumptions by contextually skipping advanced features based on the user's current state (e.g., recovery status) [exercise_and_health_coach].\n\nThe `newsgenie` project implements a general content filtering mechanism via \"response vetting\" [newsgenie], which is useful for ensuring data accuracy but lacks the medical depth and state-awareness demonstrated by the `exercise_and_health_coach` system.\n\n**Conclusion:** The `exercise_and_health_coach` project represents the gold standard for safety guardrails in this context, utilizing a combination of symptom detection, workflow blocking, and contextual content gating to ensure user safety and maintain operational integrity.",
+      "latency_s": 26.75
+    },
+    {
+      "id": "pq008",
+      "query": "Which projects use deterministic routing instead of an LLM to decide which agent to call?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "exercise_and_health_coach",
+        "newsgenie"
+      ],
+      "notes": "Exercise: StateRouter classifies intent via vocabulary dict and heuristics; NewsGenie: only supervisor uses LLM, domain agents are pure fetch workers \u2014 contrasts with healthcare's intent_guard\u2192planner pattern",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 1,
+          "content_preview": "bSearchNode` \u2192 SerpAPI or Serper (configurable)\n4. **Assemble node** \u2014 deterministic, no I/O. Collects all agent results, groups articles by intent, and builds the `SupervisorResponse`.\n\nFor more details, see [Overall Architecture](docs/ARCHITECTURE.md).\n\n---\n\n## Setup\n\n### Prerequisites\n\n- Python 3.13+\n- [Poetry](https://python-poetry.org/docs/#installation)\n\n### Install\n\n```bash\ngit clone <repo-url>\ncd newsgenie\npoetry install\ncp .env.example .env\n# Edit .env and fill in your API keys (see Keys section below)\n```\n\n### API keys\n\nAll keys have empty-string defaults \u2014 a missing key disables tha",
+          "cosine_distance": 0.3159
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/integration/test_workflows.py",
+          "chunk_index": 2,
+          "content_preview": ".route(\"My hips are tight\", session)\n        assert result.workflow == WorkflowType.RECOVERY_ONLY\n\n    def test_general_question_routes_correctly(self):\n        \"\"\"Test that general questions don't trigger workflows.\"\"\"\n        router = StateRouter()\n        session = create_session()\n\n        result = router.route(\"What is progressive overload?\", session)\n        assert result.workflow == WorkflowType.GENERAL_RESPONSE\n\n\nclass TestCoachIntegration:\n    \"\"\"Test ExerciseCoach integration with mocked agents.\"\"\"\n\n    @pytest.fixture\n    def mock_coach(self):\n        \"\"\"Create coach with mocked com",
+          "cosine_distance": 0.3377
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "README.md",
+          "chunk_index": 3,
+          "content_preview": "M is **not called** when L1, L1b, or L2 fires \u2014 no cost for known patterns\n- On LLM failure (both retries exhausted), returns `[]` (fail-open) \u2014 routing is never crashed\n- `temperature: 0.0`, `max_tokens: 5` \u2014 deterministic, minimal-cost binary decision\n\n### 2. Red Flag Scanner (`red_flag_scanner.py`)\n\nRule-based pattern matching underpinning L1 and L1b:\n\n| Category | Examples | Action |\n|----------|----------|--------|\n| **Neurological** | Numbness, tingling, radiating pain, sciatica | Block |\n| **Cardiovascular** | Chest pain, shortness of breath, palpitations, arrhythmia | Block |\n| **Acute",
+          "cosine_distance": 0.346
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/graph/edges.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Conditional edge functions for the NewsGenie LangGraph graph.\"\"\"\n\nfrom src.data import AgentName, AgentState\n\n\ndef route_from_plan(state: AgentState) -> list[str]:\n    \"\"\"\n    Fan out to all nodes identified in the routing plan.\n    Returns a list of node names \u2014 LangGraph dispatches them in parallel.\n    Registered as: graph.add_conditional_edges(\"supervisor_node\", route_from_plan)\n    Guard: if plan is absent (supervisor raised before writing state), fall back to web_search.\n    \"\"\"\n    if state.plan is None:\n        return [AgentName.WEB_SEARCH.value]\n    return [step.agent.value for ste",
+          "cosine_distance": 0.3474
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 1,
+          "content_preview": "h.py` `_handle_routing` 217\u2013260 | `ConversationState.last_output` is declared (`conversation_state.py:49`) but never assigned after a workflow completes. Follow-up tie-back always sees `None`. |\n\n### Smell catalogue\n\n| File | Smell | Root cause |\n|------|--------|------------|\n| `intent_classifier.py` | Brittle regex; wrong fallback | Single-message, stateless classification |\n| `state_router.py` | Early exit for GENERAL_* | No session phase, `last_workflow`, or follow-up policy |\n| `state_router.py` | `WorkflowType` defined here | Belongs in `models/enums.py`; current location will cause circ",
+          "cosine_distance": 0.3483
+        }
+      ],
+      "answer": "## Cross-Project Evaluation: Deterministic Routing\n\nBased on the provided summaries, both projects utilize mechanisms that enforce deterministic flow control, but they achieve this through different architectural layers: `exercise_and_health_coach` relies heavily on explicit rule-based logic and pattern matching, while `newsgenie` uses programmatic state management and fallbacks within its graph structure.\n\n### Summary Table: Deterministic Routing Mechanisms\n\n| Project | Primary Mechanism | Determinism Source | Key Evidence |\n| :--- | :--- | :--- | :--- |\n| **exercise_and_health_coach** | Rule-Based Pattern Matching | Explicit rules (e.g., neurological/cardiovascular) [exercise_and_health_coach] | Uses regex in `intent_classifier.py` [exercise_and_health_coach]; utilizes rule-based pattern matching for L1/L1b [exercise_and_health_coach]. |\n| **exercise_and_health_coach** | State/Parameter Control | Code logic and parameter setting | Sets `temperature: 0.0` for deterministic, minimal-cost binary decisions [exercise_and_health_coach]. |\n| **newsgenie** | Graph State Management | Programmatic state checks and fallbacks | The `route_from_plan` function uses the `state.plan` to determine the next nodes [newsgenie]; the `Assemble node` is explicitly \"deterministic, no I/O\" [newsgenie]. |\n\n### Detailed Analysis\n\n#### 1. `exercise_and_health_coach`\nThis project demonstrates the most explicit use of non-LLM, deterministic routing mechanisms.\n\n*   **Rule-Based Pattern Matching:** The system employs a \"Rule-based pattern matching underpinning L1 and L1b\" [exercise_and_health_coach]. This mechanism uses defined categories (e.g., Neurological, Cardiovascular) to trigger specific actions or blocks [exercise_and_health_coach].\n*   **Regex Classification:** The intent classification layer uses \"Brittle regex\" [exercise_and_health_coach], which is a deterministic, non-LLM method for initial routing.\n*   **Parameter Control:** The system enforces determinism by setting `temperature: 0.0` and `max_tokens: 5` for decision-making, ensuring a \"deterministic, minimal-cost binary decision\" [exercise_and_health_coach].\n\n#### 2. `newsgenie`\nThis project uses deterministic routing by managing the flow through the state graph rather than relying solely on the LLM's output for the next step.\n\n*   **State-Driven Routing:** The `route_from_plan` function determines the next nodes by reading the `state.plan` [newsgenie]. This is a programmatic decision that dispatches nodes in parallel [newsgenie].\n*   **Programmatic Fallback:** The routing logic includes a guard that ensures if the plan is absent, it programmatically falls back to `web_search` [newsgenie].\n*   **Deterministic Assembly:** The `Assemble node` is described as \"deterministic, no I/O\" [newsgenie], indicating that the final step of collecting and grouping results is a predictable, non-LLM process.\n\n### Conclusion\n\nBoth projects successfully implement deterministic routing, but they represent different architectural approaches:\n\n*   **`exercise_and_health_coach`** implements determinism primarily through **explicit, layered rules and regex** [exercise_and_health_coach], making it highly predictable for health-related patterns.\n*   **`newsgenie`** implements determinism through **state machine management** [newsgenie], where the flow is dictated by the state object (`state.plan`) and programmatic fallbacks [newsgenie].",
+      "latency_s": 26.85
+    },
+    {
+      "id": "pq009",
+      "query": "What embedding models and vector search strategies do I use across my projects?",
+      "category": "tech_stack",
+      "difficulty": "simple",
+      "expected_projects": [
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Only healthcare uses embeddings (text-embedding-3-small + FAISS persisted index). Expected answer: one project uses embeddings, others are stateless \u2014 tests absence detection",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/graph/healthcare_graph.py",
+          "chunk_index": 6,
+          "content_preview": "s = OpenAIEmbeddings(model=settings.embeddings.model)\n    vector_store = PatientVectorStore(str(settings.db.faiss_path), embeddings)\n\n    # Combine web search with Medline \u2014 Medline results placed first so the LLM\n    # sees peer-reviewed PubMed abstracts before consumer web content.\n    # Per Experiment 2 findings rec. 2: always fetch both regardless of result count;\n    # rec. 3: Medline (higher authority) precedes web results in the prompt.\n    web_fn = search_fn or _noop_search_fn\n\n    def _combined_search(query: str, max_results: int) -> list[SearchResultItem]:\n        medline_results = s",
+          "cosine_distance": 0.3212
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/config/embeddings_config.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"EmbeddingsConfig \u2014 embedding model provider and model name.\"\"\"\n\nfrom typing import Literal\n\nfrom pydantic import BaseModel, Field\n\n\nclass EmbeddingsConfig(BaseModel):\n    \"\"\"Configuration for the embeddings model used by the FAISS patient vector store.\"\"\"\n\n    provider: Literal[\"openai\"] = Field(\n        default=\"openai\",\n        description=\"Embeddings provider \u2014 fixed to 'openai' (text-embedding-3-small)\",\n    )\n    model: str = Field(\n        default=\"text-embedding-3-small\",\n        description=\"Embeddings model name; OPENAI_API_KEY always required\",\n    )",
+          "cosine_distance": 0.3377
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "README.md",
+          "chunk_index": 7,
+          "content_preview": "\u2014 Groq and OpenAI paths\n\u251c\u2500\u2500 models/       Pydantic v2 data models \u2014 one class per file\n\u251c\u2500\u2500 tools/        LangChain @tool wrappers for each DB/search operation\n\u251c\u2500\u2500 cli/          CLI entry point (healthcare-cli)\n\u251c\u2500\u2500 ui/           Streamlit package (app.py shell + tabs/ + panels/ + components/)\n\u2514\u2500\u2500 utils/        invoke_with_retry(), search_provider abstraction, build_invoke_config()\n\ntests/            Mirrors src/ structure exactly\nexperiments/\n\u251c\u2500\u2500 experiment_runner.py          Abstract base: _time_invoke(), _save_results()\n\u251c\u2500\u2500 history/                      Experiment 1: history fidelity (finding",
+          "cosine_distance": 0.3394
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/graph/test_healthcare_graph.py",
+          "chunk_index": 1,
+          "content_preview": "ore(tmp_path) -> PatientVectorStore:\n    \"\"\"PatientVectorStore with mocked embeddings \u2014 no OpenAI API call.\"\"\"\n    embeddings = MagicMock(spec=Embeddings)\n    embeddings.embed_documents.return_value = [[0.1] * 1536]\n    embeddings.embed_query.return_value = [0.1] * 1536\n    return PatientVectorStore(str(tmp_path / \"faiss\"), embeddings)\n\n\ndef _build_graph(\n    seeded_db,\n    mock_vector_store,\n    *,\n    guard_response: str = \"SAFE\",\n    planner_output: PlannerOutput,\n    history_response: str = \"Patient history: hypertension, lisinopril.\",\n    summary_response: str = \"Final summary of complete",
+          "cosine_distance": 0.3446
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/tools/search_tool.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"search_tool \u2014 LangChain @tool wrapping SearchProvider.search + search_chain.\n\nThis tool is used by the experiment runner and any LangChain agent that needs\nto search for disease information directly. The graph pipeline uses\ndisease_search_node instead (which injects dependencies via factory).\n\nTyped input: SearchDiseaseParams (validated by LangChain before invoke).\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nfrom collections.abc import Callable\nfrom typing import Any\n\nfrom langchain_core.tools import tool\n\nfrom src.models.disease_search_result import DiseaseSearchResult\nfrom src",
+          "cosine_distance": 0.3538
+        }
+      ],
+      "answer": "## \ud83e\udde0 Portfolio Synthesis: Embedding Models and Vector Search Strategies\n\nBased on the provided summaries, the architecture utilizes a highly consistent and defined approach for both embedding generation and vector storage across all components.\n\n### Summary Table: Embedding and Vector Strategy\n\n| Component | Model/Provider | Specific Model Name | Vector Store Implementation |\n| :--- | :--- | :--- | :--- |\n| **Embedding Model** | OpenAI | `text-embedding-3-small` | N/A |\n| **Vector Store** | FAISS | N/A | `PatientVectorStore` |\n\n***\n\n### \ud83d\udd0d Detailed Analysis\n\n#### 1. Embedding Model Strategy\nThe system is explicitly configured to use OpenAI for generating embeddings [agentic_healthcare_assistant].\n\n*   **Provider and Model:** The embedding provider is fixed to `\"openai\"` [agentic_healthcare_assistant]. The specific model used is defined as `\"text-embedding-3-small\"` [agentic_healthcare_assistant].\n*   **Implementation:** The `OpenAIEmbeddings` class is instantiated using the configured model name within the graph logic [agentic_healthcare_assistant].\n\n#### 2. Vector Search Strategy\nThe primary vector search strategy involves using a dedicated `PatientVectorStore` backed by FAISS [agentic_healthcare_assistant].\n\n*   **Vector Store:** The system utilizes a `PatientVectorStore` class [agentic_healthcare_assistant].\n*   **Backend:** This store is initialized using a path pointing to a FAISS database (`str(settings.db.faiss_path)`) [agentic_healthcare_assistant].\n*   **Testing Confirmation:** The testing suite confirms that the `PatientVectorStore` is designed to accept a FAISS path and an embedding object, even when mocked for testing purposes [agentic_healthcare_assistant].\n\n### \ud83d\udca1 Synthesis and Judgment\n\nThe architecture demonstrates a clear, single-source strategy for vector operations. There is no evidence of switching between embedding providers or vector databases.\n\nThe pattern is: **OpenAI Embeddings $\\rightarrow$ FAISS Vector Store $\\rightarrow$ `PatientVectorStore` Wrapper.**\n\nThis consistency is enforced at the configuration level (`src/config/embeddings_config.py`) and implemented across the core graph logic (`src/graph/healthcare_graph.py`) and validated in the testing suite (`tests/graph/test_healthcare_graph.py`) [agentic_healthcare_assistant].",
+      "latency_s": 19.82
+    },
+    {
+      "id": "pq010",
+      "query": "How do my projects prevent unbounded LLM context growth in long conversations?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: rolling summary compressed every K turns; NewsGenie: FIFO trim to last 10 turns \u2014 two different strategies for the same problem. This is a pure semantic query; no keyword will find it",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/chains/summary_chain.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"summary_chain \u2014 synthesises all completed task results into a final response.\n\nChain: summary_prompt | llm | StrOutputParser\n\nInput variables:\n    completed_tasks: str \u2014 JSON-serialised list of TaskResult dicts\n    user_query: str \u2014 the original user request\n    conversation_memory: str \u2014 bounded prior chat (summary + last N turns); may be empty\n\nThis is the terminal chain in the graph \u2014 it runs after all sub-goals\nare complete and composes the final user-facing response from all\nTaskResult outcomes. Failed tasks are surfaced clearly rather than silently\ndropped.\n\"\"\"\n\nfrom __future__ import",
+          "cosine_distance": 0.3996
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_conversation_state.py",
+          "chunk_index": 2,
+          "content_preview": "ary = state.get_conversation_summary()\n        assert summary == \"No previous conversation.\"\n\n    def test_get_conversation_summary(self):\n        state = ConversationState()\n        state.add_turn(\"Hello\", \"Hi there!\")\n        state.add_turn(\"I want to build muscle\", \"Great goal!\")\n        summary = state.get_conversation_summary(max_turns=2)\n        assert \"Hello\" in summary\n        assert \"build muscle\" in summary\n\n    def test_clear_pending_clarifications(self):\n        state = ConversationState()\n        state.pending_clarifications = [\"What is your age?\", \"What equipment do you have?\"]\n ",
+          "cosine_distance": 0.4009
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "README.md",
+          "chunk_index": 1,
+          "content_preview": "ry few turns, giving the assistant continuity without unbounded context growth. Users can clear a patient's conversation history at any time from the Active Patient panel.\n\nThree evaluation experiments have been run to validate each tool's fitness for production. All three passed their architecture-defined thresholds. See [Experiments](#experiments--evaluation) and the [full findings](#experiment-findings) for results.\n\nFor complete technical details, see [docs/Architecture.md](docs/Architecture.md).\n\n---\n\n## Architecture\n\nThe system follows an **intent guard \u2192 planner \u2192 sequential task dispat",
+          "cosine_distance": 0.4011
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 10,
+          "content_preview": " field would otherwise cause. |\n| `active_thread` field | **Rejected \u2014 YAGNI.** `last_workflow` + `last_output` fully cover the session thread. Remove from spec. |\n| Step 0 xfail test structure | **Two separate tests** (Test A: age/intake; Test B: icing follow-up) so each step's progress is independently observable and no intermediate regression hides in a composite assert. |\n| `is_complete_for_recovery()` UX delta | **Intentional behavioral change.** Document in welcome message. Users who previously skipped intake will now see a quick age + pain prompt before their first recovery plan. |\n| `h",
+          "cosine_distance": 0.4032
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/orchestrator/coach.py",
+          "chunk_index": 2,
+          "content_preview": "# Step 1: Extract context from message\n        intake_response = await self._arun_intake(message, state)\n        if intake_response.extracted_context:\n            state.update_context(intake_response.extracted_context)\n\n        # Capture explicit \"no health concerns\" statements to reduce intake friction\n        self._record_health_denial_if_present(message, state)\n\n        # Route\n        routing = self.router.route(message, state)\n\n        # Check minimal intake (Tier 1 - safety check)\n        # Skip intake check for: definitional questions, safety blocks, general responses\n        if not sta",
+          "cosine_distance": 0.4101
+        }
+      ],
+      "answer": "## \ud83e\udde0 Portfolio Synthesis: Preventing Unbounded Context Growth\n\nThe projects employ strategies centered around summarizing past interactions and limiting the number of turns or context elements passed to the LLM, ensuring continuity without exceeding token limits.\n\n### \ud83d\udcda Summary Table: Context Management Techniques\n\n| Project | Primary Mechanism | Context Bounding Method | Key Implementation Detail |\n| :--- | :--- | :--- | :--- |\n| **agentic\\_healthcare\\_assistant** | Dedicated Summary Chain | Bounded prior chat (summary + last N turns) [1] | Uses a terminal `summary_chain` to synthesize all completed task results into the final response [1]. |\n| **exercise\\_and\\_health\\_coach** | State Management & Summarization | Limiting the number of turns (e.g., `max_turns=2`) [2] | Utilizes a `ConversationState` object to retrieve a conversation summary, ensuring only relevant history is passed [2]. |\n\n### \ud83d\udd0d Detailed Analysis\n\n#### 1. Context Bounding Mechanisms\n\nBoth projects implement context bounding, but they focus on different parts of the conversation lifecycle:\n\n*   **Summary-Based Bounding:** The `agentic_healthcare_assistant` explicitly manages context by passing a `bounded prior chat (summary + last N turns)` to its core logic [1]. Furthermore, the system documentation notes that it maintains continuity by limiting the context to \"few turns\" [3].\n*   **State-Based Bounding:** The `exercise_and_health_coach` manages context through a `ConversationState` object, which includes a method to retrieve a conversation summary while enforcing a maximum number of turns (e.g., `max_turns=2`) [2].\n\n#### 2. Synthesis and Output Generation\n\nThe projects differ in how they use the summarized context:\n\n*   **`agentic_healthcare_assistant`:** This project uses a dedicated `summary_chain` that acts as the terminal step in the graph. Its role is to synthesize all completed task results (including failed tasks) into a single, final user-facing response, utilizing the bounded conversation memory [1].\n*   **`exercise_and_health_coach`:** This project focuses on updating and routing based on extracted context. It uses the `ConversationState` to manage and retrieve the summary, which is then used in the overall orchestration process [2].\n\n### \ud83c\udfc6 Conclusion\n\nThe primary strategy for preventing unbounded context growth is **summarization and truncation**.\n\n*   The **`agentic_healthcare_assistant`** implements a robust, end-to-end solution by using a dedicated `summary_chain` that synthesizes the entire history and task outcomes into a bounded context [1].\n*   The **`exercise_and_health_coach`** implements a state-management solution, relying on a `ConversationState` object to explicitly limit the history passed to the model by restricting the number of turns included in the summary [2].",
+      "latency_s": 19.61
+    },
+    {
+      "id": "pq011",
+      "query": "Which project has the most sophisticated error handling and fallback strategy?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Healthcare has multi-layer fallbacks (domain whitelist, Serper+Medline parallel with LLM synthesis, atomic SQLite UPDATE for double-booking, RAGAS validation). Synthesis question \u2014 model must compare across all three projects",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 5,
+          "content_preview": "indicator during graph execution, and an Advanced sidebar showing the active LLM provider. Session state persists for the lifetime of the browser tab; CLI sessions are addressable by explicit `--session-id`. See [Usage \u2014 Streamlit UI](#streamlit-ui).\n\n### 4. Fallback mechanisms and performance optimization\n\nFive distinct failure modes are handled gracefully: missing API keys, Guardian outage (ESPN fallback), unparseable LLM output (web search fallback), category filter mismatch (web search substitution), and total agent failure (no-crash empty state). End-to-end p95 target is \u226415 s, with the s",
+          "cosine_distance": 0.3278
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "README.md",
+          "chunk_index": 5,
+          "content_preview": "ult(success=False, error=str(e))` on failure \u2014 exceptions are never propagated to the graph. The `error` field on `HealthcareState` is non-fatal; execution continues and the synthesizer surfaces the failure in its final response.\n\n| Failure mode | User-facing message |\n|---|---|\n| Appointment slot unavailable | \"No available slots found for {specialty} in the requested window. Try a different date or urgency level.\" |\n| Disease search: 0 results after domain filter | \"No results found from trusted sources for your query. Try a more specific medical term.\" |\n| Patient not found | Resolver retur",
+          "cosine_distance": 0.3694
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/validators/safety_judge.py",
+          "chunk_index": 2,
+          "content_preview": " as exc:  # noqa: BLE001\n                logger.debug(\n                    \"SafetyJudge LLM assessment attempt %d failed: %s\",\n                    attempt,\n                    type(exc).__name__,\n                )\n                if attempt == 1:\n                    logger.warning(\n                        \"SafetyJudge LLM assessment failed after 2 attempts: %s\",\n                        type(exc).__name__,\n                    )\n        return []  # fail-open \u2014 do not crash routing pipeline",
+          "cosine_distance": 0.3774
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 4,
+          "content_preview": "failures as expected.\n\n### Step 0 \u2014 Characterization / transcript tests **first**\n\nAdd **two separate** failing tests (not one composite xfail) so each fix can be independently verified:\n\n- **Test A** (`test_age_intake_does_not_produce_generic_menu`): replay the turn \"I am 66 and I tweaked my left hamstring\" and assert the response does **not** contain the generic \"What would you like to work on?\" menu. Mark `xfail` until Steps 1\u20132 land.\n- **Test B** (`test_icing_followup_does_not_produce_generic_menu`): replay a session that delivers a recovery plan, then asks \"What about icing the hamstring?",
+          "cosine_distance": 0.3835
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/graph/healthcare_graph.py",
+          "chunk_index": 5,
+          "content_preview": "_fn: Optional callable(query, max_results) \u2192 list[SearchResultItem].\n            If omitted, only Medline results are included; web search is disabled.\n\n    Returns:\n        ``BuildGraphResult(graph, checkpointer)`` \u2014 graph for invoke; checkpointer is\n        a ``SqliteSaver`` instance when ``settings.db.checkpointing_enabled`` is True,\n        otherwise ``None``.\n    \"\"\"\n    cfg = settings.provider_config\n    provider = settings.provider_name\n\n    logger.info(\"[build_graph] provider=%s model=%s\", provider, cfg.model)\n\n    # One LLM instance per temperature/token-budget variant \u2014 never rebuilt",
+          "cosine_distance": 0.3867
+        }
+      ],
+      "answer": "## \ud83d\udee0\ufe0f Cross-Project Evaluation: Error Handling and Fallback Strategy\n\n### \ud83d\udd0d Extraction of Error Handling Mechanisms\n\nThe following projects contain relevant information regarding failure handling and fallback strategies:\n\n| Project | Mechanism Type | Details |\n| :--- | :--- | :--- |\n| **newsgenie** | **Comprehensive Fallbacks** | Handles five distinct failure modes gracefully: missing API keys, Guardian outage (ESPN fallback), unparseable LLM output (web search fallback), category filter mismatch (web search substitution), and total agent failure (no-crash empty state) [newsgenie]. |\n| **agentic_healthcare_assistant** | **Non-Fatal State Management** | Exceptions are never propagated to the graph, ensuring execution continues even if an error occurs [agentic_healthcare_assistant]. The `error` field is non-fatal, allowing the synthesizer to surface the failure in the final response [agentic_healthcare_assistant]. |\n| **exercise_and_health_coach** | **Operational Resilience (Retries/Fail-Open)** | Implements explicit retry logic for the SafetyJudge LLM assessment, logging warnings if assessment fails after two attempts [exercise_and_health_coach]. It uses a \"fail-open\" approach to prevent crashing the routing pipeline [exercise_and_health_coach]. |\n\n### \u2696\ufe0f Contrast and Comparison\n\nThe projects employ different strategies for handling failure, ranging from broad coverage to deep operational resilience:\n\n*   **Scope of Failure Handling:** The `newsgenie` project demonstrates the broadest scope, listing five distinct, named failure modes and providing a specific fallback for each (e.g., using web search for unparseable LLM output or Guardian outage fallback to ESPN) [newsgenie].\n*   **Failure Propagation:** The `agentic_healthcare_assistant` focuses on maintaining state integrity by ensuring that exceptions are never propagated to the graph, allowing the process to continue and surface the failure gracefully in the final output [agentic_healthcare_assistant].\n*   **Recovery Logic:** The `exercise_and_health_coach` implements a specific, technical recovery mechanism\u2014the \"fail-open\" pattern\u2014which ensures that a component failure (SafetyJudge LLM assessment) does not halt the entire routing pipeline, instead allowing the process to continue [exercise_and_health_coach].\n\n### \ud83e\udd47 Synthesis and Judgment\n\nThe **newsgenie** project exhibits the most sophisticated and comprehensive error handling and fallback strategy due to its sheer breadth and variety of mechanisms.\n\nWhile `agentic_healthcare_assistant` excels at non-fatal state management and `exercise_and_health_coach` provides robust operational resilience through retries and fail-open logic, `newsgenie` provides the most detailed and diverse coverage, addressing five distinct failure modes and mapping a specific, functional fallback for each one [newsgenie].\n\n#### Summary Table\n\n| Feature | newsgenie | agentic_healthcare_assistant | exercise_and_health_coach |\n| :--- | :--- | :--- | :--- |\n| **Breadth of Failures Covered** | High (5 distinct modes) [newsgenie] | Medium (Domain-specific errors) [agentic_healthcare_assistant] | Low (Focus on SafetyJudge) [exercise_and_health_coach] |\n| **Fallback Mechanism** | Explicit, varied fallbacks (e.g., web search, ESPN fallback) [newsgenie] | Non-fatal state continuation; failure surfaced in response [agentic_healthcare_assistant] | Retry logic and \"fail-open\" pattern [exercise_and_health_coach] |\n| **Sophistication Score** | **Highest** | High | Medium |",
+      "latency_s": 23.41
+    },
+    {
+      "id": "pq012",
+      "query": "What are the top three technical strengths consistent across my portfolio of projects?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Expected themes: structured output via Pydantic, graceful fallback / retry patterns, multi-agent coordination. The hardest query \u2014 requires cross-project synthesis from indexed intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/intake_agent.py",
+          "chunk_index": 2,
+          "content_preview": ")",
+          "cosine_distance": 0.4415
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/search/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Experiment 2 \u2014 Disease Search Findings\n\n## Runs\n\n| Date | RAGAS faithfulness | Success rate | Avg latency | Notes |\n|------|--------------------|-------------|-------------|-------|\n| 2026-04-09 | Not computed (manual QA) | 20/20 (100%) | 1,660ms | Baseline run; RAGAS noted as future enhancement |\n| 2026-04-14 | **0.960 \u2713 PASS** | 20/20 (100%) | 2,037ms | Automated RAGAS faithfulness added; Medline abstracts enabled |\n\n---\n\n## Latest Run \u2014 2026-04-14\n\n### Model\n`llama-3.3-70b-versatile` (Groq)\n\n### Search providers\nSerper (Google Search) + Medline (NCBI PubMed E-utilities, Title/Abstract sea",
+          "cosine_distance": 0.4423
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 3,
+          "content_preview": "the tiered `_create_general_response` path unchanged. Log this as a known gap.\n5. **Other `GENERAL_QUESTION` / `CLARIFICATION`** \u2014 tiered `_create_general_response` (definitional \u2192 contextual \u2192 menu).\n6. **Exercise / recovery intake and workflows** \u2014 as today, with aligned `is_complete_for_recovery` and split missing-field lists.\n\n### `INTAKE_UPDATE` completion path\n\nWhen intake is complete but the user only sent demographics/injury, `state_router.py` 168\u2013175 returns `GENERAL_RESPONSE` (\"ready for request\"). **Coach** must respond consistently: **continue recovery thread** (e.g. offer to gener",
+          "cosine_distance": 0.4442
+        },
+        {
+          "project": "newsgenie",
+          "path": "docs/Experiments_Lessons_Learned.md",
+          "chunk_index": 1,
+          "content_preview": "oq `gpt-oss-20b` | 80% (8/10) | ~3.3 |\n\n**Per-intent pattern (top models):** Sports News and Web Search reached **100%** precision/recall on the mini set; **Business vs General** drove the misses.\n\n**Consensus error:** All four models misclassified the same case \u2014 **\u201cGlobal Chip Shortage\u201d** \u2014 as **General News** where ground truth labeled **Business News**. That points to **taxonomy ambiguity** (macro supply-chain vs \u201cgeneral\u201d world news), not a single flaky model.\n\n### Lessons learned\n\n1. **Mini benchmarks are directional.** They do **not** replace the production criterion (\u226590% on a **50-que",
+          "cosine_distance": 0.4495
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/history/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Findings \u2014 Experiment 1: Medical History Management\n\n## Run: 2026-04-10\n\n| Field | Value |\n|-------|-------|\n| Date | 2026-04-10 |\n| Model | `llama-3.3-70b-versatile` |\n| Embeddings | `text-embedding-3-small` |\n| Dataset | `dataset/` (original_data + generated_data, ~30 patients) |\n| QA input | `experiments/history/data/history_qanda.jsonl` |\n| Test cases | 6 (1 write round-trip + 5 QA pairs) |\n\n### Results\n\n| Test case | Patient | Result | Latency | Score |\n|-----------|---------|--------|---------|-------|\n| Write round-trip | David Thompson | \u2713 PASS | 6ms | \u2014 |\n| Diagnosis QA | Ramesh Kul",
+          "cosine_distance": 0.4564
+        }
+      ],
+      "answer": "## Portfolio Synthesis: Top Technical Strengths\n\nBased on the provided summaries, your portfolio demonstrates a high degree of technical maturity across multiple domains. The consistent strengths are not limited to a single technology but rather encompass sophisticated architectural patterns and rigorous development practices.\n\n### \ud83d\udd0d Extraction Summary\n\nThe following projects provide relevant technical data:\n*   **[agentic_healthcare_assistant]** (Summaries [2] and [5]): Demonstrates advanced RAG implementation, external API integration (Medline, Serper), and structured QA testing.\n*   **[exercise_and_health_coach]** (Summaries [1] and [3]): Focuses on complex, multi-step conversational state management and workflow refinement.\n*   **[newsgenie]** (Summary [4]): Highlights deep analysis of classification ambiguity and the necessity of robust, multi-model benchmarking.\n\n### \ud83d\udd04 Contrast Analysis\n\nWhile the projects tackle vastly different domains (medical search, fitness coaching, news classification), the technical approaches reveal distinct areas of focus:\n\n| Feature | [agentic_healthcare_assistant] | [exercise_and_health_coach] | [newsgenie] |\n| :--- | :--- | :--- | :--- |\n| **Primary Focus** | Knowledge Retrieval & Structured QA | Conversational State & Workflow | Classification & Taxonomy Resolution |\n| **Key Technical Pattern** | Integrating external, specialized data sources (Medline, Serper) [agentic_healthcare_assistant]. | Defining explicit state transitions and consistent agent behavior (e.g., `state_router.py` logic) [exercise_and_health_coach]. | Identifying systemic failure modes and ambiguity across models (e.g., \"Global Chip Shortage\") [newsgenie]. |\n| **Evaluation Rigor** | Quantitative metrics (RAGAS faithfulness, Success rate, Latency) [agentic_healthcare_assistant]. | Defining specific, required agent responses for continuity (e.g., \"continue recovery thread\") [exercise_and_health_coach]. | Establishing directional benchmarks and identifying limitations of mini-sets [newsgenie]. |\n\nThe contrast shows that the portfolio is not merely using LLMs, but is applying specialized architectural patterns\u2014**Knowledge Graph/RAG** for medical data, **Finite State Machine** for coaching, and **Taxonomy Mapping** for news\u2014to solve domain-specific problems.\n\n### \u2728 Synthesis: Top Three Technical Strengths\n\nThe top three technical strengths consistent across your portfolio are:\n\n#### 1. Advanced Retrieval-Augmented Generation (RAG) and Knowledge Integration\nYou consistently demonstrate the ability to move beyond simple LLM prompting by integrating specialized, external knowledge bases. This is critical for building reliable, domain-specific agents.\n*   **Evidence:** Successful integration of specialized APIs like Medline and Serper for medical search [agentic_healthcare_assistant].\n*   **Evidence:** Utilizing specific, modern embedding models (`text-embedding-3-small`) for structured data retrieval and QA [agentic_healthcare_assistant].\n\n#### 2. Robust State and Workflow Management\nThe architecture shows a strong focus on managing complex, multi-step user interactions, ensuring the agent maintains context and guides the user through defined processes.\n*   **Evidence:** Implementing detailed state routing logic (`state_router.py`) to manage the transition from intake completion to general request handling [exercise_and_health_coach].\n*   **Evidence:** Defining consistent, required agent behavior (e.g., the coach must \"continue recovery thread\") to maintain conversational continuity [exercise_and_health_coach].\n\n#### 3. Rigorous, Multi-Dimensional Evaluation and Benchmarking\nA defining strength is the commitment to measurable performance, moving beyond anecdotal success. You are systematically tracking metrics and identifying systemic failure points.\n*   **Evidence:** Tracking quantitative metrics like RAGAS faithfulness, Success rate, and Avg latency across multiple runs [agentic_healthcare_assistant].\n*   **Evidence:** Conducting deep analysis to identify *systemic* errors (e.g., \"taxonomy ambiguity\" causing consensus error across four models) rather than blaming a single model [newsgenie].\n*   **Evidence:** Defining clear test cases (e.g., \"Write round-trip,\" \"Diagnosis QA\") and tracking scores and latency [agentic_healthcare_assistant].",
+      "latency_s": 27.56
+    },
+    {
+      "id": "pq013",
+      "query": "Which projects implement parallel agent execution to reduce latency?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: parallel Serper+Medline fetch in disease search; NewsGenie: parallel fan-out to up to 3 domain branches. Exercise coach is sequential. Tests whether parallel execution intent is captured vs. just file content",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 3,
+          "content_preview": "limits\n\nTransient errors (rate limits, timeouts, connection failures) are retried with exponential backoff via `tenacity`. Logic errors (validation failures, invalid API keys) are not retried \u2014 they surface as `success=False` on the affected agent result immediately.\n\n### All agents fail\n\nIf every agent returns empty results, `SupervisorResponse` has sections with no articles and `fallback_used=True`. The user sees a \"no results\" message rather than a crash.\n\n---\n\n## Performance and Optimization\n\nResponse time is bounded, not instant. The end-to-end path is:\n\n```\nT_round_trip \u2248 T_supervisor + ",
+          "cosine_distance": 0.3377
+        },
+        {
+          "project": "newsgenie",
+          "path": "tests/agents/test_sports_agent.py",
+          "chunk_index": 2,
+          "content_preview": " ):\n            agent = SportsNewsAgent(settings=_SETTINGS)\n            result = agent.fetch(\"sports\")\n\n        assert result.latency_ms >= 0",
+          "cosine_distance": 0.3411
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "config.yaml",
+          "chunk_index": 0,
+          "content_preview": "# Exercise and Recovery Coach Configuration\n# SOLO Protocol multi-agent system\n\n# Default LLM provider (can be overridden per-agent)\ndefault_provider: \"openai\"\n\n# Provider configurations\nproviders:\n  openai:\n    #model: \"gpt-4o\"\n    model: \"gpt-4o-mini\"\n    temperature: 0.3\n    max_tokens: 2048\n\n# Per-agent configuration (provider, model, and params)\nagents:\n  intake:\n    provider: \"openai\"\n    temperature: 0.2  # Low temperature for accurate extraction\n  kinesiologist:\n    provider: \"openai\"\n    temperature: 0.4  # Slightly more creative for exercise variety\n  recovery:\n    provider: \"openai\"",
+          "cosine_distance": 0.3998
+        },
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 5,
+          "content_preview": "indicator during graph execution, and an Advanced sidebar showing the active LLM provider. Session state persists for the lifetime of the browser tab; CLI sessions are addressable by explicit `--session-id`. See [Usage \u2014 Streamlit UI](#streamlit-ui).\n\n### 4. Fallback mechanisms and performance optimization\n\nFive distinct failure modes are handled gracefully: missing API keys, Guardian outage (ESPN fallback), unparseable LLM output (web search fallback), category filter mismatch (web search substitution), and total agent failure (no-crash empty state). End-to-end p95 target is \u226415 s, with the s",
+          "cosine_distance": 0.4001
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/graph/agent_nodes.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"LangGraph node functions for the three domain news agents.\"\"\"\n\n# Three graph node functions \u2014 one per domain agent.\n# Each instantiates its agent, calls fetch(), and returns a state patch.\n# HTTP clients (newsapi_client, guardian_client) are module-level singletons in src/api/.\n\nfrom src.agents.business_agent import BusinessNewsAgent\nfrom src.agents.general_news_agent import GeneralNewsAgent\nfrom src.agents.sports_agent import SportsNewsAgent\nfrom src.data import AgentName, AgentState, NewsAgentResult, NewsCategory\nfrom src.utils.config import settings\n\n\ndef business_node(state: AgentState)",
+          "cosine_distance": 0.4006
+        }
+      ],
+      "answer": "## Cross-Project Evaluation: Parallel Agent Execution\n\n### \ud83d\udd0d Extraction Summary\n\nThe following projects contain relevant information regarding multi-agent systems and performance optimization:\n\n*   **`newsgenie`:** This project utilizes a graph-based architecture to manage multiple domain-specific agents (Business, General, Sports) [5]. It also sets explicit performance goals for the end-to-end system, targeting a p95 latency of \u226415 s [4].\n*   **`exercise_and_health_coach`:** This project defines a multi-agent system with three distinct, configurable agents (Intake, Kinesiologist, Recovery) [3].\n\n### \ud83d\udd04 Contrast and Analysis\n\n| Feature | `newsgenie` | `exercise_and_health_coach` |\n| :--- | :--- | :--- |\n| **Architecture** | Uses a LangGraph node structure to orchestrate multiple agents (Business, General, Sports) [5]. | Defines a multi-agent system via configuration files [3]. |\n| **Latency Focus** | Explicitly sets an end-to-end p95 target of \u226415 s [4]. | No explicit latency targets or performance optimization mechanisms are detailed in the context [3]. |\n| **Execution Pattern** | The use of a graph structure suggests a complex, orchestrated flow of multiple agents [5]. | The context only shows agent configuration, not the execution flow or concurrency model [3]. |\n\n### \ud83d\udca1 Synthesis and Judgment\n\nBased on the provided summaries, **`newsgenie`** demonstrates the strongest architectural evidence for managing complex, multi-agent execution designed with performance constraints in mind.\n\nWhile both projects utilize multiple agents, `newsgenie` provides details suggesting an advanced orchestration layer that is optimized for speed and reliability.\n\n#### Key Findings\n\n1.  **Architectural Orchestration:** `newsgenie` implements a structured graph pattern using LangGraph nodes to manage multiple domain agents (Business, General, and Sports) [5]. This pattern is typically used to coordinate the execution of several components, which is a prerequisite for parallel or highly optimized sequential execution.\n2.  **Performance Commitment:** The system explicitly defines a performance goal, setting an end-to-end p95 target of \u226415 s [4]. This focus on measurable latency reduction strongly implies that the underlying architecture is designed to minimize execution time, likely through concurrent or highly optimized parallelization of agent calls.\n3.  **Multi-Agent System:** `exercise_and_health_coach` also implements a multi-agent system with three distinct agents [3]. However, the provided context only details the configuration parameters (e.g., `temperature`, `model`) and does not specify the execution model (e.g., sequential, parallel, or asynchronous) used to achieve latency reduction.\n\n**Conclusion:** `newsgenie` provides the most detailed evidence of an architecturally sophisticated, performance-optimized, multi-agent system designed to manage latency through structured orchestration [4, 5].",
+      "latency_s": 21.08
+    },
+    {
+      "id": "pq014",
+      "query": "How do my projects handle the case where an LLM returns unparseable or invalid output?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Healthcare: Pydantic model with fallbacks; NewsGenie: regex intent fallback + web search fallback; Exercise: Pydantic validation runner with labeled test sets. All three have strategies \u2014 tests semantic capture of defensive LLM output handling",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/base_agent.py",
+          "chunk_index": 2,
+          "content_preview": "ation_result.is_valid:\n                        last_error = ValueError(\n                            f\"Validation failed: {validation_result.errors}\"\n                        )\n                        continue\n\n                logger.info(f\"[{self.name}] Successfully generated output (async)\")\n                return result\n\n            except ValidationError as e:\n                logger.warning(f\"[{self.name}] Pydantic validation error: {e}\")\n                last_error = e\n\n            except Exception as e:\n                logger.warning(f\"[{self.name}] Async attempt {attempt} failed: {e}\")\n   ",
+          "cosine_distance": 0.3503
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/chains/test_memory_summary_chain.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Tests for memory_summary_chain using FakeListChatModel; no API calls.\"\"\"\n\nfrom __future__ import annotations\n\nfrom langchain_core.language_models import FakeListChatModel\n\nfrom src.chains.memory_summary_chain import build_memory_summary_chain\n\n\ndef _fake_llm(response: str) -> FakeListChatModel:\n    return FakeListChatModel(responses=[response])\n\n\ndef test_build_memory_summary_chain_returns_runnable() -> None:\n    chain = build_memory_summary_chain(_fake_llm(\"compressed summary text here\"))\n    assert chain is not None\n    out = chain.invoke({\n        \"prior_summary\": \"Old summary.\",\n       ",
+          "cosine_distance": 0.3559
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/search/search_experiment.py",
+          "chunk_index": 4,
+          "content_preview": "ims are supported; 0.0 means none are.\n\n        Only queries with a non-empty predicted_answer are evaluated.  Failed\n        or empty results receive None.  If the RAGAS evaluation call itself\n        fails (e.g. OpenAI quota exceeded), all scores are returned as None\n        and the error is logged rather than raised so that ExperimentMetrics\n        are still produced for latency/success reporting.\n\n        Args:\n            rich_results: List of rich result dicts returned by run_rich().\n\n        Returns:\n            List of faithfulness scores (0.0\u20131.0) or None, one per result.\n        \"\"\"",
+          "cosine_distance": 0.367
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/agents/test_history_writer_node.py",
+          "chunk_index": 2,
+          "content_preview": "assert result[\"completed_tasks\"][0].success is False\n    assert len(result[\"pending_tasks\"]) == 0\n\n\ndef test_empty_pending_tasks_returns_failure(in_memory_db) -> None:\n    \"\"\"Empty pending_tasks \u2192 failure TaskResult, no IndexError.\"\"\"\n    node = make_history_writer_node(PatientDB(), in_memory_db, _mock_vs())\n    result = node(_state(pending_tasks=[]))\n    assert result[\"completed_tasks\"][0].success is False\n    assert result[\"pending_tasks\"] == []",
+          "cosine_distance": 0.3679
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/models/task_result.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"TaskResult \u2014 typed accumulator for completed_tasks in HealthcareState.\"\"\"\n\nfrom pydantic import BaseModel, Field\n\n\nclass TaskResult(BaseModel):\n    \"\"\"Result of a completed tool node; accumulated in HealthcareState.completed_tasks.\"\"\"\n\n    task: str = Field(\n        description=\"Task type that produced this result, e.g. 'retrieve_history'\"\n    )\n    success: bool = Field(description=\"Whether the task completed successfully\")\n    result: dict = Field(\n        default_factory=dict,\n        description=\"Serialized output of the task\",\n    )\n    error: str | None = Field(\n        default=None,\n",
+          "cosine_distance": 0.3686
+        }
+      ],
+      "answer": "## Cross-Project Evaluation: Handling Invalid LLM Output\n\n### \ud83d\udd0d Extraction of Mechanisms\n\nThe projects employ several distinct mechanisms to handle failures, ranging from explicit data validation to structured error logging and external API failure mitigation.\n\n| Project | Mechanism | Description |\n| :--- | :--- | :--- |\n| **exercise_and_health_coach** | **Pydantic Validation** | Uses `try...except ValidationError` blocks to catch and log validation failures when processing results, preventing the program from crashing and allowing the error to be logged as a warning [1]. |\n| **agentic_healthcare_assistant** | **Structured Task Results** | Defines `TaskResult` using Pydantic, which explicitly includes fields for `success: bool` and `error: str | None` to record the outcome of a task, regardless of whether the LLM output was successfully parsed [5]. |\n| **agentic_healthcare_assistant** | **API Failure Handling** | When running RAGAS evaluations, the system is designed to handle external service failures (e.g., OpenAI quota exceeded) by logging the error and returning `None` for the scores, ensuring that metrics can still be produced for latency reporting rather than failing entirely [3]. |\n| **agentic_healthcare_assistant** | **Task State Management** | The system tests for task failures by asserting that if a task fails (e.g., empty pending tasks), the resulting state correctly marks the task as unsuccessful (`success is False`) [4]. |\n\n### \u2696\ufe0f Contrast and Analysis\n\nThe projects demonstrate a layered approach to error handling, contrasting immediate data validation with state management and external service resilience.\n\n*   **Validation vs. State:** The `exercise_and_health_coach` project focuses on **data integrity** by catching `ValidationError` when the output structure is incorrect [1]. In contrast, the `agentic_healthcare_assistant` uses `TaskResult` to focus on **process integrity**, recording *if* a task failed and *why*, even if the underlying data structure was valid [5].\n*   **Scope of Failure:** The handling in `exercise_and_health_coach` is specific to the local data processing layer (Pydantic validation) [1]. The handling in `agentic_healthcare_assistant` is broader, covering both the internal state machine (task failure logging) [4] and external API calls (quota exceeded) [3].\n*   **Failure Mitigation:** The most robust pattern for preventing system failure is seen in `agentic_healthcare_assistant`'s RAGAS evaluation, which explicitly catches external API failures and returns partial results (`None` scores) instead of raising an exception [3].\n\n### \ud83d\udca1 Synthesis and Judgment\n\nThe projects implement a robust, multi-layered strategy for handling invalid or unparseable output. The most comprehensive and architecturally sound approach is the combination of **Pydantic validation** for immediate data safety and **structured result objects** for persistent state tracking.\n\n**Recommended Pattern:**\n\n1.  **Primary Defense (Data Layer):** Implement Pydantic models with explicit `try...except ValidationError` blocks. This ensures that if the LLM output does not conform to the expected schema, the system catches the error immediately, logs a warning, and prevents the invalid data from proceeding [1].\n2.  **Secondary Defense (State Layer):** Use a structured result object (like `TaskResult`) that mandates tracking the `success` status and an `error` message. This ensures that even if the process fails, the failure is recorded and the overall state machine can continue or gracefully halt [5].\n3.  **Tertiary Defense (External Layer):** For any interaction with external services (like LLM APIs or search APIs), implement `try...except` blocks that specifically catch external failure types (e.g., quota exceeded) and return a controlled failure state (e.g., `None` or a specific error code) rather than allowing the exception to propagate and crash the entire process [3].",
+      "latency_s": 25.28
+    },
+    {
+      "id": "pq015",
+      "query": "Which projects would be easiest to add a new LLM provider to, and why?",
+      "category": "comparison",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: explicit llm_factory.py with swappable providers; NewsGenie: LLM_PROVIDER env var. Exercise: locked to OpenAI due to strict JSON schema requirement in with_structured_output \u2014 tests whether architectural constraints are captured in intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "src/utils/provider_builder.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Abstract base class for LLM provider builders.\"\"\"\n\nfrom abc import ABC, abstractmethod\n\nfrom langchain_core.language_models import BaseChatModel\n\nfrom src.data import LLMConfig\n\n\nclass LLMProviderBuilder(ABC):\n    \"\"\"\n    Abstract builder contract for LLM provider construction.\n    One concrete subclass per supported LLM provider.\n    Implement this class and register with LLMFactory.register() to add a new provider.\n    \"\"\"\n\n    @abstractmethod\n    def build(self, config: LLMConfig) -> BaseChatModel:\n        \"\"\"Construct and return a fully configured LLM instance for this provider.\"\"\"",
+          "cosine_distance": 0.3951
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/config/search_config.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"SearchConfig \u2014 web search provider selection.\"\"\"\n\nfrom typing import Literal\n\nfrom pydantic import BaseModel, Field\n\n\nclass SearchConfig(BaseModel):\n    \"\"\"Configuration for the web search provider used by the disease search node.\"\"\"\n\n    provider: Literal[\"serpapi\", \"serper\"] = Field(\n        description=\"Active search provider; switch here to change \u2014 no code change required\"\n    )",
+          "cosine_distance": 0.3983
+        },
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 1,
+          "content_preview": "bSearchNode` \u2192 SerpAPI or Serper (configurable)\n4. **Assemble node** \u2014 deterministic, no I/O. Collects all agent results, groups articles by intent, and builds the `SupervisorResponse`.\n\nFor more details, see [Overall Architecture](docs/ARCHITECTURE.md).\n\n---\n\n## Setup\n\n### Prerequisites\n\n- Python 3.13+\n- [Poetry](https://python-poetry.org/docs/#installation)\n\n### Install\n\n```bash\ngit clone <repo-url>\ncd newsgenie\npoetry install\ncp .env.example .env\n# Edit .env and fill in your API keys (see Keys section below)\n```\n\n### API keys\n\nAll keys have empty-string defaults \u2014 a missing key disables tha",
+          "cosine_distance": 0.442
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/config/test_settings.py",
+          "chunk_index": 2,
+          "content_preview": "dationError, match=\"Unknown provider\"):\n        Settings(**data)\n\n\ndef test_nested_sections_roundtrip(tmp_path):\n    cfg = _write_yaml(tmp_path, _VALID_YAML)\n    s = load_settings(cfg)\n    assert s.provider_config.temperature_summarizer == 0.3\n    assert s.provider_config.max_tokens_guard == 25\n    assert s.db.faiss_path == Path(\"data/faiss\")",
+          "cosine_distance": 0.4443
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/utils/openai_builder.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"OpenAI LLM provider builder.\"\"\"\n\nfrom langchain_core.language_models import BaseChatModel\nfrom langchain_openai import ChatOpenAI\n\nfrom src.data import LLMConfig\nfrom src.utils.provider_builder import LLMProviderBuilder\n\n\nclass OpenAIBuilder(LLMProviderBuilder):\n    \"\"\"Builds ChatOpenAI instances. Registered by default at app startup.\"\"\"\n\n    def build(self, config: LLMConfig) -> BaseChatModel:\n        \"\"\"Construct a ChatOpenAI instance from the provided config.\"\"\"\n        from src.utils.config import settings\n\n        return ChatOpenAI(\n            model=config.model_name,\n            temp",
+          "cosine_distance": 0.4444
+        }
+      ],
+      "answer": "## \ud83d\udee0\ufe0f Cross-Project Evaluation: Adding LLM Providers\n\nBased on the provided summaries, the **newsgenie** project is significantly easier to extend with a new LLM provider.\n\n### Summary Table: LLM Provider Extensibility\n\n| Project | Pattern Used | Ease of Extension | Key Evidence |\n| :--- | :--- | :--- | :--- |\n| **newsgenie** | Abstract Builder Pattern | High | Defines `LLMProviderBuilder` (ABC) and requires subclassing/registration [1]. |\n| **agentic_healthcare_assistant** | Configuration/Settings | Low | Snippets focus on search provider configuration and general settings; no visible abstract builder pattern for core LLM integration [2], [4]. |\n\n### Detailed Analysis\n\n#### \ud83d\udfe2 newsgenie (Easiest)\n\nThe `newsgenie` project is architected for extensibility regarding LLM providers, making it the easiest target for adding a new provider.\n\n**Reasoning:**\n1. **Abstract Builder Pattern:** The project utilizes an explicit `LLMProviderBuilder` abstract base class (ABC) [1]. This pattern establishes a clear contract for how any new provider must be implemented.\n2. **Clear Implementation Path:** The documentation explicitly instructs developers to \"Implement this class and register with LLMFactory.register() to add a new provider\" [1].\n3. **Concrete Example:** The existence of `OpenAIBuilder` [5] confirms this pattern in action, showing that a new provider only requires creating a new subclass that inherits from `LLMProviderBuilder` and implements the `build` method [5].\n\n#### \ud83d\udfe1 agentic_healthcare_assistant (Difficult)\n\nThe provided summaries for `agentic_healthcare_assistant` do not reveal a standardized, abstract mechanism for integrating a new core LLM provider.\n\n**Reasoning:**\n1. **Focus on Configuration:** The available files primarily deal with configuring specific types of providers (e.g., web search providers like \"serpapi\" or \"serper\") [2], or loading general application settings [4].\n2. **Missing Abstraction:** There is no visible abstract base class or factory pattern that dictates how a new, general-purpose LLM provider (like a hypothetical \"AnthropicBuilder\") would need to be structured and registered across the entire codebase.\n\n### Conclusion\n\nThe **newsgenie** project employs a robust and well-documented **Abstract Builder Pattern** [1], which is the industry standard for ensuring that adding new implementations (like a new LLM provider) requires only creating a new subclass and registering it, without modifying existing core logic [1].",
+      "latency_s": 18.31
+    },
+    {
+      "id": "pq016",
+      "query": "Do any of my projects validate AI-generated output against ground truth or human-labeled data?",
+      "category": "quality",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Healthcare: RAGAS faithfulness eval (0.960 score); Exercise: validation runner with labeled JSONL for routing accuracy and red-flag detection rates. NewsGenie has no evaluation framework \u2014 tests whether evaluation infrastructure is captured",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/models/evaluation.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"ExperimentMetrics \u2014 typed output schema for all three experiment runners.\"\"\"\n\nfrom datetime import datetime\nfrom typing import Literal\n\nfrom pydantic import BaseModel, Field\n\n\nclass ExperimentMetrics(BaseModel):\n    \"\"\"Typed metrics produced by each experiment run.\n\n    Used by ExperimentRunner._save_results() to persist results as JSON.\n    \"\"\"\n\n    experiment_name: Literal[\n        \"medical_history\", \"disease_search\", \"appointment_booking\"\n    ] = Field(description=\"Which experiment these metrics belong to\")\n    run_id: str = Field(description=\"UUID for this experiment run\")\n    timestamp",
+          "cosine_distance": 0.3567
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/util/kinesiologist_eval_runner.py",
+          "chunk_index": 4,
+          "content_preview": "und_truth)\n        actual = _actual_response(routing.workflow, routing.missing_fields, routing.is_acute)\n        gt_short = _gt_directive(ground_truth)\n\n        rows.append({\n            \"case\": idx + 1,\n            \"question\": question,\n            \"ground_truth\": ground_truth,\n            \"actual_workflow\": routing.workflow.value,\n            \"actual_routing_reason\": routing.reason,\n            \"missing_fields\": routing.missing_fields,\n            \"is_acute\": routing.is_acute,\n            \"pass\": passed,\n            # Internal display fields (excluded from JSON output)\n            \"_actual\":",
+          "cosine_distance": 0.3601
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "README.md",
+          "chunk_index": 4,
+          "content_preview": "w. Zero biometrics required for acute neck stiffness.\"\n  }\n]\n```\n\nA timestamped JSON report is written to the output directory after each run.\n\n### Validation Runner\n\nBenchmark the full pipeline (LLM calls included) against a labeled JSONL question set to measure routing accuracy, red-flag detection, and false positive rates.\n\n```bash\n# Full validation run\npoetry run python -m src.util.validation_runner data/Validation_Questions.jsonl -v\n\n# Quick smoke test\npoetry run python -m src.util.validation_runner data/Validation_Questions_Mini.jsonl -v\n\n# Custom output directory\npoetry run python -m sr",
+          "cosine_distance": 0.3635
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_models.py",
+          "chunk_index": 6,
+          "content_preview": "tput model.\"\"\"\n\n    def test_approved_output(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(status=AuditStatus.APPROVED),\n            user_message=\"Here is your workout plan.\",\n        )\n        assert output.is_approved()\n\n    def test_modified_output_is_approved(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(\n                status=AuditStatus.MODIFIED,\n                modifications=[\"Reduced volume\"],\n            ),\n            user_message=\"Here is your modified workout plan.\",\n ",
+          "cosine_distance": 0.3635
+        },
+        {
+          "project": "newsgenie",
+          "path": "docs/Experiments_Lessons_Learned.md",
+          "chunk_index": 3,
+          "content_preview": "-run the relevant harnesses and update PDFs or pinned stats so architecture and README stay honest.\n\n---\n\n## 7. Artifact index (quick reference)\n\n| Experiment | Key outputs |\n|------------|-------------|\n| Intent | `experiments/intent_tester/data/*.stats.json`, `findings/Intent_Validation_Findings.pdf` |\n| News / search | `experiments/news_api_tester/findings/News_API_Validation_Findings.pdf` |\n| ESPN | `experiments/espn_scorecard_tester/findings/ESPN_Scoreboard_Experiment_Findings.md`, `data/ESPN_Scoreboard_{Stats,Results}_*.json` |\n\n---\n\n*Last aligned with **`docs/ARCHITECTURE.md`** \u00a71 (Goal",
+          "cosine_distance": 0.3642
+        }
+      ],
+      "answer": "# Cross-Project Evaluation: AI Output Validation\n\nBased on the provided summaries, multiple projects implement mechanisms to validate AI-generated output against ground truth or labeled data. The validation approaches differ in scope and implementation detail, but all confirm a commitment to rigorous post-run evaluation.\n\n## \ud83d\udd0d Relevant Projects Identified\n\nThe following projects contain data relevant to validating AI-generated output:\n\n*   **`exercise_and_health_coach`** (Multiple files): Contains explicit code and documentation detailing structured validation runs and ground truth comparisons.\n*   **`newsgenie`**: Provides documentation detailing multiple, domain-specific validation runs and their resulting artifact index.\n*   **`agentic_healthcare_assistant`**: Provides a structured schema for recording experiment metrics, which supports the logging of validation results.\n\n## \ud83d\udcca Comparison of Validation Patterns\n\n| Feature | `exercise_and_health_coach` | `newsgenie` | `agentic_healthcare_assistant` |\n| :--- | :--- | :--- | :--- |\n| **Validation Mechanism** | Direct code comparison (Actual vs. Ground Truth) and full pipeline benchmarking. | Documentation of structured, domain-specific testing runs (Intent, News, ESPN). | Defines the schema for logging metrics (`ExperimentMetrics`) after a run. |\n| **Data Source** | Labeled JSONL question sets (`data/Validation_Questions.jsonl`) [README.md]. | Dedicated test data sets for specific domains (e.g., Intent, News API) [docs/Experiments_Lessons_Learned.md]. | N/A (Defines output structure) [src/models/evaluation.py]. |\n| **Key Validation Metrics** | `ground_truth`, `actual_workflow`, `missing_fields`, `pass` status [src/util/kinesiologist_eval_runner.py]. | Routing accuracy, red-flag detection, false positive rates, and specific findings reports [README.md], [docs/Experiments_Lessons_Learned.md]. | `experiment_name`, `run_id`, `timestamp` [src/models/evaluation.py]. |\n\n## \ud83e\udde0 Synthesis and Judgment\n\nBoth the `exercise_and_health_coach` and `newsgenie` projects validate AI output, but they operate at different levels of abstraction: `exercise_and_health_coach` provides the **mechanism** for validation, while `newsgenie` provides the **documentation** of validation results across multiple domains.\n\n### 1. `exercise_and_health_coach`: Ground Truth Comparison (Mechanism Focus)\n\nThis project demonstrates the most granular validation process, explicitly comparing the AI's output against a known correct answer.\n\n*   **Ground Truth Comparison:** The system processes data by comparing an `actual` output (e.g., `actual_workflow`) against a defined `ground_truth` [src/util/kinesiologist_eval_runner.py].\n*   **Structured Benchmarking:** It utilizes a dedicated \"Validation Runner\" to benchmark the full pipeline (including LLM calls) against a labeled JSONL question set, measuring specific metrics like routing accuracy and false positive rates [README.md].\n*   **Output Validation:** Unit tests confirm that the generated output must pass specific structural and status checks (e.g., `AuditStatus.APPROVED` or `AuditStatus.MODIFIED`) [tests/unit/test_models.py].\n\n### 2. `newsgenie`: Domain-Specific Validation (Artifact Focus)\n\nThis project confirms validation through its comprehensive artifact index, showing that multiple, distinct domains are subjected to formal testing.\n\n*   **Multi-Domain Testing:** Validation is performed across at least three distinct domains: Intent, News/search, and ESPN [docs/Experiments_Lessons_Learned.md].\n*   **Formal Reporting:** The results are systematically captured in dedicated finding reports (e.g., `Intent_Validation_Findings.pdf`, `News_API_Validation_Findings.pdf`) [docs/Experiments_Lessons_Learned.md].\n\n### Conclusion\n\nThe projects validate AI output using two complementary methods:\n\n1.  **Code-Level Validation:** The `exercise_and_health_coach` uses a direct, programmatic comparison of actual output against ground truth data [src/util/kinesiologist_eval_runner.py].\n2.  **Process-Level Validation:** The `newsgenie` documents a robust, multi-stage validation process across various domains, ensuring that the system's performance is measured against labeled data sets [docs/",
+      "latency_s": 29.05
+    },
+    {
+      "id": "pq017",
+      "query": "How do my projects manage LLM temperature settings across different types of tasks?",
+      "category": "architecture",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "exercise_and_health_coach",
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Exercise: explicit temperature tuning per agent (0.0 for safety, 0.3-0.4 for creative planning); Healthcare: low temperature for structured output chains. NewsGenie uses defaults. Tests fine-grained config capture",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/llm/llm_factory.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"LLM factory \u2014 constructs one BaseChatModel per application boundary.\n\nReused from hr_assistant with max_tokens and temperature defaults adjusted\nto match the token budget spec in Architecture.md Section 4.\n\nUsage:\n    from src.llm.llm_factory import get_llm\n    llm = get_llm(settings.provider_name, settings.provider_config.model,\n                  temperature=settings.provider_config.temperature,\n                  max_tokens=settings.provider_config.max_tokens_planner)\n\"\"\"\n\nfrom langchain_core.language_models.chat_models import BaseChatModel\nfrom langchain_groq import ChatGroq\nfrom langchai",
+          "cosine_distance": 0.4101
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/llm/llm_factory.py",
+          "chunk_index": 1,
+          "content_preview": "  result = ChatOpenAI(model=model, temperature=temperature, max_tokens=max_tokens)\n    else:\n        raise ValueError(f\"Unsupported provider: {provider!r}. Expected 'groq' or 'openai'.\")\n        \n    return result",
+          "cosine_distance": 0.4184
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/config/provider_config.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"ProviderConfig \u2014 LLM provider settings with per-chain token budgets.\"\"\"\n\nfrom pydantic import BaseModel, Field\n\n\nclass ProviderConfig(BaseModel):\n    \"\"\"Configuration for a single LLM provider (groq or openai).\n\n    All temperature and max_tokens fields are per-chain to allow fine-grained\n    control without rebuilding the LLM singleton. Injected at graph construction\n    time via get_llm().\n    \"\"\"\n\n    model: str = Field(description=\"Model identifier, e.g. 'llama-3.3-70b-versatile'\")\n    temperature: float = Field(\n        default=0.1,\n        ge=0.0,\n        le=1.0,\n        description=(",
+          "cosine_distance": 0.419
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/appointment/appointment_experiment.py",
+          "chunk_index": 1,
+          "content_preview": "to the temp SQLite file.\n\n    Returns:\n        Result dict with scenario, success, assertion_passed, latency_ms,\n        tool_calls_made, slot, message, error.\n    \"\"\"\n    patient_id: str | None = scenario[\"patient_id\"]\n    specialty: str = scenario[\"specialty\"]\n    urgency: str = scenario[\"urgency\"]\n    expected_success: bool = scenario[\"expected_success\"]\n    tool_calls = 0\n    result: AppointmentResult | None = None\n    error: str | None = None\n\n    start = time.perf_counter()\n\n    # Step 1: unresolved patient guard\n    if patient_id is None:\n        result = AppointmentResult(\n            ",
+          "cosine_distance": 0.4254
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/config/test_settings.py",
+          "chunk_index": 2,
+          "content_preview": "dationError, match=\"Unknown provider\"):\n        Settings(**data)\n\n\ndef test_nested_sections_roundtrip(tmp_path):\n    cfg = _write_yaml(tmp_path, _VALID_YAML)\n    s = load_settings(cfg)\n    assert s.provider_config.temperature_summarizer == 0.3\n    assert s.provider_config.max_tokens_guard == 25\n    assert s.db.faiss_path == Path(\"data/faiss\")",
+          "cosine_distance": 0.4316
+        }
+      ],
+      "answer": "# \ud83e\udde0 Portfolio Synthesis: LLM Temperature Management\n\nThe projects demonstrate a highly structured and granular approach to managing LLM temperature settings, emphasizing **per-chain control** to tailor the model's creativity and determinism for specific tasks.\n\n## \ud83d\udcca Summary Table: Temperature Management\n\n| Feature | Mechanism | Scope of Control | Implementation Detail |\n| :--- | :--- | :--- | :--- |\n| **Configuration** | `ProviderConfig` model | Per-chain (fine-grained) [agentic_healthcare_assistant] | Defines `temperature: float` with default constraints (0.0 to 1.0) [agentic_healthcare_assistant]. |\n| **Injection** | `llm_factory.py` | Global/Runtime | Temperature is passed directly to the underlying LLM constructor (e.g., `ChatOpenAI(..., temperature=temperature, ...)` [agentic_healthcare_assistant]). |\n| **Task Specificity** | Settings/Testing | Task-specific | Allows different components (e.g., `summarizer`) to be assigned unique temperature values (e.g., 0.3) [agentic_healthcare_assistant]. |\n\n## \u2699\ufe0f Architectural Analysis\n\n### Per-Chain Control and Granularity\nThe core architectural pattern is the use of a dedicated `ProviderConfig` class that manages LLM settings [agentic_healthcare_assistant]. This design explicitly allows for \"fine-grained control\" because all temperature and max\\_tokens fields are defined as **per-chain** settings [agentic_healthcare_assistant].\n\nThis means that instead of setting a single global temperature for the entire application, the system can assign different temperature values to different logical steps or \"chains\" within a complex workflow [agentic_healthcare_assistant].\n\n### Implementation Flow\n1.  **Definition:** The `ProviderConfig` model defines the temperature range and type [agentic_healthcare_assistant].\n2.  **Configuration:** Settings are loaded, allowing specific components to override the default temperature (e.g., setting the `summarizer` temperature to 0.3) [agentic_healthcare_assistant].\n3.  **Injection:** The `llm_factory.py` acts as the central point of control. When an LLM instance is requested, it retrieves the appropriate temperature value from the settings and injects it directly into the underlying model constructor (e.g., `ChatOpenAI(..., temperature=temperature, ...)` [agentic_healthcare_assistant]).\n\n## \ud83c\udfaf Synthesis and Judgment\n\nThe project manages LLM temperature settings by implementing a **highly decoupled and configurable pattern**.\n\nThe system achieves task-specific temperature control by:\n1.  **Centralizing Configuration:** Using `ProviderConfig` to define temperature as a per-chain attribute [agentic_healthcare_assistant].\n2.  **Runtime Injection:** Using an LLM factory pattern (`get_llm`) to ensure that the correct, task-specific temperature is passed to the model instance at the time of graph construction [agentic_healthcare_assistant].\n\nThis architecture ensures that the temperature setting is not a monolithic global constant, but rather a dynamic parameter that can be tuned for different stages of the application (e.g., using a lower temperature for factual retrieval and a higher temperature for creative summarization) [agentic_healthcare_assistant].",
+      "latency_s": 22.09
+    },
+    {
+      "id": "pq018",
+      "query": "Which projects use a UI framework and what is each one used for?",
+      "category": "tech_stack",
+      "difficulty": "simple",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Healthcare: Streamlit; NewsGenie: Streamlit; Exercise: Gradio. All three have UIs but different frameworks. Simple cross-project tech attribution test",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 0,
+          "content_preview": "# Architecture\n\n## System Overview\n\nThe Exercise and Recovery Coach implements a **Parallel-Sequential Flow** architecture following the SOLO Protocol (Spec-driven, Agentic, Audit-heavy).\n\n```\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502                        ExerciseCoach                            \u2502\n\u2502                     (Main Orchestrator)                         \u2502\n\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n                              \u2502\n                              \u25bc\n\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n\u2502  ",
+          "cosine_distance": 0.3763
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/ui/tabs/__init__.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Tab render modules (populated in later refactor phases).\"\"\"",
+          "cosine_distance": 0.3974
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/data/response.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"\nResponse models returned to the UI and CLI.\n\nIntentSection and SupervisorResponse share this file: SupervisorResponse is a direct\nstructural wrapper around IntentSection. Same single reason to change.\n\"\"\"\n\nfrom pydantic import BaseModel, Field\n\nfrom src.data.enums import AgentName\nfrom src.data.normalized_article import NormalizedArticle\n\n\nclass IntentSection(BaseModel):\n    \"\"\"\n    One section of the final response, corresponding to one PlanStep.\n    Constructed programmatically from agent_results articles for that agent.\n    Multi-step plans produce multiple IntentSections in SupervisorR",
+          "cosine_distance": 0.4175
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_skill_loader.py",
+          "chunk_index": 1,
+          "content_preview": "oadSkillFunction:\n    \"\"\"Tests for the load_skill convenience function.\"\"\"\n\n    def test_load_skill_returns_content(self):\n        \"\"\"Test that load_skill returns skill content.\"\"\"\n        content = load_skill(\"kinesiologist\")\n\n        assert \"Kinesiologist\" in content\n        assert len(content) > 100\n\n    def test_load_skill_all_types(self):\n        \"\"\"Test loading all skill types via convenience function.\"\"\"\n        skill_types = [\"kinesiologist\", \"recovery\", \"gatekeeper\", \"intake\"]\n\n        for skill_type in skill_types:\n            content = load_skill(skill_type)  # type: ignore\n        ",
+          "cosine_distance": 0.4232
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/ui/__init__.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Gradio UI for the Exercise and Health Coach.\"\"\"\n\nfrom src.ui.app import create_demo, main\n\n__all__ = [\"create_demo\", \"main\"]",
+          "cosine_distance": 0.4276
+        }
+      ],
+      "answer": "# Cross-Project UI Framework Evaluation\n\nBased on the provided summaries, two projects explicitly mention UI components, and one project names a specific framework.\n\n## Summary Table: UI Framework Usage\n\n| Project Name | Framework Identified | Purpose of UI |\n| :--- | :--- | :--- |\n| **exercise_and_health_coach** | Gradio | To serve as the Graphical User Interface (GUI) for the Exercise and Health Coach [src/ui/__init__.py]. |\n| **agentic_healthcare_assistant** | Not specified | Implements a tab-based structure for rendering modules [src/ui/tabs/__init__.py]. |\n| **newsgenie** | Not specified | Handles response models that are returned to both the User Interface (UI) and the Command Line Interface (CLI) [src/data/response.py]. |\n\n## Detailed Analysis\n\n### \ud83d\udfe2 Projects with Explicit Frameworks\n\nThe `exercise_and_health_coach` project is the only one that explicitly names a UI framework and its purpose [src/ui/__init__.py].\n\n*   **exercise_and_health_coach:** This project utilizes a **Gradio UI** [src/ui/__init__.py]. The purpose of this UI is to serve as the main interface for the Exercise and Health Coach [src/ui/__init__.py].\n\n### \ud83d\udfe1 Projects Confirming UI Presence (Framework Unknown)\n\nThe following projects confirm the existence of a UI layer but do not specify the underlying framework or technology used to build it.\n\n*   **agentic_healthcare_assistant:** This project contains files related to UI tabs, indicating a structured, multi-module interface [src/ui/tabs/__init__.py].\n*   **newsgenie:** This project's data response models are designed to be consumed by both a User Interface (UI) and a Command Line Interface (CLI) [src/data/response.py].\n\n### \ud83d\udd34 Missing Information\n\nThe specific framework used by `agentic_healthcare_assistant` and `newsgenie` is not provided in the context [src/ui/tabs/__init__.py, src/data/response.py].",
+      "latency_s": 17.55
+    },
+    {
+      "id": "pq019",
+      "query": "What persistent storage does each project use, and what data does it store?",
+      "category": "tech_stack",
+      "difficulty": "semantic",
+      "expected_projects": [
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Healthcare: SQLite (patients, appointments) + FAISS index (clinical notes); NewsGenie: no persistence (stateless); Exercise: no persistence beyond session (YAML config). Tests whether storage purpose is captured, not just the technology name",
+      "retrieved_chunks": [
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/db/patient_vector_store.py",
+          "chunk_index": 1,
+          "content_preview": "S.from_documents([doc], self._embeddings)\n        else:\n            self._index.add_documents([doc])\n\n        logger.debug(\"Added vector for patient %s (not yet persisted)\", patient_id)\n\n    def upsert(self, patient_id: str, text: str, metadata: dict) -> None:\n        \"\"\"Embed text and add the patient's vector, then immediately persist to disk.\n\n        Use for single-patient registration where immediate durability is needed.\n        For bulk loads (seeding) use add() + persist() to avoid N disk writes.\n\n        Args:\n            patient_id: Patient slug \u2014 used for logging and stored in metada",
+          "cosine_distance": 0.3672
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/db/metrics_db.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"MetricsDB \u2014 SQLite persistence for session activity metrics.\n\nSchema:\n    session_log (id, session_id, datetime, operation, success, latency_ms, error)\n\nEvery metric entry written during a session (patient lookups, bookings, LLM\ninvocations) is persisted here so historical mean latency per operation is\navailable across restarts.  The Metrics tab uses get_means() to draw a\nreference mean line alongside the current session's latency trend.\n\nsession_id is a UUID generated once per app startup so individual runs are\ndistinguishable in the log.\n\"\"\"\n\nfrom __future__ import annotations\n\nfrom pathl",
+          "cosine_distance": 0.3742
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/db/patient_vector_store.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"PatientVectorStore \u2014 FAISS-backed vector store for patient notes and summaries.\n\nWraps langchain_community.vectorstores.FAISS with a focused interface for\nper-patient upsert and semantic search. The FAISS index is persisted to disk\nafter every upsert so the store survives restarts.\n\nRequired metadata fields for every upsert:\n    patient_id, name, age, gender, summary, conditions\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nfrom pathlib import Path\nfrom typing import Any\n\nfrom langchain_community.vectorstores import FAISS\nfrom langchain_core.documents import Document\n\nlogger = log",
+          "cosine_distance": 0.3876
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/intake_agent.py",
+          "chunk_index": 2,
+          "content_preview": ")",
+          "cosine_distance": 0.4141
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/db/patient_db.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"PatientDB \u2014 SQLite CRUD for PatientRecord.\n\nSchema (patients table):\n    patient_id TEXT PRIMARY KEY\n    phone      TEXT NOT NULL\n    email      TEXT\n    name       TEXT NOT NULL\n    age        INTEGER NOT NULL\n    gender     TEXT NOT NULL\n    address    TEXT\n    summary    TEXT\n    conditions TEXT   -- JSON array\n    medications TEXT  -- JSON array\n    allergies  TEXT   -- JSON array\n    notes      TEXT\n    last_updated TEXT  -- ISO 8601 datetime\n\nAll list fields (conditions, medications, allergies) are stored as JSON arrays\nand round-tripped via json.loads / json.dumps on every read and w",
+          "cosine_distance": 0.416
+        }
+      ],
+      "answer": "## Persistent Storage Analysis\n\nThe projects primarily utilize SQLite for structured data and specialized vector stores (FAISS) for semantic search capabilities.\n\n### Summary Table\n\n| Project Name | Storage Mechanism | Data Stored |\n| :--- | :--- | :--- |\n| **agentic\\_healthcare\\_assistant** (MetricsDB) | SQLite persistence | Session activity metrics, including `session_id`, `datetime`, `operation`, `success`, `latency_ms`, and `error` [src/db/metrics_db.py]. |\n| **agentic\\_healthcare\\_assistant** (PatientDB) | SQLite CRUD | Structured patient records, including `patient_id`, `name`, `age`, `phone`, `email`, `address`, `summary`, and list fields like `conditions`, `medications`, and `allergies` (stored as JSON arrays) [src/db/patient_db.py]. |\n| **agentic\\_healthcare\\_assistant** (Vector Store) | FAISS-backed vector store (persisted to disk) | Patient notes and summaries, stored as vectors. Required metadata includes `patient_id`, `name`, `age`, `gender`, `summary`, and `conditions` [src/db/patient_vector_store.py] [src/db/patient_vector_store.py]. |\n| **exercise\\_and\\_health\\_coach** | Not specified | Insufficient data in context. |\n\n***\n\n### Detailed Breakdown\n\n#### agentic\\_healthcare\\_assistant\n\nThis project utilizes three distinct persistence layers:\n\n1.  **Structured Patient Data (SQLite):**\n    *   **Storage:** Uses SQLite for CRUD operations (`PatientDB`) [src/db/patient_db.py].\n    *   **Data:** Stores comprehensive patient records, including demographic information (`name`, `age`, `gender`, `address`), contact details (`phone`, `email`), and structured medical data like `summary`, `notes`, and JSON arrays for `conditions`, `medications`, and `allergies` [src/db/patient_db.py].\n\n2.  **Session Metrics (SQLite):**\n    *   **Storage:** Uses SQLite persistence (`MetricsDB`) [src/db/metrics_db.py].\n    *   **Data:** Logs session activity metrics. This includes details about every operation performed during a session, such as `session_id`, `datetime`, `operation`, `success` status, `latency_ms`, and `error` [src/db/metrics_db.py].\n\n3.  **Semantic Search/Notes (FAISS Vector Store):**\n    *   **Storage:** Uses a FAISS-backed vector store that persists the index to disk [src/db/patient_vector_store.py].\n    *   **Data:** Stores patient notes and summaries as vectors for semantic search. It requires specific metadata fields for every upsert, including `patient_id`, `name`, `age`, `gender`, `summary`, and `conditions` [src/db/patient_vector_store.py] [src/db/patient_vector_store.py].\n\n#### exercise\\_and\\_health\\_coach\n\n*   **Storage:** The provided summary snippet does not specify any persistent storage mechanism [src/agents/intake_agent.py].\n*   **Data:** Insufficient data in context.",
+      "latency_s": 21.68
+    },
+    {
+      "id": "pq020",
+      "query": "Which project best demonstrates production-readiness patterns like input validation, error boundaries, and observability?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Healthcare: atomic SQLite, RAGAS eval, domain whitelist, retry loops; Exercise: 4-layer safety judge, volume/ratio validators, labeled regression sets. NewsGenie is the least defensively engineered. Pure synthesis requiring cross-project judgment",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/util/validation_runner.py",
+          "chunk_index": 1,
+          "content_preview": "routing.workflow.value,\n                \"predicted_response\": response.message,\n                \"is_rejected\": response.is_rejected,\n                \"needs_more_info\": response.needs_more_info,\n                \"has_workout_plan\": response.workout_plan is not None,\n                \"has_recovery_plan\": response.recovery_plan is not None,\n            }\n\n            # Add audit info if available\n            if response.audit:\n                result[\"audit_status\"] = response.audit.status.value\n\n            # Scoring\n            if expected_intent == \"red_flag_check\":\n                is_blocked = p",
+          "cosine_distance": 0.3506
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "tests/unit/test_models.py",
+          "chunk_index": 6,
+          "content_preview": "tput model.\"\"\"\n\n    def test_approved_output(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(status=AuditStatus.APPROVED),\n            user_message=\"Here is your workout plan.\",\n        )\n        assert output.is_approved()\n\n    def test_modified_output_is_approved(self):\n        output = CoachOutput(\n            session_id=\"test-session\",\n            audit=AuditLog(\n                status=AuditStatus.MODIFIED,\n                modifications=[\"Reduced volume\"],\n            ),\n            user_message=\"Here is your modified workout plan.\",\n ",
+          "cosine_distance": 0.3569
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 3,
+          "content_preview": ": \"intermediate\", equipment: [...]}\n        \u2192 accumulated: complete context \u2192 ready for workout\n```\n\n## Safety Architecture\n\n### Multi-Layer Protection\n\n```\nLayer 1: RedFlagScanner (Rule-based)\n         \u2514\u2500 Pattern matching for critical symptoms\n         \u2514\u2500 Fast, deterministic, no LLM needed\n         \u2514\u2500 Runs BEFORE workflow execution\n\nLayer 2: ClinicalGatekeeper (LLM-based)\n         \u2514\u2500 Nuanced analysis of context + plan\n         \u2514\u2500 Can suggest modifications\n         \u2514\u2500 Provides clinical rationale\n         \u2514\u2500 Runs AFTER plan generation\n```\n\n### Red Flag Categories\n\n| Category | Examples | Action",
+          "cosine_distance": 0.3601
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/ARCHITECTURE.md",
+          "chunk_index": 2,
+          "content_preview": "d into their processing chain:\n\n```python\nclass KinesiologistSpecialist(BaseAgent[WorkoutPlan]):\n    def __init__(self, llm, ...):\n        validators = ValidatorChain()\n        validators.add(VolumeValidator())   # 18-24 sets/muscle\n        validators.add(RatioValidator())    # 1:1 push:pull\n        super().__init__(llm=llm, validators=validators)\n```\n\nAvailable validators:\n- **VolumeValidator**: Enforces 18-24 sets per muscle group (blocking on over-volume)\n- **RatioValidator**: Checks push:pull ratio (1:1 target, 0.8-1.2 acceptable)\n- **RedFlagScanner**: Pattern-based medical red flag detect",
+          "cosine_distance": 0.3638
+        },
+        {
+          "project": "newsgenie",
+          "path": "docs/Experiments_Lessons_Learned.md",
+          "chunk_index": 1,
+          "content_preview": "oq `gpt-oss-20b` | 80% (8/10) | ~3.3 |\n\n**Per-intent pattern (top models):** Sports News and Web Search reached **100%** precision/recall on the mini set; **Business vs General** drove the misses.\n\n**Consensus error:** All four models misclassified the same case \u2014 **\u201cGlobal Chip Shortage\u201d** \u2014 as **General News** where ground truth labeled **Business News**. That points to **taxonomy ambiguity** (macro supply-chain vs \u201cgeneral\u201d world news), not a single flaky model.\n\n### Lessons learned\n\n1. **Mini benchmarks are directional.** They do **not** replace the production criterion (\u226590% on a **50-que",
+          "cosine_distance": 0.3737
+        }
+      ],
+      "answer": "# \ud83c\udfd7\ufe0f Cross-Project Synthesis: Production Readiness Evaluation\n\nBased on the provided summaries, the **`exercise_and_health_coach`** project demonstrates the most robust and comprehensive set of production-readiness patterns, integrating validation, error handling, and observability into its core architecture.\n\n## \ud83d\udcca Summary Comparison Table\n\n| Feature | `exercise_and_health_coach` | `newsgenie` |\n| :--- | :--- | :--- |\n| **Validation** | Highly structured (e.g., `VolumeValidator`, `RatioValidator`) and layered (e.g., `RedFlagScanner`, `ClinicalGatekeeper`) [exercise_and_health_coach]. | Focuses on benchmarking model performance and identifying systemic classification errors (e.g., \"taxonomy ambiguity\") [newsgenie]. |\n| **Error Boundaries** | Explicitly handles rejection and modification states (`is_rejected`, `AuditStatus.MODIFIED`) [exercise_and_health_coach]. Includes a critical, deterministic safety layer (`RedFlagScanner`) [exercise_and_health_coach]. | Identifies failure modes (e.g., misclassification) but does not show architectural mechanisms for runtime boundary enforcement [newsgenie]. |\n| **Observability** | Implements structured auditing (`AuditLog`, `audit_status`) and tracks specific plan components (`has_workout_plan`, `has_recovery_plan`) [exercise_and_health_coach]. | Focuses on reporting model precision/recall and consensus errors, which is a form of post-hoc observability [newsgenie]. |\n\n## \ud83d\udd0d Detailed Architectural Analysis\n\n### 1. Input Validation and Guardrails\nThe `exercise_and_health_coach` project employs a multi-layered, programmatic approach to validation, which is superior to the pattern observed in `newsgenie` [newsgenie].\n\n*   **Programmatic Validation:** The system utilizes a `ValidatorChain` that enforces specific, measurable constraints, such as checking the volume (18-24 sets/muscle group) and the push:pull ratio (1:1 target) [exercise_and_health_coach].\n*   **Safety Gate Validation:** It implements a critical, deterministic safety layer, the `RedFlagScanner`, which runs *before* workflow execution to pattern match for critical symptoms, ensuring the system is blocked if necessary [exercise_and_health_coach].\n*   **Output Validation:** The system validates the completeness of the response by checking for the presence of `has_workout_plan` and `has_recovery_plan` [exercise_and_health_coach].\n\n### 2. Error Boundaries and State Management\nThe project demonstrates robust error handling by defining explicit states and safety mechanisms.\n\n*   **Safety Layers:** The architecture defines a `ClinicalGatekeeper` (LLM-based) that runs *after* plan generation to provide nuanced analysis and suggest modifications, acting as a crucial post-generation boundary [exercise_and_health_coach].\n*   **Explicit State Tracking:** The system tracks failure and modification states using fields like `is_rejected` and `needs_more_info` [exercise_and_health_coach]. Furthermore, unit tests confirm the handling of specific states, such as `AuditStatus.MODIFIED` [exercise_and_health_coach].\n\n### 3. Observability and Auditing\nObservability is handled through structured, mandatory logging and auditing mechanisms.\n\n*   **Structured Auditing:** The system explicitly includes an `audit` mechanism, allowing the capture of `audit_status` (e.g., `APPROVED` or `MODIFIED`) [exercise_and_health_coach].\n*   **Contextual Logging:** The process is designed to capture audit information if available, ensuring a clear record of the system's decision-making process [exercise_and_health_coach].\n\n## \ud83c\udfc6 Conclusion and Judgment\n\nThe **`exercise_and_health_coach`** project best demonstrates production-readiness patterns. It moves beyond simple logging (observability) and implements **enforced, layered safety mechanisms** (error boundaries) and **programmatic checks** (validation) that are mandatory parts of the execution flow.\n\nIn contrast, the `newsgenie` project focuses on *analyzing* model failures (e.g., identifying \"taxonomy ambiguity\") [newsgenie], which is valuable for research, but the `exercise_and_health_coach` project shows the actual *implementation* of architectural controls to prevent those failures from reaching the user.",
+      "latency_s": 29.06
+    }
+  ]
+}

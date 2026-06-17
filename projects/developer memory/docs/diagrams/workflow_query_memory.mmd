@@ -1,0 +1,25 @@
+sequenceDiagram
+    autonumber
+    actor Dev as Developer
+    participant MCP as MCP Server :9000
+    participant Guard as query_guard
+    participant Search as semantic_searcher
+    participant Chroma as ChromaDB
+    participant Ollama as Ollama
+
+    Dev->>MCP: query_memory { query, tech_filter: Python, LangGraph }
+    MCP->>Guard: validate query
+    Guard-->>MCP: query_safe = true
+
+    Search->>Ollama: embed query via mxbai-embed-large
+    Ollama-->>Search: query vector 1024 dims
+
+    Search->>Chroma: vector search filtered by tech_stack
+    Chroma-->>Search: top-K chunks + intent_summary + key_identifiers
+
+    Note over Search: Logic chunks from StateGraph builders<br/>and agent node factories ranked first
+
+    Search->>Ollama: snippet_summarizer Extract, Contrast, Synthesize
+    Ollama-->>Search: grounded answer
+
+    MCP-->>Dev: { final_answer }

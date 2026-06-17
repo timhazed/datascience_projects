@@ -1,0 +1,39 @@
+{
+  "run_id": "ingest_phi4_mini_20260504_145918",
+  "experiment": "E-INGEST-01",
+  "timestamp": "2026-05-04T14:59:18.639834+00:00",
+  "config": {
+    "llm_model": "phi4-mini",
+    "embed_model": "nomic-embed-text",
+    "max_files_per_repo": 5,
+    "path": "src.server.sync_repository() [production]"
+  },
+  "summary": {
+    "total_repos": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "total_chunks_upserted": 39,
+    "total_files_quarantined": 0,
+    "total_elapsed_seconds": 105.96
+  },
+  "repo_results": [
+    {
+      "label": "datascience_projects",
+      "repo_url": "https://github.com/timhazed/datascience_projects",
+      "branch": "trunk",
+      "success": true,
+      "upsert_count": 39,
+      "quarantine_count": 0,
+      "error": null,
+      "elapsed_seconds": 105.96,
+      "trace_tail": [
+        "summarize_and_upsert: inserted PROJECTS.md",
+        "summarize_and_upsert: inserted PROJECTS.md",
+        "summarize_and_upsert: inserted PROJECTS.md",
+        "summarize_and_upsert: inserted PROJECTS.md",
+        "summarize_and_upsert: inserted PROJECTS.md"
+      ]
+    }
+  ]
+}

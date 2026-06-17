@@ -1,0 +1,31 @@
+{
+  "run_id": "ingest_phi4_mini_20260504_145352",
+  "experiment": "E-INGEST-01",
+  "timestamp": "2026-05-04T14:53:52.416103+00:00",
+  "config": {
+    "llm_model": "phi4-mini",
+    "embed_model": "nomic-embed-text",
+    "max_files_per_repo": 5,
+    "path": "src.server.sync_repository() [production]"
+  },
+  "summary": {
+    "total_repos": 1,
+    "passed": 0,
+    "failed": 1,
+    "pass_rate": 0.0,
+    "total_chunks_upserted": 0,
+    "total_files_quarantined": 0,
+    "total_elapsed_seconds": 0
+  },
+  "repo_results": [
+    {
+      "label": "datascience_projects",
+      "success": false,
+      "upsert_count": 0,
+      "quarantine_count": 0,
+      "error": "RuntimeError: ChromaDB connection failed (CHROMA_HOST=). Ensure the chromadb service is running and the client/server versions match. Original error: KeyError: '_type'",
+      "elapsed_seconds": 0,
+      "trace_tail": []
+    }
+  ]
+}

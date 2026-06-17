@@ -1,0 +1,164 @@
+{
+  "run_id": "portfolio_gemma4_e4b_20260501_165303",
+  "model": "gemma4:e4b",
+  "embed_model": "nomic-embed-text",
+  "timestamp": "2026-05-01T21:53:03.641000+00:00",
+  "projects": [
+    "agentic_healthcare_assistant",
+    "newsgenie",
+    "exercise_and_health_coach"
+  ],
+  "ingest_stats": null,
+  "query_results": [
+    {
+      "id": "pq011",
+      "query": "Which project has the most sophisticated error handling and fallback strategy?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant"
+      ],
+      "notes": "Healthcare has multi-layer fallbacks (domain whitelist, Serper+Medline parallel with LLM synthesis, atomic SQLite UPDATE for double-booking, RAGAS validation). Synthesis question \u2014 model must compare across all three projects",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 5,
+          "content_preview": "indicator during graph execution, and an Advanced sidebar showing the active LLM provider. Session state persists for the lifetime of the browser tab; CLI sessions are addressable by explicit `--session-id`. See [Usage \u2014 Streamlit UI](#streamlit-ui).\n\n### 4. Fallback mechanisms and performance optimization\n\nFive distinct failure modes are handled gracefully: missing API keys, Guardian outage (ESPN fallback), unparseable LLM output (web search fallback), category filter mismatch (web search substitution), and total agent failure (no-crash empty state). End-to-end p95 target is \u226415 s, with the s",
+          "cosine_distance": 0.3278
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "README.md",
+          "chunk_index": 5,
+          "content_preview": "ult(success=False, error=str(e))` on failure \u2014 exceptions are never propagated to the graph. The `error` field on `HealthcareState` is non-fatal; execution continues and the synthesizer surfaces the failure in its final response.\n\n| Failure mode | User-facing message |\n|---|---|\n| Appointment slot unavailable | \"No available slots found for {specialty} in the requested window. Try a different date or urgency level.\" |\n| Disease search: 0 results after domain filter | \"No results found from trusted sources for your query. Try a more specific medical term.\" |\n| Patient not found | Resolver retur",
+          "cosine_distance": 0.3694
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/validators/safety_judge.py",
+          "chunk_index": 2,
+          "content_preview": " as exc:  # noqa: BLE001\n                logger.debug(\n                    \"SafetyJudge LLM assessment attempt %d failed: %s\",\n                    attempt,\n                    type(exc).__name__,\n                )\n                if attempt == 1:\n                    logger.warning(\n                        \"SafetyJudge LLM assessment failed after 2 attempts: %s\",\n                        type(exc).__name__,\n                    )\n        return []  # fail-open \u2014 do not crash routing pipeline",
+          "cosine_distance": 0.3774
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 4,
+          "content_preview": "failures as expected.\n\n### Step 0 \u2014 Characterization / transcript tests **first**\n\nAdd **two separate** failing tests (not one composite xfail) so each fix can be independently verified:\n\n- **Test A** (`test_age_intake_does_not_produce_generic_menu`): replay the turn \"I am 66 and I tweaked my left hamstring\" and assert the response does **not** contain the generic \"What would you like to work on?\" menu. Mark `xfail` until Steps 1\u20132 land.\n- **Test B** (`test_icing_followup_does_not_produce_generic_menu`): replay a session that delivers a recovery plan, then asks \"What about icing the hamstring?",
+          "cosine_distance": 0.3835
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/graph/healthcare_graph.py",
+          "chunk_index": 5,
+          "content_preview": "_fn: Optional callable(query, max_results) \u2192 list[SearchResultItem].\n            If omitted, only Medline results are included; web search is disabled.\n\n    Returns:\n        ``BuildGraphResult(graph, checkpointer)`` \u2014 graph for invoke; checkpointer is\n        a ``SqliteSaver`` instance when ``settings.db.checkpointing_enabled`` is True,\n        otherwise ``None``.\n    \"\"\"\n    cfg = settings.provider_config\n    provider = settings.provider_name\n\n    logger.info(\"[build_graph] provider=%s model=%s\", provider, cfg.model)\n\n    # One LLM instance per temperature/token-budget variant \u2014 never rebuilt",
+          "cosine_distance": 0.3867
+        }
+      ],
+      "answer": "## \ud83d\udee0\ufe0f Cross-Project Evaluation: Error Handling and Fallback Strategy\n\n### \ud83d\udd0d Extraction of Error Handling Mechanisms\n\nThe following projects contain relevant information regarding failure handling and fallback strategies:\n\n| Project | Mechanism Type | Details |\n| :--- | :--- | :--- |\n| **newsgenie** | **Comprehensive Fallbacks** | Handles five distinct failure modes gracefully: missing API keys, Guardian outage (ESPN fallback), unparseable LLM output (web search fallback), category filter mismatch (web search substitution), and total agent failure (no-crash empty state) [newsgenie]. |\n| **agentic_healthcare_assistant** | **Non-Fatal State Management** | Exceptions are never propagated to the graph, ensuring execution continues even if an error occurs [agentic_healthcare_assistant]. The `error` field is non-fatal, allowing the synthesizer to surface the failure in the final response",
+      "latency_s": 18.85
+    },
+    {
+      "id": "pq012",
+      "query": "What are the top three technical strengths consistent across my portfolio of projects?",
+      "category": "synthesis",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie",
+        "exercise_and_health_coach"
+      ],
+      "notes": "Expected themes: structured output via Pydantic, graceful fallback / retry patterns, multi-agent coordination. The hardest query \u2014 requires cross-project synthesis from indexed intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "exercise_and_health_coach",
+          "path": "src/agents/intake_agent.py",
+          "chunk_index": 2,
+          "content_preview": ")",
+          "cosine_distance": 0.4415
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/search/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Experiment 2 \u2014 Disease Search Findings\n\n## Runs\n\n| Date | RAGAS faithfulness | Success rate | Avg latency | Notes |\n|------|--------------------|-------------|-------------|-------|\n| 2026-04-09 | Not computed (manual QA) | 20/20 (100%) | 1,660ms | Baseline run; RAGAS noted as future enhancement |\n| 2026-04-14 | **0.960 \u2713 PASS** | 20/20 (100%) | 2,037ms | Automated RAGAS faithfulness added; Medline abstracts enabled |\n\n---\n\n## Latest Run \u2014 2026-04-14\n\n### Model\n`llama-3.3-70b-versatile` (Groq)\n\n### Search providers\nSerper (Google Search) + Medline (NCBI PubMed E-utilities, Title/Abstract sea",
+          "cosine_distance": 0.4423
+        },
+        {
+          "project": "exercise_and_health_coach",
+          "path": "docs/REFACTOR_PLAN_INTAKE_ROUTING.md",
+          "chunk_index": 3,
+          "content_preview": "the tiered `_create_general_response` path unchanged. Log this as a known gap.\n5. **Other `GENERAL_QUESTION` / `CLARIFICATION`** \u2014 tiered `_create_general_response` (definitional \u2192 contextual \u2192 menu).\n6. **Exercise / recovery intake and workflows** \u2014 as today, with aligned `is_complete_for_recovery` and split missing-field lists.\n\n### `INTAKE_UPDATE` completion path\n\nWhen intake is complete but the user only sent demographics/injury, `state_router.py` 168\u2013175 returns `GENERAL_RESPONSE` (\"ready for request\"). **Coach** must respond consistently: **continue recovery thread** (e.g. offer to gener",
+          "cosine_distance": 0.4442
+        },
+        {
+          "project": "newsgenie",
+          "path": "docs/Experiments_Lessons_Learned.md",
+          "chunk_index": 1,
+          "content_preview": "oq `gpt-oss-20b` | 80% (8/10) | ~3.3 |\n\n**Per-intent pattern (top models):** Sports News and Web Search reached **100%** precision/recall on the mini set; **Business vs General** drove the misses.\n\n**Consensus error:** All four models misclassified the same case \u2014 **\u201cGlobal Chip Shortage\u201d** \u2014 as **General News** where ground truth labeled **Business News**. That points to **taxonomy ambiguity** (macro supply-chain vs \u201cgeneral\u201d world news), not a single flaky model.\n\n### Lessons learned\n\n1. **Mini benchmarks are directional.** They do **not** replace the production criterion (\u226590% on a **50-que",
+          "cosine_distance": 0.4495
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "experiments/history/findings/findings.md",
+          "chunk_index": 0,
+          "content_preview": "# Findings \u2014 Experiment 1: Medical History Management\n\n## Run: 2026-04-10\n\n| Field | Value |\n|-------|-------|\n| Date | 2026-04-10 |\n| Model | `llama-3.3-70b-versatile` |\n| Embeddings | `text-embedding-3-small` |\n| Dataset | `dataset/` (original_data + generated_data, ~30 patients) |\n| QA input | `experiments/history/data/history_qanda.jsonl` |\n| Test cases | 6 (1 write round-trip + 5 QA pairs) |\n\n### Results\n\n| Test case | Patient | Result | Latency | Score |\n|-----------|---------|--------|---------|-------|\n| Write round-trip | David Thompson | \u2713 PASS | 6ms | \u2014 |\n| Diagnosis QA | Ramesh Kul",
+          "cosine_distance": 0.4564
+        }
+      ],
+      "answer": "## Portfolio Synthesis: Top Technical Strengths\n\nBased on the provided summaries, your portfolio",
+      "latency_s": 15.14
+    },
+    {
+      "id": "pq015",
+      "query": "Which projects would be easiest to add a new LLM provider to, and why?",
+      "category": "comparison",
+      "difficulty": "synthesis",
+      "expected_projects": [
+        "agentic_healthcare_assistant",
+        "newsgenie"
+      ],
+      "notes": "Healthcare: explicit llm_factory.py with swappable providers; NewsGenie: LLM_PROVIDER env var. Exercise: locked to OpenAI due to strict JSON schema requirement in with_structured_output \u2014 tests whether architectural constraints are captured in intent summaries",
+      "retrieved_chunks": [
+        {
+          "project": "newsgenie",
+          "path": "src/utils/provider_builder.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"Abstract base class for LLM provider builders.\"\"\"\n\nfrom abc import ABC, abstractmethod\n\nfrom langchain_core.language_models import BaseChatModel\n\nfrom src.data import LLMConfig\n\n\nclass LLMProviderBuilder(ABC):\n    \"\"\"\n    Abstract builder contract for LLM provider construction.\n    One concrete subclass per supported LLM provider.\n    Implement this class and register with LLMFactory.register() to add a new provider.\n    \"\"\"\n\n    @abstractmethod\n    def build(self, config: LLMConfig) -> BaseChatModel:\n        \"\"\"Construct and return a fully configured LLM instance for this provider.\"\"\"",
+          "cosine_distance": 0.3951
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "src/config/search_config.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"SearchConfig \u2014 web search provider selection.\"\"\"\n\nfrom typing import Literal\n\nfrom pydantic import BaseModel, Field\n\n\nclass SearchConfig(BaseModel):\n    \"\"\"Configuration for the web search provider used by the disease search node.\"\"\"\n\n    provider: Literal[\"serpapi\", \"serper\"] = Field(\n        description=\"Active search provider; switch here to change \u2014 no code change required\"\n    )",
+          "cosine_distance": 0.3983
+        },
+        {
+          "project": "newsgenie",
+          "path": "README.md",
+          "chunk_index": 1,
+          "content_preview": "bSearchNode` \u2192 SerpAPI or Serper (configurable)\n4. **Assemble node** \u2014 deterministic, no I/O. Collects all agent results, groups articles by intent, and builds the `SupervisorResponse`.\n\nFor more details, see [Overall Architecture](docs/ARCHITECTURE.md).\n\n---\n\n## Setup\n\n### Prerequisites\n\n- Python 3.13+\n- [Poetry](https://python-poetry.org/docs/#installation)\n\n### Install\n\n```bash\ngit clone <repo-url>\ncd newsgenie\npoetry install\ncp .env.example .env\n# Edit .env and fill in your API keys (see Keys section below)\n```\n\n### API keys\n\nAll keys have empty-string defaults \u2014 a missing key disables tha",
+          "cosine_distance": 0.442
+        },
+        {
+          "project": "agentic_healthcare_assistant",
+          "path": "tests/config/test_settings.py",
+          "chunk_index": 2,
+          "content_preview": "dationError, match=\"Unknown provider\"):\n        Settings(**data)\n\n\ndef test_nested_sections_roundtrip(tmp_path):\n    cfg = _write_yaml(tmp_path, _VALID_YAML)\n    s = load_settings(cfg)\n    assert s.provider_config.temperature_summarizer == 0.3\n    assert s.provider_config.max_tokens_guard == 25\n    assert s.db.faiss_path == Path(\"data/faiss\")",
+          "cosine_distance": 0.4443
+        },
+        {
+          "project": "newsgenie",
+          "path": "src/utils/openai_builder.py",
+          "chunk_index": 0,
+          "content_preview": "\"\"\"OpenAI LLM provider builder.\"\"\"\n\nfrom langchain_core.language_models import BaseChatModel\nfrom langchain_openai import ChatOpenAI\n\nfrom src.data import LLMConfig\nfrom src.utils.provider_builder import LLMProviderBuilder\n\n\nclass OpenAIBuilder(LLMProviderBuilder):\n    \"\"\"Builds ChatOpenAI instances. Registered by default at app startup.\"\"\"\n\n    def build(self, config: LLMConfig) -> BaseChatModel:\n        \"\"\"Construct a ChatOpenAI instance from the provided config.\"\"\"\n        from src.utils.config import settings\n\n        return ChatOpenAI(\n            model=config.model_name,\n            temp",
+          "cosine_distance": 0.4444
+        }
+      ],
+      "answer": "## \ud83d\udee0\ufe0f Cross-Project Evaluation: Adding LLM Providers\n\nBased on the provided summaries, the **newsgenie** project is significantly easier to extend with a new LLM provider.\n\n### Summary Table: LLM Provider Extensibility\n\n| Project | Pattern Used | Ease of Extension | Key Evidence |\n| :--- | :--- | :--- | :--- |\n| **newsgenie** | Abstract Builder Pattern | High | Defines `LLMProviderBuilder` (ABC) and requires subclassing/registration [1]. |\n| **agentic_healthcare_assistant** | Configuration/Settings | Low | Snippets focus on search provider configuration and general settings; no visible abstract builder pattern for core LLM integration [2], [4]. |\n\n### Detailed Analysis\n\n#### \ud83d\udfe2 newsgenie (Easiest)\n\nThe `newsgenie` project is architected for extensibility regarding LLM providers, making it the easiest target for adding a new provider.\n\n**Reasoning:**\n1. **Abstract Builder Pattern:** The project utilizes an explicit `LLMProviderBuilder` abstract base class (ABC) [1]. This pattern establishes a clear contract for how any new provider must be implemented.\n2. **Clear Implementation Path:** The documentation explicitly instructs developers to \"Implement this class and register with LLMFactory.register() to add a new provider\" [1].\n3. **Concrete Example:** The existence of `OpenAIBuilder` [5] confirms this pattern in action",
+      "latency_s": 15.05
+    }
+  ]
+}

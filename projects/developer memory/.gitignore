@@ -1,0 +1,61 @@
+# Environment — never commit secrets
+.env*
+!.env.example
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ruff cache
+.ruff_cache/
+
+# ChromaDB persistent store — managed by Docker named volume
+chroma_data/
+.chroma*
+src/cli/data/*
+
+# macOS metadata
+.DS_Store
+
+# Distribution / packaging
+dist/
+*.egg-info/
+build/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary / scratch files
+*.tmp
+*.bak
+*.orig
+
+# SQLite databases (eval harness, local dev)
+*.sqlite
+*.sqlite3
+*.bin
+*.db
+*.pickle
+
+# Jupyter notebooks (experiments)
+.ipynb_checkpoints/
+
+# Claude Code session artifacts
+.claude/
+
+# OS artifacts
+Thumbs.db

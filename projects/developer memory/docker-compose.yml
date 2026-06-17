@@ -1,0 +1,162 @@
+# Developer Memory — Sovereign Stack
+# Compose spec v2 (no deprecated `version:` key)
+#
+# CRITICAL — Apple Silicon GPU note:
+#   Docker Desktop on macOS does NOT pass Metal/ANE through to containers.
+#   Running Ollama inside Docker on M4 Max = CPU-only inference (~5-15 tok/s).
+#   This WILL NOT meet the >50 tok/s SRS requirement.
+#
+#   Recommended deployment (see docs/AgenticArchitecture.md §11):
+#     Run Ollama natively on macOS → containers reach it via host.docker.internal.
+#     Set OLLAMA_HOST=http://host.docker.internal:11434 in your .env file.
+#
+#   If you must containerize Ollama (dev/CI only, not production):
+#     Uncomment the `ollama` service below and set OLLAMA_HOST=http://ollama:11434.
+
+services:
+
+  # ── 1. MCP Server ──────────────────────────────────────────────────────────
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: developer_memory_mcp
+    ports:
+      - "127.0.0.1:9000:9000"       # MCP HTTP transport — localhost only, not 0.0.0.0
+    volumes:
+      - ~/.ssh:/root/.ssh:ro         # Read-only SSH keys for GitPython private repos
+      - sha_store_data:/app/chroma_data  # Persist sha_store.json across image rebuilds
+    environment:
+      GITHUB_TOKEN: ${GITHUB_TOKEN:?GITHUB_TOKEN is required}
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
+      # Skills synthesis model — override independently of OLLAMA_MODEL for higher-quality export jobs.
+      # Defaults to OLLAMA_MODEL if unset. Recommendation: gpt-oss:20b (see docs/model_evaluation_report.md).
+      OLLAMA_SKILLS_MODEL: ${OLLAMA_SKILLS_MODEL:-}
+      # Must match OLLAMA_NUM_PARALLEL set on the native Ollama host process.
+      # M4 Max 128GB: 2. All other configs: 1.
+      OLLAMA_NUM_PARALLEL: ${OLLAMA_NUM_PARALLEL:-2}
+      PII_WORKERS: ${PII_WORKERS:-2}    # spaCy ~500MB/worker; keep low to avoid OOM on macOS VM
+      # OLLAMA_ORIGINS="*" must be set on the macOS HOST via:
+      #   launchctl setenv OLLAMA_ORIGINS "*"
+      # This is not a Docker env var — it's read by the native Ollama LaunchAgent.
+      CHROMA_HOST: http://chromadb:8000
+      MCP_PORT: "9000"
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+    depends_on:
+      chromadb:
+        condition: service_healthy
+    networks:
+      - developer-memory-net
+    restart: unless-stopped
+    read_only: false                  # app writes PROJECT_SKILLS.md to mounted paths
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 6
+      start_period: 30s
+
+  # ── 2. Streamlit Command Center UI ─────────────────────────────────────────
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    container_name: developer_memory_streamlit
+    command:
+      - streamlit
+      - run
+      - ui/streamlit_app.py
+      - --server.port=8501
+      - --server.address=0.0.0.0
+      - --server.headless=true
+      - --browser.gatherUsageStats=false
+      - --client.showSidebarNavigation=false
+    ports:
+      - "127.0.0.1:8501:8501"        # localhost only
+    environment:
+      MCP_SERVER_URL: http://mcp-server:9000
+      CHROMA_HOST: http://chromadb:8000
+      OLLAMA_HOST: ${OLLAMA_HOST:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-gemma4:e4b}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      PYTHONPATH: /app                # Streamlit changes cwd — ensure src.* imports resolve
+    depends_on:
+      mcp-server:
+        condition: service_healthy
+    networks:
+      - developer-memory-net
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8501/_stcore/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # ── 3. ChromaDB Vector Store ────────────────────────────────────────────────
+  chromadb:
+    image: chromadb/chroma:0.5.20    # Pinned — never use :latest in production
+    container_name: developer_memory_chroma
+    volumes:
+      - chroma_data:/chroma/chroma   # Named volume — survives container teardown
+    environment:
+      IS_PERSISTENT: "TRUE"
+      ANONYMIZED_TELEMETRY: "FALSE"  # Sovereignty: no telemetry leaves localhost
+      CHROMA_SERVER_HOST: 0.0.0.0
+      CHROMA_SERVER_HTTP_PORT: 8000
+    # Port 8000 is intentionally NOT exposed to the host.
+    # Only services on developer-memory-net can reach ChromaDB.
+    networks:
+      - developer-memory-net
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── 4. Ollama (containerized — dev/CI only, NOT for M4 Max performance) ────
+  # Uncomment this service ONLY for CI pipelines or non-Mac environments.
+  # On Apple Silicon, run `ollama serve` natively and set:
+  #   OLLAMA_HOST=http://host.docker.internal:11434
+  #
+  # ollama:
+  #   image: ollama/ollama:0.3.14
+  #   platform: linux/arm64           # Required on Apple Silicon
+  #   container_name: developer_memory_ollama
+  #   volumes:
+  #     - ollama_storage:/root/.ollama
+  #   networks:
+  #     - developer-memory-net
+  #   restart: unless-stopped
+  #   # NOTE: No GPU device config — Docker Desktop on macOS cannot pass
+  #   #       Metal/ANE to containers. CPU-only; expect 5-15 tok/s.
+  #   healthcheck:
+  #     test: ["CMD", "curl", "-sf", "http://localhost:11434/api/tags"]
+  #     interval: 15s
+  #     timeout: 10s
+  #     retries: 5
+  #     start_period: 30s
+
+networks:
+  developer-memory-net:
+    driver: bridge
+    internal: false                  # Must be false — mcp-server calls external git repos
+
+volumes:
+  chroma_data:
+    driver: local
+  sha_store_data:
+    driver: local              # Persists sha_store.json across mcp-server image rebuilds
+  # ollama_storage:
+  #   driver: local

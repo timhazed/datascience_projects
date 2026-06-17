@@ -1,0 +1,31 @@
+erDiagram
+    REPO {
+        string repo_url PK "Origin repository URL"
+        string branch   PK "Git branch"
+    }
+
+    CHUNK {
+        string id              PK "SHA-256 of PII-sanitized content"
+        text   content            "PII-sanitized chunk text"
+        text   intent_summary     "LLM-generated rationale"
+        string semantic_type      "Logic, Config, Boilerplate, Interface, quarantine, reviewed"
+        string tech_stack         "JSON list e.g. Python, FastMCP"
+        string key_identifiers    "JSON list of class and function names"
+        string author_identity    "Developer tendency profile identifier"
+        string file_path          "Source file path"
+        string repo_url        FK "Origin repository"
+        string branch          FK "Git branch at ingest time"
+        string commit_sha         "Git commit SHA at ingest time"
+        string source_file_sha    "SHA-256 of raw file bytes pre-PII"
+        string indexed_at         "ISO 8601 timestamp"
+    }
+
+    SHA_STORE_ENTRY {
+        string repo_key    PK "repo_url + branch normalised"
+        string commit_sha     "Last-synced git commit SHA"
+        string skills_sha     "Corpus SHA at last skills synthesis"
+        string skills_path    "Absolute path of last PROJECT_SKILLS.md"
+    }
+
+    REPO ||--o{ CHUNK : "indexed into"
+    REPO ||--|| SHA_STORE_ENTRY : "tracked by"
