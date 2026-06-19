@@ -33,6 +33,7 @@ See [methodology/](methodology/) for the full engineering playbook: lifecycle ph
 * [Agentic Healthcare Assistant](projects/agentic%20healthcare%20assistant/)
 * [NewsGenie](projects/newsgenie/)
 * [Exercise and Recovery Coach](projects/exercise_and_health_coach/)
+* [Agentic Developer Memory](projects/developer%20memory/)
 * [LLM Framework Benchmarking](projects/LLM%20Framework%20Benchmarking/)
 
 ### Retrieval-Augmented Generation (RAG)
@@ -170,13 +171,33 @@ LangChain, OpenAI, Pydantic, Gradio
 
 ---
 
+### Agentic Developer Memory
+A dynamic context isolation and state serialization engine engineered to mitigate token accumulation, eliminate message redundancy, and optimize long-term persistence within continuous AI software engineering workflows by decoupling transient execution loops from absolute system state transitions.
+
+![Developer Memory Architecture](projects/developer%20memory/images/langgraph_architecture.png)
+![Developer Memory Query Langgraph UI](projects/developer%20memory/images/QueryMemoryLanggraphUI.png)
+
+🔗 [View Project](projects/developer%20memory/)
+
+Skills Used
+Python, LangChain, OpenAI, Groq, Pydantic (Structured Outputs), Tenacity, Tokenizer Optimization, JSON/File Serialization, Poetry, Streamlit, pytest, pytest-cov, Ruff
+
+---
+
 ### Image Designer Assistant
 
 Conversational multi-turn image generation system using LangChain and DALL-E.
 
 ![Image Assistant Image and Refinement](projects/image_designer_assistant/images/image_assistant_image_and_refinement.png)
 
-🔗 [View Project](projects/image_designer_assistant/)
+🔗 [View Project](projects/exercise_and_health_coach/)
+
+Skills Used
+Backend: LangChain, LangChain-OpenAI, OpenAI (GPT-4o-mini), Pydantic, PyYAML, python-dotenv
+
+Frontend: Gradio, CLI
+
+Testing: pytest, pytest-cov, pytest-mock, Ruff
 
 ---
 

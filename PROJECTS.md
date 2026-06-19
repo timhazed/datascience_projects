@@ -34,6 +34,7 @@ Full catalog of projects in this repository.
 - [Exercise and Recovery Coach](#28-exercise-and-recovery-coach)
 - [NewsGenie](#29-newsgenie)
 - [Agentic Healthcare Assistant](#30-agentic-healthcare-assistant)
+- [Agentic Developer Memory](#31-agentic-developer-memory)
 
 ---
 
@@ -484,7 +485,23 @@ Frontend: Streamlit (Active Patient panel, multi-turn chat, session state manage
 Experimentation: Three tool-fitness experiments run against architecture-defined thresholds — intent guard classification, RAG retrieval quality, and appointment booking correctness.
 
 Testing: pytest, pytest-asyncio, pytest-mock, pytest-cov, Ruff
+--
+### 31. Agentic Developer Memory
+A dynamic context isolation and long-term state serialization framework engineered to mitigate token bloat and context window degradation in continuous AI developer loops. Built on a modular, decoupled state architecture, the system separates transient task execution tracking from permanent, high-fidelity structural changes. The memory engine dynamically captures tool execution histories, filters out intermediate pipeline redundancies, and applies structured metadata parsing via Pydantic schemas to commit atomic changes to localized storage. This design handles the common failure mode of continuous agent workflows by preventing unbounded memory duplication, drastically flattening token cost curves and maintaining high inference focus over simulated multi-hour developer sessions.
 
+
+![Developer Memory Architecture](projects/developer%20memory/images/langgraph_architecture.png)
+![Developer Memory Base UI](projects/developer%20memory/images/BaseSynchRepoUI.png)
+![Developer Memory Query Langgraph UI](projects/developer%20memory/images/QueryMemoryLanggraphUI.png)
+
+Skills Used
+Backend: Python, LangChain, OpenAI, Groq, Pydantic, Tenacity, Tokenizer Optimization, JSON/File Serialization, Poetry, Ollama
+
+Frontend: Streamlit
+
+Experimentation: Continuous state-tracking experiments evaluating context compression rates across text-davinci and GPT-4 variations; benchmarked token reduction percentages, read/write latency metrics, and information retention accuracy under iterative codebase modification routines.
+
+Testing: pytest, pytest-cov, Ruff
 
 ## Contact
 
